@@ -1,0 +1,2174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="wdb_file.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="dram_pack" />
+            <top_module name="gpio_pack" />
+            <top_module name="intc_pack" />
+            <top_module name="math_pack" />
+            <top_module name="numeric_std" />
+            <top_module name="sb_config" />
+            <top_module name="sb_core_pack" />
+            <top_module name="sb_isa" />
+            <top_module name="sb_memory_unit_pack" />
+            <top_module name="sim_config" />
+            <top_module name="soc_config" />
+            <top_module name="std_logic_1164" />
+            <top_module name="std_logic_arith" />
+            <top_module name="std_logic_textio" />
+            <top_module name="std_logic_unsigned" />
+            <top_module name="tb_soc" />
+            <top_module name="textio" />
+            <top_module name="timer_pack" />
+            <top_module name="uart_pack" />
+            <top_module name="vcomponents" />
+            <top_module name="vital_primitives" />
+            <top_module name="vital_timing" />
+            <top_module name="vl_types" />
+            <top_module name="vpkg" />
+            <top_module name="wb_pack" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="74" />
+   <wvobject fp_name="divider18" type="divider">
+      <obj_property name="label">MASTER SIGNALS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/mclk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">mclk_i</obj_property>
+      <obj_property name="ObjectShortName">mclk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/cclk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">cclk_i</obj_property>
+      <obj_property name="ObjectShortName">cclk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/sclk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">sclk_i</obj_property>
+      <obj_property name="ObjectShortName">sclk_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/rst_n_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_n_i</obj_property>
+      <obj_property name="ObjectShortName">rst_n_i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/gpo_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">gpo_s</obj_property>
+      <obj_property name="ObjectShortName">gpo_s</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider19" type="divider">
+      <obj_property name="label">PC SYSTEM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/rx_dat_text_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rx_dat_text_s[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rx_dat_text_s[7:0]</obj_property>
+      <obj_property name="Radix">ASCIIRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider25" type="divider">
+      <obj_property name="label">CORE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">if_i_s</obj_property>
+      <obj_property name="ObjectShortName">if_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_i_s.pred_pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_pc_i</obj_property>
+         <obj_property name="ObjectShortName">if_i_s.pred_pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_i_s.pred_pc_del_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_pc_del_i</obj_property>
+         <obj_property name="ObjectShortName">if_i_s.pred_pc_del_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_i_s.pred_valid_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_valid_i</obj_property>
+         <obj_property name="ObjectShortName">if_i_s.pred_valid_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_i_s.pred_valid_del_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_valid_del_i</obj_property>
+         <obj_property name="ObjectShortName">if_i_s.pred_valid_del_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_i_s.branch_pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.branch_pc_i</obj_property>
+         <obj_property name="ObjectShortName">if_i_s.branch_pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_i_s.branch_valid_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.branch_valid_i</obj_property>
+         <obj_property name="ObjectShortName">if_i_s.branch_valid_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">if_o_s</obj_property>
+      <obj_property name="ObjectShortName">if_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_o_s.pc_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_o</obj_property>
+         <obj_property name="ObjectShortName">if_o_s.pc_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_o_s.inst_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.inst_o</obj_property>
+         <obj_property name="ObjectShortName">if_o_s.inst_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/if_o_s.pc_plus_plus_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_plus_plus_o</obj_property>
+         <obj_property name="ObjectShortName">if_o_s.pc_plus_plus_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">id_i_s</obj_property>
+      <obj_property name="ObjectShortName">id_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.inst_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.inst_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.inst_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.pred_pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_pc_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.pred_pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.pc_plus_plus_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_plus_plus_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.pc_plus_plus_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.pred_valid_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_valid_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.pred_valid_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.pred_valid_del_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_valid_del_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.pred_valid_del_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.pred_status_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_status_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.pred_status_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.int_status_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.int_status_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.int_status_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.wb_res_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.wb_res_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.wb_res_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.wb_rd_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.wb_rd_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.wb_rd_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_i_s.wb_we_control_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.wb_we_control_i</obj_property>
+         <obj_property name="ObjectShortName">id_i_s.wb_we_control_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/id_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">id_o_s</obj_property>
+      <obj_property name="ObjectShortName">id_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">reg_file_r[0:31]</obj_property>
+      <obj_property name="ObjectShortName">reg_file_r[0:31]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[0]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[1]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[2]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[3]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[4]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[5]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[6]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[7]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[8]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[9]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[10]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[11]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[11]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[11]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[12]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[12]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[12]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[13]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[13]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[13]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[14]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[14]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[14]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[15]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[15]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[15]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[16]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[16]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[16]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[17]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[17]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[17]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[18]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[18]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[18]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[19]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[19]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[19]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[20]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[20]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[20]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[21]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[21]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[21]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[22]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[22]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[22]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[23]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[23]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[23]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[24]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[24]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[24]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[25]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[25]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[25]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[26]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[26]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[26]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[27]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[27]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[27]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[28]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[28]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[28]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[29]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[29]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[29]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[30]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[30]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[30]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/DECODE/REGISTER_FILE/reg_file_r[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31]</obj_property>
+         <obj_property name="ObjectShortName">reg_file_r[31]</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ex_i_s</obj_property>
+      <obj_property name="ObjectShortName">ex_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.rd_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rd_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.rd_i</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.op_a_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.op_a_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.op_a_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.op_b_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.op_b_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.op_b_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.op_d_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.op_d_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.op_d_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.imm_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.imm_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.imm_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.alu_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.alu_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.alu_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.op_a_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.op_a_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.op_a_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.op_b_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.op_b_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.op_b_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.carry_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.carry_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.carry_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.carry_keep_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.carry_keep_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.carry_keep_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.branch_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.branch_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.branch_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.branch_delay_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.branch_delay_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.branch_delay_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.we_control_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.we_control_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.ls_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.ls_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.ls_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.mem_sel_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.mem_sel_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.mem_sel_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.spr_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.spr_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.spr_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.rs_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.rs_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.rs_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.cmp_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.cmp_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.cmp_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.bs_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.bs_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.bs_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.mult_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.mult_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.mult_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.div_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.div_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.div_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.pat_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.pat_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.pat_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.wdc_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.wdc_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.wdc_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.wic_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.wic_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.wic_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.int_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.int_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.int_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.pred_valid_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_valid_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.pred_valid_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.pred_valid_del_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_valid_del_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.pred_valid_del_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.pred_control_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.pred_control_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.pred_status_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_status_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.pred_status_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.pred_pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_pc_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.pred_pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.pc_plus_plus_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_plus_plus_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.pc_plus_plus_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.fw_op_a_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.fw_op_a_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.fw_op_a_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.fw_op_b_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.fw_op_b_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.fw_op_b_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.fw_op_d_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.fw_op_d_control_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.fw_op_d_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.ma_wb_res_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.ma_wb_res_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.ma_wb_res_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.wb_rf_res_a_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.wb_rf_res_a_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.wb_rf_res_a_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.wb_rf_res_b_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.wb_rf_res_b_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.wb_rf_res_b_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_i_s.wb_rf_res_d_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.wb_rf_res_d_i</obj_property>
+         <obj_property name="ObjectShortName">ex_i_s.wb_rf_res_d_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ex_o_s</obj_property>
+      <obj_property name="ObjectShortName">ex_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pc_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pc_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.alu_res_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.alu_res_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.alu_res_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.op_d_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.op_d_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.op_d_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.rd_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rd_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.rd_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.alu_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.alu_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.alu_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.bs_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.bs_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.bs_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.mult_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.mult_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.mult_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pipe_mult_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pipe_mult_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pipe_mult_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pipe_bs_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pipe_bs_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pipe_bs_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pipe_clz_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pipe_clz_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pipe_clz_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.we_control_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.we_control_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.ls_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.ls_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.ls_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.mem_sel_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.mem_sel_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.mem_sel_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.branch_status_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.branch_status_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.branch_status_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.branch_delay_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.branch_delay_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.branch_delay_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.branch_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.branch_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.branch_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.int_status_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.int_status_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.int_status_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.wdc_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.wdc_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.wdc_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.wic_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.wic_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.wic_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.mci_busy_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.mci_busy_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.mci_busy_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pred_valid_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_valid_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pred_valid_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pred_valid_del_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_valid_del_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pred_valid_del_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pred_control_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_control_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pred_control_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pred_status_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_status_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pred_status_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pred_pc_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_pc_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pred_pc_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ex_o_s.pc_plus_plus_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_plus_plus_o</obj_property>
+         <obj_property name="ObjectShortName">ex_o_s.pc_plus_plus_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/EXECUTE/msr_r" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">msr_r[31:0]</obj_property>
+      <obj_property name="ObjectShortName">msr_r[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ma_i_s</obj_property>
+      <obj_property name="ObjectShortName">ma_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.alu_res_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.alu_res_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.alu_res_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.op_d_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.op_d_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.op_d_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.rd_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rd_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.rd_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.alu_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.alu_control_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.alu_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.bs_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.bs_control_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.bs_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.mult_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.mult_control_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.mult_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.pipe_mult_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pipe_mult_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.pipe_mult_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.pipe_bs_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pipe_bs_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.pipe_bs_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.pipe_clz_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pipe_clz_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.pipe_clz_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.we_control_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_control_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.we_control_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.ls_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.ls_control_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.ls_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.mem_sel_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.mem_sel_control_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.mem_sel_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.branch_status_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.branch_status_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.branch_status_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.wdc_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.wdc_control_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.wdc_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_i_s.wic_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.wic_control_i</obj_property>
+         <obj_property name="ObjectShortName">ma_i_s.wic_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">ma_o_s</obj_property>
+      <obj_property name="ObjectShortName">ma_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_o_s.res_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.res_o</obj_property>
+         <obj_property name="ObjectShortName">ma_o_s.res_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_o_s.rd_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rd_o</obj_property>
+         <obj_property name="ObjectShortName">ma_o_s.rd_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_o_s.we_control_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_control_o</obj_property>
+         <obj_property name="ObjectShortName">ma_o_s.we_control_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_o_s.ls_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.ls_control_o</obj_property>
+         <obj_property name="ObjectShortName">ma_o_s.ls_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_o_s.mem_data_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.mem_data_o</obj_property>
+         <obj_property name="ObjectShortName">ma_o_s.mem_data_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/ma_o_s.mem_sel_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.mem_sel_control_o</obj_property>
+         <obj_property name="ObjectShortName">ma_o_s.mem_sel_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_i_s</obj_property>
+      <obj_property name="ObjectShortName">wb_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.res_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.res_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.res_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.rd_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rd_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.rd_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.we_control_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_control_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.we_control_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.ls_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.ls_control_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.ls_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.mem_data_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.mem_data_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.mem_data_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.mem_sel_control_i" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.mem_sel_control_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.mem_sel_control_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.rf_res_a_lock_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_a_lock_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.rf_res_a_lock_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.rf_res_b_lock_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_b_lock_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.rf_res_b_lock_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_i_s.rf_res_d_lock_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_d_lock_i</obj_property>
+         <obj_property name="ObjectShortName">wb_i_s.rf_res_d_lock_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_o_s</obj_property>
+      <obj_property name="ObjectShortName">wb_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_o_s.rf_res_a_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_a_o</obj_property>
+         <obj_property name="ObjectShortName">wb_o_s.rf_res_a_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_o_s.rf_res_b_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_b_o</obj_property>
+         <obj_property name="ObjectShortName">wb_o_s.rf_res_b_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_o_s.rf_res_d_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_d_o</obj_property>
+         <obj_property name="ObjectShortName">wb_o_s.rf_res_d_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_o_s.rd_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rd_o</obj_property>
+         <obj_property name="ObjectShortName">wb_o_s.rd_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_o_s.res_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.res_o</obj_property>
+         <obj_property name="ObjectShortName">wb_o_s.res_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wb_o_s.we_control_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_control_o</obj_property>
+         <obj_property name="ObjectShortName">wb_o_s.we_control_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/im_bus_in_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">im_bus_in_o_s</obj_property>
+      <obj_property name="ObjectShortName">im_bus_in_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/im_bus_in_o_s.ena_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ena_i</obj_property>
+         <obj_property name="ObjectShortName">im_bus_in_o_s.ena_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/im_bus_in_o_s.adr_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.adr_i</obj_property>
+         <obj_property name="ObjectShortName">im_bus_in_o_s.adr_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/im_bus_out_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">im_bus_out_i_s</obj_property>
+      <obj_property name="ObjectShortName">im_bus_out_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/im_bus_out_i_s.dat_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_o</obj_property>
+         <obj_property name="ObjectShortName">im_bus_out_i_s.dat_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/dm_bus_in_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dm_bus_in_o_s</obj_property>
+      <obj_property name="ObjectShortName">dm_bus_in_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/dm_bus_in_o_s.ena_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ena_i</obj_property>
+         <obj_property name="ObjectShortName">dm_bus_in_o_s.ena_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/dm_bus_in_o_s.we_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_i</obj_property>
+         <obj_property name="ObjectShortName">dm_bus_in_o_s.we_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/dm_bus_in_o_s.sel_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.sel_i</obj_property>
+         <obj_property name="ObjectShortName">dm_bus_in_o_s.sel_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/dm_bus_in_o_s.adr_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.adr_i</obj_property>
+         <obj_property name="ObjectShortName">dm_bus_in_o_s.adr_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/dm_bus_in_o_s.dat_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_i</obj_property>
+         <obj_property name="ObjectShortName">dm_bus_in_o_s.dat_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/dm_bus_out_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dm_bus_out_i_s</obj_property>
+      <obj_property name="ObjectShortName">dm_bus_out_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/dm_bus_out_i_s.dat_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_o</obj_property>
+         <obj_property name="ObjectShortName">dm_bus_out_i_s.dat_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wdc_in_o_s" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">wdc_in_o_s</obj_property>
+      <obj_property name="ObjectShortName">wdc_in_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/wic_in_o_s" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">wic_in_o_s</obj_property>
+      <obj_property name="ObjectShortName">wic_in_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">haz_ctr_i_s</obj_property>
+      <obj_property name="ObjectShortName">haz_ctr_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">haz_ctr_o_s</obj_property>
+      <obj_property name="ObjectShortName">haz_ctr_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.if_stall_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.if_stall_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.if_stall_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.id_stall_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.id_stall_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.id_stall_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.id_flush_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.id_flush_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.id_flush_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.id_ex_fw_op_a_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.id_ex_fw_op_a_control_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.id_ex_fw_op_a_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.id_ex_fw_op_b_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.id_ex_fw_op_b_control_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.id_ex_fw_op_b_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.id_ex_fw_op_d_control_o" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.id_ex_fw_op_d_control_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.id_ex_fw_op_d_control_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.ex_stall_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ex_stall_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.ex_stall_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.ex_flush_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ex_flush_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.ex_flush_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.mci_flush_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.mci_flush_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.mci_flush_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.ma_flush_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ma_flush_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.ma_flush_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.rf_res_a_lock_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_a_lock_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.rf_res_a_lock_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.rf_res_b_lock_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_b_lock_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.rf_res_b_lock_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/haz_ctr_o_s.rf_res_d_lock_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rf_res_d_lock_o</obj_property>
+         <obj_property name="ObjectShortName">haz_ctr_o_s.rf_res_d_lock_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/branch_ctr_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">branch_ctr_i_s</obj_property>
+      <obj_property name="ObjectShortName">branch_ctr_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/branch_ctr_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">branch_ctr_o_s</obj_property>
+      <obj_property name="ObjectShortName">branch_ctr_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/branch_ctr_o_s.id_pred_valid_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.id_pred_valid_o</obj_property>
+         <obj_property name="ObjectShortName">branch_ctr_o_s.id_pred_valid_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/branch_ctr_o_s.id_pred_valid_del_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.id_pred_valid_del_o</obj_property>
+         <obj_property name="ObjectShortName">branch_ctr_o_s.id_pred_valid_del_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/branch_ctr_o_s.ma_branch_pc_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.ma_branch_pc_o</obj_property>
+         <obj_property name="ObjectShortName">branch_ctr_o_s.ma_branch_pc_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/branch_ctr_o_s.ma_branch_valid_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ma_branch_valid_o</obj_property>
+         <obj_property name="ObjectShortName">branch_ctr_o_s.ma_branch_valid_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/branch_ctr_o_s.ma_btc_we_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ma_btc_we_o</obj_property>
+         <obj_property name="ObjectShortName">branch_ctr_o_s.ma_btc_we_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/branch_ctr_o_s.ma_pred_status_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.ma_pred_status_o</obj_property>
+         <obj_property name="ObjectShortName">branch_ctr_o_s.ma_pred_status_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_i_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">btc_i_s</obj_property>
+      <obj_property name="ObjectShortName">btc_i_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_i_s.fetch_adr_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.fetch_adr_i</obj_property>
+         <obj_property name="ObjectShortName">btc_i_s.fetch_adr_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_i_s.we_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_i</obj_property>
+         <obj_property name="ObjectShortName">btc_i_s.we_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_i_s.new_inst_pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.new_inst_pc_i</obj_property>
+         <obj_property name="ObjectShortName">btc_i_s.new_inst_pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_i_s.new_pred_pc_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.new_pred_pc_i</obj_property>
+         <obj_property name="ObjectShortName">btc_i_s.new_pred_pc_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_i_s.new_pred_status_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.new_pred_status_i</obj_property>
+         <obj_property name="ObjectShortName">btc_i_s.new_pred_status_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_o_s" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">btc_o_s</obj_property>
+      <obj_property name="ObjectShortName">btc_o_s</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_o_s.pred_pc_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_pc_o</obj_property>
+         <obj_property name="ObjectShortName">btc_o_s.pred_pc_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_o_s.pred_status_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pred_status_o</obj_property>
+         <obj_property name="ObjectShortName">btc_o_s.pred_status_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/CORE/btc_o_s.tag_status_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.tag_status_o</obj_property>
+         <obj_property name="ObjectShortName">btc_o_s.tag_status_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#800080</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="divider624" type="divider">
+      <obj_property name="label">MEMORY UNIT</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/dc_busy_s" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dc_busy_s</obj_property>
+      <obj_property name="ObjectShortName">dc_busy_s</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/ic_busy_s" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">ic_busy_s</obj_property>
+      <obj_property name="ObjectShortName">ic_busy_s</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/halt_ic_s" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">halt_ic_s</obj_property>
+      <obj_property name="ObjectShortName">halt_ic_s</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/halt_dc_s" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">halt_dc_s</obj_property>
+      <obj_property name="ObjectShortName">halt_dc_s</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/halt_io_s" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">halt_io_s</obj_property>
+      <obj_property name="ObjectShortName">halt_io_s</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/halt_core_s" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">halt_core_s</obj_property>
+      <obj_property name="ObjectShortName">halt_core_s</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#a0a0a4</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider4645" type="divider">
+      <obj_property name="label">INST CACHE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/iwb_bus_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">iwb_bus_i</obj_property>
+      <obj_property name="ObjectShortName">iwb_bus_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/iwb_bus_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">iwb_bus_o</obj_property>
+      <obj_property name="ObjectShortName">iwb_bus_o</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/iwb_grant_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">iwb_grant_i</obj_property>
+      <obj_property name="ObjectShortName">iwb_grant_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/iwb_next_grant_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">iwb_next_grant_i</obj_property>
+      <obj_property name="ObjectShortName">iwb_next_grant_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dwb_bus_i</obj_property>
+      <obj_property name="ObjectShortName">dwb_bus_i</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_i.clk_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.clk_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.clk_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_i.rst_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rst_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.rst_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_i.dat_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.dat_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_i.ack_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ack_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.ack_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_i.err_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.err_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.err_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_i.rty_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rty_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.rty_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_i.stall_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.stall_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.stall_i</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dwb_bus_o</obj_property>
+      <obj_property name="ObjectShortName">dwb_bus_o</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.cyc_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.cyc_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.cyc_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.stb_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.stb_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.stb_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.we_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.we_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.sel_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.sel_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.sel_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.adr_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.adr_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.adr_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.dat_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.dat_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.cti_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.cti_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.cti_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.bte_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.bte_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.bte_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_bus_o.bl_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.bl_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.bl_o</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_grant_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dwb_grant_i</obj_property>
+      <obj_property name="ObjectShortName">dwb_grant_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/dwb_next_grant_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dwb_next_grant_i</obj_property>
+      <obj_property name="ObjectShortName">dwb_next_grant_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider141" type="divider">
+      <obj_property name="label">DATA CACHE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dwb_bus_i</obj_property>
+      <obj_property name="ObjectShortName">dwb_bus_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_i.clk_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.clk_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.clk_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_i.rst_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rst_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.rst_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_i.dat_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.dat_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_i.ack_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ack_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.ack_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_i.err_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.err_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.err_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_i.rty_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rty_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.rty_i</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_i.stall_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.stall_i</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_i.stall_i</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dwb_bus_o</obj_property>
+      <obj_property name="ObjectShortName">dwb_bus_o</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.cyc_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.cyc_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.cyc_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.stb_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.stb_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.stb_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.we_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.we_o</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.sel_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.sel_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.sel_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.adr_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.adr_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.adr_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.dat_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.dat_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.cti_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.cti_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.cti_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.bte_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.bte_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.bte_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_bus_o.bl_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.bl_o</obj_property>
+         <obj_property name="ObjectShortName">dwb_bus_o.bl_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dwb_grant_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dwb_grant_i</obj_property>
+      <obj_property name="ObjectShortName">dwb_grant_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dm_io_bus_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dm_io_bus_i</obj_property>
+      <obj_property name="ObjectShortName">dm_io_bus_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dm_io_bus_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dm_io_bus_o</obj_property>
+      <obj_property name="ObjectShortName">dm_io_bus_o</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dc_bus_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dc_bus_i</obj_property>
+      <obj_property name="ObjectShortName">dc_bus_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dc_bus_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dc_bus_o</obj_property>
+      <obj_property name="ObjectShortName">dc_bus_o</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dc_bus_o.dat_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_o</obj_property>
+         <obj_property name="ObjectShortName">dc_bus_o.dat_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/DWB_INTERFACE/dc_bus_o.ack_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ack_o</obj_property>
+         <obj_property name="ObjectShortName">dc_bus_o.ack_o</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/gen_dcache/DCACHE/dc_bus_out_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dc_bus_out_i</obj_property>
+      <obj_property name="ObjectShortName">dc_bus_out_i</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/gen_dcache/DCACHE/dc_bus_out_i.dat_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_o</obj_property>
+         <obj_property name="ObjectShortName">dc_bus_out_i.dat_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/gen_dcache/DCACHE/dc_bus_out_i.ack_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ack_o</obj_property>
+         <obj_property name="ObjectShortName">dc_bus_out_i.ack_o</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/DATA_MEMORY_UNIT/gen_dcache/DCACHE/dc_bus_next_grant_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">dc_bus_next_grant_i</obj_property>
+      <obj_property name="ObjectShortName">dc_bus_next_grant_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff0000</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider44" type="divider">
+      <obj_property name="label">WB BUS</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/WB_BUS/wb_grant_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_grant_o[0:1]</obj_property>
+      <obj_property name="ObjectShortName">wb_grant_o[0:1]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/WB_BUS/wb_next_grant_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_next_grant_o[0:1]</obj_property>
+      <obj_property name="ObjectShortName">wb_next_grant_o[0:1]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/WB_BUS/clk_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_i</obj_property>
+      <obj_property name="ObjectShortName">clk_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/WB_BUS/rst_n_i" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst_n_i</obj_property>
+      <obj_property name="ObjectShortName">rst_n_i</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ffff00</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider111" type="divider">
+      <obj_property name="label">INTC</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider388" type="divider">
+      <obj_property name="label">TIMER</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider2347" type="divider">
+      <obj_property name="label">UART</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider116" type="divider">
+      <obj_property name="label">GPIO</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="divider175" type="divider">
+      <obj_property name="label">DRAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="BkColor">128 128 255</obj_property>
+      <obj_property name="TextColor">230 230 230</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/DRAM_CTR/c3_calib_done" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">c3_calib_done</obj_property>
+      <obj_property name="ObjectShortName">c3_calib_done</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_bus_i</obj_property>
+      <obj_property name="ObjectShortName">wb_bus_i</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.clk_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.clk_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.clk_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.rst_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rst_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.rst_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.cyc_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.cyc_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.cyc_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.stb_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.stb_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.stb_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.we_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.we_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.we_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.sel_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.sel_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.sel_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.adr_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.adr_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.adr_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.dat_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.dat_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.cti_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.cti_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.cti_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.bte_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.bte_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.bte_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_i.bl_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.bl_i</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_i.bl_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">wb_bus_o</obj_property>
+      <obj_property name="ObjectShortName">wb_bus_o</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_o.dat_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.dat_o</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_o.dat_o</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_o.ack_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ack_o</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_o.ack_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_o.err_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.err_o</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_o.err_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_o.rty_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.rty_o</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_o.rty_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/wb_bus_o.stall_o" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.stall_o</obj_property>
+         <obj_property name="ObjectShortName">wb_bus_o.stall_o</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dram_in_o</obj_property>
+      <obj_property name="ObjectShortName">dram_in_o</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2clk_p_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2clk_p_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2clk_p_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2clk_n_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2clk_n_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2clk_n_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2clke_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2clke_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2clke_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2rasn_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2rasn_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2rasn_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2casn_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2casn_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2casn_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2wen_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2wen_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2wen_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2ba_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2ba_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2ba_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2a_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2a_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2a_i</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2ldm_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2ldm_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2ldm_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2udm_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2udm_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2udm_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_in_o.ddr2odt_i" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2odt_i</obj_property>
+         <obj_property name="ObjectShortName">dram_in_o.ddr2odt_i</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_io" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dram_io</obj_property>
+      <obj_property name="ObjectShortName">dram_io</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+      <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_io.ddr2dq_io" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2dq_io</obj_property>
+         <obj_property name="ObjectShortName">dram_io.ddr2dq_io</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_io.ddr2rzq_io" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2rzq_io</obj_property>
+         <obj_property name="ObjectShortName">dram_io.ddr2rzq_io</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_io.ddr2zio_io" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2zio_io</obj_property>
+         <obj_property name="ObjectShortName">dram_io.ddr2zio_io</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_io.ddr2udqs_p_io" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2udqs_p_io</obj_property>
+         <obj_property name="ObjectShortName">dram_io.ddr2udqs_p_io</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_io.ddr2udqs_n_io" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2udqs_n_io</obj_property>
+         <obj_property name="ObjectShortName">dram_io.ddr2udqs_n_io</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_io.ddr2ldqs_p_io" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2ldqs_p_io</obj_property>
+         <obj_property name="ObjectShortName">dram_io.ddr2ldqs_p_io</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+      <wvobject fp_name="/tb_soc/SECRETBLAZE_SOC/gen_dram/DRAM/dram_io.ddr2ldqs_n_io" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">.ddr2ldqs_n_io</obj_property>
+         <obj_property name="ObjectShortName">dram_io.ddr2ldqs_n_io</obj_property>
+         <obj_property name="UseCustomSignalColor">true</obj_property>
+         <obj_property name="CustomSignalColor">#ff00ff</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

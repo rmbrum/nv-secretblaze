@@ -1,0 +1,292 @@
+##
+##    ADAC Research Group - LIRMM - University of Montpellier / CNRS 
+##    contact: adac@lirmm.fr
+##
+##    This file is part of SecretBlaze.
+##
+##    SecretBlaze is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    SecretBlaze is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with SecretBlaze.  If not, see <http://www.gnu.org/licenses/>.
+##
+
+#############################################################
+#-----------------------------------------------------------#
+#                                                           #  
+# Company       : LIRMM                                     #
+# Engineer      : Lyonel Barthe                             #
+# Version       : 1.1                                       #
+#                                                           #
+# Revision History :                                        #
+#                                                           #
+#   Version 1.2 - 22/09/2010 by Lyonel Barthe               #
+#       SRAM INTERFACE                                      #
+#                                                           #
+#   Version 1.1 - 22/04/2010 by Lyonel Barthe               #
+#       BRAM LOCKED                                         #
+#                                                           #
+#   Version 1.0 - 10/02/2010 by Lyonel Barthe               #
+#       Initial Release                                     #
+#                                                           #
+#-----------------------------------------------------------#
+#############################################################
+
+#-----------------------------------------------------------#
+#                     CLOCK MANAGEMENT
+#-----------------------------------------------------------#
+
+NET "clk_i" TNM_NET = "clk_i";
+TIMESPEC TS_clk_i = PERIOD "clk_i" 20 ns HIGH 50 %;
+
+# EXTERN
+#NET "clk_i"            LOC = D9; 
+ 
+# INTERN
+NET "clk_i" LOC = T9;
+
+#-----------------------------------------------------------#
+#                       GENERAL I/O
+#-----------------------------------------------------------#
+
+#
+# UART
+#
+NET "rx_i" LOC = T13;
+NET "tx_o" LOC = R13;
+
+#
+# HARDWARE RESET BUTTON
+#
+NET "rst_i" LOC = L14;
+
+#
+# GPO LED
+#
+NET "led_o[7]" LOC = P11;
+NET "led_o[6]" LOC = P12;
+NET "led_o[5]" LOC = N12;
+NET "led_o[4]" LOC = P13;
+NET "led_o[3]" LOC = N14;
+NET "led_o[2]" LOC = L12;
+NET "led_o[1]" LOC = P14;
+NET "led_o[0]" LOC = K12;
+
+#
+# GPI BUTTON
+#
+NET "but_i[0]" LOC = F12;
+NET "but_i[1]" LOC = G12;
+NET "but_i[2]" LOC = H14;
+NET "but_i[3]" LOC = H13;
+NET "but_i[4]" LOC = J14;
+NET "but_i[5]" LOC = J13;
+NET "but_i[6]" LOC = K14;
+NET "but_i[7]" LOC = K13;
+#NET but_i<8>            LOC = L13;
+#NET but_i<9>            LOC = M14;
+#NET but_i<10>           LOC = M13;
+
+#-----------------------------------------------------------#
+#                           SRAM
+#-----------------------------------------------------------#
+ 
+NET "oe_n_o" IOSTANDARD = LVCMOS33;
+NET "oe_n_o" SLEW = FAST;
+NET "oe_n_o" LOC = K4;
+NET "we_n_o" IOSTANDARD = LVCMOS33;
+NET "we_n_o" SLEW = FAST;
+NET "we_n_o" LOC = G3;
+NET "ce1_n_o" IOSTANDARD = LVCMOS33;
+NET "ce1_n_o" SLEW = FAST;
+NET "ce1_n_o" LOC = P7;
+NET "ce2_n_o" IOSTANDARD = LVCMOS33;
+NET "ce2_n_o" SLEW = FAST;
+NET "ce2_n_o" LOC = N5;
+NET "ub1_n_o" IOSTANDARD = LVCMOS33;
+NET "ub1_n_o" SLEW = FAST;
+NET "ub1_n_o" LOC = T4;
+NET "lb1_n_o" IOSTANDARD = LVCMOS33;
+NET "lb1_n_o" SLEW = FAST;
+NET "lb1_n_o" LOC = P6;
+NET "ub2_n_o" IOSTANDARD = LVCMOS33;
+NET "ub2_n_o" SLEW = FAST;
+NET "ub2_n_o" LOC = R4;
+NET "lb2_n_o" IOSTANDARD = LVCMOS33;
+NET "lb2_n_o" SLEW = FAST;
+NET "lb2_n_o" LOC = P5;
+
+NET "a_o[0]" IOSTANDARD = LVCMOS33;
+NET "a_o[0]" SLEW = FAST;
+NET "a_o[0]" LOC = L5;
+NET "a_o[10]" IOSTANDARD = LVCMOS33;
+NET "a_o[10]" SLEW = FAST;
+NET "a_o[10]" LOC = G5;
+NET "a_o[11]" IOSTANDARD = LVCMOS33;
+NET "a_o[11]" SLEW = FAST;
+NET "a_o[11]" LOC = H3;
+NET "a_o[12]" IOSTANDARD = LVCMOS33;
+NET "a_o[12]" SLEW = FAST;
+NET "a_o[12]" LOC = H4;
+NET "a_o[13]" IOSTANDARD = LVCMOS33;
+NET "a_o[13]" SLEW = FAST;
+NET "a_o[13]" LOC = J4;
+NET "a_o[14]" IOSTANDARD = LVCMOS33;
+NET "a_o[14]" SLEW = FAST;
+NET "a_o[14]" LOC = J3;
+NET "a_o[15]" IOSTANDARD = LVCMOS33;
+NET "a_o[15]" SLEW = FAST;
+NET "a_o[15]" LOC = K3;
+NET "a_o[16]" IOSTANDARD = LVCMOS33;
+NET "a_o[16]" SLEW = FAST;
+NET "a_o[16]" LOC = K5;
+NET "a_o[17]" IOSTANDARD = LVCMOS33;
+NET "a_o[17]" SLEW = FAST;
+NET "a_o[17]" LOC = L3;
+NET "a_o[1]" IOSTANDARD = LVCMOS33;
+NET "a_o[1]" SLEW = FAST;
+NET "a_o[1]" LOC = N3;
+NET "a_o[2]" IOSTANDARD = LVCMOS33;
+NET "a_o[2]" SLEW = FAST;
+NET "a_o[2]" LOC = M4;
+NET "a_o[3]" IOSTANDARD = LVCMOS33;
+NET "a_o[3]" SLEW = FAST;
+NET "a_o[3]" LOC = M3;
+NET "a_o[4]" IOSTANDARD = LVCMOS33;
+NET "a_o[4]" SLEW = FAST;
+NET "a_o[4]" LOC = L4;
+NET "a_o[5]" IOSTANDARD = LVCMOS33;
+NET "a_o[5]" SLEW = FAST;
+NET "a_o[5]" LOC = G4;
+NET "a_o[6]" IOSTANDARD = LVCMOS33;
+NET "a_o[6]" SLEW = FAST;
+NET "a_o[6]" LOC = F3;
+NET "a_o[7]" IOSTANDARD = LVCMOS33;
+NET "a_o[7]" SLEW = FAST;
+NET "a_o[7]" LOC = F4;
+NET "a_o[8]" IOSTANDARD = LVCMOS33;
+NET "a_o[8]" SLEW = FAST;
+NET "a_o[8]" LOC = E3;
+NET "a_o[9]" IOSTANDARD = LVCMOS33;
+NET "a_o[9]" SLEW = FAST;
+NET "a_o[9]" LOC = E4;
+
+NET "data_io[0]" IOSTANDARD = LVCMOS33;
+NET "data_io[0]" SLEW = FAST;
+NET "data_io[0]" LOC = P2;
+NET "data_io[10]" IOSTANDARD = LVCMOS33;
+NET "data_io[10]" SLEW = FAST;
+NET "data_io[10]" LOC = G1;
+NET "data_io[11]" IOSTANDARD = LVCMOS33;
+NET "data_io[11]" SLEW = FAST;
+NET "data_io[11]" LOC = F5;
+NET "data_io[12]" IOSTANDARD = LVCMOS33;
+NET "data_io[12]" SLEW = FAST;
+NET "data_io[12]" LOC = C3;
+NET "data_io[13]" IOSTANDARD = LVCMOS33;
+NET "data_io[13]" SLEW = FAST;
+NET "data_io[13]" LOC = K2;
+NET "data_io[14]" IOSTANDARD = LVCMOS33;
+NET "data_io[14]" SLEW = FAST;
+NET "data_io[14]" LOC = M1;
+NET "data_io[15]" IOSTANDARD = LVCMOS33;
+NET "data_io[15]" SLEW = FAST;
+NET "data_io[15]" LOC = N1;
+NET "data_io[16]" IOSTANDARD = LVCMOS33;
+NET "data_io[16]" SLEW = FAST;
+NET "data_io[16]" LOC = N7;
+NET "data_io[17]" IOSTANDARD = LVCMOS33;
+NET "data_io[17]" SLEW = FAST;
+NET "data_io[17]" LOC = T8;
+NET "data_io[18]" IOSTANDARD = LVCMOS33;
+NET "data_io[18]" SLEW = FAST;
+NET "data_io[18]" LOC = R6;
+NET "data_io[19]" IOSTANDARD = LVCMOS33;
+NET "data_io[19]" SLEW = FAST;
+NET "data_io[19]" LOC = T5;
+NET "data_io[1]" IOSTANDARD = LVCMOS33;
+NET "data_io[1]" SLEW = FAST;
+NET "data_io[1]" LOC = N2;
+NET "data_io[20]" IOSTANDARD = LVCMOS33;
+NET "data_io[20]" SLEW = FAST;
+NET "data_io[20]" LOC = R5;
+NET "data_io[21]" IOSTANDARD = LVCMOS33;
+NET "data_io[21]" SLEW = FAST;
+NET "data_io[21]" LOC = C2;
+NET "data_io[22]" IOSTANDARD = LVCMOS33;
+NET "data_io[22]" SLEW = FAST;
+NET "data_io[22]" LOC = C1;
+NET "data_io[23]" IOSTANDARD = LVCMOS33;
+NET "data_io[23]" SLEW = FAST;
+NET "data_io[23]" LOC = B1;
+NET "data_io[24]" IOSTANDARD = LVCMOS33;
+NET "data_io[24]" SLEW = FAST;
+NET "data_io[24]" LOC = D3;
+NET "data_io[25]" IOSTANDARD = LVCMOS33;
+NET "data_io[25]" SLEW = FAST;
+NET "data_io[25]" LOC = P8;
+NET "data_io[26]" IOSTANDARD = LVCMOS33;
+NET "data_io[26]" SLEW = FAST;
+NET "data_io[26]" LOC = F2;
+NET "data_io[27]" IOSTANDARD = LVCMOS33;
+NET "data_io[27]" SLEW = FAST;
+NET "data_io[27]" LOC = H1;
+NET "data_io[28]" IOSTANDARD = LVCMOS33;
+NET "data_io[28]" SLEW = FAST;
+NET "data_io[28]" LOC = J2;
+NET "data_io[29]" IOSTANDARD = LVCMOS33;
+NET "data_io[29]" SLEW = FAST;
+NET "data_io[29]" LOC = L2;
+NET "data_io[2]" IOSTANDARD = LVCMOS33;
+NET "data_io[2]" SLEW = FAST;
+NET "data_io[2]" LOC = M2;
+NET "data_io[30]" IOSTANDARD = LVCMOS33;
+NET "data_io[30]" SLEW = FAST;
+NET "data_io[30]" LOC = P1;
+NET "data_io[31]" IOSTANDARD = LVCMOS33;
+NET "data_io[31]" SLEW = FAST;
+NET "data_io[31]" LOC = R1;
+NET "data_io[3]" IOSTANDARD = LVCMOS33;
+NET "data_io[3]" SLEW = FAST;
+NET "data_io[3]" LOC = K1;
+NET "data_io[4]" IOSTANDARD = LVCMOS33;
+NET "data_io[4]" SLEW = FAST;
+NET "data_io[4]" LOC = J1;
+NET "data_io[5]" IOSTANDARD = LVCMOS33;
+NET "data_io[5]" SLEW = FAST;
+NET "data_io[5]" LOC = G2;
+NET "data_io[6]" IOSTANDARD = LVCMOS33;
+NET "data_io[6]" SLEW = FAST;
+NET "data_io[6]" LOC = E1;
+NET "data_io[7]" IOSTANDARD = LVCMOS33;
+NET "data_io[7]" SLEW = FAST;
+NET "data_io[7]" LOC = D1;
+NET "data_io[8]" IOSTANDARD = LVCMOS33;
+NET "data_io[8]" SLEW = FAST;
+NET "data_io[8]" LOC = D2;
+NET "data_io[9]" IOSTANDARD = LVCMOS33;
+NET "data_io[9]" SLEW = FAST;
+NET "data_io[9]" LOC = E2;
+
+
+#-----------------------------------------------------------#
+#                      BRAM MANAGEMENT
+#-----------------------------------------------------------#
+
+# LOCAL MEM CONSTRAINTS for DATA2MEM TOOL
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_1/Mram_dpram_r1" LOC = RAMB16_X1Y5;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_1/Mram_dpram_r2" LOC = RAMB16_X0Y11;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_2/Mram_dpram_r1" LOC = RAMB16_X0Y9;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_2/Mram_dpram_r2" LOC = RAMB16_X0Y10;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_3/Mram_dpram_r1" LOC = RAMB16_X1Y2;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_3/Mram_dpram_r2" LOC = RAMB16_X0Y7;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_4/Mram_dpram_r1" LOC = RAMB16_X1Y3;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_4/Mram_dpram_r2" LOC = RAMB16_X0Y8;
+

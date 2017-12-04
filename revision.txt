@@ -1,0 +1,133 @@
+--
+-- Revision History of the SecretBlaze 
+--
+-- Version 1.7 12/2012 by Pascal Benoit
+-- ADAC Group / LIRMM University of Montpellier - CNRS / Updated version  
+__
+-- Version 1.68 08/2012 by Lyonel Barthe
+-- Added reference design for Digilent ATLYS board 
+-- Added DDR2 wrapper for Xilinx's MIG controller (Spartan-6)
+--
+-- Version 1.67c 21/06/2012 by Lyonel Barthe
+-- Fixed the rsb_type_s control signal for the wdc
+-- instruction in the decode stage 
+-- Tested with the new mb-gcc version (ISE 14)
+-- Up to 1.35 DMIPS/MHz (O2 -fno-inline)
+--
+-- Version 1.67b 28/03/2012 by Lyonel Barthe / Mohamed Amine Boussadi 
+-- Changed names of source operands to prevent confusion 
+--
+-- Version 1.67 4/02/2012 by Lyonel Barthe
+-- Shared local memory implementation
+-- Changed coding style of the memory unit
+--
+-- Version 1.66 16/01/2012 by Lyonel Barthe 
+-- One signal was missing in a sensitivity list (data cache)
+-- Fixed a bug for non-standard cache modes (memory unit controller)
+--
+-- Version 1.65 28/10/2011 by Lyonel Barthe
+-- More comments
+-- Fixed some scripts
+--
+-- Version 1.64 01/09/2011 by Lyonel Barthe
+-- Fixed the halt_sb signal to secure memory operations
+-- Changed coding style for IO sync signal
+-- Fixed WB stall signals
+-- Fixed write-through FSM
+-- Fixed the control of SPR
+--
+-- Version 1.63 22/07/2011 by Lyonel Barthe
+-- Stable version successfully tested
+-- with the ucosII operating system 
+--
+-- Version 1.62b 01/06/2011 by Lyonel Barthe
+-- Readded the padding constant & changed coding style
+-- to fix a bug with a large cacheable memory space
+--
+-- Version 1.62 31/05/2011 by Lyonel Barthe / Remi Busseuil
+-- Removed the padding constant to fix a bug with a large
+-- cacheable memory space
+--
+-- Version 1.61 27/05/2011 by Lyonel Barthe 
+-- Changed coding style of the memory unit
+--
+-- Version 1.60 16/05/2011 by Lyonel Barthe 
+-- Optional BTC with a dynamic branch prediction scheme
+-- Changed the implementation of branches
+-- Up to 1.29 DMIPS/MHz (O2 -fno-inline)
+--
+-- Version 1.50 04/05/2011 by Lyonel Barthe 
+-- Stable version successfully tested
+-- with the Open-Scale operating system
+--
+-- Version 1.43 29/03/2011 by Lyonel Barthe 
+-- Changed the implementation of the compare unit
+-- Fixed a bug with signed numbers
+-- Better timing delays 
+-- Performance: 97 MHz / 1520 LUTs for the smallest implementation using Spartan 3 (-4) technology
+--
+-- Version 1.42c 28/03/2011 by Lyonel Barthe 
+-- Fixed a bug with the CMPU instruction
+--
+-- Version 1.42b 22/03/2011 by Lyonel Barthe 
+-- Fixed a bug with the WIC instruction
+--
+-- Version 1.42 18/03/2011 by Lyonel Barthe
+-- Optional pipelined CLZ implementation 
+-- Removed partial FW for bs instructions
+--
+-- Version 1.41c 17/03/2011 by Lyonel Barthe
+-- Added the CLZ instruction
+--
+-- Version 1.41b 10/03/2011 by Lyonel Barthe
+-- Changed coding style for MSR 
+-- Data registers are no longer initialized during reset
+-- Fixed the memory MUX sel 
+-- Optional block/distributed ram implementations for memories
+--
+-- Version 1.41 24/02/2011 by Lyonel Barthe
+-- Fixed some bugs (cache management, SPR)
+--
+-- Version 1.40 22/02/2011 by Lyonel Barthe
+-- Optional pipelined mult implementation using 17x17 signed multipliers
+-- Optional pipelined bs implementation 
+-- Some optimizations (core)
+--
+-- Version 1.31b 16/02/2011 by Lyonel Barthe
+-- Fixed a missed flush signal (memory access stage)
+--
+-- Version 1.31 15/02/2011 by Lyonel Barthe
+-- Removed bypassing method for the RF, now fully synchronous
+-- Re-added optional BRAM implementation for Xilinx's FPGAs (although not recommended)
+-- Performance: 90 MHz / 1460 LUTs for the smallest implementation using Spartan 3 (-4) technology
+--
+-- Version 1.30 10/02/2011 by Lyonel Barthe
+-- New hazard controller implementation to improve timing performance
+-- Removed optional BRAM implementation of the register file (waste BRAMs + bad timings)
+-- Performance: 90 MHz / 1560 LUTs for the smallest implementation using Spartan 3 (-4) technology
+--
+-- Version 1.25 15/01/2011 by Lyonel Barthe
+-- Added the support of divide instructions
+-- Added some forward trade-offs
+-- Added write-through policy for the data cache 
+-- Fixed some bugs (IO management) 
+--
+-- Version 1.10 01/12/2011 by Lyonel Barthe
+-- Added the support of pattern and mult instructions
+-- Added some hardware optimizations (PC retiming, hardware multiplexing)
+-- Fixed some bugs (cache management, stall memory unit)
+--
+-- Version 1.0 26/10/2010 by Lyonel Barthe
+-- Stable version with optional data and instruction cache memories
+--
+-- Version 0.2 01/06/2010 by Lyonel Barthe
+-- Added interrupt support 
+-- Added the support of a single cycle barrel shifter 
+-- Added a basic memory management unit
+-- Fixed some bugs (core)
+--
+-- Version 0.1 9/04/2010 by Lyonel Barthe
+-- Initial Release 
+-- Bare core of the processor  
+--
+

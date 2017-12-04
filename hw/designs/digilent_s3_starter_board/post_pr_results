@@ -1,0 +1,1134 @@
+--------------------------------------------------------------------------------
+Release 12.1 Trace  (lin64)
+Copyright (c) 1995-2010 Xilinx, Inc.  All rights reserved.
+
+/opt/Xilinx/12.1/ISE_DS/ISE/bin/lin64/unwrapped/trce -intstyle ise -v 3 -a -s 4
+-n 3 -fastpaths -xml xc3s1000_top.twx xc3s1000_top.ncd -o xc3s1000_top.twr
+xc3s1000_top.pcf
+
+Design file:              xc3s1000_top.ncd
+Physical constraint file: xc3s1000_top.pcf
+Device,package,speed:     xc3s1000,ft256,-4 (PRODUCTION 1.39 2010-04-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2700 - Timing constraints ignored because advanced analysis with 
+   offsets was specified.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+INFO:Timing:3390 - This architecture does not support a default System Jitter 
+   value, please add SYSTEM_JITTER constraint to the UCF to modify the Clock 
+   Uncertainty calculation.
+INFO:Timing:3389 - This architecture does not support 'Discrete Jitter' and 
+   'Phase Error' calculations, these terms will be zero in the Clock 
+   Uncertainty calculation.  Please make appropriate modification to 
+   SYSTEM_JITTER to account for the unsupported Discrete Jitter and Phase 
+   Error.
+
+================================================================================
+Timing constraint: Default period analysis for net 
+"SECRETBLAZE_SOC/SECRETBLAZE/clk_i" 
+
+ 66024 paths analyzed, 7087 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors)
+ Minimum period is  10.997ns.
+--------------------------------------------------------------------------------
+
+Paths for end point SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30 (SLICE_X20Y38.F4), 1168 paths
+--------------------------------------------------------------------------------
+Delay (setup path):     10.997ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_25 (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30 (FF)
+  Data Path Delay:      10.997ns (Levels of Logic = 8)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_25 to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X24Y34.XQ      Tcko                  0.720   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r<25>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_25
+    SLICE_X16Y39.G2      net (fanout=5)        2.317   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r<25>
+    SLICE_X16Y39.X       Tif5x                 0.968   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/fw_op_b_s<25>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_fw_op_b_s_417
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_fw_op_b_s_2_f5_16
+    SLICE_X17Y38.F2      net (fanout=1)        0.568   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/fw_op_b_s<25>
+    SLICE_X17Y38.X       Tilo                  0.551   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/op_b_s<25>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_op_b_s541
+    SLICE_X20Y34.G2      net (fanout=3)        1.789   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/op_b_s<25>
+    SLICE_X20Y34.COUT    Topcyg                1.096   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<17>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_lut<25>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<25>
+    SLICE_X20Y35.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<25>
+    SLICE_X20Y35.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<26>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<26>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<27>
+    SLICE_X20Y36.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<27>
+    SLICE_X20Y36.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<28>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<28>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<29>
+    SLICE_X20Y37.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<29>
+    SLICE_X20Y37.X       Tcinx                 0.904   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_xor<30>
+    SLICE_X20Y38.G1      net (fanout=1)        0.531   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<30>
+    SLICE_X20Y38.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>59014
+    SLICE_X20Y38.F4      net (fanout=1)        0.015   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>59014/O
+    SLICE_X20Y38.CLK     Tfck                  0.690   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>590117
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30
+    -------------------------------------------------  ---------------------------
+    Total                                     10.997ns (5.777ns logic, 5.220ns route)
+                                                       (52.5% logic, 47.5% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     10.907ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r_31 (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30 (FF)
+  Data Path Delay:      10.907ns (Levels of Logic = 20)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r_31 to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X25Y36.YQ      Tcko                  0.720   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<31>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r_31
+    SLICE_X19Y23.G1      net (fanout=3)        3.153   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<31>
+    SLICE_X19Y23.Y       Tilo                  0.551   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/pc_r<13>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_op_a_s501
+    SLICE_X19Y23.F4      net (fanout=4)        0.018   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/op_a_s<31>1
+    SLICE_X19Y23.X       Tilo                  0.551   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/pc_r<13>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_carry_in_s21
+    SLICE_X20Y22.BX      net (fanout=2)        0.641   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/carry_in_s
+    SLICE_X20Y22.COUT    Tbxcy                 0.845   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/MEMORY_ACCESS/ls_control_r<0>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<0>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<1>
+    SLICE_X20Y23.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<1>
+    SLICE_X20Y23.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<2>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<2>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<3>
+    SLICE_X20Y24.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<3>
+    SLICE_X20Y24.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/MEMORY_ACCESS/rd_r<3>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<4>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<5>
+    SLICE_X20Y25.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<5>
+    SLICE_X20Y25.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<6>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<6>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<7>
+    SLICE_X20Y26.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<7>
+    SLICE_X20Y26.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<8>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<8>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<9>
+    SLICE_X20Y27.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<9>
+    SLICE_X20Y27.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<10>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<10>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<11>
+    SLICE_X20Y28.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<11>
+    SLICE_X20Y28.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/WRITE_BACK/res_b_r<13>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<12>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<13>
+    SLICE_X20Y29.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<13>
+    SLICE_X20Y29.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<14>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<14>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<15>
+    SLICE_X20Y30.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<15>
+    SLICE_X20Y30.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_b_control_r_FSM_FFd1_2
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<16>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<17>
+    SLICE_X20Y31.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<17>
+    SLICE_X20Y31.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<18>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<18>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<19>
+    SLICE_X20Y32.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<19>
+    SLICE_X20Y32.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<20>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<20>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<21>
+    SLICE_X20Y33.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<21>
+    SLICE_X20Y33.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<22>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<22>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<23>
+    SLICE_X20Y34.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<23>
+    SLICE_X20Y34.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<17>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<24>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<25>
+    SLICE_X20Y35.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<25>
+    SLICE_X20Y35.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<26>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<26>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<27>
+    SLICE_X20Y36.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<27>
+    SLICE_X20Y36.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<28>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<28>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<29>
+    SLICE_X20Y37.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<29>
+    SLICE_X20Y37.X       Tcinx                 0.904   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_xor<30>
+    SLICE_X20Y38.G1      net (fanout=1)        0.531   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<30>
+    SLICE_X20Y38.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>59014
+    SLICE_X20Y38.F4      net (fanout=1)        0.015   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>59014/O
+    SLICE_X20Y38.CLK     Tfck                  0.690   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>590117
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30
+    -------------------------------------------------  ---------------------------
+    Total                                     10.907ns (6.549ns logic, 4.358ns route)
+                                                       (60.0% logic, 40.0% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     10.902ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_b_control_r_FSM_FFd2 (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30 (FF)
+  Data Path Delay:      10.902ns (Levels of Logic = 9)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_b_control_r_FSM_FFd2 to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y29.XQ      Tcko                  0.720   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_b_control_r_FSM_FFd2
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_b_control_r_FSM_FFd2
+    SLICE_X28Y37.F2      net (fanout=57)       2.766   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_b_control_r_FSM_FFd2
+    SLICE_X28Y37.X       Tif5x                 0.968   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/WRITE_BACK/res_b_r<22>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_fw_op_b_s_314
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_fw_op_b_s_2_f5_13
+    SLICE_X28Y34.G2      net (fanout=1)        0.567   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/fw_op_b_s<22>
+    SLICE_X28Y34.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/imm_r<7>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_op_b_s451
+    SLICE_X20Y33.F3      net (fanout=3)        1.081   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/op_b_s<22>
+    SLICE_X20Y33.COUT    Topcyf                1.084   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<22>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_lut<22>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<22>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<23>
+    SLICE_X20Y34.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<23>
+    SLICE_X20Y34.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<17>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<24>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<25>
+    SLICE_X20Y35.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<25>
+    SLICE_X20Y35.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<26>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<26>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<27>
+    SLICE_X20Y36.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<27>
+    SLICE_X20Y36.COUT    Tbyp                  0.120   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<28>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<28>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<29>
+    SLICE_X20Y37.CIN     net (fanout=1)        0.000   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_cy<29>
+    SLICE_X20Y37.X       Tcinx                 0.904   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/ADD_UNIT/Madd_adder_res_v_add0000_xor<30>
+    SLICE_X20Y38.G1      net (fanout=1)        0.531   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/adder_res_s<30>
+    SLICE_X20Y38.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>59014
+    SLICE_X20Y38.F4      net (fanout=1)        0.015   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>59014/O
+    SLICE_X20Y38.CLK     Tfck                  0.690   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r<30>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/Mmux_alu_res_s<0>590117
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/alu_res_r_30
+    -------------------------------------------------  ---------------------------
+    Total                                     10.902ns (5.942ns logic, 4.960ns route)
+                                                       (54.5% logic, 45.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6 (SLICE_X23Y13.G1), 9 paths
+--------------------------------------------------------------------------------
+Delay (setup path):     10.996ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B (RAM)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6 (FF)
+  Data Path Delay:      10.767ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.229ns (0.504 - 0.733)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X0Y5.DOB4     Tbcko                 2.394   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B
+    SLICE_X21Y31.F3      net (fanout=2)        1.745   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_iboot_dat_o_s<12>
+    SLICE_X21Y31.X       Tilo                  0.551   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/imm_r<12>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_dat_o_s<12>1
+    SLICE_X22Y13.F2      net (fanout=68)       3.803   SECRETBLAZE_SOC/SECRETBLAZE/im_bus_o_s_dat_o<12>
+    SLICE_X22Y13.X       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/N159
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/Mram_reg_file_r13.SLICEM_F
+    SLICE_X23Y13.G1      net (fanout=1)        0.673   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/N159
+    SLICE_X23Y13.CLK     Tgck                  0.993   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r<6>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_s<6>_F
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_s<6>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6
+    -------------------------------------------------  ---------------------------
+    Total                                     10.767ns (4.546ns logic, 6.221ns route)
+                                                       (42.2% logic, 57.8% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     9.875ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B (RAM)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6 (FF)
+  Data Path Delay:      9.646ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.229ns (0.504 - 0.733)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X0Y5.DOB6     Tbcko                 2.394   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B
+    SLICE_X18Y31.F3      net (fanout=2)        1.389   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_iboot_dat_o_s<14>
+    SLICE_X18Y31.X       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/imm_r<14>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_dat_o_s<14>1
+    SLICE_X22Y13.F4      net (fanout=68)       2.981   SECRETBLAZE_SOC/SECRETBLAZE/im_bus_o_s_dat_o<14>
+    SLICE_X22Y13.X       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/N159
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/Mram_reg_file_r13.SLICEM_F
+    SLICE_X23Y13.G1      net (fanout=1)        0.673   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/N159
+    SLICE_X23Y13.CLK     Tgck                  0.993   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r<6>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_s<6>_F
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_s<6>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6
+    -------------------------------------------------  ---------------------------
+    Total                                      9.646ns (4.603ns logic, 5.043ns route)
+                                                       (47.7% logic, 52.3% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     9.653ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B (RAM)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6 (FF)
+  Data Path Delay:      9.424ns (Levels of Logic = 3)
+  Clock Path Skew:      -0.229ns (0.504 - 0.733)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    RAMB16_X0Y5.DOB3     Tbcko                 2.394   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_2/Mram_dpram_r.B
+    SLICE_X18Y29.G3      net (fanout=2)        1.376   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_iboot_dat_o_s<11>
+    SLICE_X18Y29.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/pc_r<9>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_dat_o_s<11>1
+    SLICE_X22Y13.F1      net (fanout=68)       2.772   SECRETBLAZE_SOC/SECRETBLAZE/im_bus_o_s_dat_o<11>
+    SLICE_X22Y13.X       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/N159
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/Mram_reg_file_r13.SLICEM_F
+    SLICE_X23Y13.G1      net (fanout=1)        0.673   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/N159
+    SLICE_X23Y13.CLK     Tgck                  0.993   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r<6>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_s<6>_F
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_s<6>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_DECODE/REGISTER_FILE/data_r2_r_6
+    -------------------------------------------------  ---------------------------
+    Total                                      9.424ns (4.603ns logic, 4.821ns route)
+                                                       (48.8% logic, 51.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B (RAMB16_X0Y6.ADDRB5), 11 paths
+--------------------------------------------------------------------------------
+Delay (setup path):     10.995ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ma_wb_ld_haz_r (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B (RAM)
+  Data Path Delay:      10.995ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ma_wb_ld_haz_r to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X21Y30.XQ      Tcko                  0.720   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ma_wb_ld_haz_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ma_wb_ld_haz_r
+    SLICE_X16Y36.G4      net (fanout=4)        1.500   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ma_wb_ld_haz_r
+    SLICE_X16Y36.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/WRITE_BACK/res_b_r<18>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_a_control_r_FSM_N0_SW0
+    SLICE_X16Y37.G4      net (fanout=2)        0.106   N208
+    SLICE_X16Y37.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/haz_current_state_r_FSM_FFd2
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/rf_res_a_lock_s2
+    SLICE_X9Y27.G1       net (fanout=39)       2.359   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/haz_ctr_o_s_id_stall_o
+    SLICE_X9Y27.Y        Tilo                  0.551   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_FETCH/pc_r<5>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_FETCH/mux2621
+    RAMB16_X0Y6.ADDRB5   net (fanout=4)        4.193   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_bus_i_adr_i<4>
+    RAMB16_X0Y6.CLKB     Tback                 0.350   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B
+    -------------------------------------------------  ---------------------------
+    Total                                     10.995ns (2.837ns logic, 8.158ns route)
+                                                       (25.8% logic, 74.2% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     10.895ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/branch_delay_r (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B (RAM)
+  Data Path Delay:      10.895ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/branch_delay_r to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X19Y33.YQ      Tcko                  0.720   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/branch_delay_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/branch_delay_r
+    SLICE_X16Y36.G3      net (fanout=3)        1.400   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/branch_delay_r
+    SLICE_X16Y36.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/WRITE_BACK/res_b_r<18>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_a_control_r_FSM_N0_SW0
+    SLICE_X16Y37.G4      net (fanout=2)        0.106   N208
+    SLICE_X16Y37.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/haz_current_state_r_FSM_FFd2
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/rf_res_a_lock_s2
+    SLICE_X9Y27.G1       net (fanout=39)       2.359   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/haz_ctr_o_s_id_stall_o
+    SLICE_X9Y27.Y        Tilo                  0.551   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_FETCH/pc_r<5>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_FETCH/mux2621
+    RAMB16_X0Y6.ADDRB5   net (fanout=4)        4.193   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_bus_i_adr_i<4>
+    RAMB16_X0Y6.CLKB     Tback                 0.350   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B
+    -------------------------------------------------  ---------------------------
+    Total                                     10.895ns (2.837ns logic, 8.058ns route)
+                                                       (26.0% logic, 74.0% route)
+
+--------------------------------------------------------------------------------
+Delay (setup path):     10.775ns (data path - clock path skew + uncertainty)
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ex_ma_ld_haz_r (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B (RAM)
+  Data Path Delay:      10.775ns (Levels of Logic = 3)
+  Clock Path Skew:      0.000ns
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ex_ma_ld_haz_r to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X17Y31.XQ      Tcko                  0.720   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ex_ma_ld_haz_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ex_ma_ld_haz_r
+    SLICE_X16Y36.G1      net (fanout=4)        1.280   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/ex_ma_ld_haz_r
+    SLICE_X16Y36.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/WRITE_BACK/res_b_r<18>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/id_ex_fw_op_a_control_r_FSM_N0_SW0
+    SLICE_X16Y37.G4      net (fanout=2)        0.106   N208
+    SLICE_X16Y37.Y       Tilo                  0.608   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/haz_current_state_r_FSM_FFd2
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/HAZARD_CONTROLLER/rf_res_a_lock_s2
+    SLICE_X9Y27.G1       net (fanout=39)       2.359   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/haz_ctr_o_s_id_stall_o
+    SLICE_X9Y27.Y        Tilo                  0.551   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_FETCH/pc_r<5>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/INST_FETCH/mux2621
+    RAMB16_X0Y6.ADDRB5   net (fanout=4)        4.193   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/im_bus_i_adr_i<4>
+    RAMB16_X0Y6.CLKB     Tback                 0.350   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/IM_UNIT/IBOOT_MEM/MEM_1/Mram_dpram_r.B
+    -------------------------------------------------  ---------------------------
+    Total                                     10.775ns (2.837ns logic, 7.938ns route)
+                                                       (26.3% logic, 73.7% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: Default period analysis for net "SECRETBLAZE_SOC/SECRETBLAZE/clk_i"
+
+--------------------------------------------------------------------------------
+
+Paths for end point SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/MEMORY_ACCESS/res_r_20 (SLICE_X18Y27.F4), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      0.923ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/pc_r_20 (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/MEMORY_ACCESS/res_r_20 (FF)
+  Requirement:          -2147483.647ns
+  Data Path Delay:      0.996ns (Levels of Logic = 1)
+  Clock Path Skew:      0.073ns (0.182 - 0.109)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/pc_r_20 to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/MEMORY_ACCESS/res_r_20
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X18Y28.YQ      Tcko                  0.576   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/pc_r<20>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/pc_r_20
+    SLICE_X18Y27.F4      net (fanout=1)        0.314   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/EXECUTE/pc_r<20>
+    SLICE_X18Y27.CLK     Tckf        (-Th)    -0.106   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/MEMORY_ACCESS/res_r<20>
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/MEMORY_ACCESS/res_s<20>1
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_CORE/MEMORY_ACCESS/res_r_20
+    -------------------------------------------------  ---------------------------
+    Total                                      0.996ns (0.682ns logic, 0.314ns route)
+                                                       (68.5% logic, 31.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r_1 (SLICE_X56Y14.G3), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.213ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r_1 (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r_1 (FF)
+  Requirement:          -2147483.647ns
+  Data Path Delay:      1.229ns (Levels of Logic = 1)
+  Clock Path Skew:      0.016ns (0.099 - 0.083)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r_1 to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r_1
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X57Y13.XQ      Tcko                  0.576   SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r<1>
+                                                       SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r_1
+    SLICE_X56Y14.G3      net (fanout=1)        0.259   SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r<1>
+    SLICE_X56Y14.CLK     Tckg        (-Th)    -0.394   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r<1>
+                                                       SECRETBLAZE_SOC/WB_BUS/slv_shared_bus_s_dat_o<1>10_F
+                                                       SECRETBLAZE_SOC/WB_BUS/slv_shared_bus_s_dat_o<1>10
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r_1
+    -------------------------------------------------  ---------------------------
+    Total                                      1.229ns (0.970ns logic, 0.259ns route)
+                                                       (78.9% logic, 21.1% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r_5 (SLICE_X55Y15.G4), 1 path
+--------------------------------------------------------------------------------
+Slack (hold path):      1.169ns (requirement - (clock path skew + uncertainty - data path))
+  Source:               SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r_5 (FF)
+  Destination:          SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r_5 (FF)
+  Requirement:          -2147483.647ns
+  Data Path Delay:      1.187ns (Levels of Logic = 1)
+  Clock Path Skew:      0.018ns (0.100 - 0.082)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r_5 to SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X54Y12.YQ      Tcko                  0.576   SECRETBLAZE_SOC/GEN_TIMER.WB_TIMER/threshold_r<3>
+                                                       SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r_5
+    SLICE_X55Y15.G4      net (fanout=1)        0.262   SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/wb_dat_o_r<5>
+    SLICE_X55Y15.CLK     Tckg        (-Th)    -0.349   SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r<5>
+                                                       SECRETBLAZE_SOC/WB_BUS/slv_shared_bus_s_dat_o<5>10_F
+                                                       SECRETBLAZE_SOC/WB_BUS/slv_shared_bus_s_dat_o<5>10
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/SECRETBLAZE_MU/DM_UNIT/wb_dm_dat_i_r_5
+    -------------------------------------------------  ---------------------------
+    Total                                      1.187ns (0.925ns logic, 0.262ns route)
+                                                       (77.9% logic, 22.1% route)
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: Default OFFSET IN BEFORE analysis for clock 
+"SECRETBLAZE_SOC/SECRETBLAZE/clk_i" 
+
+ 10 paths analyzed, 10 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected.
+ Minimum allowable offset is   3.929ns.
+--------------------------------------------------------------------------------
+
+Paths for end point SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/rx_i_r (T13.PAD), 1 path
+--------------------------------------------------------------------------------
+Offset (setup paths):   3.929ns (data path - clock path + uncertainty)
+  Source:               rx_i (PAD)
+  Destination:          SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/rx_i_r (FF)
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      5.759ns (Levels of Logic = 0)
+  Clock Path Delay:     1.830ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: rx_i to SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/rx_i_r
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    T13.ICLK1            Tiopickd              5.759   rx_i
+                                                       rx_i
+                                                       rx_i_IBUF
+                                                       rx_i.DELAY
+                                                       SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/rx_i_r
+    -------------------------------------------------  ---------------------------
+    Total                                      5.759ns (5.759ns logic, 0.000ns route)
+                                                       (100.0% logic, 0.0% route)
+
+  Minimum Clock Path: clk_i to SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/rx_i_r
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.663   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.321   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    T13.ICLK1            net (fanout=1036)     0.845   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      1.830ns (0.984ns logic, 0.846ns route)
+                                                       (53.8% logic, 46.2% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point DEB_GPI/Mshreg_dat_i_sync_r_0/SRL16E (SLICE_X76Y56.BY), 1 path
+--------------------------------------------------------------------------------
+Offset (setup paths):   1.333ns (data path - clock path + uncertainty)
+  Source:               but_i<0> (PAD)
+  Destination:          DEB_GPI/Mshreg_dat_i_sync_r_0/SRL16E (FF)
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      3.142ns (Levels of Logic = 2)
+  Clock Path Delay:     1.809ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: but_i<0> to DEB_GPI/Mshreg_dat_i_sync_r_0/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    F12.I                Tiopi                 0.829   but_i<0>
+                                                       but_i<0>
+                                                       but_i_0_IBUF
+    SLICE_X76Y56.BY      net (fanout=1)        1.874   but_i_0_IBUF
+    SLICE_X76Y56.CLK     Tds                   0.439   DEB_GPI/dat_i_sync_r<0>
+                                                       DEB_GPI/Mshreg_dat_i_sync_r_0/SRL16E
+    -------------------------------------------------  ---------------------------
+    Total                                      3.142ns (1.268ns logic, 1.874ns route)
+                                                       (40.4% logic, 59.6% route)
+
+  Minimum Clock Path: clk_i to DEB_GPI/Mshreg_dat_i_sync_r_0/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.663   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.321   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X76Y56.CLK     net (fanout=1036)     0.824   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      1.809ns (0.984ns logic, 0.825ns route)
+                                                       (54.4% logic, 45.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point DEB_GPI/Mshreg_dat_i_sync_r_1/SRL16E (SLICE_X76Y54.BY), 1 path
+--------------------------------------------------------------------------------
+Offset (setup paths):   1.302ns (data path - clock path + uncertainty)
+  Source:               but_i<1> (PAD)
+  Destination:          DEB_GPI/Mshreg_dat_i_sync_r_1/SRL16E (FF)
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      3.144ns (Levels of Logic = 2)
+  Clock Path Delay:     1.842ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Maximum Data Path: but_i<1> to DEB_GPI/Mshreg_dat_i_sync_r_1/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    G12.I                Tiopi                 0.829   but_i<1>
+                                                       but_i<1>
+                                                       but_i_1_IBUF
+    SLICE_X76Y54.BY      net (fanout=1)        1.876   but_i_1_IBUF
+    SLICE_X76Y54.CLK     Tds                   0.439   DEB_GPI/dat_i_sync_r<1>
+                                                       DEB_GPI/Mshreg_dat_i_sync_r_1/SRL16E
+    -------------------------------------------------  ---------------------------
+    Total                                      3.144ns (1.268ns logic, 1.876ns route)
+                                                       (40.3% logic, 59.7% route)
+
+  Minimum Clock Path: clk_i to DEB_GPI/Mshreg_dat_i_sync_r_1/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.663   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.321   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X76Y54.CLK     net (fanout=1036)     0.857   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      1.842ns (0.984ns logic, 0.858ns route)
+                                                       (53.4% logic, 46.6% route)
+
+--------------------------------------------------------------------------------
+
+Hold Paths: Default OFFSET IN BEFORE analysis for clock "SECRETBLAZE_SOC/SECRETBLAZE/clk_i"
+
+--------------------------------------------------------------------------------
+
+Paths for end point DEB_GPI/Mshreg_dat_i_sync_r_7/SRL16E (SLICE_X76Y22.BY), 1 path
+--------------------------------------------------------------------------------
+Offset (hold paths):    -0.789ns (data path - clock path + uncertainty)
+  Source:               but_i<7> (PAD)
+  Destination:          DEB_GPI/Mshreg_dat_i_sync_r_7/SRL16E (FF)
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      1.448ns (Levels of Logic = 2)
+  Clock Path Delay:     2.238ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: but_i<7> to DEB_GPI/Mshreg_dat_i_sync_r_7/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    K13.I                Tiopi                 0.663   but_i<7>
+                                                       but_i<7>
+                                                       but_i_7_IBUF
+    SLICE_X76Y22.BY      net (fanout=1)        0.503   but_i_7_IBUF
+    SLICE_X76Y22.CLK     Tdh         (-Th)    -0.282   DEB_GPI/dat_i_sync_r<7>
+                                                       DEB_GPI/Mshreg_dat_i_sync_r_7/SRL16E
+    -------------------------------------------------  ---------------------------
+    Total                                      1.448ns (0.945ns logic, 0.503ns route)
+                                                       (65.3% logic, 34.7% route)
+
+  Maximum Clock Path: clk_i to DEB_GPI/Mshreg_dat_i_sync_r_7/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.829   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.401   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X76Y22.CLK     net (fanout=1036)     1.007   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      2.238ns (1.230ns logic, 1.008ns route)
+                                                       (55.0% logic, 45.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point DEB_GPI/Mshreg_dat_i_sync_r_2/SRL16E (SLICE_X76Y44.BY), 1 path
+--------------------------------------------------------------------------------
+Offset (hold paths):    -0.563ns (data path - clock path + uncertainty)
+  Source:               but_i<2> (PAD)
+  Destination:          DEB_GPI/Mshreg_dat_i_sync_r_2/SRL16E (FF)
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      1.827ns (Levels of Logic = 2)
+  Clock Path Delay:     2.391ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: but_i<2> to DEB_GPI/Mshreg_dat_i_sync_r_2/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    H14.I                Tiopi                 0.663   but_i<2>
+                                                       but_i<2>
+                                                       but_i_2_IBUF
+    SLICE_X76Y44.BY      net (fanout=1)        0.882   but_i_2_IBUF
+    SLICE_X76Y44.CLK     Tdh         (-Th)    -0.282   DEB_GPI/dat_i_sync_r<2>
+                                                       DEB_GPI/Mshreg_dat_i_sync_r_2/SRL16E
+    -------------------------------------------------  ---------------------------
+    Total                                      1.827ns (0.945ns logic, 0.882ns route)
+                                                       (51.7% logic, 48.3% route)
+
+  Maximum Clock Path: clk_i to DEB_GPI/Mshreg_dat_i_sync_r_2/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.829   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.401   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X76Y44.CLK     net (fanout=1036)     1.160   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      2.391ns (1.230ns logic, 1.161ns route)
+                                                       (51.4% logic, 48.6% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point DEB_GPI/Mshreg_dat_i_sync_r_4/SRL16E (SLICE_X78Y40.BY), 1 path
+--------------------------------------------------------------------------------
+Offset (hold paths):    -0.520ns (data path - clock path + uncertainty)
+  Source:               but_i<4> (PAD)
+  Destination:          DEB_GPI/Mshreg_dat_i_sync_r_4/SRL16E (FF)
+  Destination Clock:    SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      1.723ns (Levels of Logic = 2)
+  Clock Path Delay:     2.244ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Minimum Data Path: but_i<4> to DEB_GPI/Mshreg_dat_i_sync_r_4/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    J14.I                Tiopi                 0.663   but_i<4>
+                                                       but_i<4>
+                                                       but_i_4_IBUF
+    SLICE_X78Y40.BY      net (fanout=1)        0.778   but_i_4_IBUF
+    SLICE_X78Y40.CLK     Tdh         (-Th)    -0.282   DEB_GPI/dat_i_sync_r<4>
+                                                       DEB_GPI/Mshreg_dat_i_sync_r_4/SRL16E
+    -------------------------------------------------  ---------------------------
+    Total                                      1.723ns (0.945ns logic, 0.778ns route)
+                                                       (54.8% logic, 45.2% route)
+
+  Maximum Clock Path: clk_i to DEB_GPI/Mshreg_dat_i_sync_r_4/SRL16E
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.829   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.401   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X78Y40.CLK     net (fanout=1036)     1.013   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      2.244ns (1.230ns logic, 1.014ns route)
+                                                       (54.8% logic, 45.2% route)
+
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: Default OFFSET OUT AFTER analysis for clock 
+"SECRETBLAZE_SOC/SECRETBLAZE/clk_i" 
+
+ 9 paths analyzed, 9 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected.
+ Maximum allowable offset is  10.106ns.
+--------------------------------------------------------------------------------
+
+Paths for end point led_o<2> (L12.PAD), 1 path
+--------------------------------------------------------------------------------
+Offset (slowest paths): 10.106ns (clock path + data path + uncertainty)
+  Source:               SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_2 (FF)
+  Destination:          led_o<2> (PAD)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      8.072ns (Levels of Logic = 1)
+  Clock Path Delay:     2.034ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Maximum Clock Path: clk_i to SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_2
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.829   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.401   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X62Y12.CLK     net (fanout=1036)     0.803   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      2.034ns (1.230ns logic, 0.804ns route)
+                                                       (60.5% logic, 39.5% route)
+
+  Maximum Data Path: SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_2 to led_o<2>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X62Y12.YQ      Tcko                  0.720   SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/WB_SLV_UART/data_out_r<0>
+                                                       SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_2
+    L12.O1               net (fanout=3)        2.221   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<2>
+    L12.PAD              Tioop                 5.131   led_o<2>
+                                                       led_o_2_OBUF
+                                                       led_o<2>
+    -------------------------------------------------  ---------------------------
+    Total                                      8.072ns (5.851ns logic, 2.221ns route)
+                                                       (72.5% logic, 27.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point led_o<0> (K12.PAD), 1 path
+--------------------------------------------------------------------------------
+Offset (slowest paths): 10.051ns (clock path + data path + uncertainty)
+  Source:               SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_0 (FF)
+  Destination:          led_o<0> (PAD)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      8.017ns (Levels of Logic = 1)
+  Clock Path Delay:     2.034ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Maximum Clock Path: clk_i to SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_0
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.829   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.401   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X63Y12.CLK     net (fanout=1036)     0.803   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      2.034ns (1.230ns logic, 0.804ns route)
+                                                       (60.5% logic, 39.5% route)
+
+  Maximum Data Path: SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_0 to led_o<0>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X63Y12.YQ      Tcko                  0.720   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<0>
+                                                       SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_0
+    K12.O1               net (fanout=3)        2.166   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<0>
+    K12.PAD              Tioop                 5.131   led_o<0>
+                                                       led_o_0_OBUF
+                                                       led_o<0>
+    -------------------------------------------------  ---------------------------
+    Total                                      8.017ns (5.851ns logic, 2.166ns route)
+                                                       (73.0% logic, 27.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point led_o<3> (N14.PAD), 1 path
+--------------------------------------------------------------------------------
+Offset (slowest paths): 9.949ns (clock path + data path + uncertainty)
+  Source:               SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_3 (FF)
+  Destination:          led_o<3> (PAD)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      7.939ns (Levels of Logic = 1)
+  Clock Path Delay:     2.010ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Maximum Clock Path: clk_i to SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_3
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.829   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.401   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X59Y12.CLK     net (fanout=1036)     0.779   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      2.010ns (1.230ns logic, 0.780ns route)
+                                                       (61.2% logic, 38.8% route)
+
+  Maximum Data Path: SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_3 to led_o<3>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X59Y12.YQ      Tcko                  0.720   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<3>
+                                                       SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_3
+    N14.O1               net (fanout=3)        2.088   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<3>
+    N14.PAD              Tioop                 5.131   led_o<3>
+                                                       led_o_3_OBUF
+                                                       led_o<3>
+    -------------------------------------------------  ---------------------------
+    Total                                      7.939ns (5.851ns logic, 2.088ns route)
+                                                       (73.7% logic, 26.3% route)
+
+--------------------------------------------------------------------------------
+
+Fastest Paths: Default OFFSET OUT AFTER analysis for clock "SECRETBLAZE_SOC/SECRETBLAZE/clk_i"
+
+--------------------------------------------------------------------------------
+
+Paths for end point tx_o (R13.PAD), 1 path
+--------------------------------------------------------------------------------
+Offset (fastest paths): 6.521ns (clock path + data path - uncertainty)
+  Source:               SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/tx_o_r (FF)
+  Destination:          tx_o (PAD)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      4.691ns (Levels of Logic = 0)
+  Clock Path Delay:     1.830ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Minimum Clock Path: clk_i to SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/tx_o_r
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.663   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.321   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    R13.OTCLK1           net (fanout=1036)     0.845   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      1.830ns (0.984ns logic, 0.846ns route)
+                                                       (53.8% logic, 46.2% route)
+
+  Minimum Data Path: SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/tx_o_r to tx_o
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    R13.PAD              Tiockp                4.691   tx_o
+                                                       SECRETBLAZE_SOC/GEN_UART.WB_BUS_UART/UART_CTR/tx_o_r
+                                                       tx_o_OBUF
+                                                       tx_o
+    -------------------------------------------------  ---------------------------
+    Total                                      4.691ns (4.691ns logic, 0.000ns route)
+                                                       (100.0% logic, 0.0% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point led_o<6> (P12.PAD), 1 path
+--------------------------------------------------------------------------------
+Offset (fastest paths): 7.876ns (clock path + data path - uncertainty)
+  Source:               SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_6 (FF)
+  Destination:          led_o<6> (PAD)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      6.227ns (Levels of Logic = 1)
+  Clock Path Delay:     1.649ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Minimum Clock Path: clk_i to SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_6
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.663   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.321   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X53Y10.CLK     net (fanout=1036)     0.664   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      1.649ns (0.984ns logic, 0.665ns route)
+                                                       (59.7% logic, 40.3% route)
+
+  Minimum Data Path: SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_6 to led_o<6>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X53Y10.XQ      Tcko                  0.576   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<6>
+                                                       SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_6
+    P12.O1               net (fanout=3)        0.966   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<6>
+    P12.PAD              Tioop                 4.685   led_o<6>
+                                                       led_o_6_OBUF
+                                                       led_o<6>
+    -------------------------------------------------  ---------------------------
+    Total                                      6.227ns (5.261ns logic, 0.966ns route)
+                                                       (84.5% logic, 15.5% route)
+
+--------------------------------------------------------------------------------
+
+Paths for end point led_o<5> (N12.PAD), 1 path
+--------------------------------------------------------------------------------
+Offset (fastest paths): 8.011ns (clock path + data path - uncertainty)
+  Source:               SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_5 (FF)
+  Destination:          led_o<5> (PAD)
+  Source Clock:         SECRETBLAZE_SOC/SECRETBLAZE/clk_i rising
+  Data Path Delay:      6.406ns (Levels of Logic = 1)
+  Clock Path Delay:     1.605ns (Levels of Logic = 2)
+  Clock Uncertainty:    0.000ns
+
+  Minimum Clock Path: clk_i to SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_5
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    D9.I                 Tiopi                 0.663   clk_i
+                                                       clk_i
+                                                       CLK_1_1.BUF_IN_INST
+    BUFGMUX4.I0          net (fanout=1)        0.001   SECRETBLAZE_SOC/SECRETBLAZE/clk_i1
+    BUFGMUX4.O           Tgi0o                 0.321   SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG.GCLKMUX
+                                                       SECRETBLAZE_SOC/SECRETBLAZE/clk_i_BUFG
+    SLICE_X54Y6.CLK      net (fanout=1036)     0.620   SECRETBLAZE_SOC/SECRETBLAZE/clk_i
+    -------------------------------------------------  ---------------------------
+    Total                                      1.605ns (0.984ns logic, 0.621ns route)
+                                                       (61.3% logic, 38.7% route)
+
+  Minimum Data Path: SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_5 to led_o<5>
+    Location             Delay type         Delay(ns)  Physical Resource
+                                                       Logical Resource(s)
+    -------------------------------------------------  -------------------
+    SLICE_X54Y6.YQ       Tcko                  0.576   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<5>
+                                                       SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r_5
+    N12.O1               net (fanout=3)        1.145   SECRETBLAZE_SOC/GEN_GPIO.WB_BUS_GPIO/gpo_r<5>
+    N12.PAD              Tioop                 4.685   led_o<5>
+                                                       led_o_5_OBUF
+                                                       led_o<5>
+    -------------------------------------------------  ---------------------------
+    Total                                      6.406ns (5.261ns logic, 1.145ns route)
+                                                       (82.1% logic, 17.9% route)
+
+--------------------------------------------------------------------------------
+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clk_i
+------------+------------+------------+---------------------------------+--------+
+            |Max Setup to|Max Hold to |                                 | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s)                | Phase  |
+------------+------------+------------+---------------------------------+--------+
+but_i<0>    |    1.333(R)|   -0.243(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+but_i<1>    |    1.302(R)|   -0.206(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+but_i<2>    |    0.399(R)|    0.564(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+but_i<3>    |    0.939(R)|    0.125(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+but_i<4>    |    0.394(R)|    0.521(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+but_i<5>    |    0.674(R)|    0.297(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+but_i<6>    |    0.476(R)|    0.426(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+but_i<7>    |    0.056(R)|    0.790(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+rst_i       |    1.286(R)|   -0.214(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+rx_i        |    3.929(R)|   -1.506(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+------------+------------+------------+---------------------------------+--------+
+
+Clock clk_i to Pad
+------------+------------+---------------------------------+--------+
+            | clk (edge) |                                 | Clock  |
+Destination |   to PAD   |Internal Clock(s)                | Phase  |
+------------+------------+---------------------------------+--------+
+led_o<0>    |   10.051(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+led_o<1>    |    9.533(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+led_o<2>    |   10.106(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+led_o<3>    |    9.949(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+led_o<4>    |    9.566(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+led_o<5>    |    9.244(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+led_o<6>    |    9.072(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+led_o<7>    |    9.687(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+tx_o        |    7.363(R)|SECRETBLAZE_SOC/SECRETBLAZE/clk_i|   0.000|
+------------+------------+---------------------------------+--------+
+
+Clock to Setup on destination clock clk_i
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk_i          |   10.997|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 66043 paths, 0 nets, and 10748 connections
+x
+Design statistics:
+   Minimum period:  10.997ns{1}   (Maximum frequency:  90.934MHz)
+   Minimum input required time before clock:   3.929ns
+   Maximum output delay after clock:  10.106ns
+
+
+------------------------------------Footnotes-----------------------------------
+1)  The minimum period statistic assumes all single cycle delays.
+
+Analysis completed Thu Feb 10 11:33:44 2011 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 260 MB
+

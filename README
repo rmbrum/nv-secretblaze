@@ -1,0 +1,36 @@
+Thank you for downloading the SecretBlaze Standard Version.
+
+
+                         GETTING STARTED 
+
+The xil_run.sh file provides useful script commands of the SecretBlaze
+platform for Xilinx's tools. ISE and EDK must be installed on your computer.
+Before running the xil_run.sh file, you must check the installation directory
+path. The variable can be edited at the beginning of the script.
+
+Example:
+YOUR_LIN_XIL_TOOL_PATH=/opt/Xilinx/14.1/ISE_DS
+
+To start the script:
+./xil_run.sh
+
+Nota: Windows/Cygwin systems are no longer supported (since EDK 13.1)
+
+
+                           SOC CONFIG 
+
+See the config_lib/*****.vhd files for the general configuration
+of the SecretBlaze-based SoC. Advanced hardware settings can be easily 
+modified by editing several package files. If you do so, don't 
+forget to update software drivers, linker files, and/or compiler 
+options.
+
+
+
+
+
+
+
+
+
+

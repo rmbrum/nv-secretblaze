@@ -1,0 +1,9 @@
+/**\mainpage SecretBlaze SoC
+*
+*
+* \section general_description General Description
+*
+* \image html secretblaze_processor.jpg 
+* \image latex secretblaze_processor.pdf "SecretBlaze's Processor" width = 15cm
+*/
+

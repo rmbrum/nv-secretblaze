@@ -1,0 +1,5822 @@
+
+dhrystone.elf:     file format elf32-microblaze
+
+
+Disassembly of section .vectors.reset:
+
+10000000 <_start>:
+10000000:	b0001000 	imm	4096
+10000004:	b8080050 	brai	80	// 10000050 <_start1>
+
+Disassembly of section .vectors.sw_exception:
+
+10000008 <_vector_sw_exception>:
+10000008:	b0001000 	imm	4096
+1000000c:	b8081524 	brai	5412	// 10001524 <_exception_handler>
+
+Disassembly of section .vectors.interrupt:
+
+10000010 <_vector_interrupt>:
+10000010:	b0001000 	imm	4096
+10000014:	b8081534 	brai	5428	// 10001534 <_interrupt_handler>
+
+Disassembly of section .vectors.hw_exception:
+
+10000020 <_vector_hw_exception>:
+10000020:	b0001000 	imm	4096
+10000024:	b808152c 	brai	5420	// 1000152c <_hw_exception_handler>
+
+Disassembly of section .text:
+
+10000050 <_start1>:
+10000050:	b0001000 	imm	4096
+10000054:	31a02a60 	addik	r13, r0, 10848	// 10002a60 <_SDA_BASE_>
+10000058:	b0001000 	imm	4096
+1000005c:	30402935 	addik	r2, r0, 10549	// 10002935 <_SDA2_BASE_>
+10000060:	b0001000 	imm	4096
+10000064:	302054d0 	addik	r1, r0, 21712
+10000068:	b9f4012c 	brlid	r15, 300	// 10000194 <_crtinit>
+1000006c:	80000000 	or	r0, r0, r0
+10000070:	b9f414dc 	brlid	r15, 5340	// 1000154c <exit>
+10000074:	30a30000 	addik	r5, r3, 0
+
+10000078 <_exit>:
+10000078:	b8000000 	bri	0	// 10000078 <_exit>
+
+1000007c <__do_global_dtors_aux>:
+1000007c:	b0001000 	imm	4096
+10000080:	e0602a60 	lbui	r3, r0, 10848	// 10002a60 <_SDA_BASE_>
+10000084:	3021ffdc 	addik	r1, r1, -36
+10000088:	f9e10000 	swi	r15, r1, 0
+1000008c:	fa61001c 	swi	r19, r1, 28
+10000090:	be23008c 	bneid	r3, 140		// 1000011c
+10000094:	fac10020 	swi	r22, r1, 32
+10000098:	b0001000 	imm	4096
+1000009c:	32c02a50 	addik	r22, r0, 10832	// 10002a50 <__CTOR_END__>
+100000a0:	b0001000 	imm	4096
+100000a4:	32602a54 	addik	r19, r0, 10836	// 10002a54 <__DTOR_END__>
+100000a8:	b0001000 	imm	4096
+100000ac:	e8602a64 	lwi	r3, r0, 10852	// 10002a64 <dtor_idx.2340>
+100000b0:	16769800 	rsubk	r19, r22, r19
+100000b4:	66730202 	bsrai	r19, r19, 2
+100000b8:	3273ffff 	addik	r19, r19, -1
+100000bc:	14931803 	cmpu	r4, r19, r3
+100000c0:	bea40034 	bgeid	r4, 52		// 100000f4
+100000c4:	30630001 	addik	r3, r3, 1
+100000c8:	64830402 	bslli	r4, r3, 2
+100000cc:	c884b000 	lw	r4, r4, r22
+100000d0:	b0001000 	imm	4096
+100000d4:	f8602a64 	swi	r3, r0, 10852	// 10002a64 <dtor_idx.2340>
+100000d8:	99fc2000 	brald	r15, r4
+100000dc:	80000000 	or	r0, r0, r0
+100000e0:	b0001000 	imm	4096
+100000e4:	e8602a64 	lwi	r3, r0, 10852	// 10002a64 <dtor_idx.2340>
+100000e8:	14931803 	cmpu	r4, r19, r3
+100000ec:	be44ffdc 	bltid	r4, -36		// 100000c8
+100000f0:	30630001 	addik	r3, r3, 1
+100000f4:	b0000000 	imm	0
+100000f8:	30600000 	addik	r3, r0, 0
+100000fc:	bc030014 	beqi	r3, 20		// 10000110
+10000100:	b0001000 	imm	4096
+10000104:	30a02a58 	addik	r5, r0, 10840	// 10002a58 <__EH_FRAME_BEGIN__>
+10000108:	99fc1800 	brald	r15, r3
+1000010c:	80000000 	or	r0, r0, r0
+10000110:	30600001 	addik	r3, r0, 1
+10000114:	b0001000 	imm	4096
+10000118:	f0602a60 	sbi	r3, r0, 10848	// 10002a60 <_SDA_BASE_>
+1000011c:	e9e10000 	lwi	r15, r1, 0
+10000120:	ea61001c 	lwi	r19, r1, 28
+10000124:	eac10020 	lwi	r22, r1, 32
+10000128:	b60f0008 	rtsd	r15, 8
+1000012c:	30210024 	addik	r1, r1, 36
+
+10000130 <frame_dummy>:
+10000130:	b0000000 	imm	0
+10000134:	30600000 	addik	r3, r0, 0
+10000138:	3021ffe4 	addik	r1, r1, -28
+1000013c:	be030020 	beqid	r3, 32		// 1000015c
+10000140:	f9e10000 	swi	r15, r1, 0
+10000144:	b0001000 	imm	4096
+10000148:	30a02a58 	addik	r5, r0, 10840	// 10002a58 <__EH_FRAME_BEGIN__>
+1000014c:	b0001000 	imm	4096
+10000150:	30c02a68 	addik	r6, r0, 10856	// 10002a68 <object.2350>
+10000154:	99fc1800 	brald	r15, r3
+10000158:	80000000 	or	r0, r0, r0
+1000015c:	b0001000 	imm	4096
+10000160:	e8602a5c 	lwi	r3, r0, 10844	// 10002a5c <__JCR_END__>
+10000164:	be030028 	beqid	r3, 40		// 1000018c
+10000168:	e9e10000 	lwi	r15, r1, 0
+1000016c:	b0000000 	imm	0
+10000170:	30600000 	addik	r3, r0, 0
+10000174:	bc030018 	beqi	r3, 24		// 1000018c
+10000178:	b0001000 	imm	4096
+1000017c:	30a02a5c 	addik	r5, r0, 10844	// 10002a5c <__JCR_END__>
+10000180:	99fc1800 	brald	r15, r3
+10000184:	80000000 	or	r0, r0, r0
+10000188:	e9e10000 	lwi	r15, r1, 0
+1000018c:	b60f0008 	rtsd	r15, 8
+10000190:	3021001c 	addik	r1, r1, 28
+
+10000194 <_crtinit>:
+10000194:	2021ffec 	addi	r1, r1, -20
+10000198:	f9e10000 	swi	r15, r1, 0
+1000019c:	b0001000 	imm	4096
+100001a0:	20c02a60 	addi	r6, r0, 10848	// 10002a60 <_SDA_BASE_>
+100001a4:	b0001000 	imm	4096
+100001a8:	20e02a60 	addi	r7, r0, 10848	// 10002a60 <_SDA_BASE_>
+100001ac:	06463800 	rsub	r18, r6, r7
+100001b0:	bc720014 	blei	r18, 20		// 100001c4
+100001b4:	f8060000 	swi	r0, r6, 0
+100001b8:	20c60004 	addi	r6, r6, 4
+100001bc:	06463800 	rsub	r18, r6, r7
+100001c0:	bc92fff4 	bgti	r18, -12		// 100001b4
+100001c4:	b0001000 	imm	4096
+100001c8:	20c02a60 	addi	r6, r0, 10848	// 10002a60 <_SDA_BASE_>
+100001cc:	b0001000 	imm	4096
+100001d0:	20e052e0 	addi	r7, r0, 21216	// 100052e0 <__bss_end>
+100001d4:	06463800 	rsub	r18, r6, r7
+100001d8:	bc720014 	blei	r18, 20		// 100001ec
+100001dc:	f8060000 	swi	r0, r6, 0
+100001e0:	20c60004 	addi	r6, r6, 4
+100001e4:	06463800 	rsub	r18, r6, r7
+100001e8:	bc92fff4 	bgti	r18, -12		// 100001dc
+100001ec:	b9f41358 	brlid	r15, 4952	// 10001544 <_program_init>
+100001f0:	80000000 	or	r0, r0, r0
+100001f4:	b9f42078 	brlid	r15, 8312	// 1000226c <__init>
+100001f8:	80000000 	or	r0, r0, r0
+100001fc:	20c00000 	addi	r6, r0, 0
+10000200:	20e00000 	addi	r7, r0, 0
+10000204:	b9f41784 	brlid	r15, 6020	// 10001988 <main>
+10000208:	20a00000 	addi	r5, r0, 0
+1000020c:	32630000 	addik	r19, r3, 0
+10000210:	b9f42098 	brlid	r15, 8344	// 100022a8 <__fini>
+10000214:	80000000 	or	r0, r0, r0
+10000218:	b9f41324 	brlid	r15, 4900	// 1000153c <_program_clean>
+1000021c:	80000000 	or	r0, r0, r0
+10000220:	c9e10000 	lw	r15, r1, r0
+10000224:	30730000 	addik	r3, r19, 0
+10000228:	b60f0008 	rtsd	r15, 8
+1000022c:	20210014 	addi	r1, r1, 20
+
+10000230 <uart_read>:
+ * \brief Read data from RX buffer
+ * \param[in,out] data The pointer to the data
+ */
+static __inline__ void uart_read(sb_uint8_t *const data)
+{
+  *data = (sb_uint8_t)READ_REG32(UART_DATA_RX_REG);
+10000230:	b0002000 	imm	8192
+10000234:	e8600004 	lwi	r3, r0, 4
+}
+10000238:	b60f0008 	rtsd	r15, 8
+1000023c:	f0650000 	sbi	r3, r5, 0
+
+10000240 <uart_write>:
+ * \brief Write data to TX buffer
+ * \param[in] data The data to write
+ */
+static __inline__ void uart_write(const sb_uint8_t data)
+{
+  WRITE_REG32(UART_DATA_TX_REG,data);
+10000240:	b0002000 	imm	8192
+10000244:	f8a0000c 	swi	r5, r0, 12
+}
+10000248:	b60f0008 	rtsd	r15, 8
+1000024c:	80000000 	or	r0, r0, r0
+
+10000250 <uart_send>:
+ * \fn void uart_send(void)
+ * \brief Start a TX transfert
+ */
+static __inline__ void uart_send(void)
+{
+  WRITE_REG32(UART_CONTROL_REG,SEND_TX_BIT);
+10000250:	30600001 	addik	r3, r0, 1
+10000254:	b0002000 	imm	8192
+10000258:	f8600008 	swi	r3, r0, 8
+}
+1000025c:	b60f0008 	rtsd	r15, 8
+10000260:	80000000 	or	r0, r0, r0
+
+10000264 <uart_wait_rx_ready>:
+ * \fn void uart_wait_rx_ready(void)
+ * \brief Poll the RX ready flag, return when new RX data.
+ */
+void uart_wait_rx_ready(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & RX_READY_FLAG_BIT);
+10000264:	b0002000 	imm	8192
+10000268:	e8600000 	lwi	r3, r0, 0
+1000026c:	a4630001 	andi	r3, r3, 1
+  while(flag != RX_READY_FLAG_BIT)
+10000270:	a8630001 	xori	r3, r3, 1
+10000274:	bc23fff0 	bnei	r3, -16	// 10000264 <uart_wait_rx_ready>
+10000278:	b60f0008 	rtsd	r15, 8
+1000027c:	80000000 	or	r0, r0, r0
+
+10000280 <uart_get>:
+ * \fn void uart_get(sb_uint8_t *const in)
+ * \brief Get byte from the RX line 
+ * \param[in,out] in The pointer to the data
+ */
+void uart_get(sb_uint8_t *const in)
+{
+10000280:	3021ffe0 	addik	r1, r1, -32
+10000284:	f9e10000 	swi	r15, r1, 0
+  uart_wait_rx_ready();
+10000288:	b9f4ffdc 	brlid	r15, -36	// 10000264 <uart_wait_rx_ready>
+1000028c:	f8a1001c 	swi	r5, r1, 28
+  uart_read(in);
+10000290:	b9f4ffa0 	brlid	r15, -96	// 10000230 <uart_read>
+10000294:	e8a1001c 	lwi	r5, r1, 28
+}
+10000298:	e9e10000 	lwi	r15, r1, 0
+1000029c:	b60f0008 	rtsd	r15, 8
+100002a0:	30210020 	addik	r1, r1, 32
+
+100002a4 <uart_wait_tx_done>:
+ * \fn void uart_wait_tx_done(void)
+ * \brief Poll the TX busy flag, return when TX transfert is finished.
+ */
+void uart_wait_tx_done(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & TX_BUSY_FLAG_BIT);
+100002a4:	b0002000 	imm	8192
+100002a8:	e8600000 	lwi	r3, r0, 0
+100002ac:	a4630002 	andi	r3, r3, 2
+  while(flag == TX_BUSY_FLAG_BIT)
+100002b0:	bc23fff4 	bnei	r3, -12	// 100002a4 <uart_wait_tx_done>
+100002b4:	b60f0008 	rtsd	r15, 8
+100002b8:	80000000 	or	r0, r0, r0
+
+100002bc <uart_put>:
+ * \fn void uart_put(const sb_uint8_t c)
+ * \brief Put byte through the TX line
+ * \param[in] c The byte
+ */
+void uart_put(const sb_uint8_t c)
+{
+100002bc:	3021ffe4 	addik	r1, r1, -28
+100002c0:	f9e10000 	swi	r15, r1, 0
+  uart_write(c);
+100002c4:	b9f4ff7c 	brlid	r15, -132	// 10000240 <uart_write>
+100002c8:	80000000 	or	r0, r0, r0
+  uart_send();
+100002cc:	b9f4ff84 	brlid	r15, -124	// 10000250 <uart_send>
+100002d0:	80000000 	or	r0, r0, r0
+  uart_wait_tx_done();
+100002d4:	b9f4ffd0 	brlid	r15, -48	// 100002a4 <uart_wait_tx_done>
+100002d8:	80000000 	or	r0, r0, r0
+}
+100002dc:	e9e10000 	lwi	r15, r1, 0
+100002e0:	b60f0008 	rtsd	r15, 8
+100002e4:	3021001c 	addik	r1, r1, 28
+
+100002e8 <outbyte>:
+  int *varg = (int *)((char **)&format);
+  return print(&out,varg);
+}
+
+void outbyte(char **str, char c)
+{
+100002e8:	3021ffe4 	addik	r1, r1, -28
+  if(str) 
+100002ec:	be050028 	beqid	r5, 40		// 10000314
+100002f0:	f9e10000 	swi	r15, r1, 0
+  {
+    **str = c;
+100002f4:	e8650000 	lwi	r3, r5, 0
+100002f8:	f0c30000 	sbi	r6, r3, 0
+    ++(*str);
+100002fc:	e8650000 	lwi	r3, r5, 0
+10000300:	30630001 	addik	r3, r3, 1
+10000304:	f8650000 	swi	r3, r5, 0
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+  }
+}
+10000308:	e9e10000 	lwi	r15, r1, 0
+1000030c:	b60f0008 	rtsd	r15, 8
+10000310:	3021001c 	addik	r1, r1, 28
+    **str = c;
+    ++(*str);
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+10000314:	b9f4ffa8 	brlid	r15, -88	// 100002bc <uart_put>
+10000318:	a4a600ff 	andi	r5, r6, 255
+  }
+}
+1000031c:	e9e10000 	lwi	r15, r1, 0
+10000320:	b60f0008 	rtsd	r15, 8
+10000324:	3021001c 	addik	r1, r1, 28
+
+10000328 <prints>:
+
+int prints(char **out, const char *string, int width, int pad)
+{
+10000328:	3021ffcc 	addik	r1, r1, -52
+1000032c:	fa61001c 	swi	r19, r1, 28
+10000330:	fae10024 	swi	r23, r1, 36
+10000334:	fb21002c 	swi	r25, r1, 44
+10000338:	fb410030 	swi	r26, r1, 48
+1000033c:	f9e10000 	swi	r15, r1, 0
+10000340:	fac10020 	swi	r22, r1, 32
+10000344:	fb010028 	swi	r24, r1, 40
+10000348:	13270000 	addk	r25, r7, r0
+1000034c:	12e50000 	addk	r23, r5, r0
+10000350:	12660000 	addk	r19, r6, r0
+  int pc = 0, padchar = ' ';
+
+  if(width > 0)  
+10000354:	be670050 	bleid	r7, 80		// 100003a4
+10000358:	33400020 	addik	r26, r0, 32
+  {
+    int len = 0;
+    const char *ptr;
+    for (ptr = string; *ptr; ++ptr) ++len;
+1000035c:	e0860000 	lbui	r4, r6, 0
+10000360:	90840060 	sext8	r4, r4
+10000364:	be0400f8 	beqid	r4, 248		// 1000045c
+10000368:	10660000 	addk	r3, r6, r0
+1000036c:	10800000 	addk	r4, r0, r0
+10000370:	30630001 	addik	r3, r3, 1
+10000374:	e0a30000 	lbui	r5, r3, 0
+10000378:	90a50060 	sext8	r5, r5
+1000037c:	be25fff4 	bneid	r5, -12		// 10000370
+10000380:	30840001 	addik	r4, r4, 1
+    if (len >= width) 
+10000384:	14792001 	cmp	r3, r25, r4
+10000388:	be43000c 	bltid	r3, 12		// 10000394
+1000038c:	1724c800 	rsubk	r25, r4, r25
+    {
+      width = 0;
+10000390:	13250000 	addk	r25, r5, r0
+    }
+    else 
+    {
+      width -= len;
+    }
+    if(pad & PAD_ZERO) 
+10000394:	a4680002 	andi	r3, r8, 2
+10000398:	be03000c 	beqid	r3, 12		// 100003a4
+1000039c:	33400020 	addik	r26, r0, 32
+    {
+      padchar = '0';
+100003a0:	33400030 	addik	r26, r0, 48
+    }
+  }
+  
+  if(!(pad & PAD_RIGHT)) 
+100003a4:	a5080001 	andi	r8, r8, 1
+100003a8:	be280054 	bneid	r8, 84		// 100003fc
+100003ac:	12c00000 	addk	r22, r0, r0
+  {
+    for(;width > 0;--width) 
+100003b0:	be79004c 	bleid	r25, 76		// 100003fc
+100003b4:	12c80000 	addk	r22, r8, r0
+100003b8:	13190000 	addk	r24, r25, r0
+100003bc:	92da0060 	sext8	r22, r26
+    {
+      outbyte(out,padchar);
+100003c0:	10b70000 	addk	r5, r23, r0
+100003c4:	10d60000 	addk	r6, r22, r0
+100003c8:	b9f4ff20 	brlid	r15, -224	// 100002e8 <outbyte>
+100003cc:	3318ffff 	addik	r24, r24, -1
+    }
+  }
+  
+  if(!(pad & PAD_RIGHT)) 
+  {
+    for(;width > 0;--width) 
+100003d0:	be38fff4 	bneid	r24, -12		// 100003c4
+100003d4:	10b70000 	addk	r5, r23, r0
+      outbyte(out,padchar);
+      ++pc;
+    }
+  }
+  
+  for(;*string;++string) 
+100003d8:	e0d30000 	lbui	r6, r19, 0
+    }
+  }
+  
+  if(!(pad & PAD_RIGHT)) 
+  {
+    for(;width > 0;--width) 
+100003dc:	12d90000 	addk	r22, r25, r0
+      outbyte(out,padchar);
+      ++pc;
+    }
+  }
+  
+  for(;*string;++string) 
+100003e0:	90c60060 	sext8	r6, r6
+100003e4:	be060028 	beqid	r6, 40		// 1000040c
+100003e8:	13380000 	addk	r25, r24, r0
+  {
+    outbyte(out,*string);
+100003ec:	10b70000 	addk	r5, r23, r0
+    ++pc;
+100003f0:	32730001 	addik	r19, r19, 1
+    }
+  }
+  
+  for(;*string;++string) 
+  {
+    outbyte(out,*string);
+100003f4:	b9f4fef4 	brlid	r15, -268	// 100002e8 <outbyte>
+100003f8:	32d60001 	addik	r22, r22, 1
+      outbyte(out,padchar);
+      ++pc;
+    }
+  }
+  
+  for(;*string;++string) 
+100003fc:	e0d30000 	lbui	r6, r19, 0
+10000400:	90c60060 	sext8	r6, r6
+10000404:	be26ffec 	bneid	r6, -20		// 100003f0
+10000408:	10b70000 	addk	r5, r23, r0
+  {
+    outbyte(out,*string);
+    ++pc;
+   }
+   
+  for(;width > 0;--width) 
+1000040c:	be790028 	bleid	r25, 40		// 10000434
+10000410:	12790000 	addk	r19, r25, r0
+10000414:	931a0060 	sext8	r24, r26
+  {
+    outbyte(out,padchar);
+10000418:	10b70000 	addk	r5, r23, r0
+1000041c:	10d80000 	addk	r6, r24, r0
+10000420:	b9f4fec8 	brlid	r15, -312	// 100002e8 <outbyte>
+10000424:	3273ffff 	addik	r19, r19, -1
+  {
+    outbyte(out,*string);
+    ++pc;
+   }
+   
+  for(;width > 0;--width) 
+10000428:	be33fff4 	bneid	r19, -12		// 1000041c
+1000042c:	10b70000 	addk	r5, r23, r0
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+  }
+}
+
+int prints(char **out, const char *string, int width, int pad)
+10000430:	12d6c800 	addk	r22, r22, r25
+    outbyte(out,padchar);
+    ++pc;
+  }
+
+  return pc;
+}
+10000434:	10760000 	addk	r3, r22, r0
+10000438:	e9e10000 	lwi	r15, r1, 0
+1000043c:	ea61001c 	lwi	r19, r1, 28
+10000440:	eac10020 	lwi	r22, r1, 32
+10000444:	eae10024 	lwi	r23, r1, 36
+10000448:	eb010028 	lwi	r24, r1, 40
+1000044c:	eb21002c 	lwi	r25, r1, 44
+10000450:	eb410030 	lwi	r26, r1, 48
+10000454:	b60f0008 	rtsd	r15, 8
+10000458:	30210034 	addik	r1, r1, 52
+    {
+      width = 0;
+    }
+    else 
+    {
+      width -= len;
+1000045c:	b810ff38 	brid	-200		// 10000394
+10000460:	1724c800 	rsubk	r25, r4, r25
+
+10000464 <printi>:
+
+  return pc;
+}
+
+int printi(char **out, int i, int b, int sg, int width, int pad, int letbase)
+{
+10000464:	3021ffc0 	addik	r1, r1, -64
+10000468:	fae1003c 	swi	r23, r1, 60
+1000046c:	f9e10000 	swi	r15, r1, 0
+10000470:	fa610034 	swi	r19, r1, 52
+10000474:	fac10038 	swi	r22, r1, 56
+10000478:	10660000 	addk	r3, r6, r0
+1000047c:	12e50000 	addk	r23, r5, r0
+  char print_buf[PRINT_BUF_LEN];
+  char *s;
+  int t, neg = 0, pc = 0;
+  unsigned int u = i;
+
+  if(i == 0) 
+10000480:	be0600f0 	beqid	r6, 240		// 10000570
+10000484:	10860000 	addk	r4, r6, r0
+    print_buf[0] = '0';
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+  }
+
+  if(sg && b == 10 && i < 0) 
+10000488:	be2800bc 	bneid	r8, 188		// 10000544
+1000048c:	12c00000 	addk	r22, r0, r0
+    neg = 1;
+    u = -i;
+  }
+
+  s = print_buf + PRINT_BUF_LEN-1;
+  *s = '\0';
+10000490:	f001002b 	sbi	r0, r1, 43
+
+  while(u) 
+10000494:	be040040 	beqid	r4, 64		// 100004d4
+10000498:	3261002b 	addik	r19, r1, 43
+  {
+    t = u % b;
+    if(t >= 10)
+    {
+      t += letbase - '0' - 10;
+1000049c:	e861005c 	lwi	r3, r1, 92
+  *s = '\0';
+
+  while(u) 
+  {
+    t = u % b;
+    if(t >= 10)
+100004a0:	31800009 	addik	r12, r0, 9
+    {
+      t += letbase - '0' - 10;
+100004a4:	3063ffc6 	addik	r3, r3, -58
+  s = print_buf + PRINT_BUF_LEN-1;
+  *s = '\0';
+
+  while(u) 
+  {
+    t = u % b;
+100004a8:	49672002 	idivu	r11, r7, r4
+100004ac:	40cb3800 	mul	r6, r11, r7
+100004b0:	14c62000 	rsubk	r6, r6, r4
+    if(t >= 10)
+    {
+      t += letbase - '0' - 10;
+    }
+    *--s = t + '0';
+    u /= b;
+100004b4:	108b0000 	addk	r4, r11, r0
+  *s = '\0';
+
+  while(u) 
+  {
+    t = u % b;
+    if(t >= 10)
+100004b8:	15666001 	cmp	r11, r6, r12
+100004bc:	beab000c 	bgeid	r11, 12		// 100004c8
+100004c0:	3273ffff 	addik	r19, r19, -1
+    {
+      t += letbase - '0' - 10;
+100004c4:	10c61800 	addk	r6, r6, r3
+    }
+    *--s = t + '0';
+100004c8:	30c60030 	addik	r6, r6, 48
+  }
+
+  s = print_buf + PRINT_BUF_LEN-1;
+  *s = '\0';
+
+  while(u) 
+100004cc:	be24ffdc 	bneid	r4, -36		// 100004a8
+100004d0:	f0d30000 	sbi	r6, r19, 0
+    }
+    *--s = t + '0';
+    u /= b;
+  }
+
+  if(neg) 
+100004d4:	bc360034 	bnei	r22, 52		// 10000508
+    {
+      *--s = '-';
+    }
+  }
+
+	return pc + prints(out,s,width,pad);
+100004d8:	10b70000 	addk	r5, r23, r0
+100004dc:	10d30000 	addk	r6, r19, r0
+100004e0:	10e90000 	addk	r7, r9, r0
+100004e4:	b9f4fe44 	brlid	r15, -444	// 10000328 <prints>
+100004e8:	110a0000 	addk	r8, r10, r0
+100004ec:	1063b000 	addk	r3, r3, r22
+}
+100004f0:	e9e10000 	lwi	r15, r1, 0
+100004f4:	ea610034 	lwi	r19, r1, 52
+100004f8:	eac10038 	lwi	r22, r1, 56
+100004fc:	eae1003c 	lwi	r23, r1, 60
+10000500:	b60f0008 	rtsd	r15, 8
+10000504:	30210040 	addik	r1, r1, 64
+    u /= b;
+  }
+
+  if(neg) 
+  {
+    if(width && (pad & PAD_ZERO)) 
+10000508:	be090058 	beqid	r9, 88		// 10000560
+1000050c:	3060002d 	addik	r3, r0, 45
+10000510:	a46a0002 	andi	r3, r10, 2
+10000514:	be03004c 	beqid	r3, 76		// 10000560
+10000518:	3060002d 	addik	r3, r0, 45
+    {
+      outbyte(out, '-');
+1000051c:	10b70000 	addk	r5, r23, r0
+      ++pc;
+     --width;
+10000520:	3129ffff 	addik	r9, r9, -1
+
+  if(neg) 
+  {
+    if(width && (pad & PAD_ZERO)) 
+    {
+      outbyte(out, '-');
+10000524:	30c0002d 	addik	r6, r0, 45
+10000528:	f921002c 	swi	r9, r1, 44
+1000052c:	b9f4fdbc 	brlid	r15, -580	// 100002e8 <outbyte>
+10000530:	f9410030 	swi	r10, r1, 48
+      ++pc;
+10000534:	32c00001 	addik	r22, r0, 1
+     --width;
+10000538:	e921002c 	lwi	r9, r1, 44
+1000053c:	b810ff9c 	brid	-100		// 100004d8
+10000540:	e9410030 	lwi	r10, r1, 48
+    print_buf[0] = '0';
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+  }
+
+  if(sg && b == 10 && i < 0) 
+10000544:	3060000a 	addik	r3, r0, 10
+10000548:	88671c00 	pcmpeq	r3, r7, r3
+1000054c:	bc03ff44 	beqi	r3, -188		// 10000490
+10000550:	bca6ff40 	bgei	r6, -192		// 10000490
+  {
+    neg = 1;
+    u = -i;
+10000554:	14860000 	rsubk	r4, r6, r0
+    return prints(out,print_buf,width,pad);
+  }
+
+  if(sg && b == 10 && i < 0) 
+  {
+    neg = 1;
+10000558:	b810ff38 	brid	-200		// 10000490
+1000055c:	32c00001 	addik	r22, r0, 1
+      ++pc;
+     --width;
+    }
+    else 
+    {
+      *--s = '-';
+10000560:	f073ffff 	sbi	r3, r19, -1
+
+int printi(char **out, int i, int b, int sg, int width, int pad, int letbase)
+{
+  char print_buf[PRINT_BUF_LEN];
+  char *s;
+  int t, neg = 0, pc = 0;
+10000564:	12c00000 	addk	r22, r0, r0
+      ++pc;
+     --width;
+    }
+    else 
+    {
+      *--s = '-';
+10000568:	b810ff70 	brid	-144		// 100004d8
+1000056c:	3273ffff 	addik	r19, r19, -1
+
+  if(i == 0) 
+  {
+    print_buf[0] = '0';
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+10000570:	10e90000 	addk	r7, r9, r0
+10000574:	110a0000 	addk	r8, r10, r0
+  int t, neg = 0, pc = 0;
+  unsigned int u = i;
+
+  if(i == 0) 
+  {
+    print_buf[0] = '0';
+10000578:	30800030 	addik	r4, r0, 48
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+1000057c:	30c1001c 	addik	r6, r1, 28
+  int t, neg = 0, pc = 0;
+  unsigned int u = i;
+
+  if(i == 0) 
+  {
+    print_buf[0] = '0';
+10000580:	f081001c 	sbi	r4, r1, 28
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+10000584:	b9f4fda4 	brlid	r15, -604	// 10000328 <prints>
+10000588:	f061001d 	sbi	r3, r1, 29
+      *--s = '-';
+    }
+  }
+
+	return pc + prints(out,s,width,pad);
+}
+1000058c:	e9e10000 	lwi	r15, r1, 0
+10000590:	ea610034 	lwi	r19, r1, 52
+10000594:	eac10038 	lwi	r22, r1, 56
+10000598:	eae1003c 	lwi	r23, r1, 60
+1000059c:	b60f0008 	rtsd	r15, 8
+100005a0:	30210040 	addik	r1, r1, 64
+
+100005a4 <print>:
+
+int print(char **out, int *varg)
+{
+100005a4:	3021ffc0 	addik	r1, r1, -64
+100005a8:	fac10028 	swi	r22, r1, 40
+100005ac:	fb010030 	swi	r24, r1, 48
+100005b0:	f9e10000 	swi	r15, r1, 0
+100005b4:	fa610024 	swi	r19, r1, 36
+100005b8:	fae1002c 	swi	r23, r1, 44
+100005bc:	fb210034 	swi	r25, r1, 52
+100005c0:	fb410038 	swi	r26, r1, 56
+100005c4:	fb61003c 	swi	r27, r1, 60
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+100005c8:	e8860000 	lwi	r4, r6, 0
+
+	return pc + prints(out,s,width,pad);
+}
+
+int print(char **out, int *varg)
+{
+100005cc:	13050000 	addk	r24, r5, r0
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+  char scr[2];
+
+  for(;*format != 0;++format) 
+100005d0:	e1440000 	lbui	r10, r4, 0
+100005d4:	914a0060 	sext8	r10, r10
+100005d8:	be0a0110 	beqid	r10, 272		// 100006e8
+100005dc:	12ca0000 	addk	r22, r10, r0
+
+int print(char **out, int *varg)
+{
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+100005e0:	33260004 	addik	r25, r6, 4
+}
+
+int print(char **out, int *varg)
+{
+  int width, pad;
+  int pc = 0;
+100005e4:	12c00000 	addk	r22, r0, r0
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+100005e8:	32e00009 	addik	r23, r0, 9
+        pc += printi (out,*varg++,16,0,width,pad,'A');
+        continue;
+      }
+      if( *format == 'u' ) 
+      {
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+100005ec:	33400061 	addik	r26, r0, 97
+        pc += printi(out,*varg++,16,0,width,pad,'a');
+        continue;
+      } 
+      if(*format == 'X') 
+      {
+        pc += printi (out,*varg++,16,0,width,pad,'A');
+100005f0:	33600041 	addik	r27, r0, 65
+  char *format = (char *)(*varg++);
+  char scr[2];
+
+  for(;*format != 0;++format) 
+  {
+    if(*format == '%') 
+100005f4:	a94a0025 	xori	r10, r10, 37
+100005f8:	be2a012c 	bneid	r10, 300		// 10000724
+100005fc:	12640000 	addk	r19, r4, r0
+    {
+      ++format;
+      width = pad = 0;
+      if(*format == '\0') 
+10000600:	e0c40001 	lbui	r6, r4, 1
+10000604:	90c60060 	sext8	r6, r6
+10000608:	be0600e0 	beqid	r6, 224		// 100006e8
+1000060c:	a8660025 	xori	r3, r6, 37
+      {
+        break;
+      }
+      if(*format == '%') 
+10000610:	be03011c 	beqid	r3, 284		// 1000072c
+10000614:	32640001 	addik	r19, r4, 1
+      {
+        goto out;
+      }
+      if(*format == '-') 
+10000618:	a866002d 	xori	r3, r6, 45
+1000061c:	bc030144 	beqi	r3, 324		// 10000760
+      {
+        ++format;
+        pad = PAD_RIGHT;
+      }
+      while (*format == '0') 
+10000620:	a8660030 	xori	r3, r6, 48
+10000624:	be230024 	bneid	r3, 36		// 10000648
+10000628:	10930000 	addk	r4, r19, r0
+  }
+
+	return pc + prints(out,s,width,pad);
+}
+
+int print(char **out, int *varg)
+1000062c:	30840001 	addik	r4, r4, 1
+      if(*format == '-') 
+      {
+        ++format;
+        pad = PAD_RIGHT;
+      }
+      while (*format == '0') 
+10000630:	e0c40000 	lbui	r6, r4, 0
+      {
+        ++format;
+        pad |= PAD_ZERO;
+10000634:	a14a0002 	ori	r10, r10, 2
+      if(*format == '-') 
+      {
+        ++format;
+        pad = PAD_RIGHT;
+      }
+      while (*format == '0') 
+10000638:	90c60060 	sext8	r6, r6
+1000063c:	a8e60030 	xori	r7, r6, 48
+10000640:	be07ffec 	beqid	r7, -20		// 1000062c
+10000644:	12640000 	addk	r19, r4, r0
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000648:	3106ffd0 	addik	r8, r6, -48
+1000064c:	a46800ff 	andi	r3, r8, 255
+10000650:	1463b803 	cmpu	r3, r3, r23
+10000654:	10e00000 	addk	r7, r0, r0
+10000658:	bea30014 	bgeid	r3, 20		// 1000066c
+1000065c:	10930000 	addk	r4, r19, r0
+      {
+        width *= 10;
+        width += *format - '0';
+      }
+      if(*format == 's') 
+10000660:	b8100040 	brid	64		// 100006a0
+10000664:	a8660073 	xori	r3, r6, 115
+10000668:	3106ffd0 	addik	r8, r6, -48
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+1000066c:	e0c40001 	lbui	r6, r4, 1
+      {
+        width *= 10;
+10000670:	65670402 	bslli	r11, r7, 2
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000674:	3126ffd0 	addik	r9, r6, -48
+      {
+        width *= 10;
+10000678:	10eb3800 	addk	r7, r11, r7
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+1000067c:	a52900ff 	andi	r9, r9, 255
+  }
+
+	return pc + prints(out,s,width,pad);
+}
+
+int print(char **out, int *varg)
+10000680:	32640001 	addik	r19, r4, 1
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+      {
+        width *= 10;
+10000684:	10e73800 	addk	r7, r7, r7
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000688:	1529b803 	cmpu	r9, r9, r23
+1000068c:	10930000 	addk	r4, r19, r0
+      {
+        width *= 10;
+        width += *format - '0';
+10000690:	10e83800 	addk	r7, r8, r7
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000694:	bea9ffd4 	bgeid	r9, -44		// 10000668
+10000698:	90c60060 	sext8	r6, r6
+      {
+        width *= 10;
+        width += *format - '0';
+      }
+      if(*format == 's') 
+1000069c:	a8660073 	xori	r3, r6, 115
+100006a0:	be0300a0 	beqid	r3, 160		// 10000740
+100006a4:	a8660064 	xori	r3, r6, 100
+      {
+        char *s = *((char **)varg++);
+        pc += prints(out, s?s:"(null)",width,pad);
+        continue;
+      }  
+      if(*format == 'd') 
+100006a8:	be0300cc 	beqid	r3, 204		// 10000774
+100006ac:	11270000 	addk	r9, r7, r0
+      {
+        pc += printi(out,*varg++,10,1,width,pad,'a');
+        continue;
+      }
+      if(*format == 'x') 
+100006b0:	a9060078 	xori	r8, r6, 120
+100006b4:	be0800e4 	beqid	r8, 228		// 10000798
+100006b8:	10b80000 	addk	r5, r24, r0
+      {
+        pc += printi(out,*varg++,16,0,width,pad,'a');
+        continue;
+      } 
+      if(*format == 'X') 
+100006bc:	a9060058 	xori	r8, r6, 88
+100006c0:	bc0800f4 	beqi	r8, 244		// 100007b4
+      {
+        pc += printi (out,*varg++,16,0,width,pad,'A');
+        continue;
+      }
+      if( *format == 'u' ) 
+100006c4:	a9060075 	xori	r8, r6, 117
+100006c8:	bc080108 	beqi	r8, 264		// 100007d0
+      {
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+        continue;
+      }
+      if(*format == 'c') 
+100006cc:	a8660063 	xori	r3, r6, 99
+100006d0:	be03011c 	beqid	r3, 284		// 100007ec
+100006d4:	30c10020 	addik	r6, r1, 32
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+  char scr[2];
+
+  for(;*format != 0;++format) 
+100006d8:	e1530001 	lbui	r10, r19, 1
+100006dc:	914a0060 	sext8	r10, r10
+100006e0:	be2aff14 	bneid	r10, -236		// 100005f4
+100006e4:	30930001 	addik	r4, r19, 1
+       outbyte(out,*format);
+       ++pc;
+     }
+   }
+   
+   if(out) 
+100006e8:	be180014 	beqid	r24, 20		// 100006fc
+100006ec:	10760000 	addk	r3, r22, r0
+   {
+     **out = '\0';
+100006f0:	e8780000 	lwi	r3, r24, 0
+100006f4:	f0030000 	sbi	r0, r3, 0
+   }
+   
+   return pc;
+}
+100006f8:	10760000 	addk	r3, r22, r0
+100006fc:	e9e10000 	lwi	r15, r1, 0
+10000700:	ea610024 	lwi	r19, r1, 36
+10000704:	eac10028 	lwi	r22, r1, 40
+10000708:	eae1002c 	lwi	r23, r1, 44
+1000070c:	eb010030 	lwi	r24, r1, 48
+10000710:	eb210034 	lwi	r25, r1, 52
+10000714:	eb410038 	lwi	r26, r1, 56
+10000718:	eb61003c 	lwi	r27, r1, 60
+1000071c:	b60f0008 	rtsd	r15, 8
+10000720:	30210040 	addik	r1, r1, 64
+      if(*format == 'c') 
+      {
+        scr[0] = *varg++;
+        scr[1] = '\0';
+        pc += prints(out,scr,width,pad);
+        continue;
+10000724:	e0c40000 	lbui	r6, r4, 0
+10000728:	90c60060 	sext8	r6, r6
+       }
+     }
+     else 
+     {
+       out:
+       outbyte(out,*format);
+1000072c:	10b80000 	addk	r5, r24, r0
+10000730:	b9f4fbb8 	brlid	r15, -1096	// 100002e8 <outbyte>
+10000734:	32d60001 	addik	r22, r22, 1
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+  char scr[2];
+
+  for(;*format != 0;++format) 
+10000738:	b810ffa4 	brid	-92		// 100006dc
+1000073c:	e1530001 	lbui	r10, r19, 1
+        width *= 10;
+        width += *format - '0';
+      }
+      if(*format == 's') 
+      {
+        char *s = *((char **)varg++);
+10000740:	e8d90000 	lwi	r6, r25, 0
+        pc += prints(out, s?s:"(null)",width,pad);
+10000744:	be0600c8 	beqid	r6, 200		// 1000080c
+10000748:	33390004 	addik	r25, r25, 4
+1000074c:	10b80000 	addk	r5, r24, r0
+10000750:	b9f4fbd8 	brlid	r15, -1064	// 10000328 <prints>
+10000754:	110a0000 	addk	r8, r10, r0
+        continue;
+10000758:	b810ff80 	brid	-128		// 100006d8
+1000075c:	12d61800 	addk	r22, r22, r3
+      {
+        goto out;
+      }
+      if(*format == '-') 
+      {
+        ++format;
+10000760:	e0c40002 	lbui	r6, r4, 2
+10000764:	32640002 	addik	r19, r4, 2
+        pad = PAD_RIGHT;
+10000768:	31400001 	addik	r10, r0, 1
+      {
+        goto out;
+      }
+      if(*format == '-') 
+      {
+        ++format;
+1000076c:	b810feb4 	brid	-332		// 10000620
+10000770:	90c60060 	sext8	r6, r6
+        pc += prints(out, s?s:"(null)",width,pad);
+        continue;
+      }  
+      if(*format == 'd') 
+      {
+        pc += printi(out,*varg++,10,1,width,pad,'a');
+10000774:	e8d90000 	lwi	r6, r25, 0
+10000778:	10b80000 	addk	r5, r24, r0
+1000077c:	30e0000a 	addik	r7, r0, 10
+10000780:	31000001 	addik	r8, r0, 1
+10000784:	b9f4fce0 	brlid	r15, -800	// 10000464 <printi>
+10000788:	fb41001c 	swi	r26, r1, 28
+1000078c:	33390004 	addik	r25, r25, 4
+        continue;
+10000790:	b810ff48 	brid	-184		// 100006d8
+10000794:	12d61800 	addk	r22, r22, r3
+      }
+      if(*format == 'x') 
+      {
+        pc += printi(out,*varg++,16,0,width,pad,'a');
+10000798:	e8d90000 	lwi	r6, r25, 0
+1000079c:	30e00010 	addik	r7, r0, 16
+100007a0:	b9f4fcc4 	brlid	r15, -828	// 10000464 <printi>
+100007a4:	fb41001c 	swi	r26, r1, 28
+100007a8:	33390004 	addik	r25, r25, 4
+        continue;
+100007ac:	b810ff2c 	brid	-212		// 100006d8
+100007b0:	12d61800 	addk	r22, r22, r3
+      } 
+      if(*format == 'X') 
+      {
+        pc += printi (out,*varg++,16,0,width,pad,'A');
+100007b4:	e8d90000 	lwi	r6, r25, 0
+100007b8:	30e00010 	addik	r7, r0, 16
+100007bc:	b9f4fca8 	brlid	r15, -856	// 10000464 <printi>
+100007c0:	fb61001c 	swi	r27, r1, 28
+100007c4:	33390004 	addik	r25, r25, 4
+        continue;
+100007c8:	b810ff10 	brid	-240		// 100006d8
+100007cc:	12d61800 	addk	r22, r22, r3
+      }
+      if( *format == 'u' ) 
+      {
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+100007d0:	e8d90000 	lwi	r6, r25, 0
+100007d4:	30e0000a 	addik	r7, r0, 10
+100007d8:	b9f4fc8c 	brlid	r15, -884	// 10000464 <printi>
+100007dc:	fb41001c 	swi	r26, r1, 28
+100007e0:	33390004 	addik	r25, r25, 4
+        continue;
+100007e4:	b810fef4 	brid	-268		// 100006d8
+100007e8:	12d61800 	addk	r22, r22, r3
+      }
+      if(*format == 'c') 
+      {
+        scr[0] = *varg++;
+100007ec:	e0990003 	lbui	r4, r25, 3
+        scr[1] = '\0';
+        pc += prints(out,scr,width,pad);
+100007f0:	110a0000 	addk	r8, r10, r0
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+        continue;
+      }
+      if(*format == 'c') 
+      {
+        scr[0] = *varg++;
+100007f4:	f0810020 	sbi	r4, r1, 32
+        scr[1] = '\0';
+        pc += prints(out,scr,width,pad);
+100007f8:	b9f4fb30 	brlid	r15, -1232	// 10000328 <prints>
+100007fc:	f0610021 	sbi	r3, r1, 33
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+        continue;
+      }
+      if(*format == 'c') 
+      {
+        scr[0] = *varg++;
+10000800:	33390004 	addik	r25, r25, 4
+        scr[1] = '\0';
+        pc += prints(out,scr,width,pad);
+        continue;
+10000804:	b810fed4 	brid	-300		// 100006d8
+10000808:	12d61800 	addk	r22, r22, r3
+        width += *format - '0';
+      }
+      if(*format == 's') 
+      {
+        char *s = *((char **)varg++);
+        pc += prints(out, s?s:"(null)",width,pad);
+1000080c:	b0001000 	imm	4096
+10000810:	30c022c4 	addik	r6, r0, 8900	// 100022c4 <__rodata_start>
+10000814:	b810ff3c 	brid	-196		// 10000750
+10000818:	10b80000 	addk	r5, r24, r0
+
+1000081c <e_sprintf>:
+  int *varg = (int *)((char **)&format);
+  return print(0,varg);
+}
+
+int e_sprintf(char *out, const char *format, ...)
+{
+1000081c:	f8c10008 	swi	r6, r1, 8
+10000820:	f8e1000c 	swi	r7, r1, 12
+10000824:	f9010010 	swi	r8, r1, 16
+10000828:	f9210014 	swi	r9, r1, 20
+1000082c:	f9410018 	swi	r10, r1, 24
+10000830:	3021ffe4 	addik	r1, r1, -28
+10000834:	f8a10020 	swi	r5, r1, 32
+10000838:	f8c10024 	swi	r6, r1, 36
+  int *varg = (int *)((char **)&format);
+  return print(&out,varg);
+1000083c:	30a10020 	addik	r5, r1, 32
+  int *varg = (int *)((char **)&format);
+  return print(0,varg);
+}
+
+int e_sprintf(char *out, const char *format, ...)
+{
+10000840:	f9e10000 	swi	r15, r1, 0
+  int *varg = (int *)((char **)&format);
+  return print(&out,varg);
+10000844:	b9f4fd60 	brlid	r15, -672	// 100005a4 <print>
+10000848:	30c10024 	addik	r6, r1, 36
+}
+1000084c:	e9e10000 	lwi	r15, r1, 0
+10000850:	b60f0008 	rtsd	r15, 8
+10000854:	3021001c 	addik	r1, r1, 28
+
+10000858 <e_printf>:
+ */
+
+#include "e_printf.h"
+
+int e_printf(const char *format, ...)
+{ 
+10000858:	f8a10004 	swi	r5, r1, 4
+1000085c:	f8c10008 	swi	r6, r1, 8
+10000860:	f8e1000c 	swi	r7, r1, 12
+10000864:	f9010010 	swi	r8, r1, 16
+10000868:	f9210014 	swi	r9, r1, 20
+1000086c:	f9410018 	swi	r10, r1, 24
+10000870:	3021ffe4 	addik	r1, r1, -28
+10000874:	f8a10020 	swi	r5, r1, 32
+  int *varg = (int *)((char **)&format);
+  return print(0,varg);
+10000878:	30c10020 	addik	r6, r1, 32
+ */
+
+#include "e_printf.h"
+
+int e_printf(const char *format, ...)
+{ 
+1000087c:	f9e10000 	swi	r15, r1, 0
+  int *varg = (int *)((char **)&format);
+  return print(0,varg);
+10000880:	b9f4fd24 	brlid	r15, -732	// 100005a4 <print>
+10000884:	10a00000 	addk	r5, r0, r0
+}
+10000888:	e9e10000 	lwi	r15, r1, 0
+1000088c:	b60f0008 	rtsd	r15, 8
+10000890:	3021001c 	addik	r1, r1, 28
+
+10000894 <timer_1_reset>:
+ * \fn void timer_1_reset(void)
+ * \brief Force reset timer 1
+ */
+static __inline__ void timer_1_reset(void)
+{
+  WRITE_REG32(TIMER_1_CONTROL_REG,TIMER_RESET_BIT);
+10000894:	30600002 	addik	r3, r0, 2
+10000898:	b0005000 	imm	20480
+1000089c:	f8600000 	swi	r3, r0, 0
+}
+100008a0:	b60f0008 	rtsd	r15, 8
+100008a4:	80000000 	or	r0, r0, r0
+
+100008a8 <timer_1_enable>:
+ * \fn void timer_1_enable(void)
+ * \brief Enable timer 1
+ */
+static __inline__ void timer_1_enable(void)
+{
+  WRITE_REG32(TIMER_1_CONTROL_REG,TIMER_ENABLE_BIT);
+100008a8:	30600001 	addik	r3, r0, 1
+100008ac:	b0005000 	imm	20480
+100008b0:	f8600000 	swi	r3, r0, 0
+}
+100008b4:	b60f0008 	rtsd	r15, 8
+100008b8:	80000000 	or	r0, r0, r0
+
+100008bc <timer_1_getval>:
+ * \brief This function returns the value of the first timer's counter
+ * \return Counter value
+ */
+static __inline__ sb_uint32_t timer_1_getval(void)
+{
+  return READ_REG32(TIMER_1_COUNTER_REG);
+100008bc:	b0005000 	imm	20480
+100008c0:	e8600008 	lwi	r3, r0, 8
+}
+100008c4:	b60f0008 	rtsd	r15, 8
+100008c8:	80000000 	or	r0, r0, r0
+
+100008cc <timer_1_init.constprop.0>:
+ * \brief Timer 1 initialization
+ * \param[in] threshold Threshold value
+ */
+static __inline__ void timer_1_init(const sb_uint32_t threshold)
+{
+  WRITE_REG32(TIMER_1_CONTROL_REG,TIMER_RESET_BIT);
+100008cc:	30600002 	addik	r3, r0, 2
+100008d0:	b0005000 	imm	20480
+100008d4:	f8600000 	swi	r3, r0, 0
+  WRITE_REG32(TIMER_1_THRESHOLD_REG,threshold);
+100008d8:	3060ffff 	addik	r3, r0, -1
+100008dc:	b0005000 	imm	20480
+100008e0:	f8600004 	swi	r3, r0, 4
+}
+100008e4:	b60f0008 	rtsd	r15, 8
+100008e8:	80000000 	or	r0, r0, r0
+
+100008ec <Proc_2>:
+  One_Fifty  Int_Loc;
+  Enumeration   Enum_Loc;
+
+  Int_Loc = *Int_Par_Ref + 10;
+  do /* executed once */
+    if (Ch_1_Glob == 'A')
+100008ec:	b0001000 	imm	4096
+100008f0:	e06051ac 	lbui	r3, r0, 20908	// 100051ac <Ch_1_Glob>
+100008f4:	90630060 	sext8	r3, r3
+100008f8:	a8630041 	xori	r3, r3, 65
+100008fc:	be030010 	beqid	r3, 16		// 1000090c
+10000900:	e8850000 	lwi	r4, r5, 0
+      Int_Loc -= 1;
+      *Int_Par_Ref = Int_Loc - Int_Glob;
+      Enum_Loc = Ident_1;
+    } /* if */
+  while (Enum_Loc != Ident_1); /* true */
+} /* Proc_2 */
+10000904:	b60f0008 	rtsd	r15, 8
+10000908:	80000000 	or	r0, r0, r0
+  do /* executed once */
+    if (Ch_1_Glob == 'A')
+      /* then, executed */
+    {
+      Int_Loc -= 1;
+      *Int_Par_Ref = Int_Loc - Int_Glob;
+1000090c:	b0001000 	imm	4096
+10000910:	e86051a8 	lwi	r3, r0, 20904	// 100051a8 <Int_Glob>
+  Int_Loc = *Int_Par_Ref + 10;
+  do /* executed once */
+    if (Ch_1_Glob == 'A')
+      /* then, executed */
+    {
+      Int_Loc -= 1;
+10000914:	30840009 	addik	r4, r4, 9
+      *Int_Par_Ref = Int_Loc - Int_Glob;
+10000918:	14832000 	rsubk	r4, r3, r4
+      Enum_Loc = Ident_1;
+    } /* if */
+  while (Enum_Loc != Ident_1); /* true */
+} /* Proc_2 */
+1000091c:	b60f0008 	rtsd	r15, 8
+10000920:	f8850000 	swi	r4, r5, 0
+
+10000924 <Proc_3>:
+    /* Ptr_Ref_Par becomes Ptr_Glob */
+
+Rec_Pointer *Ptr_Ref_Par;
+
+{
+  if (Ptr_Glob != Null)
+10000924:	b0001000 	imm	4096
+10000928:	e8e051e0 	lwi	r7, r0, 20960	// 100051e0 <Ptr_Glob>
+    /* executed once */
+    /* Ptr_Ref_Par becomes Ptr_Glob */
+
+Rec_Pointer *Ptr_Ref_Par;
+
+{
+1000092c:	3021ffe4 	addik	r1, r1, -28
+  if (Ptr_Glob != Null)
+10000930:	be070018 	beqid	r7, 24		// 10000948
+10000934:	f9e10000 	swi	r15, r1, 0
+    /* then, executed */
+    *Ptr_Ref_Par = Ptr_Glob->Ptr_Comp;
+10000938:	e8670000 	lwi	r3, r7, 0
+1000093c:	f8650000 	swi	r3, r5, 0
+10000940:	b0001000 	imm	4096
+10000944:	e8e051e0 	lwi	r7, r0, 20960	// 100051e0 <Ptr_Glob>
+  Proc_7 (10, Int_Glob, &Ptr_Glob->variant.var_1.Int_Comp);
+10000948:	b0001000 	imm	4096
+1000094c:	e8c051a8 	lwi	r6, r0, 20904	// 100051a8 <Int_Glob>
+10000950:	30a0000a 	addik	r5, r0, 10
+10000954:	b9f401ec 	brlid	r15, 492	// 10000b40 <Proc_7>
+10000958:	30e7000c 	addik	r7, r7, 12
+} /* Proc_3 */
+1000095c:	e9e10000 	lwi	r15, r1, 0
+10000960:	b60f0008 	rtsd	r15, 8
+10000964:	3021001c 	addik	r1, r1, 28
+
+10000968 <Proc_1>:
+  REG Rec_Pointer Next_Record = Ptr_Val_Par->Ptr_Comp;
+                                        /* == Ptr_Glob_Next */
+  /* Local variable, initialized with Ptr_Val_Par->Ptr_Comp,    */
+  /* corresponds to "rename" in Ada, "with" in Pascal           */
+
+  structassign (*Ptr_Val_Par->Ptr_Comp, *Ptr_Glob);
+10000968:	b0001000 	imm	4096
+1000096c:	e86051e0 	lwi	r3, r0, 20960	// 100051e0 <Ptr_Glob>
+Proc_1 (Ptr_Val_Par)
+/******************/
+
+REG Rec_Pointer Ptr_Val_Par;
+    /* executed once */
+{
+10000970:	3021ffd0 	addik	r1, r1, -48
+10000974:	f9e10000 	swi	r15, r1, 0
+10000978:	fac10020 	swi	r22, r1, 32
+1000097c:	fa61001c 	swi	r19, r1, 28
+10000980:	fae10024 	swi	r23, r1, 36
+10000984:	fb010028 	swi	r24, r1, 40
+10000988:	fb21002c 	swi	r25, r1, 44
+  REG Rec_Pointer Next_Record = Ptr_Val_Par->Ptr_Comp;
+1000098c:	ea650000 	lwi	r19, r5, 0
+                                        /* == Ptr_Glob_Next */
+  /* Local variable, initialized with Ptr_Val_Par->Ptr_Comp,    */
+  /* corresponds to "rename" in Ada, "with" in Pascal           */
+
+  structassign (*Ptr_Val_Par->Ptr_Comp, *Ptr_Glob);
+10000990:	eb030000 	lwi	r24, r3, 0
+10000994:	e9830008 	lwi	r12, r3, 8
+10000998:	e9630010 	lwi	r11, r3, 16
+1000099c:	e9430014 	lwi	r10, r3, 20
+100009a0:	e9230018 	lwi	r9, r3, 24
+100009a4:	e903001c 	lwi	r8, r3, 28
+100009a8:	e8e30020 	lwi	r7, r3, 32
+100009ac:	e8c30024 	lwi	r6, r3, 36
+100009b0:	eae30004 	lwi	r23, r3, 4
+100009b4:	eb23002c 	lwi	r25, r3, 44
+Proc_1 (Ptr_Val_Par)
+/******************/
+
+REG Rec_Pointer Ptr_Val_Par;
+    /* executed once */
+{
+100009b8:	12c50000 	addk	r22, r5, r0
+  REG Rec_Pointer Next_Record = Ptr_Val_Par->Ptr_Comp;
+                                        /* == Ptr_Glob_Next */
+  /* Local variable, initialized with Ptr_Val_Par->Ptr_Comp,    */
+  /* corresponds to "rename" in Ada, "with" in Pascal           */
+
+  structassign (*Ptr_Val_Par->Ptr_Comp, *Ptr_Glob);
+100009bc:	e8a30028 	lwi	r5, r3, 40
+100009c0:	fb130000 	swi	r24, r19, 0
+  Ptr_Val_Par->variant.var_1.Int_Comp = 5;
+  Next_Record->variant.var_1.Int_Comp
+        = Ptr_Val_Par->variant.var_1.Int_Comp;
+  Next_Record->Ptr_Comp = Ptr_Val_Par->Ptr_Comp;
+100009c4:	e8760000 	lwi	r3, r22, 0
+                                        /* == Ptr_Glob_Next */
+  /* Local variable, initialized with Ptr_Val_Par->Ptr_Comp,    */
+  /* corresponds to "rename" in Ada, "with" in Pascal           */
+
+  structassign (*Ptr_Val_Par->Ptr_Comp, *Ptr_Glob);
+  Ptr_Val_Par->variant.var_1.Int_Comp = 5;
+100009c8:	30800005 	addik	r4, r0, 5
+  REG Rec_Pointer Next_Record = Ptr_Val_Par->Ptr_Comp;
+                                        /* == Ptr_Glob_Next */
+  /* Local variable, initialized with Ptr_Val_Par->Ptr_Comp,    */
+  /* corresponds to "rename" in Ada, "with" in Pascal           */
+
+  structassign (*Ptr_Val_Par->Ptr_Comp, *Ptr_Glob);
+100009cc:	f9930008 	swi	r12, r19, 8
+100009d0:	f9730010 	swi	r11, r19, 16
+100009d4:	f9530014 	swi	r10, r19, 20
+100009d8:	f9330018 	swi	r9, r19, 24
+100009dc:	f913001c 	swi	r8, r19, 28
+100009e0:	f8f30020 	swi	r7, r19, 32
+100009e4:	f8d30024 	swi	r6, r19, 36
+100009e8:	f8b30028 	swi	r5, r19, 40
+100009ec:	faf30004 	swi	r23, r19, 4
+100009f0:	fb33002c 	swi	r25, r19, 44
+  Ptr_Val_Par->variant.var_1.Int_Comp = 5;
+  Next_Record->variant.var_1.Int_Comp
+        = Ptr_Val_Par->variant.var_1.Int_Comp;
+  Next_Record->Ptr_Comp = Ptr_Val_Par->Ptr_Comp;
+  Proc_3 (&Next_Record->Ptr_Comp);
+100009f4:	10b30000 	addk	r5, r19, r0
+                                        /* == Ptr_Glob_Next */
+  /* Local variable, initialized with Ptr_Val_Par->Ptr_Comp,    */
+  /* corresponds to "rename" in Ada, "with" in Pascal           */
+
+  structassign (*Ptr_Val_Par->Ptr_Comp, *Ptr_Glob);
+  Ptr_Val_Par->variant.var_1.Int_Comp = 5;
+100009f8:	f896000c 	swi	r4, r22, 12
+  Next_Record->variant.var_1.Int_Comp
+        = Ptr_Val_Par->variant.var_1.Int_Comp;
+100009fc:	f893000c 	swi	r4, r19, 12
+  Next_Record->Ptr_Comp = Ptr_Val_Par->Ptr_Comp;
+  Proc_3 (&Next_Record->Ptr_Comp);
+10000a00:	b9f4ff24 	brlid	r15, -220	// 10000924 <Proc_3>
+10000a04:	f8730000 	swi	r3, r19, 0
+    /* Ptr_Val_Par->Ptr_Comp->Ptr_Comp
+                        == Ptr_Glob->Ptr_Comp */
+  if (Next_Record->Discr == Ident_1)
+10000a08:	e8730004 	lwi	r3, r19, 4
+10000a0c:	be03008c 	beqid	r3, 140		// 10000a98
+10000a10:	30600006 	addik	r3, r0, 6
+    Next_Record->Ptr_Comp = Ptr_Glob->Ptr_Comp;
+    Proc_7 (Next_Record->variant.var_1.Int_Comp, 10,
+           &Next_Record->variant.var_1.Int_Comp);
+  }
+  else /* not executed */
+    structassign (*Ptr_Val_Par, *Ptr_Val_Par->Ptr_Comp);
+10000a14:	e8760000 	lwi	r3, r22, 0
+10000a18:	eae30000 	lwi	r23, r3, 0
+10000a1c:	ea630004 	lwi	r19, r3, 4
+10000a20:	e9830008 	lwi	r12, r3, 8
+10000a24:	e963000c 	lwi	r11, r3, 12
+10000a28:	e9430010 	lwi	r10, r3, 16
+10000a2c:	e9230014 	lwi	r9, r3, 20
+10000a30:	e9030018 	lwi	r8, r3, 24
+10000a34:	e8e3001c 	lwi	r7, r3, 28
+10000a38:	e8c30020 	lwi	r6, r3, 32
+10000a3c:	e8a30024 	lwi	r5, r3, 36
+10000a40:	e8830028 	lwi	r4, r3, 40
+10000a44:	e863002c 	lwi	r3, r3, 44
+10000a48:	faf60000 	swi	r23, r22, 0
+10000a4c:	fa760004 	swi	r19, r22, 4
+10000a50:	f876002c 	swi	r3, r22, 44
+10000a54:	f9960008 	swi	r12, r22, 8
+10000a58:	f976000c 	swi	r11, r22, 12
+10000a5c:	f9560010 	swi	r10, r22, 16
+10000a60:	f9360014 	swi	r9, r22, 20
+10000a64:	f9160018 	swi	r8, r22, 24
+10000a68:	f8f6001c 	swi	r7, r22, 28
+10000a6c:	f8d60020 	swi	r6, r22, 32
+10000a70:	f8b60024 	swi	r5, r22, 36
+10000a74:	f8960028 	swi	r4, r22, 40
+} /* Proc_1 */
+10000a78:	e9e10000 	lwi	r15, r1, 0
+10000a7c:	ea61001c 	lwi	r19, r1, 28
+10000a80:	eac10020 	lwi	r22, r1, 32
+10000a84:	eae10024 	lwi	r23, r1, 36
+10000a88:	eb010028 	lwi	r24, r1, 40
+10000a8c:	eb21002c 	lwi	r25, r1, 44
+10000a90:	b60f0008 	rtsd	r15, 8
+10000a94:	30210030 	addik	r1, r1, 48
+                        == Ptr_Glob->Ptr_Comp */
+  if (Next_Record->Discr == Ident_1)
+    /* then, executed */
+  {
+    Next_Record->variant.var_1.Int_Comp = 6;
+    Proc_6 (Ptr_Val_Par->variant.var_1.Enum_Comp,
+10000a98:	e8b60008 	lwi	r5, r22, 8
+10000a9c:	30d30008 	addik	r6, r19, 8
+10000aa0:	b9f401d8 	brlid	r15, 472	// 10000c78 <Proc_6>
+10000aa4:	f873000c 	swi	r3, r19, 12
+           &Next_Record->variant.var_1.Enum_Comp);
+    Next_Record->Ptr_Comp = Ptr_Glob->Ptr_Comp;
+10000aa8:	b0001000 	imm	4096
+10000aac:	e86051e0 	lwi	r3, r0, 20960	// 100051e0 <Ptr_Glob>
+    Proc_7 (Next_Record->variant.var_1.Int_Comp, 10,
+10000ab0:	e8b3000c 	lwi	r5, r19, 12
+10000ab4:	30f3000c 	addik	r7, r19, 12
+    /* then, executed */
+  {
+    Next_Record->variant.var_1.Int_Comp = 6;
+    Proc_6 (Ptr_Val_Par->variant.var_1.Enum_Comp,
+           &Next_Record->variant.var_1.Enum_Comp);
+    Next_Record->Ptr_Comp = Ptr_Glob->Ptr_Comp;
+10000ab8:	e8630000 	lwi	r3, r3, 0
+    Proc_7 (Next_Record->variant.var_1.Int_Comp, 10,
+10000abc:	30c0000a 	addik	r6, r0, 10
+10000ac0:	b9f40080 	brlid	r15, 128	// 10000b40 <Proc_7>
+10000ac4:	f8730000 	swi	r3, r19, 0
+           &Next_Record->variant.var_1.Int_Comp);
+  }
+  else /* not executed */
+    structassign (*Ptr_Val_Par, *Ptr_Val_Par->Ptr_Comp);
+} /* Proc_1 */
+10000ac8:	e9e10000 	lwi	r15, r1, 0
+10000acc:	ea61001c 	lwi	r19, r1, 28
+10000ad0:	eac10020 	lwi	r22, r1, 32
+10000ad4:	eae10024 	lwi	r23, r1, 36
+10000ad8:	eb010028 	lwi	r24, r1, 40
+10000adc:	eb21002c 	lwi	r25, r1, 44
+10000ae0:	b60f0008 	rtsd	r15, 8
+10000ae4:	30210030 	addik	r1, r1, 48
+
+10000ae8 <Proc_4>:
+/*******/
+    /* executed once */
+{
+  Boolean Bool_Loc;
+
+  Bool_Loc = Ch_1_Glob == 'A';
+10000ae8:	b0001000 	imm	4096
+10000aec:	e08051ac 	lbui	r4, r0, 20908	// 100051ac <Ch_1_Glob>
+10000af0:	30600041 	addik	r3, r0, 65
+10000af4:	90840060 	sext8	r4, r4
+10000af8:	88841c00 	pcmpeq	r4, r4, r3
+  Bool_Glob = Bool_Loc | Bool_Glob;
+10000afc:	b0001000 	imm	4096
+10000b00:	e86052ac 	lwi	r3, r0, 21164	// 100052ac <Bool_Glob>
+10000b04:	80832000 	or	r4, r3, r4
+10000b08:	b0001000 	imm	4096
+10000b0c:	f88052ac 	swi	r4, r0, 21164	// 100052ac <Bool_Glob>
+  Ch_2_Glob = 'B';
+10000b10:	30800042 	addik	r4, r0, 66
+10000b14:	b0001000 	imm	4096
+10000b18:	f08051ad 	sbi	r4, r0, 20909	// 100051ad <Ch_2_Glob>
+} /* Proc_4 */
+10000b1c:	b60f0008 	rtsd	r15, 8
+10000b20:	80000000 	or	r0, r0, r0
+
+10000b24 <Proc_5>:
+
+Proc_5 () /* without parameters */
+/*******/
+    /* executed once */
+{
+  Ch_1_Glob = 'A';
+10000b24:	30800041 	addik	r4, r0, 65
+10000b28:	b0001000 	imm	4096
+10000b2c:	f08051ac 	sbi	r4, r0, 20908	// 100051ac <Ch_1_Glob>
+  Bool_Glob = false;
+10000b30:	b0001000 	imm	4096
+10000b34:	f80052ac 	swi	r0, r0, 21164	// 100052ac <Bool_Glob>
+} /* Proc_5 */
+10000b38:	b60f0008 	rtsd	r15, 8
+10000b3c:	80000000 	or	r0, r0, r0
+
+10000b40 <Proc_7>:
+One_Fifty       Int_2_Par_Val;
+One_Fifty      *Int_Par_Ref;
+{
+  One_Fifty Int_Loc;
+
+  Int_Loc = Int_1_Par_Val + 2;
+10000b40:	30a50002 	addik	r5, r5, 2
+  *Int_Par_Ref = Int_2_Par_Val + Int_Loc;
+10000b44:	10c62800 	addk	r6, r6, r5
+} /* Proc_7 */
+10000b48:	b60f0008 	rtsd	r15, 8
+10000b4c:	f8c70000 	swi	r6, r7, 0
+
+10000b50 <Proc_8>:
+int             Int_2_Par_Val;
+{
+  REG One_Fifty Int_Index;
+  REG One_Fifty Int_Loc;
+
+  Int_Loc = Int_1_Par_Val + 5;
+10000b50:	31270005 	addik	r9, r7, 5
+  Arr_1_Par_Ref [Int_Loc] = Int_2_Par_Val;
+10000b54:	64890402 	bslli	r4, r9, 2
+  Arr_1_Par_Ref [Int_Loc+1] = Arr_1_Par_Ref [Int_Loc];
+  Arr_1_Par_Ref [Int_Loc+30] = Int_Loc;
+  for (Int_Index = Int_Loc; Int_Index <= Int_Loc+1; ++Int_Index)
+    Arr_2_Par_Ref [Int_Loc] [Int_Index] = Int_Loc;
+10000b58:	616900c8 	muli	r11, r9, 200
+  REG One_Fifty Int_Index;
+  REG One_Fifty Int_Loc;
+
+  Int_Loc = Int_1_Par_Val + 5;
+  Arr_1_Par_Ref [Int_Loc] = Int_2_Par_Val;
+  Arr_1_Par_Ref [Int_Loc+1] = Arr_1_Par_Ref [Int_Loc];
+10000b5c:	31470006 	addik	r10, r7, 6
+10000b60:	654a0402 	bslli	r10, r10, 2
+  Arr_1_Par_Ref [Int_Loc+30] = Int_Loc;
+10000b64:	31870023 	addik	r12, r7, 35
+{
+  REG One_Fifty Int_Index;
+  REG One_Fifty Int_Loc;
+
+  Int_Loc = Int_1_Par_Val + 5;
+  Arr_1_Par_Ref [Int_Loc] = Int_2_Par_Val;
+10000b68:	d9042800 	sw	r8, r4, r5
+  Arr_1_Par_Ref [Int_Loc+1] = Arr_1_Par_Ref [Int_Loc];
+  Arr_1_Par_Ref [Int_Loc+30] = Int_Loc;
+10000b6c:	658c0402 	bslli	r12, r12, 2
+  REG One_Fifty Int_Index;
+  REG One_Fifty Int_Loc;
+
+  Int_Loc = Int_1_Par_Val + 5;
+  Arr_1_Par_Ref [Int_Loc] = Int_2_Par_Val;
+  Arr_1_Par_Ref [Int_Loc+1] = Arr_1_Par_Ref [Int_Loc];
+10000b70:	d90a2800 	sw	r8, r10, r5
+  Arr_1_Par_Ref [Int_Loc+30] = Int_Loc;
+10000b74:	d92c2800 	sw	r9, r12, r5
+  for (Int_Index = Int_Loc; Int_Index <= Int_Loc+1; ++Int_Index)
+    Arr_2_Par_Ref [Int_Loc] [Int_Index] = Int_Loc;
+10000b78:	10c65800 	addk	r6, r6, r11
+  Arr_2_Par_Ref [Int_Loc] [Int_Loc-1] += 1;
+10000b7c:	30e70004 	addik	r7, r7, 4
+  Int_Loc = Int_1_Par_Val + 5;
+  Arr_1_Par_Ref [Int_Loc] = Int_2_Par_Val;
+  Arr_1_Par_Ref [Int_Loc+1] = Arr_1_Par_Ref [Int_Loc];
+  Arr_1_Par_Ref [Int_Loc+30] = Int_Loc;
+  for (Int_Index = Int_Loc; Int_Index <= Int_Loc+1; ++Int_Index)
+    Arr_2_Par_Ref [Int_Loc] [Int_Index] = Int_Loc;
+10000b80:	d9243000 	sw	r9, r4, r6
+  Arr_2_Par_Ref [Int_Loc] [Int_Loc-1] += 1;
+10000b84:	64e70402 	bslli	r7, r7, 2
+  Int_Loc = Int_1_Par_Val + 5;
+  Arr_1_Par_Ref [Int_Loc] = Int_2_Par_Val;
+  Arr_1_Par_Ref [Int_Loc+1] = Arr_1_Par_Ref [Int_Loc];
+  Arr_1_Par_Ref [Int_Loc+30] = Int_Loc;
+  for (Int_Index = Int_Loc; Int_Index <= Int_Loc+1; ++Int_Index)
+    Arr_2_Par_Ref [Int_Loc] [Int_Index] = Int_Loc;
+10000b88:	d92a3000 	sw	r9, r10, r6
+  Arr_2_Par_Ref [Int_Loc] [Int_Loc-1] += 1;
+10000b8c:	c9273000 	lw	r9, r7, r6
+  Int_Loc = Int_1_Par_Val + 5;
+  Arr_1_Par_Ref [Int_Loc] = Int_2_Par_Val;
+  Arr_1_Par_Ref [Int_Loc+1] = Arr_1_Par_Ref [Int_Loc];
+  Arr_1_Par_Ref [Int_Loc+30] = Int_Loc;
+  for (Int_Index = Int_Loc; Int_Index <= Int_Loc+1; ++Int_Index)
+    Arr_2_Par_Ref [Int_Loc] [Int_Index] = Int_Loc;
+10000b90:	11062000 	addk	r8, r6, r4
+  Arr_2_Par_Ref [Int_Loc] [Int_Loc-1] += 1;
+10000b94:	31290001 	addik	r9, r9, 1
+10000b98:	d9273000 	sw	r9, r7, r6
+  Arr_2_Par_Ref [Int_Loc+20] [Int_Loc] = Arr_1_Par_Ref [Int_Loc];
+10000b9c:	c8842800 	lw	r4, r4, r5
+10000ba0:	f8880fa0 	swi	r4, r8, 4000
+  Int_Glob = 5;
+10000ba4:	30800005 	addik	r4, r0, 5
+10000ba8:	b0001000 	imm	4096
+10000bac:	f88051a8 	swi	r4, r0, 20904	// 100051a8 <Int_Glob>
+} /* Proc_8 */
+10000bb0:	b60f0008 	rtsd	r15, 8
+10000bb4:	80000000 	or	r0, r0, r0
+
+10000bb8 <Func_1>:
+    /* second call:     Ch_1_Par_Val == 'A', Ch_2_Par_Val == 'C'    */
+    /* third call:      Ch_1_Par_Val == 'B', Ch_2_Par_Val == 'C'    */
+
+Capital_Letter   Ch_1_Par_Val;
+Capital_Letter   Ch_2_Par_Val;
+{
+10000bb8:	90a50060 	sext8	r5, r5
+10000bbc:	90c60060 	sext8	r6, r6
+  Capital_Letter        Ch_1_Loc;
+  Capital_Letter        Ch_2_Loc;
+
+  Ch_1_Loc = Ch_1_Par_Val;
+  Ch_2_Loc = Ch_1_Loc;
+  if (Ch_2_Loc != Ch_2_Par_Val)
+10000bc0:	88c53000 	xor	r6, r5, r6
+10000bc4:	be060010 	beqid	r6, 16		// 10000bd4
+10000bc8:	10600000 	addk	r3, r0, r0
+  else  /* not executed */
+  {
+    Ch_1_Glob = Ch_1_Loc;
+    return (Ident_2);
+   }
+} /* Func_1 */
+10000bcc:	b60f0008 	rtsd	r15, 8
+10000bd0:	80000000 	or	r0, r0, r0
+  if (Ch_2_Loc != Ch_2_Par_Val)
+    /* then, executed */
+    return (Ident_1);
+  else  /* not executed */
+  {
+    Ch_1_Glob = Ch_1_Loc;
+10000bd4:	b0001000 	imm	4096
+10000bd8:	f0a051ac 	sbi	r5, r0, 20908	// 100051ac <Ch_1_Glob>
+    return (Ident_2);
+   }
+} /* Func_1 */
+10000bdc:	b60f0008 	rtsd	r15, 8
+10000be0:	30600001 	addik	r3, r0, 1
+
+10000be4 <Func_2>:
+    /* Str_1_Par_Ref == "DHRYSTONE PROGRAM, 1'ST STRING" */
+    /* Str_2_Par_Ref == "DHRYSTONE PROGRAM, 2'ND STRING" */
+
+Str_30  Str_1_Par_Ref;
+Str_30  Str_2_Par_Ref;
+{
+10000be4:	3021ffd8 	addik	r1, r1, -40
+10000be8:	fa61001c 	swi	r19, r1, 28
+10000bec:	fac10020 	swi	r22, r1, 32
+10000bf0:	12660000 	addk	r19, r6, r0
+10000bf4:	12c50000 	addk	r22, r5, r0
+10000bf8:	f9e10000 	swi	r15, r1, 0
+10000bfc:	fae10024 	swi	r23, r1, 36
+  REG One_Thirty        Int_Loc;
+      Capital_Letter    Ch_Loc;
+
+  Int_Loc = 2;
+  while (Int_Loc <= 2) /* loop body executed once */
+    if (Func_1 (Str_1_Par_Ref[Int_Loc],
+10000c00:	e0b60002 	lbui	r5, r22, 2
+10000c04:	e0d30003 	lbui	r6, r19, 3
+10000c08:	90a50060 	sext8	r5, r5
+10000c0c:	b9f4ffac 	brlid	r15, -84	// 10000bb8 <Func_1>
+10000c10:	90c60060 	sext8	r6, r6
+10000c14:	be23ffec 	bneid	r3, -20		// 10000c00
+10000c18:	12e30000 	addk	r23, r3, r0
+  if (Ch_Loc == 'R')
+    /* then, not executed */
+    return (true);
+  else /* executed */
+  {
+    if (strcmp (Str_1_Par_Ref, Str_2_Par_Ref) > 0)
+10000c1c:	10b60000 	addk	r5, r22, r0
+10000c20:	b9f40964 	brlid	r15, 2404	// 10001584 <strcmp>
+10000c24:	10d30000 	addk	r6, r19, r0
+10000c28:	be63002c 	bleid	r3, 44		// 10000c54
+10000c2c:	e9e10000 	lwi	r15, r1, 0
+      return (true);
+    }
+    else /* executed */
+      return (false);
+  } /* if Ch_Loc */
+} /* Func_2 */
+10000c30:	ea61001c 	lwi	r19, r1, 28
+10000c34:	eac10020 	lwi	r22, r1, 32
+10000c38:	eae10024 	lwi	r23, r1, 36
+  {
+    if (strcmp (Str_1_Par_Ref, Str_2_Par_Ref) > 0)
+      /* then, not executed */
+    {
+      Int_Loc += 7;
+      Int_Glob = Int_Loc;
+10000c3c:	3060000a 	addik	r3, r0, 10
+10000c40:	b0001000 	imm	4096
+10000c44:	f86051a8 	swi	r3, r0, 20904	// 100051a8 <Int_Glob>
+      return (true);
+10000c48:	30600001 	addik	r3, r0, 1
+    }
+    else /* executed */
+      return (false);
+  } /* if Ch_Loc */
+} /* Func_2 */
+10000c4c:	b60f0008 	rtsd	r15, 8
+10000c50:	30210028 	addik	r1, r1, 40
+      Int_Loc += 7;
+      Int_Glob = Int_Loc;
+      return (true);
+    }
+    else /* executed */
+      return (false);
+10000c54:	10770000 	addk	r3, r23, r0
+  } /* if Ch_Loc */
+} /* Func_2 */
+10000c58:	ea61001c 	lwi	r19, r1, 28
+10000c5c:	eac10020 	lwi	r22, r1, 32
+10000c60:	eae10024 	lwi	r23, r1, 36
+10000c64:	b60f0008 	rtsd	r15, 8
+10000c68:	30210028 	addik	r1, r1, 40
+
+10000c6c <Func_3>:
+  Enumeration Enum_Loc;
+
+  Enum_Loc = Enum_Par_Val;
+  if (Enum_Loc == Ident_3)
+    /* then, executed */
+    return (true);
+10000c6c:	30600002 	addik	r3, r0, 2
+  else /* not executed */
+    return (false);
+} /* Func_3 */
+10000c70:	b60f0008 	rtsd	r15, 8
+10000c74:	88651c00 	pcmpeq	r3, r5, r3
+
+10000c78 <Proc_6>:
+    /* executed once */
+    /* Enum_Val_Par == Ident_3, Enum_Ref_Par becomes Ident_2 */
+
+Enumeration  Enum_Val_Par;
+Enumeration *Enum_Ref_Par;
+{
+10000c78:	3021ffdc 	addik	r1, r1, -36
+10000c7c:	fa61001c 	swi	r19, r1, 28
+10000c80:	12660000 	addk	r19, r6, r0
+10000c84:	fac10020 	swi	r22, r1, 32
+10000c88:	f9e10000 	swi	r15, r1, 0
+  *Enum_Ref_Par = Enum_Val_Par;
+10000c8c:	f8b30000 	swi	r5, r19, 0
+  if (! Func_3 (Enum_Val_Par))
+10000c90:	b9f4ffdc 	brlid	r15, -36	// 10000c6c <Func_3>
+10000c94:	12c50000 	addk	r22, r5, r0
+10000c98:	be230014 	bneid	r3, 20		// 10000cac
+10000c9c:	a8760001 	xori	r3, r22, 1
+    /* then, not executed */
+    *Enum_Ref_Par = Ident_4;
+10000ca0:	30600003 	addik	r3, r0, 3
+10000ca4:	f8730000 	swi	r3, r19, 0
+  switch (Enum_Val_Par)
+10000ca8:	a8760001 	xori	r3, r22, 1
+10000cac:	be230030 	bneid	r3, 48		// 10000cdc
+10000cb0:	30800064 	addik	r4, r0, 100
+  {
+    case Ident_1:
+      *Enum_Ref_Par = Ident_1;
+      break;
+    case Ident_2:
+      if (Int_Glob > 100)
+10000cb4:	b0001000 	imm	4096
+10000cb8:	e8a051a8 	lwi	r5, r0, 20904	// 100051a8 <Int_Glob>
+10000cbc:	14852001 	cmp	r4, r5, r4
+10000cc0:	bca4005c 	bgei	r4, 92		// 10000d1c
+    case Ident_3: /* executed */
+      *Enum_Ref_Par = Ident_2;
+      break;
+    case Ident_4: break;
+    case Ident_5:
+      *Enum_Ref_Par = Ident_3;
+10000cc4:	f8730000 	swi	r3, r19, 0
+      break;
+  } /* switch */
+} /* Proc_6 */
+10000cc8:	e9e10000 	lwi	r15, r1, 0
+10000ccc:	ea61001c 	lwi	r19, r1, 28
+10000cd0:	eac10020 	lwi	r22, r1, 32
+10000cd4:	b60f0008 	rtsd	r15, 8
+10000cd8:	30210024 	addik	r1, r1, 36
+{
+  *Enum_Ref_Par = Enum_Val_Par;
+  if (! Func_3 (Enum_Val_Par))
+    /* then, not executed */
+    *Enum_Ref_Par = Ident_4;
+  switch (Enum_Val_Par)
+10000cdc:	30600001 	addik	r3, r0, 1
+10000ce0:	1483b003 	cmpu	r4, r3, r22
+10000ce4:	be440020 	bltid	r4, 32		// 10000d04
+10000ce8:	a8960002 	xori	r4, r22, 2
+10000cec:	be04ffd8 	beqid	r4, -40		// 10000cc4
+10000cf0:	aad60004 	xori	r22, r22, 4
+10000cf4:	be16ffd0 	beqid	r22, -48		// 10000cc4
+10000cf8:	30600002 	addik	r3, r0, 2
+    case Ident_4: break;
+    case Ident_5:
+      *Enum_Ref_Par = Ident_3;
+      break;
+  } /* switch */
+} /* Proc_6 */
+10000cfc:	b810ffd0 	brid	-48		// 10000ccc
+10000d00:	e9e10000 	lwi	r15, r1, 0
+    /* then, not executed */
+    *Enum_Ref_Par = Ident_4;
+  switch (Enum_Val_Par)
+  {
+    case Ident_1:
+      *Enum_Ref_Par = Ident_1;
+10000d04:	f8130000 	swi	r0, r19, 0
+    case Ident_4: break;
+    case Ident_5:
+      *Enum_Ref_Par = Ident_3;
+      break;
+  } /* switch */
+} /* Proc_6 */
+10000d08:	e9e10000 	lwi	r15, r1, 0
+10000d0c:	ea61001c 	lwi	r19, r1, 28
+10000d10:	eac10020 	lwi	r22, r1, 32
+10000d14:	b60f0008 	rtsd	r15, 8
+10000d18:	30210024 	addik	r1, r1, 36
+      break;
+    case Ident_2:
+      if (Int_Glob > 100)
+        /* then */
+      *Enum_Ref_Par = Ident_1;
+      else *Enum_Ref_Par = Ident_4;
+10000d1c:	30600003 	addik	r3, r0, 3
+10000d20:	f8730000 	swi	r3, r19, 0
+    case Ident_4: break;
+    case Ident_5:
+      *Enum_Ref_Par = Ident_3;
+      break;
+  } /* switch */
+} /* Proc_6 */
+10000d24:	e9e10000 	lwi	r15, r1, 0
+10000d28:	ea61001c 	lwi	r19, r1, 28
+10000d2c:	eac10020 	lwi	r22, r1, 32
+10000d30:	b60f0008 	rtsd	r15, 8
+10000d34:	30210024 	addik	r1, r1, 36
+
+10000d38 <__mulsf3>:
+10000d38:	3021ffac 	addik	r1, r1, -84
+10000d3c:	f8c1001c 	swi	r6, r1, 28
+10000d40:	f8a10020 	swi	r5, r1, 32
+10000d44:	30c10044 	addik	r6, r1, 68
+10000d48:	f9e10000 	swi	r15, r1, 0
+10000d4c:	b9f4071c 	brlid	r15, 1820	// 10001468 <__unpack_f>
+10000d50:	30a10020 	addik	r5, r1, 32
+10000d54:	30a1001c 	addik	r5, r1, 28
+10000d58:	b9f40710 	brlid	r15, 1808	// 10001468 <__unpack_f>
+10000d5c:	30c10034 	addik	r6, r1, 52
+10000d60:	e8610044 	lwi	r3, r1, 68
+10000d64:	30a00001 	addik	r5, r0, 1
+10000d68:	14832803 	cmpu	r4, r3, r5
+10000d6c:	bea40148 	bgeid	r4, 328		// 10000eb4
+10000d70:	e8810034 	lwi	r4, r1, 52
+10000d74:	14a42803 	cmpu	r5, r4, r5
+10000d78:	bea50178 	bgeid	r5, 376		// 10000ef0
+10000d7c:	a8a30004 	xori	r5, r3, 4
+10000d80:	be050124 	beqid	r5, 292		// 10000ea4
+10000d84:	a8a40004 	xori	r5, r4, 4
+10000d88:	be05015c 	beqid	r5, 348		// 10000ee4
+10000d8c:	a8630002 	xori	r3, r3, 2
+10000d90:	be030124 	beqid	r3, 292		// 10000eb4
+10000d94:	a8840002 	xori	r4, r4, 2
+10000d98:	be040158 	beqid	r4, 344		// 10000ef0
+10000d9c:	10a00000 	addk	r5, r0, r0
+10000da0:	10e50000 	addk	r7, r5, r0
+10000da4:	e8c10040 	lwi	r6, r1, 64
+10000da8:	b9f40430 	brlid	r15, 1072	// 100011d8 <__muldi3>
+10000dac:	e9010050 	lwi	r8, r1, 80
+10000db0:	e8c10048 	lwi	r6, r1, 72
+10000db4:	e8a10038 	lwi	r5, r1, 56
+10000db8:	e8e1004c 	lwi	r7, r1, 76
+10000dbc:	88a62800 	xor	r5, r6, r5
+10000dc0:	14c50000 	rsubk	r6, r5, r0
+10000dc4:	80a62800 	or	r5, r6, r5
+10000dc8:	e8c1003c 	lwi	r6, r1, 60
+10000dcc:	64a5001f 	bsrli	r5, r5, 31
+10000dd0:	10c73000 	addk	r6, r7, r6
+10000dd4:	30e60002 	addik	r7, r6, 2
+10000dd8:	f8a10028 	swi	r5, r1, 40
+10000ddc:	f8e1002c 	swi	r7, r1, 44
+10000de0:	bea3001c 	bgeid	r3, 28		// 10000dfc
+10000de4:	10a30000 	addk	r5, r3, r0
+10000de8:	a4a30001 	andi	r5, r3, 1
+10000dec:	be25008c 	bneid	r5, 140		// 10000e78
+10000df0:	30c60003 	addik	r6, r6, 3
+10000df4:	90a30041 	srl	r5, r3
+10000df8:	f8c1002c 	swi	r6, r1, 44
+10000dfc:	b0003fff 	imm	16383
+10000e00:	30e0ffff 	addik	r7, r0, -1
+10000e04:	14653803 	cmpu	r3, r5, r7
+10000e08:	be43003c 	bltid	r3, 60		// 10000e44
+10000e0c:	e861002c 	lwi	r3, r1, 44
+10000e10:	b8100018 	brid	24		// 10000e28
+10000e14:	10a52800 	addk	r5, r5, r5
+10000e18:	14c53803 	cmpu	r6, r5, r7
+10000e1c:	be460024 	bltid	r6, 36		// 10000e40
+10000e20:	10842000 	addk	r4, r4, r4
+10000e24:	10a52800 	addk	r5, r5, r5
+10000e28:	bea4fff0 	bgeid	r4, -16		// 10000e18
+10000e2c:	3063ffff 	addik	r3, r3, -1
+10000e30:	a0a50001 	ori	r5, r5, 1
+10000e34:	14c53803 	cmpu	r6, r5, r7
+10000e38:	bea6ffec 	bgeid	r6, -20		// 10000e24
+10000e3c:	10842000 	addk	r4, r4, r4
+10000e40:	f861002c 	swi	r3, r1, 44
+10000e44:	a465007f 	andi	r3, r5, 127
+10000e48:	a8630040 	xori	r3, r3, 64
+10000e4c:	be030040 	beqid	r3, 64		// 10000e8c
+10000e50:	a4650080 	andi	r3, r5, 128
+10000e54:	30600003 	addik	r3, r0, 3
+10000e58:	f8a10030 	swi	r5, r1, 48
+10000e5c:	f8610024 	swi	r3, r1, 36
+10000e60:	30a10024 	addik	r5, r1, 36
+10000e64:	b9f40480 	brlid	r15, 1152	// 100012e4 <__pack_f>
+10000e68:	80000000 	or	r0, r0, r0
+10000e6c:	e9e10000 	lwi	r15, r1, 0
+10000e70:	b60f0008 	rtsd	r15, 8
+10000e74:	30210054 	addik	r1, r1, 84
+10000e78:	90840041 	srl	r4, r4
+10000e7c:	b0008000 	imm	-32768
+10000e80:	a0840000 	ori	r4, r4, 0
+10000e84:	b810ff74 	brid	-140		// 10000df8
+10000e88:	90a30041 	srl	r5, r3
+10000e8c:	be23ffcc 	bneid	r3, -52		// 10000e58
+10000e90:	30600003 	addik	r3, r0, 3
+10000e94:	bc04ffc4 	beqi	r4, -60		// 10000e58
+10000e98:	30a50040 	addik	r5, r5, 64
+10000e9c:	b810ffbc 	brid	-68		// 10000e58
+10000ea0:	a4a5ff80 	andi	r5, r5, -128
+10000ea4:	a8840002 	xori	r4, r4, 2
+10000ea8:	b0001000 	imm	4096
+10000eac:	30a0280c 	addik	r5, r0, 10252	// 1000280c <__thenan_sf>
+10000eb0:	bc04ffb4 	beqi	r4, -76		// 10000e64
+10000eb4:	e8810048 	lwi	r4, r1, 72
+10000eb8:	e8610038 	lwi	r3, r1, 56
+10000ebc:	30a10044 	addik	r5, r1, 68
+10000ec0:	88641800 	xor	r3, r4, r3
+10000ec4:	14830000 	rsubk	r4, r3, r0
+10000ec8:	80641800 	or	r3, r4, r3
+10000ecc:	6463001f 	bsrli	r3, r3, 31
+10000ed0:	b9f40414 	brlid	r15, 1044	// 100012e4 <__pack_f>
+10000ed4:	f8610048 	swi	r3, r1, 72
+10000ed8:	e9e10000 	lwi	r15, r1, 0
+10000edc:	b60f0008 	rtsd	r15, 8
+10000ee0:	30210054 	addik	r1, r1, 84
+10000ee4:	b0001000 	imm	4096
+10000ee8:	30a0280c 	addik	r5, r0, 10252	// 1000280c <__thenan_sf>
+10000eec:	bc03ff78 	beqi	r3, -136		// 10000e64
+10000ef0:	e8610038 	lwi	r3, r1, 56
+10000ef4:	e8810048 	lwi	r4, r1, 72
+10000ef8:	30a10034 	addik	r5, r1, 52
+10000efc:	88641800 	xor	r3, r4, r3
+10000f00:	14830000 	rsubk	r4, r3, r0
+10000f04:	80641800 	or	r3, r4, r3
+10000f08:	6463001f 	bsrli	r3, r3, 31
+10000f0c:	b9f403d8 	brlid	r15, 984	// 100012e4 <__pack_f>
+10000f10:	f8610038 	swi	r3, r1, 56
+10000f14:	e9e10000 	lwi	r15, r1, 0
+10000f18:	b60f0008 	rtsd	r15, 8
+10000f1c:	30210054 	addik	r1, r1, 84
+
+10000f20 <__divsf3>:
+10000f20:	3021ffbc 	addik	r1, r1, -68
+10000f24:	f8c1001c 	swi	r6, r1, 28
+10000f28:	f8a10020 	swi	r5, r1, 32
+10000f2c:	30c10034 	addik	r6, r1, 52
+10000f30:	f9e10000 	swi	r15, r1, 0
+10000f34:	b9f40534 	brlid	r15, 1332	// 10001468 <__unpack_f>
+10000f38:	30a10020 	addik	r5, r1, 32
+10000f3c:	30c10024 	addik	r6, r1, 36
+10000f40:	b9f40528 	brlid	r15, 1320	// 10001468 <__unpack_f>
+10000f44:	30a1001c 	addik	r5, r1, 28
+10000f48:	e8610034 	lwi	r3, r1, 52
+10000f4c:	30c00001 	addik	r6, r0, 1
+10000f50:	14833003 	cmpu	r4, r3, r6
+10000f54:	bea400b4 	bgeid	r4, 180		// 10001008
+10000f58:	30a10034 	addik	r5, r1, 52
+10000f5c:	e8810024 	lwi	r4, r1, 36
+10000f60:	14c43003 	cmpu	r6, r4, r6
+10000f64:	bea600a4 	bgeid	r6, 164		// 10001008
+10000f68:	30a10024 	addik	r5, r1, 36
+10000f6c:	e8e10038 	lwi	r7, r1, 56
+10000f70:	e8c10028 	lwi	r6, r1, 40
+10000f74:	a8a30004 	xori	r5, r3, 4
+10000f78:	88c73000 	xor	r6, r7, r6
+10000f7c:	be0500b0 	beqid	r5, 176		// 1000102c
+10000f80:	f8c10038 	swi	r6, r1, 56
+10000f84:	a8a30002 	xori	r5, r3, 2
+10000f88:	be0500a8 	beqid	r5, 168		// 10001030
+10000f8c:	88632000 	xor	r3, r3, r4
+10000f90:	a8640004 	xori	r3, r4, 4
+10000f94:	be0300f4 	beqid	r3, 244		// 10001088
+10000f98:	a8840002 	xori	r4, r4, 2
+10000f9c:	be0400d0 	beqid	r4, 208		// 1000106c
+10000fa0:	e8a1003c 	lwi	r5, r1, 60
+10000fa4:	e881002c 	lwi	r4, r1, 44
+10000fa8:	e8610040 	lwi	r3, r1, 64
+10000fac:	e8c10030 	lwi	r6, r1, 48
+10000fb0:	14842800 	rsubk	r4, r4, r5
+10000fb4:	14a61803 	cmpu	r5, r6, r3
+10000fb8:	be450064 	bltid	r5, 100		// 1000101c
+10000fbc:	f881003c 	swi	r4, r1, 60
+10000fc0:	b0004000 	imm	16384
+10000fc4:	30a00000 	addik	r5, r0, 0
+10000fc8:	3080001f 	addik	r4, r0, 31
+10000fcc:	10e00000 	addk	r7, r0, r0
+10000fd0:	15061803 	cmpu	r8, r6, r3
+10000fd4:	be480010 	bltid	r8, 16		// 10000fe4
+10000fd8:	3084ffff 	addik	r4, r4, -1
+10000fdc:	80e72800 	or	r7, r7, r5
+10000fe0:	14661800 	rsubk	r3, r6, r3
+10000fe4:	90a50041 	srl	r5, r5
+10000fe8:	be24ffe8 	bneid	r4, -24		// 10000fd0
+10000fec:	10631800 	addk	r3, r3, r3
+10000ff0:	a487007f 	andi	r4, r7, 127
+10000ff4:	a8840040 	xori	r4, r4, 64
+10000ff8:	be04005c 	beqid	r4, 92		// 10001054
+10000ffc:	a4870080 	andi	r4, r7, 128
+10001000:	30a10034 	addik	r5, r1, 52
+10001004:	f8e10040 	swi	r7, r1, 64
+10001008:	b9f402dc 	brlid	r15, 732	// 100012e4 <__pack_f>
+1000100c:	80000000 	or	r0, r0, r0
+10001010:	e9e10000 	lwi	r15, r1, 0
+10001014:	b60f0008 	rtsd	r15, 8
+10001018:	30210044 	addik	r1, r1, 68
+1000101c:	3084ffff 	addik	r4, r4, -1
+10001020:	10631800 	addk	r3, r3, r3
+10001024:	b810ff9c 	brid	-100		// 10000fc0
+10001028:	f881003c 	swi	r4, r1, 60
+1000102c:	88632000 	xor	r3, r3, r4
+10001030:	b0001000 	imm	4096
+10001034:	30a0280c 	addik	r5, r0, 10252	// 1000280c <__thenan_sf>
+10001038:	bc03ffd0 	beqi	r3, -48		// 10001008
+1000103c:	30a10034 	addik	r5, r1, 52
+10001040:	b9f402a4 	brlid	r15, 676	// 100012e4 <__pack_f>
+10001044:	80000000 	or	r0, r0, r0
+10001048:	e9e10000 	lwi	r15, r1, 0
+1000104c:	b60f0008 	rtsd	r15, 8
+10001050:	30210044 	addik	r1, r1, 68
+10001054:	be24ffb0 	bneid	r4, -80		// 10001004
+10001058:	30a10034 	addik	r5, r1, 52
+1000105c:	bc03ffa8 	beqi	r3, -88		// 10001004
+10001060:	30e70040 	addik	r7, r7, 64
+10001064:	b810ffa0 	brid	-96		// 10001004
+10001068:	a4e7ff80 	andi	r7, r7, -128
+1000106c:	30600004 	addik	r3, r0, 4
+10001070:	30a10034 	addik	r5, r1, 52
+10001074:	b9f40270 	brlid	r15, 624	// 100012e4 <__pack_f>
+10001078:	f8610034 	swi	r3, r1, 52
+1000107c:	e9e10000 	lwi	r15, r1, 0
+10001080:	b60f0008 	rtsd	r15, 8
+10001084:	30210044 	addik	r1, r1, 68
+10001088:	f8610040 	swi	r3, r1, 64
+1000108c:	f861003c 	swi	r3, r1, 60
+10001090:	b810ffb0 	brid	-80		// 10001040
+10001094:	30a10034 	addik	r5, r1, 52
+
+10001098 <__floatsisf>:
+10001098:	3021ffd0 	addik	r1, r1, -48
+1000109c:	30600003 	addik	r3, r0, 3
+100010a0:	f861001c 	swi	r3, r1, 28
+100010a4:	6465001f 	bsrli	r3, r5, 31
+100010a8:	f9e10000 	swi	r15, r1, 0
+100010ac:	fa61002c 	swi	r19, r1, 44
+100010b0:	be250028 	bneid	r5, 40		// 100010d8
+100010b4:	f8610020 	swi	r3, r1, 32
+100010b8:	30600002 	addik	r3, r0, 2
+100010bc:	f861001c 	swi	r3, r1, 28
+100010c0:	b9f40224 	brlid	r15, 548	// 100012e4 <__pack_f>
+100010c4:	30a1001c 	addik	r5, r1, 28
+100010c8:	e9e10000 	lwi	r15, r1, 0
+100010cc:	ea61002c 	lwi	r19, r1, 44
+100010d0:	b60f0008 	rtsd	r15, 8
+100010d4:	30210030 	addik	r1, r1, 48
+100010d8:	3080001e 	addik	r4, r0, 30
+100010dc:	f8810024 	swi	r4, r1, 36
+100010e0:	be030020 	beqid	r3, 32		// 10001100
+100010e4:	12650000 	addk	r19, r5, r0
+100010e8:	b0008000 	imm	-32768
+100010ec:	30850000 	addik	r4, r5, 0
+100010f0:	b000cf00 	imm	-12544
+100010f4:	30600000 	addik	r3, r0, 0
+100010f8:	be04ffd0 	beqid	r4, -48		// 100010c8
+100010fc:	16650000 	rsubk	r19, r5, r0
+10001100:	10b30000 	addk	r5, r19, r0
+10001104:	b9f40144 	brlid	r15, 324	// 10001248 <__clzsi2>
+10001108:	fa610028 	swi	r19, r1, 40
+1000110c:	30a3ffff 	addik	r5, r3, -1
+10001110:	be65ffb0 	bleid	r5, -80		// 100010c0
+10001114:	44b32c00 	bsll	r5, r19, r5
+10001118:	3080001f 	addik	r4, r0, 31
+1000111c:	14632000 	rsubk	r3, r3, r4
+10001120:	f8a10028 	swi	r5, r1, 40
+10001124:	b810ff9c 	brid	-100		// 100010c0
+10001128:	f8610024 	swi	r3, r1, 36
+
+1000112c <__fixsfsi>:
+1000112c:	3021ffd0 	addik	r1, r1, -48
+10001130:	f8a1001c 	swi	r5, r1, 28
+10001134:	30c10020 	addik	r6, r1, 32
+10001138:	f9e10000 	swi	r15, r1, 0
+1000113c:	b9f4032c 	brlid	r15, 812	// 10001468 <__unpack_f>
+10001140:	30a1001c 	addik	r5, r1, 28
+10001144:	e8810020 	lwi	r4, r1, 32
+10001148:	a8640002 	xori	r3, r4, 2
+1000114c:	be03004c 	beqid	r3, 76		// 10001198
+10001150:	30a00001 	addik	r5, r0, 1
+10001154:	14a42803 	cmpu	r5, r4, r5
+10001158:	bea50040 	bgeid	r5, 64		// 10001198
+1000115c:	10600000 	addk	r3, r0, r0
+10001160:	a8840004 	xori	r4, r4, 4
+10001164:	be040020 	beqid	r4, 32		// 10001184
+10001168:	e8810028 	lwi	r4, r1, 40
+1000116c:	be440030 	bltid	r4, 48		// 1000119c
+10001170:	e9e10000 	lwi	r15, r1, 0
+10001174:	3060001e 	addik	r3, r0, 30
+10001178:	14641801 	cmp	r3, r4, r3
+1000117c:	bea30028 	bgeid	r3, 40		// 100011a4
+10001180:	3060001e 	addik	r3, r0, 30
+10001184:	e8810024 	lwi	r4, r1, 36
+10001188:	b0007fff 	imm	32767
+1000118c:	3060ffff 	addik	r3, r0, -1
+10001190:	be240038 	bneid	r4, 56		// 100011c8
+10001194:	e9e10000 	lwi	r15, r1, 0
+10001198:	e9e10000 	lwi	r15, r1, 0
+1000119c:	b60f0008 	rtsd	r15, 8
+100011a0:	30210030 	addik	r1, r1, 48
+100011a4:	14841800 	rsubk	r4, r4, r3
+100011a8:	e861002c 	lwi	r3, r1, 44
+100011ac:	44632000 	bsrl	r3, r3, r4
+100011b0:	e8810024 	lwi	r4, r1, 36
+100011b4:	be04ffe8 	beqid	r4, -24		// 1000119c
+100011b8:	e9e10000 	lwi	r15, r1, 0
+100011bc:	14630000 	rsubk	r3, r3, r0
+100011c0:	b60f0008 	rtsd	r15, 8
+100011c4:	30210030 	addik	r1, r1, 48
+100011c8:	b0008000 	imm	-32768
+100011cc:	30600000 	addik	r3, r0, 0
+100011d0:	b60f0008 	rtsd	r15, 8
+100011d4:	30210030 	addik	r1, r1, 48
+
+100011d8 <__muldi3>:
+100011d8:	b0000000 	imm	0
+100011dc:	a526ffff 	andi	r9, r6, -1
+100011e0:	65460010 	bsrli	r10, r6, 16
+100011e4:	65680010 	bsrli	r11, r8, 16
+100011e8:	b0000000 	imm	0
+100011ec:	a468ffff 	andi	r3, r8, -1
+100011f0:	40834800 	mul	r4, r3, r9
+100011f4:	40635000 	mul	r3, r3, r10
+100011f8:	412b4800 	mul	r9, r11, r9
+100011fc:	65840010 	bsrli	r12, r4, 16
+10001200:	11234800 	addk	r9, r3, r9
+10001204:	11296000 	addk	r9, r9, r12
+10001208:	14634803 	cmpu	r3, r3, r9
+1000120c:	bea30010 	bgeid	r3, 16		// 1000121c
+10001210:	414b5000 	mul	r10, r11, r10
+10001214:	b0000001 	imm	1
+10001218:	314a0000 	addik	r10, r10, 0
+1000121c:	40c63800 	mul	r6, r6, r7
+10001220:	b0000000 	imm	0
+10001224:	a484ffff 	andi	r4, r4, -1
+10001228:	41082800 	mul	r8, r8, r5
+1000122c:	64690010 	bsrli	r3, r9, 16
+10001230:	65290410 	bslli	r9, r9, 16
+10001234:	114a1800 	addk	r10, r10, r3
+10001238:	10664000 	addk	r3, r6, r8
+1000123c:	10635000 	addk	r3, r3, r10
+10001240:	b60f0008 	rtsd	r15, 8
+10001244:	10892000 	addk	r4, r9, r4
+
+10001248 <__clzsi2>:
+10001248:	b0000000 	imm	0
+1000124c:	3060ffff 	addik	r3, r0, -1
+10001250:	14651803 	cmpu	r3, r5, r3
+10001254:	be43002c 	bltid	r3, 44		// 10001280
+10001258:	306000ff 	addik	r3, r0, 255
+1000125c:	14651803 	cmpu	r3, r5, r3
+10001260:	bea30068 	bgeid	r3, 104		// 100012c8
+10001264:	30800008 	addik	r4, r0, 8
+10001268:	44a52000 	bsrl	r5, r5, r4
+1000126c:	b0001000 	imm	4096
+10001270:	e085281c 	lbui	r4, r5, 10268
+10001274:	30600018 	addik	r3, r0, 24
+10001278:	b60f0008 	rtsd	r15, 8
+1000127c:	14641800 	rsubk	r3, r4, r3
+10001280:	b00000ff 	imm	255
+10001284:	3060ffff 	addik	r3, r0, -1
+10001288:	14651803 	cmpu	r3, r5, r3
+1000128c:	be430024 	bltid	r3, 36		// 100012b0
+10001290:	30800018 	addik	r4, r0, 24
+10001294:	30600010 	addik	r3, r0, 16
+10001298:	10830000 	addk	r4, r3, r0
+1000129c:	44a52000 	bsrl	r5, r5, r4
+100012a0:	b0001000 	imm	4096
+100012a4:	e085281c 	lbui	r4, r5, 10268
+100012a8:	b60f0008 	rtsd	r15, 8
+100012ac:	14641800 	rsubk	r3, r4, r3
+100012b0:	44a52000 	bsrl	r5, r5, r4
+100012b4:	b0001000 	imm	4096
+100012b8:	e085281c 	lbui	r4, r5, 10268
+100012bc:	30600008 	addik	r3, r0, 8
+100012c0:	b60f0008 	rtsd	r15, 8
+100012c4:	14641800 	rsubk	r3, r4, r3
+100012c8:	10800000 	addk	r4, r0, r0
+100012cc:	44a52000 	bsrl	r5, r5, r4
+100012d0:	b0001000 	imm	4096
+100012d4:	e085281c 	lbui	r4, r5, 10268
+100012d8:	30600020 	addik	r3, r0, 32
+100012dc:	b60f0008 	rtsd	r15, 8
+100012e0:	14641800 	rsubk	r3, r4, r3
+
+100012e4 <__pack_f>:
+100012e4:	e8650000 	lwi	r3, r5, 0
+100012e8:	30e00001 	addik	r7, r0, 1
+100012ec:	e885000c 	lwi	r4, r5, 12
+100012f0:	14c33803 	cmpu	r6, r3, r7
+100012f4:	bea600bc 	bgeid	r6, 188		// 100013b0
+100012f8:	e9050004 	lwi	r8, r5, 4
+100012fc:	a8c30004 	xori	r6, r3, 4
+10001300:	bc0600d0 	beqi	r6, 208		// 100013d0
+10001304:	a8630002 	xori	r3, r3, 2
+10001308:	bc030078 	beqi	r3, 120		// 10001380
+1000130c:	be040064 	beqid	r4, 100		// 10001370
+10001310:	6468041f 	bslli	r3, r8, 31
+10001314:	e8c50008 	lwi	r6, r5, 8
+10001318:	3060ff82 	addik	r3, r0, -126
+1000131c:	14633001 	cmp	r3, r3, r6
+10001320:	be4300c0 	bltid	r3, 192		// 100013e0
+10001324:	3060ff82 	addik	r3, r0, -126
+10001328:	3060007f 	addik	r3, r0, 127
+1000132c:	14661801 	cmp	r3, r6, r3
+10001330:	bc430120 	blti	r3, 288		// 10001450
+10001334:	a464007f 	andi	r3, r4, 127
+10001338:	a8630040 	xori	r3, r3, 64
+1000133c:	be03005c 	beqid	r3, 92		// 10001398
+10001340:	a4640080 	andi	r3, r4, 128
+10001344:	3084003f 	addik	r4, r4, 63
+10001348:	bc44005c 	blti	r4, 92		// 100013a4
+1000134c:	30c6007f 	addik	r6, r6, 127
+10001350:	64a40007 	bsrli	r5, r4, 7
+10001354:	64860417 	bslli	r4, r6, 23
+10001358:	b000007f 	imm	127
+1000135c:	a4a5ffff 	andi	r5, r5, -1
+10001360:	6468041f 	bslli	r3, r8, 31
+10001364:	80852000 	or	r4, r5, r4
+10001368:	b60f0008 	rtsd	r15, 8
+1000136c:	80641800 	or	r3, r4, r3
+10001370:	10a40000 	addk	r5, r4, r0
+10001374:	80852000 	or	r4, r5, r4
+10001378:	b60f0008 	rtsd	r15, 8
+1000137c:	80641800 	or	r3, r4, r3
+10001380:	10a30000 	addk	r5, r3, r0
+10001384:	10830000 	addk	r4, r3, r0
+10001388:	6468041f 	bslli	r3, r8, 31
+1000138c:	80852000 	or	r4, r5, r4
+10001390:	b60f0008 	rtsd	r15, 8
+10001394:	80641800 	or	r3, r4, r3
+10001398:	bc03ffb0 	beqi	r3, -80		// 10001348
+1000139c:	30840040 	addik	r4, r4, 64
+100013a0:	bca4ffac 	bgei	r4, -84		// 1000134c
+100013a4:	90840041 	srl	r4, r4
+100013a8:	b810ffa8 	brid	-88		// 10001350
+100013ac:	30c60080 	addik	r6, r6, 128
+100013b0:	b0000010 	imm	16
+100013b4:	a0840000 	ori	r4, r4, 0
+100013b8:	b000007f 	imm	127
+100013bc:	a4a4ffff 	andi	r5, r4, -1
+100013c0:	b0007f80 	imm	32640
+100013c4:	30800000 	addik	r4, r0, 0
+100013c8:	b810ff9c 	brid	-100		// 10001364
+100013cc:	6468041f 	bslli	r3, r8, 31
+100013d0:	b0007f80 	imm	32640
+100013d4:	30800000 	addik	r4, r0, 0
+100013d8:	b810ff88 	brid	-120		// 10001360
+100013dc:	10a60000 	addk	r5, r6, r0
+100013e0:	14c61800 	rsubk	r6, r6, r3
+100013e4:	30a00019 	addik	r5, r0, 25
+100013e8:	14a62801 	cmp	r5, r6, r5
+100013ec:	be450074 	bltid	r5, 116		// 10001460
+100013f0:	10600000 	addk	r3, r0, r0
+100013f4:	44673400 	bsll	r3, r7, r6
+100013f8:	44c43000 	bsrl	r6, r4, r6
+100013fc:	3063ffff 	addik	r3, r3, -1
+10001400:	84832000 	and	r4, r3, r4
+10001404:	14640000 	rsubk	r3, r4, r0
+10001408:	80632000 	or	r3, r3, r4
+1000140c:	6463001f 	bsrli	r3, r3, 31
+10001410:	80633000 	or	r3, r3, r6
+10001414:	a483007f 	andi	r4, r3, 127
+10001418:	a8840040 	xori	r4, r4, 64
+1000141c:	bc240044 	bnei	r4, 68		// 10001460
+10001420:	a4830080 	andi	r4, r3, 128
+10001424:	bc040008 	beqi	r4, 8		// 1000142c
+10001428:	30630040 	addik	r3, r3, 64
+1000142c:	b0003fff 	imm	16383
+10001430:	3080ffff 	addik	r4, r0, -1
+10001434:	64a30007 	bsrli	r5, r3, 7
+10001438:	14632003 	cmpu	r3, r3, r4
+1000143c:	6483001f 	bsrli	r4, r3, 31
+10001440:	b000007f 	imm	127
+10001444:	a4a5ffff 	andi	r5, r5, -1
+10001448:	b810ff18 	brid	-232		// 10001360
+1000144c:	64840417 	bslli	r4, r4, 23
+10001450:	b0007f80 	imm	32640
+10001454:	30800000 	addik	r4, r0, 0
+10001458:	b810ff08 	brid	-248		// 10001360
+1000145c:	10a00000 	addk	r5, r0, r0
+10001460:	b810ffcc 	brid	-52		// 1000142c
+10001464:	3063003f 	addik	r3, r3, 63
+
+10001468 <__unpack_f>:
+10001468:	e8850000 	lwi	r4, r5, 0
+1000146c:	6464001f 	bsrli	r3, r4, 31
+10001470:	64a40017 	bsrli	r5, r4, 23
+10001474:	f8660004 	swi	r3, r6, 4
+10001478:	a4a500ff 	andi	r5, r5, 255
+1000147c:	b000007f 	imm	127
+10001480:	a464ffff 	andi	r3, r4, -1
+10001484:	be250044 	bneid	r5, 68		// 100014c8
+10001488:	a8e500ff 	xori	r7, r5, 255
+1000148c:	be030064 	beqid	r3, 100		// 100014f0
+10001490:	30800003 	addik	r4, r0, 3
+10001494:	b0003fff 	imm	16383
+10001498:	30e0ffff 	addik	r7, r0, -1
+1000149c:	64630407 	bslli	r3, r3, 7
+100014a0:	f8860000 	swi	r4, r6, 0
+100014a4:	3080ff81 	addik	r4, r0, -127
+100014a8:	10631800 	addk	r3, r3, r3
+100014ac:	14a33803 	cmpu	r5, r3, r7
+100014b0:	11040000 	addk	r8, r4, r0
+100014b4:	bea5fff4 	bgeid	r5, -12		// 100014a8
+100014b8:	3084ffff 	addik	r4, r4, -1
+100014bc:	f9060008 	swi	r8, r6, 8
+100014c0:	b60f0008 	rtsd	r15, 8
+100014c4:	f866000c 	swi	r3, r6, 12
+100014c8:	be070034 	beqid	r7, 52		// 100014fc
+100014cc:	30a5ff81 	addik	r5, r5, -127
+100014d0:	64630407 	bslli	r3, r3, 7
+100014d4:	b0004000 	imm	16384
+100014d8:	a0630000 	ori	r3, r3, 0
+100014dc:	f8a60008 	swi	r5, r6, 8
+100014e0:	30800003 	addik	r4, r0, 3
+100014e4:	f8860000 	swi	r4, r6, 0
+100014e8:	b60f0008 	rtsd	r15, 8
+100014ec:	f866000c 	swi	r3, r6, 12
+100014f0:	30600002 	addik	r3, r0, 2
+100014f4:	b60f0008 	rtsd	r15, 8
+100014f8:	f8660000 	swi	r3, r6, 0
+100014fc:	bc03001c 	beqi	r3, 28		// 10001518
+10001500:	b0000010 	imm	16
+10001504:	a4840000 	andi	r4, r4, 0
+10001508:	bc04ffdc 	beqi	r4, -36		// 100014e4
+1000150c:	30800001 	addik	r4, r0, 1
+10001510:	b810ffd8 	brid	-40		// 100014e8
+10001514:	f8860000 	swi	r4, r6, 0
+10001518:	30600004 	addik	r3, r0, 4
+1000151c:	b60f0008 	rtsd	r15, 8
+10001520:	f8660000 	swi	r3, r6, 0
+
+10001524 <_exception_handler>:
+10001524:	b6110000 	rtsd	r17, 0
+10001528:	80000000 	or	r0, r0, r0
+
+1000152c <_hw_exception_handler>:
+1000152c:	b6910000 	rted	r17, 0
+10001530:	80000000 	or	r0, r0, r0
+
+10001534 <_interrupt_handler>:
+10001534:	b62e0000 	rtid	r14, 0
+10001538:	80000000 	or	r0, r0, r0
+
+1000153c <_program_clean>:
+1000153c:	b60f0008 	rtsd	r15, 8
+10001540:	80000000 	or	r0, r0, r0
+
+10001544 <_program_init>:
+10001544:	b60f0008 	rtsd	r15, 8
+10001548:	80000000 	or	r0, r0, r0
+
+1000154c <exit>:
+1000154c:	3021ffe0 	addik	r1, r1, -32
+10001550:	10c00000 	addk	r6, r0, r0
+10001554:	fa61001c 	swi	r19, r1, 28
+10001558:	f9e10000 	swi	r15, r1, 0
+1000155c:	b9f400d8 	brlid	r15, 216	// 10001634 <__call_exitprocs>
+10001560:	12650000 	addk	r19, r5, r0
+10001564:	b0001000 	imm	4096
+10001568:	e880291c 	lwi	r4, r0, 10524	// 1000291c <_global_impure_ptr>
+1000156c:	e8640028 	lwi	r3, r4, 40
+10001570:	bc03000c 	beqi	r3, 12		// 1000157c
+10001574:	99fc1800 	brald	r15, r3
+10001578:	10a40000 	addk	r5, r4, r0
+1000157c:	b9f4eafc 	brlid	r15, -5380	// 10000078 <_exit>
+10001580:	10b30000 	addk	r5, r19, r0
+
+10001584 <strcmp>:
+10001584:	81200000 	or	r9, r0, r0
+
+10001588 <check_alignment>:
+10001588:	a4650003 	andi	r3, r5, 3
+1000158c:	a4860003 	andi	r4, r6, 3
+10001590:	bc230048 	bnei	r3, 72	// 100015d8 <try_align_args>
+10001594:	bc240074 	bnei	r4, 116	// 10001608 <regular_strcmp>
+
+10001598 <cmp_loop>:
+10001598:	c8654800 	lw	r3, r5, r9
+1000159c:	c8864800 	lw	r4, r6, r9
+100015a0:	80e30400 	pcmpbf	r7, r3, r0
+100015a4:	bc270014 	bnei	r7, 20	// 100015b8 <end_cmp_loop>
+100015a8:	14e41803 	cmpu	r7, r4, r3
+100015ac:	bc270078 	bnei	r7, 120	// 10001624 <end_cmp>
+100015b0:	b810ffe8 	brid	-24	// 10001598 <cmp_loop>
+100015b4:	31290004 	addik	r9, r9, 4
+
+100015b8 <end_cmp_loop>:
+100015b8:	c0654800 	lbu	r3, r5, r9
+100015bc:	c0864800 	lbu	r4, r6, r9
+100015c0:	14e41803 	cmpu	r7, r4, r3
+100015c4:	bc27000c 	bnei	r7, 12	// 100015d0 <end_cmp_early>
+100015c8:	be23fff0 	bneid	r3, -16	// 100015b8 <end_cmp_loop>
+100015cc:	31290001 	addik	r9, r9, 1
+
+100015d0 <end_cmp_early>:
+100015d0:	b60f0008 	rtsd	r15, 8
+100015d4:	80603800 	or	r3, r0, r7
+
+100015d8 <try_align_args>:
+100015d8:	88e41800 	xor	r7, r4, r3
+100015dc:	bc27002c 	bnei	r7, 44	// 10001608 <regular_strcmp>
+100015e0:	35430004 	rsubik	r10, r3, 4
+
+100015e4 <align_loop>:
+100015e4:	c0654800 	lbu	r3, r5, r9
+100015e8:	c0864800 	lbu	r4, r6, r9
+100015ec:	14e41803 	cmpu	r7, r4, r3
+100015f0:	bc270034 	bnei	r7, 52	// 10001624 <end_cmp>
+100015f4:	bc030030 	beqi	r3, 48	// 10001624 <end_cmp>
+100015f8:	314affff 	addik	r10, r10, -1
+100015fc:	be0aff9c 	beqid	r10, -100	// 10001598 <cmp_loop>
+10001600:	31290001 	addik	r9, r9, 1
+10001604:	b800ffe0 	bri	-32	// 100015e4 <align_loop>
+
+10001608 <regular_strcmp>:
+10001608:	c0654800 	lbu	r3, r5, r9
+1000160c:	c0864800 	lbu	r4, r6, r9
+10001610:	14e41803 	cmpu	r7, r4, r3
+10001614:	bc270010 	bnei	r7, 16	// 10001624 <end_cmp>
+10001618:	bc03000c 	beqi	r3, 12	// 10001624 <end_cmp>
+1000161c:	b810ffec 	brid	-20	// 10001608 <regular_strcmp>
+10001620:	31290001 	addik	r9, r9, 1
+
+10001624 <end_cmp>:
+10001624:	b60f0008 	rtsd	r15, 8
+10001628:	80603800 	or	r3, r0, r7
+1000162c:	b60f0008 	rtsd	r15, 8
+10001630:	80000000 	or	r0, r0, r0
+
+10001634 <__call_exitprocs>:
+10001634:	3021ffb8 	addik	r1, r1, -72
+10001638:	fbc10040 	swi	r30, r1, 64
+1000163c:	b0001000 	imm	4096
+10001640:	ebc0291c 	lwi	r30, r0, 10524	// 1000291c <_global_impure_ptr>
+10001644:	fb610034 	swi	r27, r1, 52
+10001648:	13660000 	addk	r27, r6, r0
+1000164c:	fba1003c 	swi	r29, r1, 60
+10001650:	fbe10044 	swi	r31, r1, 68
+10001654:	f9e10000 	swi	r15, r1, 0
+10001658:	fa61001c 	swi	r19, r1, 28
+1000165c:	fac10020 	swi	r22, r1, 32
+10001660:	fae10024 	swi	r23, r1, 36
+10001664:	fb010028 	swi	r24, r1, 40
+10001668:	fb21002c 	swi	r25, r1, 44
+1000166c:	fb410030 	swi	r26, r1, 48
+10001670:	fb810038 	swi	r28, r1, 56
+10001674:	f8a1004c 	swi	r5, r1, 76
+10001678:	33fe0048 	addik	r31, r30, 72
+1000167c:	33a00001 	addik	r29, r0, 1
+10001680:	eafe0048 	lwi	r23, r30, 72
+10001684:	be1700d8 	beqid	r23, 216		// 1000175c
+10001688:	139f0000 	addk	r28, r31, r0
+1000168c:	e8770004 	lwi	r3, r23, 4
+10001690:	3263ffff 	addik	r19, r3, -1
+10001694:	be5300bc 	bltid	r19, 188		// 10001750
+10001698:	eb370088 	lwi	r25, r23, 136
+1000169c:	be1b0124 	beqid	r27, 292		// 100017c0
+100016a0:	32c30001 	addik	r22, r3, 1
+100016a4:	bc1900ac 	beqi	r25, 172		// 10001750
+100016a8:	33030001 	addik	r24, r3, 1
+100016ac:	66d30402 	bslli	r22, r19, 2
+100016b0:	67180402 	bslli	r24, r24, 2
+100016b4:	12d9b000 	addk	r22, r25, r22
+100016b8:	b810001c 	brid	28		// 100016d4
+100016bc:	1317c000 	addk	r24, r23, r24
+100016c0:	3273ffff 	addik	r19, r19, -1
+100016c4:	a873ffff 	xori	r3, r19, -1
+100016c8:	32d6fffc 	addik	r22, r22, -4
+100016cc:	be030084 	beqid	r3, 132		// 10001750
+100016d0:	3318fffc 	addik	r24, r24, -4
+100016d4:	e8760080 	lwi	r3, r22, 128
+100016d8:	8863d800 	xor	r3, r3, r27
+100016dc:	bc23ffe4 	bnei	r3, -28		// 100016c0
+100016e0:	eb570004 	lwi	r26, r23, 4
+100016e4:	30daffff 	addik	r6, r26, -1
+100016e8:	88e69800 	xor	r7, r6, r19
+100016ec:	be0700b8 	beqid	r7, 184		// 100017a4
+100016f0:	e8980000 	lwi	r4, r24, 0
+100016f4:	f8780000 	swi	r3, r24, 0
+100016f8:	be04ffc8 	beqid	r4, -56		// 100016c0
+100016fc:	447d9c00 	bsll	r3, r29, r19
+10001700:	e8d90100 	lwi	r6, r25, 256
+10001704:	84c33000 	and	r6, r3, r6
+10001708:	bc06008c 	beqi	r6, 140		// 10001794
+1000170c:	e8b90104 	lwi	r5, r25, 260
+10001710:	84632800 	and	r3, r3, r5
+10001714:	be03009c 	beqid	r3, 156		// 100017b0
+10001718:	e8a1004c 	lwi	r5, r1, 76
+1000171c:	99fc2000 	brald	r15, r4
+10001720:	e8b60000 	lwi	r5, r22, 0
+10001724:	e8770004 	lwi	r3, r23, 4
+10001728:	8b43d000 	xor	r26, r3, r26
+1000172c:	bc3aff54 	bnei	r26, -172		// 10001680
+10001730:	e87c0000 	lwi	r3, r28, 0
+10001734:	8863b800 	xor	r3, r3, r23
+10001738:	be23ff48 	bneid	r3, -184		// 10001680
+1000173c:	3273ffff 	addik	r19, r19, -1
+10001740:	a873ffff 	xori	r3, r19, -1
+10001744:	32d6fffc 	addik	r22, r22, -4
+10001748:	be23ff8c 	bneid	r3, -116		// 100016d4
+1000174c:	3318fffc 	addik	r24, r24, -4
+10001750:	b0000000 	imm	0
+10001754:	30600000 	addik	r3, r0, 0
+10001758:	bc230194 	bnei	r3, 404		// 100018ec
+1000175c:	e9e10000 	lwi	r15, r1, 0
+10001760:	ea61001c 	lwi	r19, r1, 28
+10001764:	eac10020 	lwi	r22, r1, 32
+10001768:	eae10024 	lwi	r23, r1, 36
+1000176c:	eb010028 	lwi	r24, r1, 40
+10001770:	eb21002c 	lwi	r25, r1, 44
+10001774:	eb410030 	lwi	r26, r1, 48
+10001778:	eb610034 	lwi	r27, r1, 52
+1000177c:	eb810038 	lwi	r28, r1, 56
+10001780:	eba1003c 	lwi	r29, r1, 60
+10001784:	ebc10040 	lwi	r30, r1, 64
+10001788:	ebe10044 	lwi	r31, r1, 68
+1000178c:	b60f0008 	rtsd	r15, 8
+10001790:	30210048 	addik	r1, r1, 72
+10001794:	99fc2000 	brald	r15, r4
+10001798:	80000000 	or	r0, r0, r0
+1000179c:	b810ff8c 	brid	-116		// 10001728
+100017a0:	e8770004 	lwi	r3, r23, 4
+100017a4:	f8d70004 	swi	r6, r23, 4
+100017a8:	b810ff50 	brid	-176		// 100016f8
+100017ac:	13460000 	addk	r26, r6, r0
+100017b0:	99fc2000 	brald	r15, r4
+100017b4:	e8d60000 	lwi	r6, r22, 0
+100017b8:	b810ff70 	brid	-144		// 10001728
+100017bc:	e8770004 	lwi	r3, r23, 4
+100017c0:	be1900c8 	beqid	r25, 200		// 10001888
+100017c4:	66d60402 	bslli	r22, r22, 2
+100017c8:	67530402 	bslli	r26, r19, 2
+100017cc:	13030000 	addk	r24, r3, r0
+100017d0:	3063ffff 	addik	r3, r3, -1
+100017d4:	12d7b000 	addk	r22, r23, r22
+100017d8:	88c39800 	xor	r6, r3, r19
+100017dc:	1359d000 	addk	r26, r25, r26
+100017e0:	be06007c 	beqid	r6, 124		// 1000185c
+100017e4:	e8960000 	lwi	r4, r22, 0
+100017e8:	f8160000 	swi	r0, r22, 0
+100017ec:	be040044 	beqid	r4, 68		// 10001830
+100017f0:	447d9c00 	bsll	r3, r29, r19
+100017f4:	e8b90100 	lwi	r5, r25, 256
+100017f8:	84a32800 	and	r5, r3, r5
+100017fc:	bc05006c 	beqi	r5, 108		// 10001868
+10001800:	e8b90104 	lwi	r5, r25, 260
+10001804:	84632800 	and	r3, r3, r5
+10001808:	be230070 	bneid	r3, 112		// 10001878
+1000180c:	e8a1004c 	lwi	r5, r1, 76
+10001810:	99fc2000 	brald	r15, r4
+10001814:	e8da0000 	lwi	r6, r26, 0
+10001818:	e8770004 	lwi	r3, r23, 4
+1000181c:	8863c000 	xor	r3, r3, r24
+10001820:	bc23fe60 	bnei	r3, -416		// 10001680
+10001824:	e87c0000 	lwi	r3, r28, 0
+10001828:	8863b800 	xor	r3, r3, r23
+1000182c:	bc23fe54 	bnei	r3, -428		// 10001680
+10001830:	3273ffff 	addik	r19, r19, -1
+10001834:	a873ffff 	xori	r3, r19, -1
+10001838:	32d6fffc 	addik	r22, r22, -4
+1000183c:	be03ff14 	beqid	r3, -236		// 10001750
+10001840:	335afffc 	addik	r26, r26, -4
+10001844:	e8770004 	lwi	r3, r23, 4
+10001848:	13030000 	addk	r24, r3, r0
+1000184c:	3063ffff 	addik	r3, r3, -1
+10001850:	88c39800 	xor	r6, r3, r19
+10001854:	be26ff94 	bneid	r6, -108		// 100017e8
+10001858:	e8960000 	lwi	r4, r22, 0
+1000185c:	f8770004 	swi	r3, r23, 4
+10001860:	b810ff8c 	brid	-116		// 100017ec
+10001864:	13030000 	addk	r24, r3, r0
+10001868:	99fc2000 	brald	r15, r4
+1000186c:	80000000 	or	r0, r0, r0
+10001870:	b810ffac 	brid	-84		// 1000181c
+10001874:	e8770004 	lwi	r3, r23, 4
+10001878:	99fc2000 	brald	r15, r4
+1000187c:	e8ba0000 	lwi	r5, r26, 0
+10001880:	b810ff9c 	brid	-100		// 1000181c
+10001884:	e8770004 	lwi	r3, r23, 4
+10001888:	12d7b000 	addk	r22, r23, r22
+1000188c:	13030000 	addk	r24, r3, r0
+10001890:	3063ffff 	addik	r3, r3, -1
+10001894:	88839800 	xor	r4, r3, r19
+10001898:	be040048 	beqid	r4, 72		// 100018e0
+1000189c:	e8b60000 	lwi	r5, r22, 0
+100018a0:	f8160000 	swi	r0, r22, 0
+100018a4:	bc050024 	beqi	r5, 36		// 100018c8
+100018a8:	99fc2800 	brald	r15, r5
+100018ac:	80000000 	or	r0, r0, r0
+100018b0:	e8770004 	lwi	r3, r23, 4
+100018b4:	8863c000 	xor	r3, r3, r24
+100018b8:	bc23fdc8 	bnei	r3, -568		// 10001680
+100018bc:	e87c0000 	lwi	r3, r28, 0
+100018c0:	8863b800 	xor	r3, r3, r23
+100018c4:	bc23fdbc 	bnei	r3, -580		// 10001680
+100018c8:	3273ffff 	addik	r19, r19, -1
+100018cc:	a873ffff 	xori	r3, r19, -1
+100018d0:	be03fe80 	beqid	r3, -384		// 10001750
+100018d4:	32d6fffc 	addik	r22, r22, -4
+100018d8:	b810ffb4 	brid	-76		// 1000188c
+100018dc:	e8770004 	lwi	r3, r23, 4
+100018e0:	f8770004 	swi	r3, r23, 4
+100018e4:	b810ffc0 	brid	-64		// 100018a4
+100018e8:	13030000 	addk	r24, r3, r0
+100018ec:	e8770004 	lwi	r3, r23, 4
+100018f0:	bc230040 	bnei	r3, 64		// 10001930
+100018f4:	e8770000 	lwi	r3, r23, 0
+100018f8:	bc03003c 	beqi	r3, 60		// 10001934
+100018fc:	be190014 	beqid	r25, 20		// 10001910
+10001900:	f87c0000 	swi	r3, r28, 0
+10001904:	b000efff 	imm	-4097
+10001908:	b9f4e6f8 	brlid	r15, -6408
+1000190c:	10b90000 	addk	r5, r25, r0
+10001910:	b000efff 	imm	-4097
+10001914:	b9f4e6ec 	brlid	r15, -6420
+10001918:	10b70000 	addk	r5, r23, r0
+1000191c:	eafc0000 	lwi	r23, r28, 0
+10001920:	be37fd6c 	bneid	r23, -660		// 1000168c
+10001924:	e9e10000 	lwi	r15, r1, 0
+10001928:	b810fe3c 	brid	-452		// 10001764
+1000192c:	ea61001c 	lwi	r19, r1, 28
+10001930:	e8770000 	lwi	r3, r23, 0
+10001934:	13970000 	addk	r28, r23, r0
+10001938:	b810ffe8 	brid	-24		// 10001920
+1000193c:	12e30000 	addk	r23, r3, r0
+
+10001940 <__do_global_ctors_aux>:
+10001940:	b0001000 	imm	4096
+10001944:	e8602a48 	lwi	r3, r0, 10824	// 10002a48 <__data_end>
+10001948:	3021ffe0 	addik	r1, r1, -32
+1000194c:	f9e10000 	swi	r15, r1, 0
+10001950:	a883ffff 	xori	r4, r3, -1
+10001954:	be040024 	beqid	r4, 36		// 10001978
+10001958:	fa61001c 	swi	r19, r1, 28
+1000195c:	b0001000 	imm	4096
+10001960:	32602a48 	addik	r19, r0, 10824	// 10002a48 <__data_end>
+10001964:	99fc1800 	brald	r15, r3
+10001968:	3273fffc 	addik	r19, r19, -4
+1000196c:	e8730000 	lwi	r3, r19, 0
+10001970:	a883ffff 	xori	r4, r3, -1
+10001974:	bc24fff0 	bnei	r4, -16		// 10001964
+10001978:	e9e10000 	lwi	r15, r1, 0
+1000197c:	ea61001c 	lwi	r19, r1, 28
+10001980:	b60f0008 	rtsd	r15, 8
+10001984:	30210020 	addik	r1, r1, 32
+
+10001988 <main>:
+        Str_30          Str_2_Loc;
+  REG   int             Run_Index;
+  REG   int             Number_Of_Runs;
+
+#ifdef NO_MALLOC
+  Next_Ptr_Glob = (Rec_Pointer) &tmp_var1;
+10001988:	b0001000 	imm	4096
+1000198c:	308052b0 	addik	r4, r0, 21168	// 100052b0 <tmp_var1>
+  Ptr_Glob = (Rec_Pointer) &tmp_var2;
+10001990:	b0001000 	imm	4096
+10001994:	30c051b0 	addik	r6, r0, 20912	// 100051b0 <tmp_var2>
+main ()
+/*****/
+
+  /* main program, corresponds to procedures        */
+  /* Main and Proc_0 in the Ada version             */
+{
+10001998:	3021ff80 	addik	r1, r1, -128
+        Str_30          Str_2_Loc;
+  REG   int             Run_Index;
+  REG   int             Number_Of_Runs;
+
+#ifdef NO_MALLOC
+  Next_Ptr_Glob = (Rec_Pointer) &tmp_var1;
+1000199c:	b0001000 	imm	4096
+100019a0:	f88051a4 	swi	r4, r0, 20900	// 100051a4 <Next_Ptr_Glob>
+#else
+  Next_Ptr_Glob = (Rec_Pointer) malloc (sizeof (Rec_Type));
+  Ptr_Glob = (Rec_Pointer) malloc (sizeof (Rec_Type));
+#endif
+
+  Ptr_Glob->Ptr_Comp                    = Next_Ptr_Glob;
+100019a4:	b0001000 	imm	4096
+100019a8:	f88051b0 	swi	r4, r0, 20912	// 100051b0 <tmp_var2>
+  Ptr_Glob->Discr                       = Ident_1;
+  Ptr_Glob->variant.var_1.Enum_Comp     = Ident_3;
+100019ac:	30800002 	addik	r4, r0, 2
+100019b0:	b0001000 	imm	4096
+100019b4:	f88051b8 	swi	r4, r0, 20920
+  Ptr_Glob->variant.var_1.Int_Comp      = 40;
+100019b8:	30800028 	addik	r4, r0, 40
+100019bc:	b0001000 	imm	4096
+100019c0:	f88051bc 	swi	r4, r0, 20924
+  strcpy (Ptr_Glob->variant.var_1.Str_Comp,
+100019c4:	b0001000 	imm	4096
+100019c8:	e88022cc 	lwi	r4, r0, 8908
+main ()
+/*****/
+
+  /* main program, corresponds to procedures        */
+  /* Main and Proc_0 in the Ada version             */
+{
+100019cc:	f9e10000 	swi	r15, r1, 0
+100019d0:	fa610068 	swi	r19, r1, 104
+
+  Ptr_Glob->Ptr_Comp                    = Next_Ptr_Glob;
+  Ptr_Glob->Discr                       = Ident_1;
+  Ptr_Glob->variant.var_1.Enum_Comp     = Ident_3;
+  Ptr_Glob->variant.var_1.Int_Comp      = 40;
+  strcpy (Ptr_Glob->variant.var_1.Str_Comp,
+100019d4:	b0001000 	imm	4096
+100019d8:	f88051c0 	swi	r4, r0, 20928
+100019dc:	b0001000 	imm	4096
+100019e0:	e88022d0 	lwi	r4, r0, 8912
+main ()
+/*****/
+
+  /* main program, corresponds to procedures        */
+  /* Main and Proc_0 in the Ada version             */
+{
+100019e4:	fac1006c 	swi	r22, r1, 108
+100019e8:	fae10070 	swi	r23, r1, 112
+100019ec:	fb010074 	swi	r24, r1, 116
+100019f0:	fb210078 	swi	r25, r1, 120
+100019f4:	fb41007c 	swi	r26, r1, 124
+
+  Ptr_Glob->Ptr_Comp                    = Next_Ptr_Glob;
+  Ptr_Glob->Discr                       = Ident_1;
+  Ptr_Glob->variant.var_1.Enum_Comp     = Ident_3;
+  Ptr_Glob->variant.var_1.Int_Comp      = 40;
+  strcpy (Ptr_Glob->variant.var_1.Str_Comp,
+100019f8:	f8860014 	swi	r4, r6, 20
+100019fc:	b0001000 	imm	4096
+10001a00:	e88022d4 	lwi	r4, r0, 8916
+          "DHRYSTONE PROGRAM, SOME STRING");
+  strcpy (Str_1_Loc, "DHRYSTONE PROGRAM, 1'ST STRING");
+10001a04:	b0001000 	imm	4096
+10001a08:	e86022ec 	lwi	r3, r0, 8940
+  REG   int             Run_Index;
+  REG   int             Number_Of_Runs;
+
+#ifdef NO_MALLOC
+  Next_Ptr_Glob = (Rec_Pointer) &tmp_var1;
+  Ptr_Glob = (Rec_Pointer) &tmp_var2;
+10001a0c:	b0001000 	imm	4096
+10001a10:	f8c051e0 	swi	r6, r0, 20960	// 100051e0 <Ptr_Glob>
+
+  Ptr_Glob->Ptr_Comp                    = Next_Ptr_Glob;
+  Ptr_Glob->Discr                       = Ident_1;
+  Ptr_Glob->variant.var_1.Enum_Comp     = Ident_3;
+  Ptr_Glob->variant.var_1.Int_Comp      = 40;
+  strcpy (Ptr_Glob->variant.var_1.Str_Comp,
+10001a14:	f8860018 	swi	r4, r6, 24
+10001a18:	b0001000 	imm	4096
+10001a1c:	e88022d8 	lwi	r4, r0, 8920
+          "DHRYSTONE PROGRAM, SOME STRING");
+  strcpy (Str_1_Loc, "DHRYSTONE PROGRAM, 1'ST STRING");
+10001a20:	f8610048 	swi	r3, r1, 72
+10001a24:	b0001000 	imm	4096
+10001a28:	e86022f0 	lwi	r3, r0, 8944
+
+  Ptr_Glob->Ptr_Comp                    = Next_Ptr_Glob;
+  Ptr_Glob->Discr                       = Ident_1;
+  Ptr_Glob->variant.var_1.Enum_Comp     = Ident_3;
+  Ptr_Glob->variant.var_1.Int_Comp      = 40;
+  strcpy (Ptr_Glob->variant.var_1.Str_Comp,
+10001a2c:	f886001c 	swi	r4, r6, 28
+10001a30:	b0001000 	imm	4096
+10001a34:	e88022dc 	lwi	r4, r0, 8924
+        /* Arr_2_Glob [8][7] would have an undefined value.             */
+        /* Warning: With 16-Bit processors and Number_Of_Runs > 32000,  */
+        /* overflow may occur for this array element.                   */
+
+#ifdef VERBOSE_MODE
+  e_printf ("\n");
+10001a38:	b0001000 	imm	4096
+10001a3c:	30a0230c 	addik	r5, r0, 8972
+
+  Ptr_Glob->Ptr_Comp                    = Next_Ptr_Glob;
+  Ptr_Glob->Discr                       = Ident_1;
+  Ptr_Glob->variant.var_1.Enum_Comp     = Ident_3;
+  Ptr_Glob->variant.var_1.Int_Comp      = 40;
+  strcpy (Ptr_Glob->variant.var_1.Str_Comp,
+10001a40:	f8860020 	swi	r4, r6, 32
+10001a44:	b0001000 	imm	4096
+10001a48:	e88022e0 	lwi	r4, r0, 8928
+10001a4c:	f8860024 	swi	r4, r6, 36
+10001a50:	b0001000 	imm	4096
+10001a54:	e88022e4 	lwi	r4, r0, 8932
+10001a58:	f8860028 	swi	r4, r6, 40
+10001a5c:	b0001000 	imm	4096
+10001a60:	e48022e8 	lhui	r4, r0, 8936
+10001a64:	f486002c 	shi	r4, r6, 44
+10001a68:	b0001000 	imm	4096
+10001a6c:	e08022ea 	lbui	r4, r0, 8938
+10001a70:	f086002e 	sbi	r4, r6, 46
+          "DHRYSTONE PROGRAM, SOME STRING");
+  strcpy (Str_1_Loc, "DHRYSTONE PROGRAM, 1'ST STRING");
+10001a74:	f861004c 	swi	r3, r1, 76
+10001a78:	b0001000 	imm	4096
+10001a7c:	e86022f4 	lwi	r3, r0, 8948
+10001a80:	b0001000 	imm	4096
+10001a84:	e080230a 	lbui	r4, r0, 8970
+  Next_Ptr_Glob = (Rec_Pointer) malloc (sizeof (Rec_Type));
+  Ptr_Glob = (Rec_Pointer) malloc (sizeof (Rec_Type));
+#endif
+
+  Ptr_Glob->Ptr_Comp                    = Next_Ptr_Glob;
+  Ptr_Glob->Discr                       = Ident_1;
+10001a88:	b0001000 	imm	4096
+10001a8c:	f80051b4 	swi	r0, r0, 20916
+  Ptr_Glob->variant.var_1.Enum_Comp     = Ident_3;
+  Ptr_Glob->variant.var_1.Int_Comp      = 40;
+  strcpy (Ptr_Glob->variant.var_1.Str_Comp,
+          "DHRYSTONE PROGRAM, SOME STRING");
+  strcpy (Str_1_Loc, "DHRYSTONE PROGRAM, 1'ST STRING");
+10001a90:	f8610050 	swi	r3, r1, 80
+10001a94:	b0001000 	imm	4096
+10001a98:	e86022f8 	lwi	r3, r0, 8952
+10001a9c:	f0810066 	sbi	r4, r1, 102
+10001aa0:	f8610054 	swi	r3, r1, 84
+10001aa4:	b0001000 	imm	4096
+10001aa8:	e86022fc 	lwi	r3, r0, 8956
+10001aac:	f8610058 	swi	r3, r1, 88
+10001ab0:	b0001000 	imm	4096
+10001ab4:	e8602300 	lwi	r3, r0, 8960
+10001ab8:	f861005c 	swi	r3, r1, 92
+10001abc:	b0001000 	imm	4096
+10001ac0:	e8602304 	lwi	r3, r0, 8964
+10001ac4:	f8610060 	swi	r3, r1, 96
+10001ac8:	b0001000 	imm	4096
+10001acc:	e4602308 	lhui	r3, r0, 8968
+10001ad0:	f4610064 	shi	r3, r1, 100
+
+  Arr_2_Glob [8][7] = 10;
+10001ad4:	3060000a 	addik	r3, r0, 10
+10001ad8:	b0001000 	imm	4096
+10001adc:	f86030ec 	swi	r3, r0, 12524
+        /* Arr_2_Glob [8][7] would have an undefined value.             */
+        /* Warning: With 16-Bit processors and Number_Of_Runs > 32000,  */
+        /* overflow may occur for this array element.                   */
+
+#ifdef VERBOSE_MODE
+  e_printf ("\n");
+10001ae0:	b9f4ed78 	brlid	r15, -4744	// 10000858 <e_printf>
+10001ae4:	80000000 	or	r0, r0, r0
+  e_printf ("Dhrystone Benchmark, Version 2.1 (Language: C)\n");
+10001ae8:	b0001000 	imm	4096
+10001aec:	30a02310 	addik	r5, r0, 8976
+10001af0:	b9f4ed68 	brlid	r15, -4760	// 10000858 <e_printf>
+10001af4:	80000000 	or	r0, r0, r0
+  e_printf ("\n");
+10001af8:	b0001000 	imm	4096
+10001afc:	30a0230c 	addik	r5, r0, 8972
+10001b00:	b9f4ed58 	brlid	r15, -4776	// 10000858 <e_printf>
+10001b04:	80000000 	or	r0, r0, r0
+  if (Reg)
+10001b08:	b0001000 	imm	4096
+10001b0c:	e860294c 	lwi	r3, r0, 10572	// 1000294c <Reg>
+10001b10:	bc030738 	beqi	r3, 1848		// 10002248
+  {
+    e_printf ("Program compiled with 'register' attribute\n");
+10001b14:	b0001000 	imm	4096
+10001b18:	30a02340 	addik	r5, r0, 9024
+10001b1c:	b9f4ed3c 	brlid	r15, -4804	// 10000858 <e_printf>
+10001b20:	80000000 	or	r0, r0, r0
+    e_printf ("\n");
+10001b24:	b0001000 	imm	4096
+10001b28:	30a0230c 	addik	r5, r0, 8972
+10001b2c:	b9f4ed2c 	brlid	r15, -4820	// 10000858 <e_printf>
+10001b30:	80000000 	or	r0, r0, r0
+#endif
+
+  Number_Of_Runs = 10000;
+  
+#ifdef VERBOSE_MODE
+  e_printf ("Execution starts, %d runs through Dhrystone\n", Number_Of_Runs);
+10001b34:	b0001000 	imm	4096
+10001b38:	30a0239c 	addik	r5, r0, 9116
+
+    timer_1_reset();
+    timer_1_init(TIMER_MAX_VALUE);
+    timer_1_enable();
+
+    for (Run_Index = 1; Run_Index <= Number_Of_Runs; ++Run_Index)
+10001b3c:	33000001 	addik	r24, r0, 1
+#endif
+
+  Number_Of_Runs = 10000;
+  
+#ifdef VERBOSE_MODE
+  e_printf ("Execution starts, %d runs through Dhrystone\n", Number_Of_Runs);
+10001b40:	30c02710 	addik	r6, r0, 10000
+10001b44:	b9f4ed14 	brlid	r15, -4844	// 10000858 <e_printf>
+10001b48:	13580000 	addk	r26, r24, r0
+  /***************/
+
+  {
+    /* Begin_Time = 0x0; */
+
+    timer_1_reset();
+10001b4c:	b9f4ed48 	brlid	r15, -4792	// 10000894 <timer_1_reset>
+10001b50:	32e00002 	addik	r23, r0, 2
+    timer_1_init(TIMER_MAX_VALUE);
+10001b54:	b9f4ed78 	brlid	r15, -4744	// 100008cc <timer_1_init.constprop.0>
+10001b58:	80000000 	or	r0, r0, r0
+    timer_1_enable();
+10001b5c:	b9f4ed4c 	brlid	r15, -4788	// 100008a8 <timer_1_enable>
+10001b60:	80000000 	or	r0, r0, r0
+
+    for (Run_Index = 1; Run_Index <= Number_Of_Runs; ++Run_Index)
+    {
+
+      Proc_5();
+10001b64:	b9f4efc0 	brlid	r15, -4160	// 10000b24 <Proc_5>
+10001b68:	80000000 	or	r0, r0, r0
+      Proc_4();
+10001b6c:	b9f4ef7c 	brlid	r15, -4228	// 10000ae8 <Proc_4>
+10001b70:	80000000 	or	r0, r0, r0
+        /* Ch_1_Glob == 'A', Ch_2_Glob == 'B', Bool_Glob == true */
+      Int_1_Loc = 2;
+      Int_2_Loc = 3;
+      strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 2'ND STRING");
+10001b74:	b0001000 	imm	4096
+10001b78:	e86023cc 	lwi	r3, r0, 9164
+10001b7c:	b0001000 	imm	4096
+10001b80:	e08023ea 	lbui	r4, r0, 9194
+      Enum_Loc = Ident_2;
+      Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+10001b84:	30a10048 	addik	r5, r1, 72
+      Proc_5();
+      Proc_4();
+        /* Ch_1_Glob == 'A', Ch_2_Glob == 'B', Bool_Glob == true */
+      Int_1_Loc = 2;
+      Int_2_Loc = 3;
+      strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 2'ND STRING");
+10001b88:	f8610028 	swi	r3, r1, 40
+10001b8c:	b0001000 	imm	4096
+10001b90:	e86023d0 	lwi	r3, r0, 9168
+      Enum_Loc = Ident_2;
+      Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+10001b94:	30c10028 	addik	r6, r1, 40
+      Proc_5();
+      Proc_4();
+        /* Ch_1_Glob == 'A', Ch_2_Glob == 'B', Bool_Glob == true */
+      Int_1_Loc = 2;
+      Int_2_Loc = 3;
+      strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 2'ND STRING");
+10001b98:	f0810046 	sbi	r4, r1, 70
+10001b9c:	f861002c 	swi	r3, r1, 44
+10001ba0:	b0001000 	imm	4096
+10001ba4:	e86023d4 	lwi	r3, r0, 9172
+    {
+
+      Proc_5();
+      Proc_4();
+        /* Ch_1_Glob == 'A', Ch_2_Glob == 'B', Bool_Glob == true */
+      Int_1_Loc = 2;
+10001ba8:	fae10024 	swi	r23, r1, 36
+      Int_2_Loc = 3;
+      strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 2'ND STRING");
+      Enum_Loc = Ident_2;
+10001bac:	fb41001c 	swi	r26, r1, 28
+      Proc_5();
+      Proc_4();
+        /* Ch_1_Glob == 'A', Ch_2_Glob == 'B', Bool_Glob == true */
+      Int_1_Loc = 2;
+      Int_2_Loc = 3;
+      strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 2'ND STRING");
+10001bb0:	f8610030 	swi	r3, r1, 48
+10001bb4:	b0001000 	imm	4096
+10001bb8:	e86023d8 	lwi	r3, r0, 9176
+10001bbc:	f8610034 	swi	r3, r1, 52
+10001bc0:	b0001000 	imm	4096
+10001bc4:	e86023dc 	lwi	r3, r0, 9180
+10001bc8:	f8610038 	swi	r3, r1, 56
+10001bcc:	b0001000 	imm	4096
+10001bd0:	e86023e0 	lwi	r3, r0, 9184
+10001bd4:	f861003c 	swi	r3, r1, 60
+10001bd8:	b0001000 	imm	4096
+10001bdc:	e86023e4 	lwi	r3, r0, 9188
+10001be0:	f8610040 	swi	r3, r1, 64
+10001be4:	b0001000 	imm	4096
+10001be8:	e46023e8 	lhui	r3, r0, 9192
+      Enum_Loc = Ident_2;
+      Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+10001bec:	b9f4eff8 	brlid	r15, -4104	// 10000be4 <Func_2>
+10001bf0:	f4610044 	shi	r3, r1, 68
+        /* Bool_Glob == 1 */
+      while (Int_1_Loc < Int_2_Loc)  /* loop body executed once */
+10001bf4:	e8a10024 	lwi	r5, r1, 36
+        /* Ch_1_Glob == 'A', Ch_2_Glob == 'B', Bool_Glob == true */
+      Int_1_Loc = 2;
+      Int_2_Loc = 3;
+      strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 2'ND STRING");
+      Enum_Loc = Ident_2;
+      Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+10001bf8:	10800000 	addk	r4, r0, r0
+10001bfc:	88632400 	pcmpeq	r3, r3, r4
+10001c00:	b0001000 	imm	4096
+10001c04:	f86052ac 	swi	r3, r0, 21164	// 100052ac <Bool_Glob>
+        /* Bool_Glob == 1 */
+      while (Int_1_Loc < Int_2_Loc)  /* loop body executed once */
+10001c08:	1485b801 	cmp	r4, r5, r23
+10001c0c:	be44003c 	bltid	r4, 60		// 10001c48
+10001c10:	10650000 	addk	r3, r5, r0
+      {
+        Int_3_Loc = 5 * Int_1_Loc - Int_2_Loc;
+10001c14:	64830402 	bslli	r4, r3, 2
+10001c18:	10641800 	addk	r3, r4, r3
+10001c1c:	3063fffd 	addik	r3, r3, -3
+          /* Int_3_Loc == 7 */
+        Proc_7 (Int_1_Loc, Int_2_Loc, &Int_3_Loc);
+10001c20:	30e10020 	addik	r7, r1, 32
+10001c24:	30c00003 	addik	r6, r0, 3
+10001c28:	b9f4ef18 	brlid	r15, -4328	// 10000b40 <Proc_7>
+10001c2c:	f8610020 	swi	r3, r1, 32
+          /* Int_3_Loc == 7 */
+        Int_1_Loc += 1;
+10001c30:	e8a10024 	lwi	r5, r1, 36
+10001c34:	30650001 	addik	r3, r5, 1
+10001c38:	f8610024 	swi	r3, r1, 36
+      Int_2_Loc = 3;
+      strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 2'ND STRING");
+      Enum_Loc = Ident_2;
+      Bool_Glob = ! Func_2 (Str_1_Loc, Str_2_Loc);
+        /* Bool_Glob == 1 */
+      while (Int_1_Loc < Int_2_Loc)  /* loop body executed once */
+10001c3c:	1483b801 	cmp	r4, r3, r23
+10001c40:	bea4ffd4 	bgeid	r4, -44		// 10001c14
+10001c44:	10a30000 	addk	r5, r3, r0
+        Proc_7 (Int_1_Loc, Int_2_Loc, &Int_3_Loc);
+          /* Int_3_Loc == 7 */
+        Int_1_Loc += 1;
+      } /* while */
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Proc_8 (Arr_1_Glob, Arr_2_Glob, Int_1_Loc, Int_3_Loc);
+10001c48:	b0001000 	imm	4096
+10001c4c:	30a051e4 	addik	r5, r0, 20964	// 100051e4 <Arr_1_Glob>
+10001c50:	b0001000 	imm	4096
+10001c54:	30c02a90 	addik	r6, r0, 10896	// 10002a90 <Arr_2_Glob>
+10001c58:	10e30000 	addk	r7, r3, r0
+10001c5c:	e9010020 	lwi	r8, r1, 32
+10001c60:	b9f4eef0 	brlid	r15, -4368	// 10000b50 <Proc_8>
+10001c64:	33200003 	addik	r25, r0, 3
+        /* Int_Glob == 5 */
+      Proc_1 (Ptr_Glob);
+10001c68:	b0001000 	imm	4096
+10001c6c:	e8a051e0 	lwi	r5, r0, 20960	// 100051e0 <Ptr_Glob>
+10001c70:	b9f4ecf8 	brlid	r15, -4872	// 10000968 <Proc_1>
+10001c74:	80000000 	or	r0, r0, r0
+      for (Ch_Index = 'A'; Ch_Index <= Ch_2_Glob; ++Ch_Index)
+10001c78:	b0001000 	imm	4096
+10001c7c:	e06051ad 	lbui	r3, r0, 20909	// 100051ad <Ch_2_Glob>
+10001c80:	30800040 	addik	r4, r0, 64
+10001c84:	90630060 	sext8	r3, r3
+10001c88:	14632001 	cmp	r3, r3, r4
+10001c8c:	bea300e8 	bgeid	r3, 232		// 10001d74
+10001c90:	32600041 	addik	r19, r0, 65
+10001c94:	b8100028 	brid	40		// 10001cbc
+10001c98:	12d30000 	addk	r22, r19, r0
+10001c9c:	b0001000 	imm	4096
+10001ca0:	e06051ad 	lbui	r3, r0, 20909	// 100051ad <Ch_2_Glob>
+10001ca4:	32d60001 	addik	r22, r22, 1
+10001ca8:	92d60060 	sext8	r22, r22
+10001cac:	90630060 	sext8	r3, r3
+10001cb0:	14761801 	cmp	r3, r22, r3
+10001cb4:	be4300c4 	bltid	r3, 196		// 10001d78
+10001cb8:	e8610024 	lwi	r3, r1, 36
+                               /* loop body executed twice */
+      {
+        if (Enum_Loc == Func_1 (Ch_Index, 'C'))
+10001cbc:	10b30000 	addk	r5, r19, r0
+10001cc0:	30c00043 	addik	r6, r0, 67
+10001cc4:	b9f4eef4 	brlid	r15, -4364	// 10000bb8 <Func_1>
+10001cc8:	32730001 	addik	r19, r19, 1
+10001ccc:	e8a1001c 	lwi	r5, r1, 28
+10001cd0:	88a32800 	xor	r5, r3, r5
+10001cd4:	bc25ffc8 	bnei	r5, -56		// 10001c9c
+            /* then, not executed */
+          {
+          Proc_6 (Ident_1, &Enum_Loc);
+10001cd8:	b9f4efa0 	brlid	r15, -4192	// 10000c78 <Proc_6>
+10001cdc:	30c1001c 	addik	r6, r1, 28
+          strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 3'RD STRING");
+10001ce0:	b0001000 	imm	4096
+10001ce4:	e4602408 	lhui	r3, r0, 9224
+10001ce8:	b0001000 	imm	4096
+10001cec:	e080240a 	lbui	r4, r0, 9226
+      } /* while */
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Proc_8 (Arr_1_Glob, Arr_2_Glob, Int_1_Loc, Int_3_Loc);
+        /* Int_Glob == 5 */
+      Proc_1 (Ptr_Glob);
+      for (Ch_Index = 'A'; Ch_Index <= Ch_2_Glob; ++Ch_Index)
+10001cf0:	32d60001 	addik	r22, r22, 1
+      {
+        if (Enum_Loc == Func_1 (Ch_Index, 'C'))
+            /* then, not executed */
+          {
+          Proc_6 (Ident_1, &Enum_Loc);
+          strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 3'RD STRING");
+10001cf4:	f4610044 	shi	r3, r1, 68
+10001cf8:	b0001000 	imm	4096
+10001cfc:	e86023ec 	lwi	r3, r0, 9196
+      } /* while */
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Proc_8 (Arr_1_Glob, Arr_2_Glob, Int_1_Loc, Int_3_Loc);
+        /* Int_Glob == 5 */
+      Proc_1 (Ptr_Glob);
+      for (Ch_Index = 'A'; Ch_Index <= Ch_2_Glob; ++Ch_Index)
+10001d00:	92d60060 	sext8	r22, r22
+      {
+        if (Enum_Loc == Func_1 (Ch_Index, 'C'))
+            /* then, not executed */
+          {
+          Proc_6 (Ident_1, &Enum_Loc);
+          strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 3'RD STRING");
+10001d04:	f0810046 	sbi	r4, r1, 70
+10001d08:	f8610028 	swi	r3, r1, 40
+10001d0c:	b0001000 	imm	4096
+10001d10:	e86023f0 	lwi	r3, r0, 9200
+          Int_2_Loc = Run_Index;
+          Int_Glob = Run_Index;
+10001d14:	b0001000 	imm	4096
+10001d18:	fb0051a8 	swi	r24, r0, 20904	// 100051a8 <Int_Glob>
+      {
+        if (Enum_Loc == Func_1 (Ch_Index, 'C'))
+            /* then, not executed */
+          {
+          Proc_6 (Ident_1, &Enum_Loc);
+          strcpy (Str_2_Loc, "DHRYSTONE PROGRAM, 3'RD STRING");
+10001d1c:	f861002c 	swi	r3, r1, 44
+10001d20:	b0001000 	imm	4096
+10001d24:	e86023f4 	lwi	r3, r0, 9204
+10001d28:	f8610030 	swi	r3, r1, 48
+10001d2c:	b0001000 	imm	4096
+10001d30:	e86023f8 	lwi	r3, r0, 9208
+10001d34:	f8610034 	swi	r3, r1, 52
+10001d38:	b0001000 	imm	4096
+10001d3c:	e86023fc 	lwi	r3, r0, 9212
+10001d40:	f8610038 	swi	r3, r1, 56
+10001d44:	b0001000 	imm	4096
+10001d48:	e8602400 	lwi	r3, r0, 9216
+10001d4c:	f861003c 	swi	r3, r1, 60
+10001d50:	b0001000 	imm	4096
+10001d54:	e8602404 	lwi	r3, r0, 9220
+10001d58:	f8610040 	swi	r3, r1, 64
+      } /* while */
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Proc_8 (Arr_1_Glob, Arr_2_Glob, Int_1_Loc, Int_3_Loc);
+        /* Int_Glob == 5 */
+      Proc_1 (Ptr_Glob);
+      for (Ch_Index = 'A'; Ch_Index <= Ch_2_Glob; ++Ch_Index)
+10001d5c:	b0001000 	imm	4096
+10001d60:	e06051ad 	lbui	r3, r0, 20909	// 100051ad <Ch_2_Glob>
+10001d64:	90630060 	sext8	r3, r3
+10001d68:	14761801 	cmp	r3, r22, r3
+10001d6c:	bea3ff50 	bgeid	r3, -176		// 10001cbc
+10001d70:	13380000 	addk	r25, r24, r0
+          Int_2_Loc = Run_Index;
+          Int_Glob = Run_Index;
+          }
+      }
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Int_2_Loc = Int_2_Loc * Int_1_Loc;
+10001d74:	e8610024 	lwi	r3, r1, 36
+      Int_1_Loc = Int_2_Loc / Int_3_Loc;
+10001d78:	e8810020 	lwi	r4, r1, 32
+
+    timer_1_reset();
+    timer_1_init(TIMER_MAX_VALUE);
+    timer_1_enable();
+
+    for (Run_Index = 1; Run_Index <= Number_Of_Runs; ++Run_Index)
+10001d7c:	33180001 	addik	r24, r24, 1
+          Int_2_Loc = Run_Index;
+          Int_Glob = Run_Index;
+          }
+      }
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Int_2_Loc = Int_2_Loc * Int_1_Loc;
+10001d80:	43391800 	mul	r25, r25, r3
+
+    timer_1_reset();
+    timer_1_init(TIMER_MAX_VALUE);
+    timer_1_enable();
+
+    for (Run_Index = 1; Run_Index <= Number_Of_Runs; ++Run_Index)
+10001d84:	aa782711 	xori	r19, r24, 10001
+          Int_Glob = Run_Index;
+          }
+      }
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Int_2_Loc = Int_2_Loc * Int_1_Loc;
+      Int_1_Loc = Int_2_Loc / Int_3_Loc;
+10001d88:	4864c800 	idiv	r3, r4, r25
+      Int_2_Loc = 7 * (Int_2_Loc - Int_3_Loc) - Int_1_Loc;
+10001d8c:	1724c800 	rsubk	r25, r4, r25
+10001d90:	64990403 	bslli	r4, r25, 3
+        /* Int_1_Loc == 1, Int_2_Loc == 13, Int_3_Loc == 7 */
+      Proc_2 (&Int_1_Loc);
+10001d94:	30a10024 	addik	r5, r1, 36
+          }
+      }
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Int_2_Loc = Int_2_Loc * Int_1_Loc;
+      Int_1_Loc = Int_2_Loc / Int_3_Loc;
+      Int_2_Loc = 7 * (Int_2_Loc - Int_3_Loc) - Int_1_Loc;
+10001d98:	17392000 	rsubk	r25, r25, r4
+          Int_Glob = Run_Index;
+          }
+      }
+        /* Int_1_Loc == 3, Int_2_Loc == 3, Int_3_Loc == 7 */
+      Int_2_Loc = Int_2_Loc * Int_1_Loc;
+      Int_1_Loc = Int_2_Loc / Int_3_Loc;
+10001d9c:	f8610024 	swi	r3, r1, 36
+      Int_2_Loc = 7 * (Int_2_Loc - Int_3_Loc) - Int_1_Loc;
+        /* Int_1_Loc == 1, Int_2_Loc == 13, Int_3_Loc == 7 */
+      Proc_2 (&Int_1_Loc);
+10001da0:	b9f4eb4c 	brlid	r15, -5300	// 100008ec <Proc_2>
+10001da4:	1723c800 	rsubk	r25, r3, r25
+
+    timer_1_reset();
+    timer_1_init(TIMER_MAX_VALUE);
+    timer_1_enable();
+
+    for (Run_Index = 1; Run_Index <= Number_Of_Runs; ++Run_Index)
+10001da8:	bc33fdbc 	bnei	r19, -580		// 10001b64
+
+  /**************/
+  /* Stop timer */
+  /**************/
+
+    End_Time = timer_1_getval();
+10001dac:	b9f4eb10 	brlid	r15, -5360	// 100008bc <timer_1_getval>
+10001db0:	80000000 	or	r0, r0, r0
+  }
+
+#ifdef VERBOSE_MODE
+  e_printf ("Execution ends\n");
+10001db4:	b0001000 	imm	4096
+10001db8:	30a0240c 	addik	r5, r0, 9228
+
+  /**************/
+  /* Stop timer */
+  /**************/
+
+    End_Time = timer_1_getval();
+10001dbc:	b0001000 	imm	4096
+10001dc0:	f86051a0 	swi	r3, r0, 20896	// 100051a0 <End_Time>
+  }
+
+#ifdef VERBOSE_MODE
+  e_printf ("Execution ends\n");
+10001dc4:	b9f4ea94 	brlid	r15, -5484	// 10000858 <e_printf>
+10001dc8:	80000000 	or	r0, r0, r0
+  e_printf ("\n");
+10001dcc:	b0001000 	imm	4096
+10001dd0:	30a0230c 	addik	r5, r0, 8972
+10001dd4:	b9f4ea84 	brlid	r15, -5500	// 10000858 <e_printf>
+10001dd8:	80000000 	or	r0, r0, r0
+
+  e_printf ("Final values of the variables used in the benchmark:\n");
+10001ddc:	b0001000 	imm	4096
+10001de0:	30a0241c 	addik	r5, r0, 9244
+10001de4:	b9f4ea74 	brlid	r15, -5516	// 10000858 <e_printf>
+10001de8:	80000000 	or	r0, r0, r0
+  e_printf ("\n");
+10001dec:	b0001000 	imm	4096
+10001df0:	30a0230c 	addik	r5, r0, 8972
+10001df4:	b9f4ea64 	brlid	r15, -5532	// 10000858 <e_printf>
+10001df8:	80000000 	or	r0, r0, r0
+  e_printf ("Int_Glob:            %d\n", Int_Glob);
+10001dfc:	b0001000 	imm	4096
+10001e00:	30a02454 	addik	r5, r0, 9300
+10001e04:	b0001000 	imm	4096
+10001e08:	e8c051a8 	lwi	r6, r0, 20904	// 100051a8 <Int_Glob>
+10001e0c:	b9f4ea4c 	brlid	r15, -5556	// 10000858 <e_printf>
+10001e10:	80000000 	or	r0, r0, r0
+  e_printf ("        should be:   %d\n", 5);
+10001e14:	b0001000 	imm	4096
+10001e18:	30a02470 	addik	r5, r0, 9328
+10001e1c:	b9f4ea3c 	brlid	r15, -5572	// 10000858 <e_printf>
+10001e20:	30c00005 	addik	r6, r0, 5
+  e_printf ("Bool_Glob:           %d\n", Bool_Glob);
+10001e24:	b0001000 	imm	4096
+10001e28:	30a0248c 	addik	r5, r0, 9356
+10001e2c:	b0001000 	imm	4096
+10001e30:	e8c052ac 	lwi	r6, r0, 21164	// 100052ac <Bool_Glob>
+10001e34:	b9f4ea24 	brlid	r15, -5596	// 10000858 <e_printf>
+10001e38:	80000000 	or	r0, r0, r0
+  e_printf ("        should be:   %d\n", 1);
+10001e3c:	b0001000 	imm	4096
+10001e40:	30a02470 	addik	r5, r0, 9328
+10001e44:	b9f4ea14 	brlid	r15, -5612	// 10000858 <e_printf>
+10001e48:	30c00001 	addik	r6, r0, 1
+  e_printf ("Ch_1_Glob:           %c\n", Ch_1_Glob);
+10001e4c:	b0001000 	imm	4096
+10001e50:	e0c051ac 	lbui	r6, r0, 20908	// 100051ac <Ch_1_Glob>
+10001e54:	b0001000 	imm	4096
+10001e58:	30a024a8 	addik	r5, r0, 9384
+10001e5c:	b9f4e9fc 	brlid	r15, -5636	// 10000858 <e_printf>
+10001e60:	90c60060 	sext8	r6, r6
+  e_printf ("        should be:   %c\n", 'A');
+10001e64:	b0001000 	imm	4096
+10001e68:	30a024c4 	addik	r5, r0, 9412
+10001e6c:	b9f4e9ec 	brlid	r15, -5652	// 10000858 <e_printf>
+10001e70:	30c00041 	addik	r6, r0, 65
+  e_printf ("Ch_2_Glob:           %c\n", Ch_2_Glob);
+10001e74:	b0001000 	imm	4096
+10001e78:	e0c051ad 	lbui	r6, r0, 20909	// 100051ad <Ch_2_Glob>
+10001e7c:	b0001000 	imm	4096
+10001e80:	30a024e0 	addik	r5, r0, 9440
+10001e84:	b9f4e9d4 	brlid	r15, -5676	// 10000858 <e_printf>
+10001e88:	90c60060 	sext8	r6, r6
+  e_printf ("        should be:   %c\n", 'B');
+10001e8c:	b0001000 	imm	4096
+10001e90:	30a024c4 	addik	r5, r0, 9412
+10001e94:	b9f4e9c4 	brlid	r15, -5692	// 10000858 <e_printf>
+10001e98:	30c00042 	addik	r6, r0, 66
+  e_printf ("Arr_1_Glob[8]:       %d\n", Arr_1_Glob[8]);
+10001e9c:	b0001000 	imm	4096
+10001ea0:	30a024fc 	addik	r5, r0, 9468
+10001ea4:	b0001000 	imm	4096
+10001ea8:	e8c05204 	lwi	r6, r0, 20996
+10001eac:	b9f4e9ac 	brlid	r15, -5716	// 10000858 <e_printf>
+10001eb0:	80000000 	or	r0, r0, r0
+  e_printf ("        should be:   %d\n", 7);
+10001eb4:	b0001000 	imm	4096
+10001eb8:	30a02470 	addik	r5, r0, 9328
+10001ebc:	b9f4e99c 	brlid	r15, -5732	// 10000858 <e_printf>
+10001ec0:	30c00007 	addik	r6, r0, 7
+  e_printf ("Arr_2_Glob[8][7]:    %d\n", Arr_2_Glob[8][7]);
+10001ec4:	b0001000 	imm	4096
+10001ec8:	30a02518 	addik	r5, r0, 9496
+10001ecc:	b0001000 	imm	4096
+10001ed0:	e8c030ec 	lwi	r6, r0, 12524
+10001ed4:	b9f4e984 	brlid	r15, -5756	// 10000858 <e_printf>
+10001ed8:	80000000 	or	r0, r0, r0
+  e_printf ("        should be:   %d\n", Number_Of_Runs+10);
+10001edc:	b0001000 	imm	4096
+10001ee0:	30a02470 	addik	r5, r0, 9328
+10001ee4:	b9f4e974 	brlid	r15, -5772	// 10000858 <e_printf>
+10001ee8:	30c0271a 	addik	r6, r0, 10010
+  e_printf ("Ptr_Glob->\n");
+10001eec:	b0001000 	imm	4096
+10001ef0:	30a02534 	addik	r5, r0, 9524
+10001ef4:	b9f4e964 	brlid	r15, -5788	// 10000858 <e_printf>
+10001ef8:	80000000 	or	r0, r0, r0
+  e_printf ("  Ptr_Comp:          0x%08x\n", (int) Ptr_Glob->Ptr_Comp);
+10001efc:	b0001000 	imm	4096
+10001f00:	e86051e0 	lwi	r3, r0, 20960	// 100051e0 <Ptr_Glob>
+10001f04:	b0001000 	imm	4096
+10001f08:	30a02540 	addik	r5, r0, 9536
+10001f0c:	b9f4e94c 	brlid	r15, -5812	// 10000858 <e_printf>
+10001f10:	e8c30000 	lwi	r6, r3, 0
+  e_printf ("        should be:   (implementation-dependent)\n");
+10001f14:	b0001000 	imm	4096
+10001f18:	30a02560 	addik	r5, r0, 9568
+10001f1c:	b9f4e93c 	brlid	r15, -5828	// 10000858 <e_printf>
+10001f20:	80000000 	or	r0, r0, r0
+  e_printf ("  Discr:             %d\n", Ptr_Glob->Discr);
+10001f24:	b0001000 	imm	4096
+10001f28:	e86051e0 	lwi	r3, r0, 20960	// 100051e0 <Ptr_Glob>
+10001f2c:	b0001000 	imm	4096
+10001f30:	30a02594 	addik	r5, r0, 9620
+10001f34:	b9f4e924 	brlid	r15, -5852	// 10000858 <e_printf>
+10001f38:	e8c30004 	lwi	r6, r3, 4
+  e_printf ("        should be:   %d\n", 0);
+10001f3c:	b0001000 	imm	4096
+10001f40:	30a02470 	addik	r5, r0, 9328
+10001f44:	b9f4e914 	brlid	r15, -5868	// 10000858 <e_printf>
+10001f48:	10d30000 	addk	r6, r19, r0
+  e_printf ("  Enum_Comp:         %d\n", Ptr_Glob->variant.var_1.Enum_Comp);
+10001f4c:	b0001000 	imm	4096
+10001f50:	e86051e0 	lwi	r3, r0, 20960	// 100051e0 <Ptr_Glob>
+10001f54:	b0001000 	imm	4096
+10001f58:	30a025b0 	addik	r5, r0, 9648
+10001f5c:	b9f4e8fc 	brlid	r15, -5892	// 10000858 <e_printf>
+10001f60:	e8c30008 	lwi	r6, r3, 8
+  e_printf ("        should be:   %d\n", 2);
+10001f64:	b0001000 	imm	4096
+10001f68:	30a02470 	addik	r5, r0, 9328
+10001f6c:	b9f4e8ec 	brlid	r15, -5908	// 10000858 <e_printf>
+10001f70:	30c00002 	addik	r6, r0, 2
+  e_printf ("  Int_Comp:          %d\n", Ptr_Glob->variant.var_1.Int_Comp);
+10001f74:	b0001000 	imm	4096
+10001f78:	e86051e0 	lwi	r3, r0, 20960	// 100051e0 <Ptr_Glob>
+10001f7c:	b0001000 	imm	4096
+10001f80:	30a025cc 	addik	r5, r0, 9676
+10001f84:	b9f4e8d4 	brlid	r15, -5932	// 10000858 <e_printf>
+10001f88:	e8c3000c 	lwi	r6, r3, 12
+  e_printf ("        should be:   %d\n", 17);
+10001f8c:	b0001000 	imm	4096
+10001f90:	30a02470 	addik	r5, r0, 9328
+10001f94:	b9f4e8c4 	brlid	r15, -5948	// 10000858 <e_printf>
+10001f98:	30c00011 	addik	r6, r0, 17
+  e_printf ("  Str_Comp:          %s\n", Ptr_Glob->variant.var_1.Str_Comp);
+10001f9c:	b0001000 	imm	4096
+10001fa0:	e8c051e0 	lwi	r6, r0, 20960	// 100051e0 <Ptr_Glob>
+10001fa4:	b0001000 	imm	4096
+10001fa8:	30a025e8 	addik	r5, r0, 9704
+10001fac:	b9f4e8ac 	brlid	r15, -5972	// 10000858 <e_printf>
+10001fb0:	30c60010 	addik	r6, r6, 16
+  e_printf ("        should be:   DHRYSTONE PROGRAM, SOME STRING\n");
+10001fb4:	b0001000 	imm	4096
+10001fb8:	30a02604 	addik	r5, r0, 9732
+10001fbc:	b9f4e89c 	brlid	r15, -5988	// 10000858 <e_printf>
+10001fc0:	80000000 	or	r0, r0, r0
+  e_printf ("Next_Ptr_Glob->\n");
+10001fc4:	b0001000 	imm	4096
+10001fc8:	30a0263c 	addik	r5, r0, 9788
+10001fcc:	b9f4e88c 	brlid	r15, -6004	// 10000858 <e_printf>
+10001fd0:	80000000 	or	r0, r0, r0
+  e_printf ("  Ptr_Comp:          0x%08x\n", (int) Next_Ptr_Glob->Ptr_Comp);
+10001fd4:	b0001000 	imm	4096
+10001fd8:	e86051a4 	lwi	r3, r0, 20900	// 100051a4 <Next_Ptr_Glob>
+10001fdc:	b0001000 	imm	4096
+10001fe0:	30a02540 	addik	r5, r0, 9536
+10001fe4:	b9f4e874 	brlid	r15, -6028	// 10000858 <e_printf>
+10001fe8:	e8c30000 	lwi	r6, r3, 0
+  e_printf ("        should be:   (implementation-dependent), same as above\n");
+10001fec:	b0001000 	imm	4096
+10001ff0:	30a02650 	addik	r5, r0, 9808
+10001ff4:	b9f4e864 	brlid	r15, -6044	// 10000858 <e_printf>
+10001ff8:	80000000 	or	r0, r0, r0
+  e_printf ("  Discr:             %d\n", Next_Ptr_Glob->Discr);
+10001ffc:	b0001000 	imm	4096
+10002000:	e86051a4 	lwi	r3, r0, 20900	// 100051a4 <Next_Ptr_Glob>
+10002004:	b0001000 	imm	4096
+10002008:	30a02594 	addik	r5, r0, 9620
+1000200c:	b9f4e84c 	brlid	r15, -6068	// 10000858 <e_printf>
+10002010:	e8c30004 	lwi	r6, r3, 4
+  e_printf ("        should be:   %d\n", 0);
+10002014:	b0001000 	imm	4096
+10002018:	30a02470 	addik	r5, r0, 9328
+1000201c:	b9f4e83c 	brlid	r15, -6084	// 10000858 <e_printf>
+10002020:	10d30000 	addk	r6, r19, r0
+  e_printf ("  Enum_Comp:         %d\n", Next_Ptr_Glob->variant.var_1.Enum_Comp);
+10002024:	b0001000 	imm	4096
+10002028:	e86051a4 	lwi	r3, r0, 20900	// 100051a4 <Next_Ptr_Glob>
+1000202c:	b0001000 	imm	4096
+10002030:	30a025b0 	addik	r5, r0, 9648
+10002034:	b9f4e824 	brlid	r15, -6108	// 10000858 <e_printf>
+10002038:	e8c30008 	lwi	r6, r3, 8
+  e_printf ("        should be:   %d\n", 1);
+1000203c:	b0001000 	imm	4096
+10002040:	30a02470 	addik	r5, r0, 9328
+10002044:	b9f4e814 	brlid	r15, -6124	// 10000858 <e_printf>
+10002048:	30c00001 	addik	r6, r0, 1
+  e_printf ("  Int_Comp:          %d\n", Next_Ptr_Glob->variant.var_1.Int_Comp);
+1000204c:	b0001000 	imm	4096
+10002050:	e86051a4 	lwi	r3, r0, 20900	// 100051a4 <Next_Ptr_Glob>
+10002054:	b0001000 	imm	4096
+10002058:	30a025cc 	addik	r5, r0, 9676
+1000205c:	b9f4e7fc 	brlid	r15, -6148	// 10000858 <e_printf>
+10002060:	e8c3000c 	lwi	r6, r3, 12
+  e_printf ("        should be:   %d\n", 18);
+10002064:	b0001000 	imm	4096
+10002068:	30a02470 	addik	r5, r0, 9328
+1000206c:	b9f4e7ec 	brlid	r15, -6164	// 10000858 <e_printf>
+10002070:	30c00012 	addik	r6, r0, 18
+  e_printf ("  Str_Comp:          %s\n",
+10002074:	b0001000 	imm	4096
+10002078:	e8c051a4 	lwi	r6, r0, 20900	// 100051a4 <Next_Ptr_Glob>
+1000207c:	b0001000 	imm	4096
+10002080:	30a025e8 	addik	r5, r0, 9704
+10002084:	b9f4e7d4 	brlid	r15, -6188	// 10000858 <e_printf>
+10002088:	30c60010 	addik	r6, r6, 16
+                                Next_Ptr_Glob->variant.var_1.Str_Comp);
+  e_printf ("        should be:   DHRYSTONE PROGRAM, SOME STRING\n");
+1000208c:	b0001000 	imm	4096
+10002090:	30a02604 	addik	r5, r0, 9732
+10002094:	b9f4e7c4 	brlid	r15, -6204	// 10000858 <e_printf>
+10002098:	80000000 	or	r0, r0, r0
+  e_printf ("Int_1_Loc:           %d\n", Int_1_Loc);
+1000209c:	b0001000 	imm	4096
+100020a0:	30a02690 	addik	r5, r0, 9872
+100020a4:	b9f4e7b4 	brlid	r15, -6220	// 10000858 <e_printf>
+100020a8:	e8c10024 	lwi	r6, r1, 36
+  e_printf ("        should be:   %d\n", 5);
+100020ac:	b0001000 	imm	4096
+100020b0:	30a02470 	addik	r5, r0, 9328
+100020b4:	b9f4e7a4 	brlid	r15, -6236	// 10000858 <e_printf>
+100020b8:	30c00005 	addik	r6, r0, 5
+  e_printf ("Int_2_Loc:           %d\n", Int_2_Loc);
+100020bc:	b0001000 	imm	4096
+100020c0:	30a026ac 	addik	r5, r0, 9900
+100020c4:	b9f4e794 	brlid	r15, -6252	// 10000858 <e_printf>
+100020c8:	10d90000 	addk	r6, r25, r0
+  e_printf ("        should be:   %d\n", 13);
+100020cc:	b0001000 	imm	4096
+100020d0:	30a02470 	addik	r5, r0, 9328
+100020d4:	b9f4e784 	brlid	r15, -6268	// 10000858 <e_printf>
+100020d8:	30c0000d 	addik	r6, r0, 13
+  e_printf ("Int_3_Loc:           %d\n", Int_3_Loc);
+100020dc:	b0001000 	imm	4096
+100020e0:	30a026c8 	addik	r5, r0, 9928
+100020e4:	b9f4e774 	brlid	r15, -6284	// 10000858 <e_printf>
+100020e8:	e8c10020 	lwi	r6, r1, 32
+  e_printf ("        should be:   %d\n", 7);
+100020ec:	b0001000 	imm	4096
+100020f0:	30a02470 	addik	r5, r0, 9328
+100020f4:	b9f4e764 	brlid	r15, -6300	// 10000858 <e_printf>
+100020f8:	30c00007 	addik	r6, r0, 7
+  e_printf ("Enum_Loc:            %d\n", Enum_Loc);
+100020fc:	b0001000 	imm	4096
+10002100:	30a026e4 	addik	r5, r0, 9956
+10002104:	b9f4e754 	brlid	r15, -6316	// 10000858 <e_printf>
+10002108:	e8c1001c 	lwi	r6, r1, 28
+  e_printf ("        should be:   %d\n", 1);
+1000210c:	b0001000 	imm	4096
+10002110:	30a02470 	addik	r5, r0, 9328
+10002114:	b9f4e744 	brlid	r15, -6332	// 10000858 <e_printf>
+10002118:	30c00001 	addik	r6, r0, 1
+  e_printf ("Str_1_Loc:           %s\n", Str_1_Loc);
+1000211c:	b0001000 	imm	4096
+10002120:	30a02700 	addik	r5, r0, 9984
+10002124:	b9f4e734 	brlid	r15, -6348	// 10000858 <e_printf>
+10002128:	30c10048 	addik	r6, r1, 72
+  e_printf ("        should be:   DHRYSTONE PROGRAM, 1'ST STRING\n");
+1000212c:	b0001000 	imm	4096
+10002130:	30a0271c 	addik	r5, r0, 10012
+10002134:	b9f4e724 	brlid	r15, -6364	// 10000858 <e_printf>
+10002138:	80000000 	or	r0, r0, r0
+  e_printf ("Str_2_Loc:           %s\n", Str_2_Loc);
+1000213c:	b0001000 	imm	4096
+10002140:	30a02754 	addik	r5, r0, 10068
+10002144:	b9f4e714 	brlid	r15, -6380	// 10000858 <e_printf>
+10002148:	30c10028 	addik	r6, r1, 40
+  e_printf ("        should be:   DHRYSTONE PROGRAM, 2'ND STRING\n");
+1000214c:	b0001000 	imm	4096
+10002150:	30a02770 	addik	r5, r0, 10096
+10002154:	b9f4e704 	brlid	r15, -6396	// 10000858 <e_printf>
+10002158:	80000000 	or	r0, r0, r0
+  e_printf ("\n");
+1000215c:	b0001000 	imm	4096
+10002160:	30a0230c 	addik	r5, r0, 8972
+10002164:	b9f4e6f4 	brlid	r15, -6412	// 10000858 <e_printf>
+10002168:	80000000 	or	r0, r0, r0
+#endif
+
+  /* calculate and print dmips/mhz */
+#ifdef VERBOSE_MODE
+  e_printf ("Ticks          : %d\n",End_Time*C_S_CLK_DIV);
+1000216c:	b0001000 	imm	4096
+10002170:	e8c051a0 	lwi	r6, r0, 20896	// 100051a0 <End_Time>
+10002174:	b0001000 	imm	4096
+10002178:	30a027a8 	addik	r5, r0, 10152
+1000217c:	b9f4e6dc 	brlid	r15, -6436	// 10000858 <e_printf>
+10002180:	10c63000 	addk	r6, r6, r6
+#endif
+  float dmips = ((float)Number_Of_Runs/1757*FREQ_CORE_HZ/(End_Time*C_S_CLK_DIV)); 
+10002184:	b0001000 	imm	4096
+10002188:	e8a051a0 	lwi	r5, r0, 20896	// 100051a0 <End_Time>
+1000218c:	b9f4ef0c 	brlid	r15, -4340	// 10001098 <__floatsisf>
+10002190:	10a52800 	addk	r5, r5, r5
+10002194:	10c30000 	addk	r6, r3, r0
+10002198:	b0004d87 	imm	19847
+1000219c:	30a0b248 	addik	r5, r0, -19896
+100021a0:	b9f4ed80 	brlid	r15, -4736	// 10000f20 <__divsf3>
+100021a4:	80000000 	or	r0, r0, r0
+#ifdef VERBOSE_MODE
+  e_printf ("DMIPS          : %d\n",(int)(dmips));
+100021a8:	10a30000 	addk	r5, r3, r0
+
+  /* calculate and print dmips/mhz */
+#ifdef VERBOSE_MODE
+  e_printf ("Ticks          : %d\n",End_Time*C_S_CLK_DIV);
+#endif
+  float dmips = ((float)Number_Of_Runs/1757*FREQ_CORE_HZ/(End_Time*C_S_CLK_DIV)); 
+100021ac:	12630000 	addk	r19, r3, r0
+#ifdef VERBOSE_MODE
+  e_printf ("DMIPS          : %d\n",(int)(dmips));
+100021b0:	b9f4ef7c 	brlid	r15, -4228	// 1000112c <__fixsfsi>
+100021b4:	80000000 	or	r0, r0, r0
+100021b8:	b0001000 	imm	4096
+100021bc:	30a027c0 	addik	r5, r0, 10176
+100021c0:	b9f4e698 	brlid	r15, -6504	// 10000858 <e_printf>
+100021c4:	10c30000 	addk	r6, r3, r0
+  e_printf ("Proc Frequency : %d Hz\n",FREQ_CORE_HZ);
+100021c8:	b00002fa 	imm	762
+100021cc:	30c0f080 	addik	r6, r0, -3968
+100021d0:	b0001000 	imm	4096
+100021d4:	30a027d8 	addik	r5, r0, 10200
+100021d8:	b9f4e680 	brlid	r15, -6528	// 10000858 <e_printf>
+100021dc:	80000000 	or	r0, r0, r0
+#endif
+  e_printf ("DMIPS/MHz      : %d/1000\n",(int)(1000 * (float)dmips/(FREQ_CORE_HZ/1000000)));
+100021e0:	10b30000 	addk	r5, r19, r0
+100021e4:	b000447a 	imm	17530
+100021e8:	30c00000 	addik	r6, r0, 0
+100021ec:	b9f4eb4c 	brlid	r15, -5300	// 10000d38 <__mulsf3>
+100021f0:	80000000 	or	r0, r0, r0
+100021f4:	b0004248 	imm	16968
+100021f8:	30c00000 	addik	r6, r0, 0
+100021fc:	10a30000 	addk	r5, r3, r0
+10002200:	b9f4ed20 	brlid	r15, -4832	// 10000f20 <__divsf3>
+10002204:	80000000 	or	r0, r0, r0
+10002208:	10a30000 	addk	r5, r3, r0
+1000220c:	b9f4ef20 	brlid	r15, -4320	// 1000112c <__fixsfsi>
+10002210:	80000000 	or	r0, r0, r0
+10002214:	b0001000 	imm	4096
+10002218:	30a027f0 	addik	r5, r0, 10224
+1000221c:	b9f4e63c 	brlid	r15, -6596	// 10000858 <e_printf>
+10002220:	10c30000 	addk	r6, r3, r0
+
+}
+10002224:	e9e10000 	lwi	r15, r1, 0
+10002228:	ea610068 	lwi	r19, r1, 104
+1000222c:	eac1006c 	lwi	r22, r1, 108
+10002230:	eae10070 	lwi	r23, r1, 112
+10002234:	eb010074 	lwi	r24, r1, 116
+10002238:	eb210078 	lwi	r25, r1, 120
+1000223c:	eb41007c 	lwi	r26, r1, 124
+10002240:	b60f0008 	rtsd	r15, 8
+10002244:	30210080 	addik	r1, r1, 128
+    e_printf ("Program compiled with 'register' attribute\n");
+    e_printf ("\n");
+  }
+  else
+  {
+    e_printf ("Program compiled without 'register' attribute\n");
+10002248:	b0001000 	imm	4096
+1000224c:	30a0236c 	addik	r5, r0, 9068
+10002250:	b9f4e608 	brlid	r15, -6648	// 10000858 <e_printf>
+10002254:	80000000 	or	r0, r0, r0
+    e_printf ("\n");
+10002258:	b0001000 	imm	4096
+1000225c:	30a0230c 	addik	r5, r0, 8972
+10002260:	b9f4e5f8 	brlid	r15, -6664	// 10000858 <e_printf>
+10002264:	80000000 	or	r0, r0, r0
+10002268:	b800f8cc 	bri	-1844		// 10001b34
+
+Disassembly of section .init:
+
+1000226c <__init>:
+1000226c:	3021fff8 	addik	r1, r1, -8
+10002270:	d9e00800 	sw	r15, r0, r1
+10002274:	b0001000 	imm	4096
+10002278:	316054d0 	addik	r11, r0, 21712
+1000227c:	940bc802 	mts	rshr, r11
+10002280:	b0001000 	imm	4096
+10002284:	316053e4 	addik	r11, r0, 21476
+10002288:	940bc800 	mts	rslr, r11
+1000228c:	b9f4dea4 	brlid	r15, -8540	// 10000130 <frame_dummy>
+10002290:	80000000 	or	r0, r0, r0
+10002294:	b9f4f6ac 	brlid	r15, -2388	// 10001940 <__do_global_ctors_aux>
+10002298:	80000000 	or	r0, r0, r0
+1000229c:	c9e00800 	lw	r15, r0, r1
+100022a0:	b60f0008 	rtsd	r15, 8
+100022a4:	30210008 	addik	r1, r1, 8
+
+Disassembly of section .fini:
+
+100022a8 <__fini>:
+100022a8:	3021fff8 	addik	r1, r1, -8
+100022ac:	d9e00800 	sw	r15, r0, r1
+100022b0:	b9f4ddcc 	brlid	r15, -8756	// 1000007c <__do_global_dtors_aux>
+100022b4:	80000000 	or	r0, r0, r0
+100022b8:	c9e00800 	lw	r15, r0, r1
+100022bc:	b60f0008 	rtsd	r15, 8
+100022c0:	30210008 	addik	r1, r1, 8
+
+Disassembly of section .rodata:
+
+100022c4 <__rodata_start>:
+100022c4:	286e756c 	addic	r3, r14, 30060
+100022c8:	6c290000 	get	r1, rfsl0
+100022cc:	44485259 	bsra	r2, r8, r10
+100022d0:	53544f4e 		r26, r20, r9
+100022d4:	45205052 	bsrl	r9, r0, r10
+100022d8:	4f475241 	nagetd	r26, r10
+100022dc:	4d2c2053 	agetd	r9, r4
+100022e0:	4f4d4520 	ecputd	r13, r8
+100022e4:	53545249 		r26, r20, r10
+100022e8:	4e470000 	getd	r18, r0
+100022ec:	44485259 	bsra	r2, r8, r10
+100022f0:	53544f4e 		r26, r20, r9
+100022f4:	45205052 	bsrl	r9, r0, r10
+100022f8:	4f475241 	nagetd	r26, r10
+100022fc:	4d2c2031 	egetd	r9, r4
+10002300:	27535420 	rsubi	r26, r19, 21536
+10002304:	53545249 		r26, r20, r10
+10002308:	4e470000 	getd	r18, r0
+1000230c:	0a000000 	addc	r16, r0, r0
+10002310:	44687279 	bsra	r3, r8, r14
+10002314:	73746f6e 		r27, r20, r13
+10002318:	65204265 	bsrai	r9, r0, 5
+1000231c:	6e63686d 	ncaget	r19, rfsl13
+10002320:	61726b2c 	muli	r11, r18, 27436
+10002324:	20566572 	addi	r2, r22, 25970
+10002328:	73696f6e 		r27, r9, r13
+1000232c:	20322e31 	addi	r1, r18, 11825
+10002330:	20284c61 	addi	r1, r8, 19553
+10002334:	6e677561 	tnecget	r19, rfsl1
+10002338:	67653a20 	bsrai	r27, r5, 0
+1000233c:	43290a00 		r25, r9, r1
+10002340:	50726f67 		r3, r18, r13
+10002344:	72616d20 		r19, r1, r13
+10002348:	636f6d70 	muli	r27, r15, 28016
+1000234c:	696c6564 		r11, r12, r12
+10002350:	20776974 	addi	r3, r23, 26996
+10002354:	68202772 		r1, r0, r4
+10002358:	65676973 	bsrli	r11, r7, 19
+1000235c:	74657227 		r3, r5, r14
+10002360:	20617474 	addi	r3, r1, 29812
+10002364:	72696275 		r19, r9, r12
+10002368:	74650a00 		r3, r5, r1
+1000236c:	50726f67 		r3, r18, r13
+10002370:	72616d20 		r19, r1, r13
+10002374:	636f6d70 	muli	r27, r15, 28016
+10002378:	696c6564 		r11, r12, r12
+1000237c:	20776974 	addi	r3, r23, 26996
+10002380:	686f7574 		r3, r15, r14
+10002384:	20277265 	addi	r1, r7, 29285
+10002388:	67697374 	bsrai	r27, r9, 20
+1000238c:	65722720 		r11, r18, r4
+10002390:	61747472 	muli	r11, r20, 29810
+10002394:	69627574 		r11, r2, r14
+10002398:	650a0000 	bsrli	r8, r10, 0
+1000239c:	45786563 	bsll	r11, r24, r12
+100023a0:	7574696f 		r11, r20, r13
+100023a4:	6e207374 	tncget	r17, rfsl4
+100023a8:	61727473 	muli	r11, r18, 29811
+100023ac:	2c202564 	rsubic	r1, r0, 9572
+100023b0:	2072756e 	addi	r3, r18, 30062
+100023b4:	73207468 		r25, r0, r14
+100023b8:	726f7567 		r19, r15, r14
+100023bc:	68204468 		r1, r0, r8
+100023c0:	72797374 		r19, r25, r14
+100023c4:	6f6e650a 	necget	r27, rfsl10
+100023c8:	
+1000280c <__thenan_sf>:
+1000280c:	
+1000281c <__clz_tab>:
+1000281c:	00010202 		r0, r1, r0
+10002820:	03030303 		r24, r3, r0
+10002824:	04040404 	neg	r0, r4
+10002828:	04040404 	neg	r0, r4
+1000282c:	05050505 	neg	r8, r5
+10002830:	05050505 	neg	r8, r5
+10002834:	05050505 	neg	r8, r5
+10002838:	05050505 	neg	r8, r5
+1000283c:	06060606 	neg	r16, r6
+10002840:	06060606 	neg	r16, r6
+10002844:	06060606 	neg	r16, r6
+10002848:	06060606 	neg	r16, r6
+1000284c:	06060606 	neg	r16, r6
+10002850:	06060606 	neg	r16, r6
+10002854:	06060606 	neg	r16, r6
+10002858:	06060606 	neg	r16, r6
+1000285c:	07070707 	neg	r24, r7
+10002860:	07070707 	neg	r24, r7
+10002864:	07070707 	neg	r24, r7
+10002868:	07070707 	neg	r24, r7
+1000286c:	07070707 	neg	r24, r7
+10002870:	07070707 	neg	r24, r7
+10002874:	07070707 	neg	r24, r7
+10002878:	07070707 	neg	r24, r7
+1000287c:	07070707 	neg	r24, r7
+10002880:	07070707 	neg	r24, r7
+10002884:	07070707 	neg	r24, r7
+10002888:	07070707 	neg	r24, r7
+1000288c:	07070707 	neg	r24, r7
+10002890:	07070707 	neg	r24, r7
+10002894:	07070707 	neg	r24, r7
+10002898:	07070707 	neg	r24, r7
+1000289c:	08080808 		r0, r8, r1
+100028a0:	08080808 		r0, r8, r1
+100028a4:	08080808 		r0, r8, r1
+100028a8:	08080808 		r0, r8, r1
+100028ac:	08080808 		r0, r8, r1
+100028b0:	08080808 		r0, r8, r1
+100028b4:	08080808 		r0, r8, r1
+100028b8:	08080808 		r0, r8, r1
+100028bc:	08080808 		r0, r8, r1
+100028c0:	08080808 		r0, r8, r1
+100028c4:	08080808 		r0, r8, r1
+100028c8:	08080808 		r0, r8, r1
+100028cc:	08080808 		r0, r8, r1
+100028d0:	08080808 		r0, r8, r1
+100028d4:	08080808 		r0, r8, r1
+100028d8:	08080808 		r0, r8, r1
+100028dc:	08080808 		r0, r8, r1
+100028e0:	08080808 		r0, r8, r1
+100028e4:	08080808 		r0, r8, r1
+100028e8:	08080808 		r0, r8, r1
+100028ec:	08080808 		r0, r8, r1
+100028f0:	08080808 		r0, r8, r1
+100028f4:	08080808 		r0, r8, r1
+100028f8:	08080808 		r0, r8, r1
+100028fc:	08080808 		r0, r8, r1
+10002900:	08080808 		r0, r8, r1
+10002904:	08080808 		r0, r8, r1
+10002908:	08080808 		r0, r8, r1
+1000290c:	08080808 		r0, r8, r1
+10002910:	08080808 		r0, r8, r1
+10002914:	08080808 		r0, r8, r1
+10002918:	08080808 		r0, r8, r1
+
+1000291c <_global_impure_ptr>:
+1000291c:	10002954 		r0, r0, r5
+10002920:	Address 0x10002920 is out of bounds.
+
+
+Disassembly of section .data:
+
+10002944 <__data_start>:
+10002944:	
+10002948 <__dso_handle>:
+10002948:	
+1000294c <Reg>:
+1000294c:	00000001 		r0, r0, r0
+
+10002950 <_impure_ptr>:
+10002950:	10002954 		r0, r0, r5
+
+10002954 <impure_data>:
+10002954:	
+10002a44 <force_to_data>:
+10002a44:	
+Disassembly of section .ctors:
+
+10002a48 <__CTOR_LIST__>:
+10002a48:	ffffffff 		r31, r31, r31
+
+10002a4c <__CTOR_END__>:
+10002a4c:	
+Disassembly of section .dtors:
+
+10002a50 <__DTOR_LIST__>:
+10002a50:	ffffffff 		r31, r31, r31
+
+10002a54 <__DTOR_END__>:
+10002a54:	
+Disassembly of section .eh_frame:
+
+10002a58 <__EH_FRAME_BEGIN__>:
+10002a58:	
+Disassembly of section .jcr:
+
+10002a5c <__JCR_END__>:
+10002a5c:	
+Disassembly of section .bss:
+
+10002a60 <__bss_start>:
+10002a60:	
+10002a64 <dtor_idx.2340>:
+10002a64:	
+10002a68 <object.2350>:
+10002a68:	
+10002a80 <Microseconds>:
+10002a80:	
+10002a84 <Dhrystones_Per_Second>:
+10002a84:	
+10002a88 <User_Time>:
+10002a88:	
+10002a8c <Begin_Time>:
+10002a8c:	
+10002a90 <Arr_2_Glob>:
+10002a90:	
+100051a0 <End_Time>:
+100051a0:	
+100051a4 <Next_Ptr_Glob>:
+100051a4:	
+100051a8 <Int_Glob>:
+100051a8:	
+100051ac <Ch_1_Glob>:
+100051ac:	
+100051ad <Ch_2_Glob>:
+100051ad:	
+100051b0 <tmp_var2>:
+100051b0:	
+100051e0 <Ptr_Glob>:
+100051e0:	
+100051e4 <Arr_1_Glob>:
+100051e4:	
+100052ac <Bool_Glob>:
+100052ac:	
+100052b0 <tmp_var1>:
+100052b0:	
+Disassembly of section .heap:
+
+100052e0 <_heap>:
+100052e0:	
+Disassembly of section .stack:
+
+100053e0 <_stack_end>:
+100053e0:	
+Disassembly of section .debug_line:
+
+00000000 <.debug_line>:
+       0:	000000a7 		r0, r0, r0
+       4:	00020000 	add	r0, r2, r0
+       8:	00490101 		r2, r9, r0
+       c:	fb0e0d00 	swi	r24, r14, 3328
+      10:	01010101 		r8, r1, r0
+      14:	00000001 		r0, r0, r0
+      18:	0000012f 		r0, r0, r0
+      1c:	676e752f 	bslli	r27, r14, 15
+      20:	6d625f67 	tneaget	r11, rfsl7
+      24:	6e752f2f 	ecaget	r19, rfsl15
+      28:	7372632f 		r27, r18, r12
+      2c:	6e65776c 	tnecget	r19, rfsl12
+      30:	69622f6c 		r11, r2, r5
+      34:	6962676c 		r11, r2, r12
+      38:	6f73732f 	tncget	r27, rfsl15
+      3c:	6d696372 	ncget	r11, rfsl2
+      40:	6f626c61 	necaget	r27, rfsl1
+      44:	7a650000 		r19, r5, r0
+      48:	63727430 	muli	r27, r18, 29744
+      4c:	2e530001 	rsubic	r18, r19, 1
+      50:	
+Disassembly of section .debug_info:
+
+00000000 <.debug_info>:
+       0:	000000b5 		r0, r0, r0
+       4:	00020000 	add	r0, r2, r0
+       8:	00000401 		r0, r0, r0
+       c:	
+Disassembly of section .debug_abbrev:
+
+00000000 <.debug_abbrev>:
+       0:	01110010 		r8, r17, r0
+       4:	06550603 	neg	r18, r21
+       8:	081b0825 		r0, r27, r1
+       c:	08130500 		r0, r19, r0
+      10:	00000111 		r0, r0, r0
+      14:	00100655 		r0, r16, r0
+      18:	0603081b 	neg	r16, r3
+      1c:	08250813 		r1, r5, r1
+      20:	05000000 	rsub	r8, r0, r0
+      24:	01110010 		r8, r17, r0
+      28:	06110112 	neg	r16, r17
+      2c:	0103081b 		r8, r3, r1
+      30:	08250813 		r1, r5, r1
+      34:	05000000 	rsub	r8, r0, r0
+      38:	01110125 		r8, r17, r0
+      3c:	0e130b03 		r16, r19, r1
+      40:	0e1b0e11 		r16, r27, r1
+      44:	01120110 		r8, r18, r0
+      48:	06000002 	neg	r16, r0
+      4c:	24000b0b 	rsubi	r0, r0, 2827
+      50:	3e0b030e 	rsubikc	r16, r11, 782
+      54:	00000316 		r0, r0, r0
+      58:	00030e3a 		r0, r3, r1
+      5c:	0b3b0b49 		r25, r27, r1
+      60:	13000004 		r24, r0, r0
+      64:	24000b0b 	rsubi	r0, r0, 2827
+      68:	3e0b0308 	rsubikc	r16, r11, 776
+      6c:	0000052e 		r0, r0, r0
+      70:	01030e3a 		r8, r3, r1
+      74:	0b3b0b27 		r25, r27, r1
+      78:	0c110112 		r0, r17, r0
+      7c:	01400a01 		r10, r0, r1
+      80:	13000006 		r24, r0, r0
+      84:	0500030e 	neg	r8, r0
+      88:	3a0b3b0b 	addikc	r16, r11, 15115
+      8c:	4913020a 		r8, r19, r0
+      90:	00000726 		r0, r0, r0
+      94:	00491300 		r2, r9, r2
+      98:	00080f00 		r0, r8, r1
+      9c:	0b0b4913 		r24, r11, r9
+      a0:	0000092e 		r0, r0, r1
+      a4:	00030e3a 		r0, r3, r1
+      a8:	0b3b0b27 		r25, r27, r1
+      ac:	0c110112 		r0, r17, r0
+      b0:	01400a00 		r10, r0, r1
+      b4:	000a2e01 		r0, r10, r5
+      b8:	3f0c030e 	rsubikc	r24, r12, 782
+      bc:	3a0b3b0b 	addikc	r16, r11, 15115
+      c0:	270c1101 	rsubi	r24, r12, 4353
+      c4:	1201400a 		r16, r1, r8
+      c8:	01130000 	add	r8, r19, r0
+      cc:	0b340003 		r25, r20, r0
+      d0:	0e3a0b3b 		r17, r26, r1
+      d4:	0b491302 		r26, r9, r2
+      d8:	0600000c 	neg	r16, r0
+      dc:	2e013f0c 	rsubic	r16, r1, 16140
+      e0:	030e3a0b 		r24, r14, r7
+      e4:	3b0b270c 	addikc	r24, r11, 9996
+      e8:	11011201 		r8, r1, r2
+      ec:	40060113 		r0, r6, r0
+      f0:	00000d05 		r0, r0, r1
+      f4:	0003083a 		r0, r3, r1
+      f8:	0b3b0b49 		r25, r27, r1
+      fc:	13020600 		r24, r2, r0
+     100:	000e0101 		r0, r14, r0
+     104:	49130113 		r8, r19, r0
+     108:	00000f21 		r0, r0, r1
+     10c:	0049132f 		r2, r9, r2
+     110:	0b000010 		r24, r0, r0
+     114:	3400030e 	rsubik	r0, r0, 782
+     118:	3a0b3b0b 	addikc	r16, r11, 15115
+     11c:	49130000 	idiv	r8, r19, r0
+     120:	00011101 		r0, r1, r2
+     124:	250e130b 	rsubi	r8, r14, 4875
+     128:	030e1b0e 		r24, r14, r3
+     12c:	11011201 		r8, r1, r2
+     130:	10060000 	addk	r0, r6, r0
+     134:	0224000b 		r17, r4, r0
+     138:	0b3e0b03 		r25, r30, r1
+     13c:	0e000003 		r16, r0, r0
+     140:	1600030e 		r16, r0, r0
+     144:	3a0b3b0b 	addikc	r16, r11, 15115
+     148:	49130000 	idiv	r8, r19, r0
+     14c:	0424000b 	neg	r1, r4
+     150:	0b3e0b03 		r25, r30, r1
+     154:	08000005 		r0, r0, r0
+     158:	2e013f0c 	rsubic	r16, r1, 16140
+     15c:	030e3a0b 		r24, r14, r7
+     160:	3b0b270c 	addikc	r24, r11, 9996
+     164:	11011201 		r8, r1, r2
+     168:	40060113 		r0, r6, r0
+     16c:	00000605 		r0, r0, r0
+     170:	0003083a 		r0, r3, r1
+     174:	0b3b0b49 		r25, r27, r1
+     178:	13020600 		r24, r2, r0
+     17c:	00070f00 		r0, r7, r1
+     180:	0b0b4913 		r24, r11, r9
+     184:	0000082e 		r0, r0, r1
+     188:	013f0c03 		r9, r31, r1
+     18c:	0e3a0b3b 		r17, r26, r1
+     190:	0b270c49 		r25, r7, r1
+     194:	13110112 		r24, r17, r0
+     198:	01400601 		r10, r0, r0
+     19c:	13000009 		r24, r0, r0
+     1a0:	0500030e 	neg	r8, r0
+     1a4:	3a0b3b0b 	addikc	r16, r11, 15115
+     1a8:	49130206 		r8, r19, r0
+     1ac:	00000a34 		r0, r0, r1
+     1b0:	0003083a 		r0, r3, r1
+     1b4:	0b3b0b49 		r25, r27, r1
+     1b8:	13020600 		r24, r2, r0
+     1bc:	000b3400 		r0, r11, r6
+     1c0:	030e3a0b 		r24, r14, r7
+     1c4:	3b0b4913 	addikc	r24, r11, 18707
+     1c8:	02060000 	add	r16, r6, r0
+     1cc:	0c0b0111 		r0, r11, r0
+     1d0:	01120100 		r8, r18, r0
+     1d4:	000d2600 		r0, r13, r4
+     1d8:	49130000 	idiv	r8, r19, r0
+     1dc:	0e050003 		r16, r5, r0
+     1e0:	0e3a0b3b 		r17, r26, r1
+     1e4:	0b491302 		r26, r9, r2
+     1e8:	0a00000f 		r16, r0, r0
+     1ec:	3400030e 	rsubik	r0, r0, 782
+     1f0:	3a0b3b0b 	addikc	r16, r11, 15115
+     1f4:	4913020a 		r8, r19, r0
+     1f8:	00001001 		r0, r0, r2
+     1fc:	01491301 		r10, r9, r2
+     200:	13000011 		r24, r0, r0
+     204:	21004913 	addi	r8, r0, 18707
+     208:	2f0b0000 	rsubic	r24, r11, 0
+     20c:	12340003 		r17, r20, r0
+     210:	083a0b3b 		r1, r26, r1
+     214:	0b491302 		r26, r9, r2
+     218:	0a000013 		r16, r0, r0
+     21c:	0a000308 		r16, r0, r0
+     220:	3a0b3b0b 	addikc	r16, r11, 15115
+     224:	11010000 	addk	r8, r1, r0
+     228:	140b0155 		r0, r11, r0
+     22c:	06000015 	neg	r16, r0
+     230:	18000000 	addkc	r0, r0, r0
+     234:	16340003 	cmpu	r17, r20, r0
+     238:	0e3a0b3b 		r17, r26, r1
+     23c:	0b491300 		r26, r9, r2
+     240:	00000111 		r0, r0, r0
+     244:	01250e13 		r9, r5, r1
+     248:	0b030e1b 		r24, r3, r1
+     24c:	0e110152 		r16, r17, r0
+     250:	01550610 		r10, r21, r0
+     254:	06000002 	neg	r16, r0
+     258:	24000b0b 	rsubi	r0, r0, 2827
+     25c:	3e0b030e 	rsubikc	r16, r11, 782
+     260:	00000316 		r0, r0, r0
+     264:	00030e3a 		r0, r3, r1
+     268:	0b3b0b49 		r25, r27, r1
+     26c:	13000004 		r24, r0, r0
+     270:	24000b0b 	rsubi	r0, r0, 2827
+     274:	3e0b0308 	rsubikc	r16, r11, 776
+     278:	00000504 		r0, r0, r0
+     27c:	010b0b3a 		r8, r11, r1
+     280:	0b3b0501 		r25, r27, r0
+     284:	13000006 		r24, r0, r0
+     288:	2800030e 	addic	r0, r0, 782
+     28c:	1c0d0000 	rsubkc	r0, r13, r0
+     290:	07160003 	neg	r24, r22
+     294:	0e3a0b3b 		r17, r26, r1
+     298:	05491300 	neg	r10, r9
+     29c:	00080101 		r0, r8, r0
+     2a0:	49130113 		r8, r19, r0
+     2a4:	00000921 		r0, r0, r1
+     2a8:	0049132f 		r2, r9, r2
+     2ac:	0b00000a 		r24, r0, r0
+     2b0:	13010b0b 		r24, r1, r1
+     2b4:	3a0b3b05 	addikc	r16, r11, 15109
+     2b8:	01130000 	add	r8, r19, r0
+     2bc:	0b0d0003 		r24, r13, r0
+     2c0:	0e3a0b3b 		r17, r26, r1
+     2c4:	05491338 	neg	r10, r9
+     2c8:	0a00000c 		r16, r0, r0
+     2cc:	17010b0b 		r24, r1, r1
+     2d0:	3a0b3b05 	addikc	r16, r11, 15109
+     2d4:	01130000 	add	r8, r19, r0
+     2d8:	0d0d0003 		r8, r13, r0
+     2dc:	0e3a0b3b 		r17, r26, r1
+     2e0:	05491300 	neg	r10, r9
+     2e4:	000e1301 		r0, r14, r2
+     2e8:	030e0b0b 		r24, r14, r1
+     2ec:	3a0b3b05 	addikc	r16, r11, 15109
+     2f0:	01130000 	add	r8, r19, r0
+     2f4:	0f0f000b 		r24, r15, r0
+     2f8:	0b491300 		r26, r9, r2
+     2fc:	00102e01 		r0, r16, r5
+     300:	030e3a0b 		r24, r14, r7
+     304:	3b0b270c 	addikc	r24, r11, 9996
+     308:	200b0113 	addi	r0, r11, 275
+     30c:	00001105 		r0, r0, r2
+     310:	00030e3a 		r0, r3, r1
+     314:	0b3b0b49 		r25, r27, r1
+     318:	13000012 		r24, r0, r0
+     31c:	26004913 	rsubi	r16, r0, 18707
+     320:	0000132e 		r0, r0, r2
+     324:	00030e3a 		r0, r3, r1
+     328:	0b3b0b27 		r25, r27, r1
+     32c:	0c110112 		r0, r17, r0
+     330:	01400a00 		r10, r0, r1
+     334:	00142e00 		r0, r20, r5
+     338:	030e3a0b 		r24, r14, r7
+     33c:	3b0b270c 	addikc	r24, r11, 9996
+     340:	49131101 		r8, r19, r2
+     344:	1201400a 		r16, r1, r8
+     348:	0000152e 		r0, r0, r2
+     34c:	01311311 		r9, r17, r2
+     350:	01120140 		r8, r18, r0
+     354:	0a011300 		r16, r1, r2
+     358:	00160500 		r0, r22, r0
+     35c:	31131c0d 	addik	r8, r19, 7181
+     360:	0000172e 		r0, r0, r2
+     364:	013f0c03 		r9, r31, r1
+     368:	0e3a0b3b 		r17, r26, r1
+     36c:	05491311 	neg	r10, r9
+     370:	01120140 		r8, r18, r0
+     374:	0a011300 		r16, r1, r2
+     378:	00180500 		r0, r24, r0
+     37c:	030e3a0b 		r24, r14, r7
+     380:	3b054913 	addikc	r24, r5, 18707
+     384:	020a0000 	add	r16, r10, r0
+     388:	19340003 		r9, r20, r0
+     38c:	0e3a0b3b 		r17, r26, r1
+     390:	05491302 	neg	r10, r9
+     394:	0600001a 	neg	r16, r0
+     398:	3400030e 	rsubik	r0, r0, 782
+     39c:	3a0b3b05 	addikc	r16, r11, 15109
+     3a0:	49131c0b 		r8, r19, r3
+     3a4:	00001b2e 		r0, r0, r3
+     3a8:	013f0c03 		r9, r31, r1
+     3ac:	0e3a0b3b 		r17, r26, r1
+     3b0:	05491311 	neg	r10, r9
+     3b4:	01120140 		r8, r18, r0
+     3b8:	06011300 	neg	r16, r1
+     3bc:	001c0500 		r0, r28, r0
+     3c0:	030e3a0b 		r24, r14, r7
+     3c4:	3b054913 	addikc	r24, r5, 18707
+     3c8:	02060000 	add	r16, r6, r0
+     3cc:	1d2e013f 		r9, r14, r0
+     3d0:	0c030e3a 		r0, r3, r1
+     3d4:	0b3b0b49 		r25, r27, r1
+     3d8:	133c0c00 		r25, r28, r1
+     3dc:	001e1800 	add	r0, r30, r3
+     3e0:	00001f2e 		r0, r0, r3
+     3e4:	013f0c03 		r9, r31, r1
+     3e8:	0e3a0b3b 		r17, r26, r1
+     3ec:	0b491311 		r26, r9, r2
+     3f0:	01120140 		r8, r18, r0
+     3f4:	06011300 	neg	r16, r1
+     3f8:	00200500 		r1, r0, r0
+     3fc:	030e3a0b 		r24, r14, r7
+     400:	3b0b4913 	addikc	r24, r11, 18707
+     404:	02060000 	add	r16, r6, r0
+     408:	21340003 	addi	r9, r20, 3
+     40c:	0e3a0b3b 		r17, r26, r1
+     410:	0b491302 		r26, r9, r2
+     414:	06000022 	neg	r16, r0
+     418:	2e013f0c 	rsubic	r16, r1, 16140
+     41c:	030e3a0b 		r24, r14, r7
+     420:	3b054913 	addikc	r24, r5, 18707
+     424:	3c0c0113 	rsubikc	r0, r12, 275
+     428:	0000230b 		r0, r0, r4
+     42c:	01110112 		r8, r17, r0
+     430:	01000024 		r8, r0, r0
+     434:	2e013f0c 	rsubic	r16, r1, 16140
+     438:	030e3a0b 		r24, r14, r7
+     43c:	3b0b4913 	addikc	r24, r11, 18707
+     440:	3c0c0113 	rsubikc	r0, r12, 275
+     444:	00002534 		r0, r0, r4
+     448:	00030e3a 		r0, r3, r1
+     44c:	0b3b0549 		r25, r27, r0
+     450:	13020a00 		r24, r2, r1
+     454:	00262e00 		r1, r6, r5
+     458:	3f0c030e 	rsubikc	r24, r12, 782
+     45c:	3a0b3b05 	addikc	r16, r11, 15109
+     460:	49131101 		r8, r19, r2
+     464:	1201400a 		r16, r1, r8
+     468:	00002734 		r0, r0, r4
+     46c:	00030e3a 		r0, r3, r1
+     470:	0b3b0b49 		r25, r27, r1
+     474:	13020a00 		r24, r2, r1
+     478:	00280b01 		r1, r8, r1
+     47c:	55060000 		r8, r6, r0
+     480:	290b0111 	addic	r8, r11, 273
+     484:	01120101 		r8, r18, r0
+     488:	1300002a 		r24, r0, r0
+     48c:	3400030e 	rsubik	r0, r0, 782
+     490:	3a0b3b0b 	addikc	r16, r11, 15115
+     494:	49130000 	idiv	r8, r19, r0
+     498:	2b340003 	addic	r25, r20, 3
+     49c:	0e3a0b3b 		r17, r26, r1
+     4a0:	0b49133f 		r26, r9, r2
+     4a4:	0c3c0c00 		r1, r28, r1
+     4a8:	002c3400 		r1, r12, r6
+     4ac:	03083a0b 		r24, r8, r7
+     4b0:	3b0b4913 	addikc	r24, r11, 18707
+     4b4:	3f0c3c0c 	rsubikc	r24, r12, 15372
+     4b8:	00002d35 		r0, r0, r5
+     4bc:	00491300 		r2, r9, r2
+     4c0:	002e3400 		r1, r14, r6
+     4c4:	030e3a0b 		r24, r14, r7
+     4c8:	3b0b4913 	addikc	r24, r11, 18707
+     4cc:	3f0c020a 	rsubikc	r24, r12, 522
+     4d0:	00002f34 		r0, r0, r5
+     4d4:	0003083a 		r0, r3, r1
+     4d8:	0b3b0b49 		r25, r27, r1
+     4dc:	133f0c02 		r25, r31, r1
+     4e0:	0a000000 	addc	r16, r0, r0
+     4e4:	01110125 		r8, r17, r0
+     4e8:	0e130b03 		r16, r19, r1
+     4ec:	0e1b0e11 		r16, r27, r1
+     4f0:	01120110 		r8, r18, r0
+     4f4:	06000002 	neg	r16, r0
+     4f8:	24000b0b 	rsubi	r0, r0, 2827
+     4fc:	3e0b030e 	rsubikc	r16, r11, 782
+     500:	00000324 		r0, r0, r0
+     504:	000b0b3e 		r0, r11, r1
+     508:	0b030800 	addc	r24, r3, r1
+     50c:	00040f00 		r0, r4, r1
+     510:	0b0b4913 		r24, r11, r9
+     514:	00000504 		r0, r0, r0
+     518:	010b0b3a 		r8, r11, r1
+     51c:	0b3b0501 		r25, r27, r0
+     520:	13000006 		r24, r0, r0
+     524:	2800030e 	addic	r0, r0, 782
+     528:	1c0d0000 	rsubkc	r0, r13, r0
+     52c:	07160003 	neg	r24, r22
+     530:	0e3a0b3b 		r17, r26, r1
+     534:	05491300 	neg	r10, r9
+     538:	00080101 		r0, r8, r0
+     53c:	49130113 		r8, r19, r0
+     540:	00000921 		r0, r0, r1
+     544:	0049132f 		r2, r9, r2
+     548:	0b00000a 		r24, r0, r0
+     54c:	2e013f0c 	rsubic	r16, r1, 16140
+     550:	030e3a0b 		r24, r14, r7
+     554:	3b0b4913 	addikc	r24, r11, 18707
+     558:	11011201 		r8, r1, r2
+     55c:	400a0113 		r0, r10, r0
+     560:	00000b05 		r0, r0, r1
+     564:	00030e3a 		r0, r3, r1
+     568:	0b3b0b49 		r25, r27, r1
+     56c:	13020600 		r24, r2, r0
+     570:	000c0500 		r0, r12, r0
+     574:	030e3a0b 		r24, r14, r7
+     578:	3b0b4913 	addikc	r24, r11, 18707
+     57c:	020a0000 	add	r16, r10, r0
+     580:	0d340003 		r9, r20, r0
+     584:	0e3a0b3b 		r17, r26, r1
+     588:	0b491302 		r26, r9, r2
+     58c:	0600000e 	neg	r16, r0
+     590:	3400030e 	rsubik	r0, r0, 782
+     594:	3a0b3b0b 	addikc	r16, r11, 15115
+     598:	4913020a 		r8, r19, r0
+     59c:	00000f2e 		r0, r0, r1
+     5a0:	013f0c03 		r9, r31, r1
+     5a4:	0e3a0b3b 		r17, r26, r1
+     5a8:	0b491311 		r26, r9, r2
+     5ac:	01120140 		r8, r18, r0
+     5b0:	06011300 	neg	r16, r1
+     5b4:	00103400 		r0, r16, r6
+     5b8:	030e3a0b 		r24, r14, r7
+     5bc:	3b0b4913 	addikc	r24, r11, 18707
+     5c0:	1c0b0000 	rsubkc	r0, r11, r0
+     5c4:	112e013f 		r9, r14, r0
+     5c8:	0c030e3a 		r0, r3, r1
+     5cc:	0b3b0b49 		r25, r27, r1
+     5d0:	133c0c00 		r25, r28, r1
+     5d4:	00121800 	add	r0, r18, r3
+     5d8:	00001334 		r0, r0, r2
+     5dc:	00030e3a 		r0, r3, r1
+     5e0:	0b3b0b49 		r25, r27, r1
+     5e4:	13000014 		r24, r0, r0
+     5e8:	26004913 	rsubi	r16, r0, 18707
+     5ec:	00001534 		r0, r0, r2
+     5f0:	00030e3a 		r0, r3, r1
+     5f4:	0b3b0b49 		r25, r27, r1
+     5f8:	133f0c3c 		r25, r31, r1
+     5fc:	0c000000 	rsubc	r0, r0, r0
+     600:	01110125 		r8, r17, r0
+     604:	0e130b03 		r16, r19, r1
+     608:	0e1b0e11 		r16, r27, r1
+     60c:	01120110 		r8, r18, r0
+     610:	06000002 	neg	r16, r0
+     614:	24000b0b 	rsubi	r0, r0, 2827
+     618:	3e0b0308 	rsubikc	r16, r11, 776
+     61c:	00000324 		r0, r0, r0
+     620:	000b0b3e 		r0, r11, r1
+     624:	0b030e00 		r24, r3, r1
+     628:	00041600 		r0, r4, r2
+     62c:	030e3a0b 		r24, r14, r7
+     630:	3b0b4913 	addikc	r24, r11, 18707
+     634:	00000504 		r0, r0, r0
+     638:	010b0b3a 		r8, r11, r1
+     63c:	0b3b0501 		r25, r27, r0
+     640:	13000006 		r24, r0, r0
+     644:	2800030e 	addic	r0, r0, 782
+     648:	1c0d0000 	rsubkc	r0, r13, r0
+     64c:	07160003 	neg	r24, r22
+     650:	0e3a0b3b 		r17, r26, r1
+     654:	05491300 	neg	r10, r9
+     658:	00081701 		r0, r8, r2
+     65c:	0b0b3a0b 		r24, r11, r7
+     660:	3b050113 	addikc	r24, r5, 275
+     664:	0000090d 		r0, r0, r1
+     668:	0003083a 		r0, r3, r1
+     66c:	0b3b0549 		r25, r27, r0
+     670:	1300000a 		r24, r0, r0
+     674:	01014913 		r8, r1, r9
+     678:	01130000 	add	r8, r19, r0
+     67c:	0b210049 		r25, r1, r0
+     680:	132f0b00 		r25, r15, r1
+     684:	000c1301 		r0, r12, r2
+     688:	0b0b3a0b 		r24, r11, r7
+     68c:	3b050113 	addikc	r24, r5, 275
+     690:	00000d0d 		r0, r0, r1
+     694:	00030e3a 		r0, r3, r1
+     698:	0b3b0549 		r25, r27, r0
+     69c:	13380a00 		r25, r24, r1
+     6a0:	000e0d00 		r0, r14, r1
+     6a4:	030e3a0b 		r24, r14, r7
+     6a8:	3b054913 	addikc	r24, r5, 18707
+     6ac:	00000f2e 		r0, r0, r1
+     6b0:	01030e3a 		r8, r3, r1
+     6b4:	0b3b0527 		r25, r27, r0
+     6b8:	0c491320 		r2, r9, r2
+     6bc:	0b011300 		r24, r1, r2
+     6c0:	00100500 		r0, r16, r0
+     6c4:	03083a0b 		r24, r8, r7
+     6c8:	3b054913 	addikc	r24, r5, 18707
+     6cc:	00001134 		r0, r0, r2
+     6d0:	0003083a 		r0, r3, r1
+     6d4:	0b3b0549 		r25, r27, r0
+     6d8:	13000012 		r24, r0, r0
+     6dc:	3400030e 	rsubik	r0, r0, 782
+     6e0:	3a0b3b05 	addikc	r16, r11, 15109
+     6e4:	49130000 	idiv	r8, r19, r0
+     6e8:	130b0100 		r24, r11, r0
+     6ec:	00140f00 		r0, r20, r1
+     6f0:	0b0b4913 		r24, r11, r9
+     6f4:	00001526 		r0, r0, r2
+     6f8:	00491300 		r2, r9, r2
+     6fc:	00162e01 		r0, r22, r5
+     700:	030e3a0b 		r24, r14, r7
+     704:	3b0b270c 	addikc	r24, r11, 9996
+     708:	4913200b 		r8, r19, r4
+     70c:	01130000 	add	r8, r19, r0
+     710:	17050003 	cmpu	r24, r5, r0
+     714:	083a0b3b 		r1, r26, r1
+     718:	0b491300 		r26, r9, r2
+     71c:	00182e00 		r0, r24, r5
+     720:	030e3a0b 		r24, r14, r7
+     724:	3b0b270c 	addikc	r24, r11, 9996
+     728:	4913200b 		r8, r19, r4
+     72c:	0000192e 		r0, r0, r3
+     730:	013f0c03 		r9, r31, r1
+     734:	0e3a0b3b 		r17, r26, r1
+     738:	05270c49 	neg	r9, r7
+     73c:	13110112 		r24, r17, r0
+     740:	01400601 		r10, r0, r0
+     744:	1300001a 		r24, r0, r0
+     748:	0500030e 	neg	r8, r0
+     74c:	3a0b3b05 	addikc	r16, r11, 15109
+     750:	49130206 		r8, r19, r0
+     754:	00001b34 		r0, r0, r3
+     758:	0003083a 		r0, r3, r1
+     75c:	0b3b0549 		r25, r27, r0
+     760:	13020a00 		r24, r2, r1
+     764:	001c1d01 		r0, r28, r3
+     768:	31135201 	addik	r8, r19, 20993
+     76c:	5506580b 		r8, r6, r11
+     770:	59050000 	fadd	r8, r5, r0
+     774:	1d050031 		r8, r5, r0
+     778:	13020a00 		r24, r2, r1
+     77c:	001e0500 		r0, r30, r0
+     780:	31130206 	addik	r8, r19, 518
+     784:	00001f0b 		r0, r0, r3
+     788:	01550600 		r10, r21, r0
+     78c:	00203400 		r1, r0, r6
+     790:	31130206 	addik	r8, r19, 518
+     794:	0000211d 		r0, r0, r4
+     798:	01311311 		r9, r17, r2
+     79c:	01120158 		r8, r18, r0
+     7a0:	0b590501 		r26, r25, r0
+     7a4:	13000022 		r24, r0, r0
+     7a8:	0b011101 		r24, r1, r2
+     7ac:	12010000 	addk	r16, r1, r0
+     7b0:	23340003 	addi	r25, r20, 3
+     7b4:	0e3a0b3b 		r17, r26, r1
+     7b8:	0b49133f 		r26, r9, r2
+     7bc:	0c3c0c00 		r1, r28, r1
+     7c0:	00000111 		r0, r0, r0
+     7c4:	01250e13 		r9, r5, r1
+     7c8:	0b030e1b 		r24, r3, r1
+     7cc:	0e110112 		r16, r17, r0
+     7d0:	01100600 		r8, r16, r0
+     7d4:	00022400 		r0, r2, r4
+     7d8:	0b0b3e0b 		r24, r11, r7
+     7dc:	03080000 	add	r24, r8, r0
+     7e0:	0324000b 		r25, r4, r0
+     7e4:	0b3e0b03 		r25, r30, r1
+     7e8:	0e000004 		r16, r0, r0
+     7ec:	1600030e 		r16, r0, r0
+     7f0:	3a0b3b0b 	addikc	r16, r11, 15115
+     7f4:	49130000 	idiv	r8, r19, r0
+     7f8:	0504010b 	neg	r8, r4
+     7fc:	0b3a0b3b 		r25, r26, r1
+     800:	05011300 	neg	r8, r1
+     804:	00062800 	add	r0, r6, r5
+     808:	030e1c0d 		r24, r14, r3
+     80c:	00000716 		r0, r0, r0
+     810:	00030e3a 		r0, r3, r1
+     814:	0b3b0549 		r25, r27, r0
+     818:	13000008 		r24, r0, r0
+     81c:	17010b0b 		r24, r1, r1
+     820:	3a0b3b05 	addikc	r16, r11, 15109
+     824:	01130000 	add	r8, r19, r0
+     828:	090d0003 		r8, r13, r0
+     82c:	083a0b3b 		r1, r26, r1
+     830:	05491300 	neg	r10, r9
+     834:	000a0101 		r0, r10, r0
+     838:	49130113 		r8, r19, r0
+     83c:	00000b21 		r0, r0, r1
+     840:	0049132f 		r2, r9, r2
+     844:	0b00000c 		r24, r0, r0
+     848:	13010b0b 		r24, r1, r1
+     84c:	3a0b3b05 	addikc	r16, r11, 15109
+     850:	01130000 	add	r8, r19, r0
+     854:	0d0d0003 		r8, r13, r0
+     858:	0e3a0b3b 		r17, r26, r1
+     85c:	05491338 	neg	r10, r9
+     860:	0a00000e 		r16, r0, r0
+     864:	0d00030e 		r8, r0, r0
+     868:	3a0b3b05 	addikc	r16, r11, 15109
+     86c:	49130000 	idiv	r8, r19, r0
+     870:	0f2e0103 		r25, r14, r0
+     874:	0e3a0b3b 		r17, r26, r1
+     878:	05270c49 	neg	r9, r7
+     87c:	13200b01 		r25, r0, r1
+     880:	13000010 		r24, r0, r0
+     884:	05000308 	neg	r8, r0
+     888:	3a0b3b05 	addikc	r16, r11, 15109
+     88c:	49130000 	idiv	r8, r19, r0
+     890:	11340003 		r9, r20, r0
+     894:	083a0b3b 		r1, r26, r1
+     898:	05491300 	neg	r10, r9
+     89c:	00123400 		r0, r18, r6
+     8a0:	030e3a0b 		r24, r14, r7
+     8a4:	3b054913 	addikc	r24, r5, 18707
+     8a8:	0000130f 		r0, r0, r2
+     8ac:	000b0b49 		r0, r11, r1
+     8b0:	13000014 		r24, r0, r0
+     8b4:	26004913 	rsubi	r16, r0, 18707
+     8b8:	0000152e 		r0, r0, r2
+     8bc:	01030e3a 		r8, r3, r1
+     8c0:	0b3b0b27 		r25, r27, r1
+     8c4:	0c491320 		r2, r9, r2
+     8c8:	0b011300 		r24, r1, r2
+     8cc:	00160500 		r0, r22, r0
+     8d0:	03083a0b 		r24, r8, r7
+     8d4:	3b0b4913 	addikc	r24, r11, 18707
+     8d8:	0000172e 		r0, r0, r2
+     8dc:	00030e3a 		r0, r3, r1
+     8e0:	0b3b0b27 		r25, r27, r1
+     8e4:	0c491320 		r2, r9, r2
+     8e8:	0b000018 		r24, r0, r0
+     8ec:	2e013f0c 	rsubic	r16, r1, 16140
+     8f0:	030e3a0b 		r24, r14, r7
+     8f4:	3b05270c 	addikc	r24, r5, 9996
+     8f8:	49131101 		r8, r19, r2
+     8fc:	12014006 		r16, r1, r8
+     900:	01130000 	add	r8, r19, r0
+     904:	19050003 		r8, r5, r0
+     908:	0e3a0b3b 		r17, r26, r1
+     90c:	05491302 	neg	r10, r9
+     910:	0600001a 	neg	r16, r0
+     914:	34000308 	rsubik	r0, r0, 776
+     918:	3a0b3b05 	addikc	r16, r11, 15109
+     91c:	4913020a 		r8, r19, r0
+     920:	00001b1d 		r0, r0, r3
+     924:	01311352 		r9, r17, r2
+     928:	01550658 		r10, r21, r0
+     92c:	0b590500 		r26, r25, r0
+     930:	001c0500 		r0, r28, r0
+     934:	31130206 	addik	r8, r19, 518
+     938:	00001d0b 		r0, r0, r3
+     93c:	01550600 		r10, r21, r0
+     940:	001e3400 		r0, r30, r6
+     944:	31130206 	addik	r8, r19, 518
+     948:	00001f1d 		r0, r0, r3
+     94c:	01311311 		r9, r17, r2
+     950:	01120158 		r8, r18, r0
+     954:	0b590501 		r26, r25, r0
+     958:	13000020 		r24, r0, r0
+     95c:	1d013113 		r8, r1, r6
+     960:	11011201 		r8, r1, r2
+     964:	580b5905 		r0, r11, r11
+     968:	00002134 		r0, r0, r4
+     96c:	00030e3a 		r0, r3, r1
+     970:	0b3b0b49 		r25, r27, r1
+     974:	133f0c3c 		r25, r31, r1
+     978:	0c000000 	rsubc	r0, r0, r0
+     97c:	01110125 		r8, r17, r0
+     980:	0e130b03 		r16, r19, r1
+     984:	0e1b0e11 		r16, r27, r1
+     988:	01120110 		r8, r18, r0
+     98c:	06000002 	neg	r16, r0
+     990:	24000b0b 	rsubi	r0, r0, 2827
+     994:	3e0b0308 	rsubikc	r16, r11, 776
+     998:	00000324 		r0, r0, r0
+     99c:	000b0b3e 		r0, r11, r1
+     9a0:	0b030e00 		r24, r3, r1
+     9a4:	00041600 		r0, r4, r2
+     9a8:	030e3a0b 		r24, r14, r7
+     9ac:	3b0b4913 	addikc	r24, r11, 18707
+     9b0:	00000504 		r0, r0, r0
+     9b4:	010b0b3a 		r8, r11, r1
+     9b8:	0b3b0501 		r25, r27, r0
+     9bc:	13000006 		r24, r0, r0
+     9c0:	2800030e 	addic	r0, r0, 782
+     9c4:	1c0d0000 	rsubkc	r0, r13, r0
+     9c8:	07160003 	neg	r24, r22
+     9cc:	0e3a0b3b 		r17, r26, r1
+     9d0:	05491300 	neg	r10, r9
+     9d4:	00081701 		r0, r8, r2
+     9d8:	0b0b3a0b 		r24, r11, r7
+     9dc:	3b050113 	addikc	r24, r5, 275
+     9e0:	0000090d 		r0, r0, r1
+     9e4:	0003083a 		r0, r3, r1
+     9e8:	0b3b0549 		r25, r27, r0
+     9ec:	1300000a 		r24, r0, r0
+     9f0:	01014913 		r8, r1, r9
+     9f4:	01130000 	add	r8, r19, r0
+     9f8:	0b210049 		r25, r1, r0
+     9fc:	132f0b00 		r25, r15, r1
+     a00:	000c1301 		r0, r12, r2
+     a04:	0b0b3a0b 		r24, r11, r7
+     a08:	3b050113 	addikc	r24, r5, 275
+     a0c:	00000d0d 		r0, r0, r1
+     a10:	00030e3a 		r0, r3, r1
+     a14:	0b3b0549 		r25, r27, r0
+     a18:	13380a00 		r25, r24, r1
+     a1c:	000e2e01 		r0, r14, r5
+     a20:	030e3a0b 		r24, r14, r7
+     a24:	3b0b270c 	addikc	r24, r11, 9996
+     a28:	4913200b 		r8, r19, r4
+     a2c:	01130000 	add	r8, r19, r0
+     a30:	0f050003 		r24, r5, r0
+     a34:	083a0b3b 		r1, r26, r1
+     a38:	0b491300 		r26, r9, r2
+     a3c:	00102e01 		r0, r16, r5
+     a40:	3f0c030e 	rsubikc	r24, r12, 782
+     a44:	3a0b3b0b 	addikc	r16, r11, 15115
+     a48:	270c4913 	rsubi	r24, r12, 18707
+     a4c:	3c0c0000 	rsubikc	r0, r12, 0
+     a50:	11050049 		r8, r5, r0
+     a54:	13000012 		r24, r0, r0
+     a58:	2e013f0c 	rsubic	r16, r1, 16140
+     a5c:	030e3a0b 		r24, r14, r7
+     a60:	3b05270c 	addikc	r24, r5, 9996
+     a64:	49131101 		r8, r19, r2
+     a68:	12014006 		r16, r1, r8
+     a6c:	01130000 	add	r8, r19, r0
+     a70:	13050003 		r24, r5, r0
+     a74:	0e3a0b3b 		r17, r26, r1
+     a78:	05491302 	neg	r10, r9
+     a7c:	06000014 	neg	r16, r0
+     a80:	34000308 	rsubik	r0, r0, 776
+     a84:	3a0b3b05 	addikc	r16, r11, 15109
+     a88:	4913020a 		r8, r19, r0
+     a8c:	0000150b 		r0, r0, r2
+     a90:	01110112 		r8, r17, r0
+     a94:	01000016 		r8, r0, r0
+     a98:	3400030e 	rsubik	r0, r0, 782
+     a9c:	3a0b3b05 	addikc	r16, r11, 15109
+     aa0:	4913020a 		r8, r19, r0
+     aa4:	00001734 		r0, r0, r2
+     aa8:	00030e3a 		r0, r3, r1
+     aac:	0b3b0549 		r25, r27, r0
+     ab0:	13020600 		r24, r2, r0
+     ab4:	00181d01 		r0, r24, r3
+     ab8:	31131101 	addik	r8, r19, 4353
+     abc:	1201580b 		r16, r1, r11
+     ac0:	59050000 	fadd	r8, r5, r0
+     ac4:	19050031 		r8, r5, r0
+     ac8:	13020a00 		r24, r2, r1
+     acc:	001a0b00 		r0, r26, r1
+     ad0:	11011201 		r8, r1, r2
+     ad4:	00001b34 		r0, r0, r3
+     ad8:	00030e3a 		r0, r3, r1
+     adc:	0b3b0b49 		r25, r27, r1
+     ae0:	133f0c3c 		r25, r31, r1
+     ae4:	0c00001c 		r0, r0, r0
+     ae8:	26004913 	rsubi	r16, r0, 18707
+     aec:	00000001 		r0, r0, r0
+     af0:	1101250e 		r8, r1, r4
+     af4:	130b030e 		r24, r11, r0
+     af8:	1b0e1101 		r24, r14, r2
+     afc:	12011006 		r16, r1, r2
+     b00:	00000224 		r0, r0, r0
+     b04:	000b0b3e 		r0, r11, r1
+     b08:	0b030800 	addc	r24, r3, r1
+     b0c:	00032400 		r0, r3, r4
+     b10:	0b0b3e0b 		r24, r11, r7
+     b14:	030e0000 	add	r24, r14, r0
+     b18:	04160003 	neg	r0, r22
+     b1c:	0e3a0b3b 		r17, r26, r1
+     b20:	0b491300 		r26, r9, r2
+     b24:	00050401 		r0, r5, r0
+     b28:	0b0b3a0b 		r24, r11, r7
+     b2c:	3b050113 	addikc	r24, r5, 275
+     b30:	00000628 		r0, r0, r0
+     b34:	00030e1c 		r0, r3, r1
+     b38:	0d000007 		r8, r0, r0
+     b3c:	1600030e 		r16, r0, r0
+     b40:	3a0b3b05 	addikc	r16, r11, 15109
+     b44:	49130000 	idiv	r8, r19, r0
+     b48:	0817010b 		r0, r23, r0
+     b4c:	0b3a0b3b 		r25, r26, r1
+     b50:	05011300 	neg	r8, r1
+     b54:	00090d00 		r0, r9, r1
+     b58:	03083a0b 		r24, r8, r7
+     b5c:	3b054913 	addikc	r24, r5, 18707
+     b60:	00000a01 		r0, r0, r1
+     b64:	01491301 		r10, r9, r2
+     b68:	1300000b 		r24, r0, r0
+     b6c:	21004913 	addi	r8, r0, 18707
+     b70:	2f0b0000 	rsubic	r24, r11, 0
+     b74:	0c13010b 		r0, r19, r0
+     b78:	0b3a0b3b 		r25, r26, r1
+     b7c:	05011300 	neg	r8, r1
+     b80:	000d0d00 		r0, r13, r1
+     b84:	030e3a0b 		r24, r14, r7
+     b88:	3b054913 	addikc	r24, r5, 18707
+     b8c:	380a0000 	addikc	r0, r10, 0
+     b90:	0e0d0003 		r16, r13, r0
+     b94:	0e3a0b3b 		r17, r26, r1
+     b98:	05491300 	neg	r10, r9
+     b9c:	000f2e01 		r0, r15, r5
+     ba0:	030e3a0b 		r24, r14, r7
+     ba4:	3b0b270c 	addikc	r24, r11, 9996
+     ba8:	4913200b 		r8, r19, r4
+     bac:	01130000 	add	r8, r19, r0
+     bb0:	10050003 		r0, r5, r0
+     bb4:	083a0b3b 		r1, r26, r1
+     bb8:	0b491300 		r26, r9, r2
+     bbc:	00110f00 		r0, r17, r1
+     bc0:	0b0b4913 		r24, r11, r9
+     bc4:	00001226 		r0, r0, r2
+     bc8:	00491300 		r2, r9, r2
+     bcc:	00132e01 		r0, r19, r5
+     bd0:	3f0c030e 	rsubikc	r24, r12, 782
+     bd4:	3a0b3b05 	addikc	r16, r11, 15109
+     bd8:	270c4913 	rsubi	r24, r12, 18707
+     bdc:	11011201 		r8, r1, r2
+     be0:	40060113 		r0, r6, r0
+     be4:	00001405 		r0, r0, r2
+     be8:	00030e3a 		r0, r3, r1
+     bec:	0b3b0549 		r25, r27, r0
+     bf0:	13020600 		r24, r2, r0
+     bf4:	00153400 		r0, r21, r6
+     bf8:	03083a0b 		r24, r8, r7
+     bfc:	3b054913 	addikc	r24, r5, 18707
+     c00:	020a0000 	add	r16, r10, r0
+     c04:	16340003 	cmpu	r17, r20, r0
+     c08:	083a0b3b 		r1, r26, r1
+     c0c:	05491302 	neg	r10, r9
+     c10:	06000017 	neg	r16, r0
+     c14:	1d013113 		r8, r1, r6
+     c18:	11011201 		r8, r1, r2
+     c1c:	580b5905 		r0, r11, r11
+     c20:	00001805 		r0, r0, r3
+     c24:	00311302 		r1, r17, r2
+     c28:	0a000019 		r16, r0, r0
+     c2c:	3400030e 	rsubik	r0, r0, 782
+     c30:	3a0b3b0b 	addikc	r16, r11, 15115
+     c34:	49133f0c 		r8, r19, r7
+     c38:	3c0c0000 	rsubikc	r0, r12, 0
+     c3c:	00011101 		r0, r1, r2
+     c40:	250e130b 	rsubi	r8, r14, 4875
+     c44:	030e1b0e 		r24, r14, r3
+     c48:	11011201 		r8, r1, r2
+     c4c:	10060000 	addk	r0, r6, r0
+     c50:	0224000b 		r17, r4, r0
+     c54:	0b3e0b03 		r25, r30, r1
+     c58:	08000003 		r0, r0, r0
+     c5c:	24000b0b 	rsubi	r0, r0, 2827
+     c60:	3e0b030e 	rsubikc	r16, r11, 782
+     c64:	00000416 		r0, r0, r0
+     c68:	00030e3a 		r0, r3, r1
+     c6c:	0b3b0b49 		r25, r27, r1
+     c70:	13000005 		r24, r0, r0
+     c74:	04010b0b 	neg	r0, r1
+     c78:	3a0b3b05 	addikc	r16, r11, 15109
+     c7c:	01130000 	add	r8, r19, r0
+     c80:	06280003 	neg	r17, r8
+     c84:	0e1c0d00 		r16, r28, r1
+     c88:	00071600 		r0, r7, r2
+     c8c:	030e3a0b 		r24, r14, r7
+     c90:	3b054913 	addikc	r24, r5, 18707
+     c94:	00000817 		r0, r0, r1
+     c98:	010b0b3a 		r8, r11, r1
+     c9c:	0b3b0501 		r25, r27, r0
+     ca0:	13000009 		r24, r0, r0
+     ca4:	0d000308 		r8, r0, r0
+     ca8:	3a0b3b05 	addikc	r16, r11, 15109
+     cac:	49130000 	idiv	r8, r19, r0
+     cb0:	0a010149 		r16, r1, r0
+     cb4:	13011300 		r24, r1, r2
+     cb8:	000b2100 		r0, r11, r4
+     cbc:	49132f0b 		r8, r19, r5
+     cc0:	00000c13 		r0, r0, r1
+     cc4:	010b0b3a 		r8, r11, r1
+     cc8:	0b3b0501 		r25, r27, r0
+     ccc:	1300000d 		r24, r0, r0
+     cd0:	0d00030e 		r8, r0, r0
+     cd4:	3a0b3b05 	addikc	r16, r11, 15109
+     cd8:	4913380a 		r8, r19, r7
+     cdc:	00000e34 		r0, r0, r1
+     ce0:	00030e3a 		r0, r3, r1
+     ce4:	0b3b0b49 		r25, r27, r1
+     ce8:	133f0c3c 		r25, r31, r1
+     cec:	0c00000f 		r0, r0, r0
+     cf0:	26004913 	rsubi	r16, r0, 18707
+     cf4:	00001034 		r0, r0, r2
+     cf8:	00030e3a 		r0, r3, r1
+     cfc:	0b3b0b49 		r25, r27, r1
+     d00:	133f0c02 		r25, r31, r1
+     d04:	0a000000 	addc	r16, r0, r0
+     d08:	01110125 		r8, r17, r0
+     d0c:	0e130b03 		r16, r19, r1
+     d10:	0e1b0e11 		r16, r27, r1
+     d14:	01120110 		r8, r18, r0
+     d18:	06000002 	neg	r16, r0
+     d1c:	24000b0b 	rsubi	r0, r0, 2827
+     d20:	3e0b030e 	rsubikc	r16, r11, 782
+     d24:	00000324 		r0, r0, r0
+     d28:	000b0b3e 		r0, r11, r1
+     d2c:	0b030800 	addc	r24, r3, r1
+     d30:	00041600 		r0, r4, r2
+     d34:	030e3a0b 		r24, r14, r7
+     d38:	3b0b4913 	addikc	r24, r11, 18707
+     d3c:	00000513 		r0, r0, r0
+     d40:	01030e0b 		r8, r3, r1
+     d44:	0b3a0b3b 		r25, r26, r1
+     d48:	05011300 	neg	r8, r1
+     d4c:	00060d00 		r0, r6, r1
+     d50:	030e3a0b 		r24, r14, r7
+     d54:	3b054913 	addikc	r24, r5, 18707
+     d58:	380a0000 	addikc	r0, r10, 0
+     d5c:	070d0003 	neg	r24, r13
+     d60:	083a0b3b 		r1, r26, r1
+     d64:	05491338 	neg	r10, r9
+     d68:	0a000008 		r16, r0, r0
+     d6c:	17010b0b 		r24, r1, r1
+     d70:	3a0b3b05 	addikc	r16, r11, 15109
+     d74:	01130000 	add	r8, r19, r0
+     d78:	090d0003 		r8, r13, r0
+     d7c:	083a0b3b 		r1, r26, r1
+     d80:	05491300 	neg	r10, r9
+     d84:	000a1600 		r0, r10, r2
+     d88:	030e3a0b 		r24, r14, r7
+     d8c:	3b054913 	addikc	r24, r5, 18707
+     d90:	00000b2e 		r0, r0, r1
+     d94:	013f0c03 		r9, r31, r1
+     d98:	0e3a0b3b 		r17, r26, r1
+     d9c:	05270c49 	neg	r9, r7
+     da0:	13110112 		r24, r17, r0
+     da4:	01400a01 		r10, r0, r1
+     da8:	1300000c 		r24, r0, r0
+     dac:	05000308 	neg	r8, r0
+     db0:	3a0b3b05 	addikc	r16, r11, 15109
+     db4:	4913020a 		r8, r19, r0
+     db8:	00000d34 		r0, r0, r1
+     dbc:	0003083a 		r0, r3, r1
+     dc0:	0b3b0549 		r25, r27, r0
+     dc4:	1300000e 		r24, r0, r0
+     dc8:	0b015506 		r24, r1, r10
+     dcc:	00000f34 		r0, r0, r1
+     dd0:	00030e3a 		r0, r3, r1
+     dd4:	0b3b0549 		r25, r27, r0
+     dd8:	13020600 		r24, r2, r0
+     ddc:	00103400 		r0, r16, r6
+     de0:	030e3a0b 		r24, r14, r7
+     de4:	3b054913 	addikc	r24, r5, 18707
+     de8:	020a0000 	add	r16, r10, r0
+     dec:	11260049 		r9, r6, r0
+     df0:	13000000 	addk	r24, r0, r0
+     df4:	01110125 		r8, r17, r0
+     df8:	0e130b03 		r16, r19, r1
+     dfc:	0e1b0e11 		r16, r27, r1
+     e00:	01120110 		r8, r18, r0
+     e04:	06000002 	neg	r16, r0
+     e08:	24000b0b 	rsubi	r0, r0, 2827
+     e0c:	3e0b030e 	rsubikc	r16, r11, 782
+     e10:	00000324 		r0, r0, r0
+     e14:	000b0b3e 		r0, r11, r1
+     e18:	0b030800 	addc	r24, r3, r1
+     e1c:	00041600 		r0, r4, r2
+     e20:	030e3a0b 		r24, r14, r7
+     e24:	3b0b4913 	addikc	r24, r11, 18707
+     e28:	0000052e 		r0, r0, r0
+     e2c:	013f0c03 		r9, r31, r1
+     e30:	0e3a0b3b 		r17, r26, r1
+     e34:	05270c49 	neg	r9, r7
+     e38:	13110112 		r24, r17, r0
+     e3c:	01400a01 		r10, r0, r1
+     e40:	13000006 		r24, r0, r0
+     e44:	05000308 	neg	r8, r0
+     e48:	3a0b3b05 	addikc	r16, r11, 15109
+     e4c:	49130206 		r8, r19, r0
+     e50:	00000734 		r0, r0, r0
+     e54:	0003083a 		r0, r3, r1
+     e58:	0b3b0549 		r25, r27, r0
+     e5c:	13020600 		r24, r2, r0
+     e60:	00080b01 		r0, r8, r1
+     e64:	55060000 		r8, r6, r0
+     e68:	09340003 		r9, r20, r0
+     e6c:	0e3a0b3b 		r17, r26, r1
+     e70:	05491302 	neg	r10, r9
+     e74:	0600000a 	neg	r16, r0
+     e78:	34000308 	rsubik	r0, r0, 776
+     e7c:	3a0b3b05 	addikc	r16, r11, 15109
+     e80:	49130000 	idiv	r8, r19, r0
+     e84:	0b010149 		r24, r1, r0
+     e88:	13011300 		r24, r1, r2
+     e8c:	000c2100 		r0, r12, r4
+     e90:	49132f0b 		r8, r19, r5
+     e94:	00000d34 		r0, r0, r1
+     e98:	00030e3a 		r0, r3, r1
+     e9c:	0b3b0549 		r25, r27, r0
+     ea0:	133f0c3c 		r25, r31, r1
+     ea4:	0c00000e 		r0, r0, r0
+     ea8:	26004913 	rsubi	r16, r0, 18707
+     eac:	00000f34 		r0, r0, r1
+     eb0:	00030e3a 		r0, r3, r1
+     eb4:	0b3b0b49 		r25, r27, r1
+     eb8:	133f0c3c 		r25, r31, r1
+     ebc:	0c000000 	rsubc	r0, r0, r0
+     ec0:	01110125 		r8, r17, r0
+     ec4:	0e130b03 		r16, r19, r1
+     ec8:	0e1b0e11 		r16, r27, r1
+     ecc:	01120110 		r8, r18, r0
+     ed0:	06000002 	neg	r16, r0
+     ed4:	24000b0b 	rsubi	r0, r0, 2827
+     ed8:	3e0b0308 	rsubikc	r16, r11, 776
+     edc:	00000324 		r0, r0, r0
+     ee0:	000b0b3e 		r0, r11, r1
+     ee4:	0b030e00 		r24, r3, r1
+     ee8:	00041600 		r0, r4, r2
+     eec:	030e3a0b 		r24, r14, r7
+     ef0:	3b0b4913 	addikc	r24, r11, 18707
+     ef4:	00000504 		r0, r0, r0
+     ef8:	010b0b3a 		r8, r11, r1
+     efc:	0b3b0501 		r25, r27, r0
+     f00:	13000006 		r24, r0, r0
+     f04:	2800030e 	addic	r0, r0, 782
+     f08:	1c0d0000 	rsubkc	r0, r13, r0
+     f0c:	07160003 	neg	r24, r22
+     f10:	0e3a0b3b 		r17, r26, r1
+     f14:	05491300 	neg	r10, r9
+     f18:	00081701 		r0, r8, r2
+     f1c:	0b0b3a0b 		r24, r11, r7
+     f20:	3b050113 	addikc	r24, r5, 275
+     f24:	0000090d 		r0, r0, r1
+     f28:	0003083a 		r0, r3, r1
+     f2c:	0b3b0549 		r25, r27, r0
+     f30:	1300000a 		r24, r0, r0
+     f34:	01014913 		r8, r1, r9
+     f38:	01130000 	add	r8, r19, r0
+     f3c:	0b210049 		r25, r1, r0
+     f40:	132f0b00 		r25, r15, r1
+     f44:	000c1301 		r0, r12, r2
+     f48:	0b0b3a0b 		r24, r11, r7
+     f4c:	3b050113 	addikc	r24, r5, 275
+     f50:	00000d0d 		r0, r0, r1
+     f54:	00030e3a 		r0, r3, r1
+     f58:	0b3b0549 		r25, r27, r0
+     f5c:	13380a00 		r25, r24, r1
+     f60:	000e0d00 		r0, r14, r1
+     f64:	030e3a0b 		r24, r14, r7
+     f68:	3b054913 	addikc	r24, r5, 18707
+     f6c:	00000f2e 		r0, r0, r1
+     f70:	01030e3a 		r8, r3, r1
+     f74:	0b3b0b27 		r25, r27, r1
+     f78:	0c491320 		r2, r9, r2
+     f7c:	0b011300 		r24, r1, r2
+     f80:	00100500 		r0, r16, r0
+     f84:	03083a0b 		r24, r8, r7
+     f88:	3b0b4913 	addikc	r24, r11, 18707
+     f8c:	0000110f 		r0, r0, r2
+     f90:	000b0b49 		r0, r11, r1
+     f94:	13000012 		r24, r0, r0
+     f98:	26004913 	rsubi	r16, r0, 18707
+     f9c:	0000132e 		r0, r0, r2
+     fa0:	013f0c03 		r9, r31, r1
+     fa4:	0e3a0b3b 		r17, r26, r1
+     fa8:	0b270c49 		r25, r7, r1
+     fac:	13110112 		r24, r17, r0
+     fb0:	01400a01 		r10, r0, r1
+     fb4:	13000014 		r24, r0, r0
+     fb8:	05000308 	neg	r8, r0
+     fbc:	3a0b3b0b 	addikc	r16, r11, 15115
+     fc0:	49130206 		r8, r19, r0
+     fc4:	00001534 		r0, r0, r2
+     fc8:	0003083a 		r0, r3, r1
+     fcc:	0b3b0b49 		r25, r27, r1
+     fd0:	13020600 		r24, r2, r0
+     fd4:	00163400 		r0, r22, r6
+     fd8:	030e3a0b 		r24, r14, r7
+     fdc:	3b0b4913 	addikc	r24, r11, 18707
+     fe0:	02060000 	add	r16, r6, r0
+     fe4:	171d0131 		r24, r29, r0
+     fe8:	13110112 		r24, r17, r0
+     fec:	01580b59 		r10, r24, r1
+     ff0:	0b011300 		r24, r1, r2
+     ff4:	00180500 		r0, r24, r0
+     ff8:	31130206 	addik	r8, r19, 518
+     ffc:	0000190b 		r0, r0, r3
+    1000:	01110112 		r8, r17, r0
+    1004:	0100001a 		r8, r0, r0
+    1008:	3400030e 	rsubik	r0, r0, 782
+    100c:	3a0b3b05 	addikc	r16, r11, 15109
+    1010:	49130206 		r8, r19, r0
+    1014:	00001b34 		r0, r0, r3
+    1018:	00030e3a 		r0, r3, r1
+    101c:	0b3b0b49 		r25, r27, r1
+    1020:	133f0c3c 		r25, r31, r1
+    1024:	0c000000 	rsubc	r0, r0, r0
+    1028:	01110125 		r8, r17, r0
+    102c:	0e130b03 		r16, r19, r1
+    1030:	0e1b0e11 		r16, r27, r1
+    1034:	01120110 		r8, r18, r0
+    1038:	06000002 	neg	r16, r0
+    103c:	24000b0b 	rsubi	r0, r0, 2827
+    1040:	3e0b0308 	rsubikc	r16, r11, 776
+    1044:	00000324 		r0, r0, r0
+    1048:	000b0b3e 		r0, r11, r1
+    104c:	0b030e00 		r24, r3, r1
+    1050:	00041600 		r0, r4, r2
+    1054:	030e3a0b 		r24, r14, r7
+    1058:	3b0b4913 	addikc	r24, r11, 18707
+    105c:	00000504 		r0, r0, r0
+    1060:	010b0b3a 		r8, r11, r1
+    1064:	0b3b0501 		r25, r27, r0
+    1068:	13000006 		r24, r0, r0
+    106c:	2800030e 	addic	r0, r0, 782
+    1070:	1c0d0000 	rsubkc	r0, r13, r0
+    1074:	07160003 	neg	r24, r22
+    1078:	0e3a0b3b 		r17, r26, r1
+    107c:	05491300 	neg	r10, r9
+    1080:	00081701 		r0, r8, r2
+    1084:	0b0b3a0b 		r24, r11, r7
+    1088:	3b050113 	addikc	r24, r5, 275
+    108c:	0000090d 		r0, r0, r1
+    1090:	0003083a 		r0, r3, r1
+    1094:	0b3b0549 		r25, r27, r0
+    1098:	1300000a 		r24, r0, r0
+    109c:	01014913 		r8, r1, r9
+    10a0:	01130000 	add	r8, r19, r0
+    10a4:	0b210049 		r25, r1, r0
+    10a8:	132f0b00 		r25, r15, r1
+    10ac:	000c1301 		r0, r12, r2
+    10b0:	0b0b3a0b 		r24, r11, r7
+    10b4:	3b050113 	addikc	r24, r5, 275
+    10b8:	00000d0d 		r0, r0, r1
+    10bc:	00030e3a 		r0, r3, r1
+    10c0:	0b3b0549 		r25, r27, r0
+    10c4:	13380a00 		r25, r24, r1
+    10c8:	000e0d00 		r0, r14, r1
+    10cc:	030e3a0b 		r24, r14, r7
+    10d0:	3b054913 	addikc	r24, r5, 18707
+    10d4:	00000f2e 		r0, r0, r1
+    10d8:	013f0c03 		r9, r31, r1
+    10dc:	0e3a0b3b 		r17, r26, r1
+    10e0:	05270c11 	neg	r9, r7
+    10e4:	01120140 		r8, r18, r0
+    10e8:	0a011300 		r16, r1, r2
+    10ec:	00100500 		r0, r16, r0
+    10f0:	03083a0b 		r24, r8, r7
+    10f4:	3b054913 	addikc	r24, r5, 18707
+    10f8:	02060000 	add	r16, r6, r0
+    10fc:	11340003 		r9, r20, r0
+    1100:	0e3a0b3b 		r17, r26, r1
+    1104:	05491302 	neg	r10, r9
+    1108:	06000012 	neg	r16, r0
+    110c:	34000308 	rsubik	r0, r0, 776
+    1110:	3a0b3b05 	addikc	r16, r11, 15109
+    1114:	49130206 		r8, r19, r0
+    1118:	00001334 		r0, r0, r2
+    111c:	00030e3a 		r0, r3, r1
+    1120:	0b3b0549 		r25, r27, r0
+    1124:	13020a00 		r24, r2, r1
+    1128:	00140f00 		r0, r20, r1
+    112c:	0b0b4913 		r24, r11, r9
+    1130:	00001534 		r0, r0, r2
+    1134:	00030e3a 		r0, r3, r1
+    1138:	0b3b0b49 		r25, r27, r1
+    113c:	133f0c3c 		r25, r31, r1
+    1140:	0c000016 		r0, r0, r0
+    1144:	26004913 	rsubi	r16, r0, 18707
+    1148:	00000001 		r0, r0, r0
+    114c:	1101250e 		r8, r1, r4
+    1150:	130b030e 		r24, r11, r0
+    1154:	1b0e1101 		r24, r14, r2
+    1158:	12011006 		r16, r1, r2
+    115c:	00000224 		r0, r0, r0
+    1160:	000b0b3e 		r0, r11, r1
+    1164:	0b030e00 		r24, r3, r1
+    1168:	00032400 		r0, r3, r4
+    116c:	0b0b3e0b 		r24, r11, r7
+    1170:	03080000 	add	r24, r8, r0
+    1174:	04160003 	neg	r0, r22
+    1178:	0e3a0b3b 		r17, r26, r1
+    117c:	0b491300 		r26, r9, r2
+    1180:	00050101 		r0, r5, r0
+    1184:	49130113 		r8, r19, r0
+    1188:	00000621 		r0, r0, r0
+    118c:	0049132f 		r2, r9, r2
+    1190:	0b000007 		r24, r0, r0
+    1194:	3400030e 	rsubik	r0, r0, 782
+    1198:	3a0b3b05 	addikc	r16, r11, 15109
+    119c:	49133f0c 		r8, r19, r7
+    11a0:	020a0000 	add	r16, r10, r0
+    11a4:	08260049 		r1, r6, r0
+    11a8:	13000000 	addk	r24, r0, r0
+    11ac:	01110010 		r8, r17, r0
+    11b0:	06110112 	neg	r16, r17
+    11b4:	0103081b 		r8, r3, r1
+    11b8:	08250813 		r1, r5, r1
+    11bc:	05000000 	rsub	r8, r0, r0
+    11c0:	01110010 		r8, r17, r0
+    11c4:	06110112 	neg	r16, r17
+    11c8:	0103081b 		r8, r3, r1
+    11cc:	08250813 		r1, r5, r1
+    11d0:	05000000 	rsub	r8, r0, r0
+    11d4:	01110010 		r8, r17, r0
+    11d8:	06110112 	neg	r16, r17
+    11dc:	0103081b 		r8, r3, r1
+    11e0:	08250813 		r1, r5, r1
+    11e4:	05000000 	rsub	r8, r0, r0
+    11e8:	01110010 		r8, r17, r0
+    11ec:	06110112 	neg	r16, r17
+    11f0:	0103081b 		r8, r3, r1
+    11f4:	08250813 		r1, r5, r1
+    11f8:	05000000 	rsub	r8, r0, r0
+    11fc:	01110010 		r8, r17, r0
+    1200:	06110112 	neg	r16, r17
+    1204:	0103081b 		r8, r3, r1
+    1208:	08250813 		r1, r5, r1
+    120c:	05000000 	rsub	r8, r0, r0
+    1210:	01110010 		r8, r17, r0
+    1214:	06550603 	neg	r18, r21
+    1218:	081b0825 		r0, r27, r1
+    121c:	08130500 		r0, r19, r0
+    1220:	Address 0x00001220 is out of bounds.
+
+
+Disassembly of section .debug_aranges:
+
+00000000 <.debug_aranges>:
+   0:	0000003c 		r0, r0, r0
+   4:	00020000 	add	r0, r2, r0
+   8:	00000400 		r0, r0, r0
+   c:	
+Disassembly of section .debug_ranges:
+
+00000000 <.debug_ranges>:
+   0:	ffffffff 		r31, r31, r31
+   4:	
+Disassembly of section .debug_frame:
+
+00000000 <.debug_frame>:
+   0:	0000000c 		r0, r0, r0
+   4:	ffffffff 		r31, r31, r31
+   8:	0100017c 		r8, r0, r0
+   c:	0f0c0100 		r24, r12, r0
+  10:	0000000c 		r0, r0, r0
+  14:	
+Disassembly of section .debug_loc:
+
+00000000 <.debug_loc>:
+       0:	0000003c 		r0, r0, r0
+       4:	00000040 		r0, r0, r0
+       8:	00057300 		r0, r5, r14
+       c:	311a9f00 	addik	r8, r26, -24832
+      10:	00004000 	add	r0, r0, r8
+      14:	00004400 		r0, r0, r8
+      18:	01530000 	add	r10, r19, r0
+      1c:	00440000 	add	r2, r4, r0
+      20:	00500005 		r2, r16, r0
+      24:	73003127 		r24, r0, r6
+      28:	9f000000 		r24, r0, r0
+      2c:	
+Disassembly of section .debug_str:
+
+00000000 <.debug_str>:
+   0:	6c6f6e67 	necaget	r3, rfsl7
+   4:	206c6f6e 	addi	r3, r12, 28526
+   8:	6720696e 	bsrli	r25, r0, 14
+   c:	74007561 		r0, r0, r14
+  10:	72745f73 		r19, r20, r11
+  14:	656e6400 	bslli	r11, r14, 0
+  18:	75617274 		r11, r1, r14
+  1c:	5f707574 		r27, r16, r14
+  20:	002f686f 		r1, r15, r13
+  24:	6d652f6c 	ecaget	r11, rfsl12
+  28:	75636b79 		r11, r3, r13
+  2c:	74696765 		r3, r9, r12
+  30:	722f4465 		r17, r15, r8
+  34:	736b746f 		r27, r11, r14
+  38:	702f7365 		r1, r15, r14
+  3c:	63726574 	muli	r27, r18, 25972
+  40:	626c617a 	muli	r19, r12, 24954
+  44:	655f7374 	bsrai	r10, r31, 20
+  48:	645f315f 	bsrli	r2, r31, 31
+  4c:	36382f73 	rsubik	r17, r24, 12147
+  50:	772f6170 		r25, r15, r12
+  54:	70732f64 		r3, r19, r5
+  58:	68727973 		r3, r18, r15
+  5c:	746f6e65 		r3, r15, r13
+  60:	00756172 		r3, r21, r12
+  64:	745f6765 		r2, r31, r12
+  68:	74006c6f 		r0, r0, r13
+  6c:	6e67206c 	cget	r19, rfsl12
+  70:	6f6e6720 	necget	r27, rfsl0
+  74:	756e7369 		r11, r14, r14
+  78:	676e6564 	bslli	r27, r14, 4
+  7c:	20696e74 	addi	r3, r9, 28276
+  80:	00756172 		r3, r21, r12
+  84:	745f7265 		r2, r31, r14
+  88:	61640043 	muli	r11, r4, 67
+  8c:	50555f56 		r2, r21, r11
+  90:	45520075 	bsrl	r10, r18, r0
+  94:	6e736967 	ncaget	r19, rfsl7
+  98:	6e656420 	necget	r19, rfsl0
+  9c:	63686172 	muli	r27, r8, 24946
+  a0:	00646174 		r3, r4, r12
+  a4:	61007561 	muli	r8, r0, 30049
+  a8:	72745f77 		r19, r20, r11
+  ac:	6169745f 	muli	r11, r9, 29791
+  b0:	74785f64 		r3, r24, r11
+  b4:	6f6e6500 	necget	r27, rfsl0
+  b8:	75617274 		r11, r1, r14
+  bc:	5f777269 		r27, r23, r14
+  c0:	74650075 		r3, r5, r0
+  c4:	6172745f 	muli	r11, r18, 29791
+  c8:	77616974 		r27, r1, r13
+  cc:	5f72785f 		r27, r18, r15
+  d0:	72656164 		r19, r5, r12
+  d4:	79007368 		r8, r0, r14
+  d8:	6f727420 	tnecget	r27, rfsl0
+  dc:	756e7369 		r11, r14, r14
+  e0:	676e6564 	bslli	r27, r14, 4
+  e4:	20696e74 	addi	r3, r9, 28276
+  e8:	0073625f 		r3, r19, r12
+  ec:	75696e74 		r11, r9, r13
+  f0:	385f7400 	addikc	r2, r31, 29696
+  f4:	4350555f 		r26, r16, r10
+  f8:	43484950 		r26, r8, r9
+  fc:	00474e55 		r2, r7, r9
+ 100:	20432034 	addi	r2, r3, 8244
+ 104:	2e362e32 	rsubic	r17, r22, 11826
+ 108:	20323031 	addi	r1, r18, 12337
+ 10c:	31313031 	addik	r9, r17, 12337
+ 110:	38202858 	addikc	r1, r0, 10328
+ 114:	696c696e 		r11, r12, r13
+ 118:	78203134 		r1, r0, r6
+ 11c:	2e312042 	rsubic	r17, r17, 8258
+ 120:	75696c64 		r11, r9, r13
+ 124:	2045444b 	addi	r2, r5, 17483
+ 128:	5f502e31 		r26, r16, r5
+ 12c:	35203232 	rsubik	r9, r0, 12850
+ 130:	204d6172 	addi	r2, r13, 24946
+ 134:	20323031 	addi	r1, r18, 12337
+ 138:	32290073 	addik	r17, r9, 115
+ 13c:	625f7569 	muli	r18, r31, 30057
+ 140:	6e743332 	tcget	r19, rfsl2
+ 144:	5f740073 		r27, r20, r0
+ 148:	686f7274 		r3, r15, r14
+ 14c:	20696e74 	addi	r3, r9, 28276
+ 150:	002e2e2f 		r1, r14, r5
+ 154:	2e2e2f6c 	rsubic	r17, r14, 12140
+ 158:	69622f73 		r11, r2, r5
+ 15c:	65637265 	bsrai	r11, r3, 5
+ 160:	74626c61 		r3, r2, r13
+ 164:	7a652f73 		r19, r5, r5
+ 168:	625f7561 	muli	r18, r31, 30049
+ 16c:	72742e63 		r19, r20, r5
+ 170:	00666c61 		r3, r6, r13
+ 174:	67007374 	bsrai	r24, r0, 20
+ 178:	72696e67 		r19, r9, r13
+ 17c:	00707269 		r3, r16, r14
+ 180:	6e746900 	ncaget	r19, rfsl0
+ 184:	70616463 		r3, r1, r12
+ 188:	68617200 		r3, r1, r14
+ 18c:	655f7072 	bsrli	r10, r31, 18
+ 190:	696e7466 		r11, r14, r14
+ 194:	00666f72 		r3, r6, r13
+ 198:	6d617400 	tnecget	r11, rfsl0
+ 19c:	7072696e 		r3, r18, r13
+ 1a0:	745f6275 		r2, r31, r12
+ 1a4:	6600655f 	bslli	r16, r0, 31
+ 1a8:	73707269 		r27, r16, r14
+ 1ac:	6e746600 	necget	r19, rfsl0
+ 1b0:	7072696e 		r3, r18, r13
+ 1b4:	74007769 		r0, r0, r14
+ 1b8:	64746800 	bsrli	r3, r20, 0
+ 1bc:	6c657462 	tnecget	r3, rfsl2
+ 1c0:	61736500 	muli	r11, r19, 25856
+ 1c4:	7072696e 		r3, r18, r13
+ 1c8:	7473006f 		r3, r19, r0
+ 1cc:	75746279 		r11, r20, r12
+ 1d0:	7465002e 		r3, r5, r0
+ 1d4:	2e2f2e2e 	rsubic	r17, r15, 11822
+ 1d8:	2f6c6962 	rsubic	r27, r12, 26978
+ 1dc:	2f655f6c 	rsubic	r27, r5, 24428
+ 1e0:	69622f65 		r11, r2, r5
+ 1e4:	5f707269 		r27, r16, r14
+ 1e8:	6e74662e 	necget	r19, rfsl14
+ 1ec:	63007661 	muli	r24, r0, 30305
+ 1f0:	72670050 		r19, r7, r0
+ 1f4:	74725f43 		r3, r18, r11
+ 1f8:	6f6d7000 	tncget	r27, rfsl0
+ 1fc:	5265635f 		r19, r5, r12
+ 200:	54797065 		r3, r25, r14
+ 204:	00537472 		r2, r19, r14
+ 208:	5f333000 		r25, r19, r6
+ 20c:	426f6f6c 		r19, r15, r13
+ 210:	5f4c6f63 		r26, r12, r13
+ 214:	00417272 		r2, r1, r14
+ 218:	5f315f47 		r25, r17, r11
+ 21c:	6c6f6200 	ncget	r3, rfsl0
+ 220:	44697363 	bsra	r3, r9, r14
+ 224:	7200496e 		r16, r0, r9
+ 228:	745f4c6f 		r2, r31, r9
+ 22c:	63005374 	muli	r24, r0, 21364
+ 230:	725f436f 		r18, r31, r8
+ 234:	6d700076 	get	r11, rfsl6
+ 238:	61726961 	muli	r11, r18, 26977
+ 23c:	6e740052 	get	r19, rfsl2
+ 240:	65635f50 		r11, r3, r11
+ 244:	6f696e74 	necaget	r27, rfsl4
+ 248:	65720074 	bsrli	r11, r18, 20
+ 24c:	696d6572 		r11, r13, r12
+ 250:	5f315f69 		r25, r17, r11
+ 254:	6e697400 	tnecget	r19, rfsl0
+ 258:	496e745f 		r11, r14, r14
+ 25c:	476c6f62 		r27, r12, r13
+ 260:	00766172 		r3, r22, r12
+ 264:	5f310076 		r25, r17, r0
+ 268:	61725f32 	muli	r11, r18, 24370
+ 26c:	00766172 		r3, r22, r12
+ 270:	5f330042 		r25, r19, r0
+ 274:	6f6f6c5f 	necaget	r27, rfsl15
+ 278:	476c6f62 		r27, r12, r13
+ 27c:	00537472 		r2, r19, r14
+ 280:	5f315f4c 		r25, r17, r11
+ 284:	6f630074 	get	r27, rfsl4
+ 288:	696d6572 		r11, r13, r12
+ 28c:	5f315f67 		r25, r17, r11
+ 290:	65747661 		r11, r20, r14
+ 294:	6c00456e 	neget	r0, rfsl14
+ 298:	756d6572 		r11, r13, r12
+ 29c:	6174696f 	muli	r11, r20, 26991
+ 2a0:	6e00646d 	necget	r16, rfsl13
+ 2a4:	69707300 		r11, r16, r14
+ 2a8:	496e745f 		r11, r14, r14
+ 2ac:	315f4c6f 	addik	r10, r31, 19567
+ 2b0:	63004e65 	muli	r24, r0, 20069
+ 2b4:	78745f50 		r3, r20, r11
+ 2b8:	74725f47 		r3, r18, r11
+ 2bc:	6c6f6200 	ncget	r3, rfsl0
+ 2c0:	4d696372 	necagetd	r11, r12
+ 2c4:	6f736563 	necget	r27, rfsl3
+ 2c8:	6f6e6473 	necget	r27, rfsl3
+ 2cc:	0046756e 		r2, r6, r14
+ 2d0:	635f3200 	muli	r26, r31, 12800
+ 2d4:	43685f31 		r27, r8, r11
+ 2d8:	5f436f6d 		r26, r3, r13
+ 2dc:	70007469 		r0, r0, r14
+ 2e0:	6d65725f 	tncget	r11, rfsl15
+ 2e4:	315f7265 	addik	r10, r31, 29285
+ 2e8:	73657400 		r27, r5, r14
+ 2ec:	4964656e 		r11, r4, r12
+ 2f0:	745f3100 		r2, r31, r6
+ 2f4:	4964656e 		r11, r4, r12
+ 2f8:	745f3200 		r2, r31, r6
+ 2fc:	4964656e 		r11, r4, r12
+ 300:	745f3300 		r2, r31, r6
+ 304:	4964656e 		r11, r4, r12
+ 308:	745f3400 		r2, r31, r6
+ 30c:	4964656e 		r11, r4, r12
+ 310:	745f3500 		r2, r31, r6
+ 314:	4e657874 	eagetd	r19, r15
+ 318:	5f526563 		r26, r18, r12
+ 31c:	6f726400 	necget	r27, rfsl0
+ 320:	4172725f 		r11, r18, r14
+ 324:	325f476c 	addik	r18, r31, 18284
+ 328:	6f620043 	get	r27, rfsl3
+ 32c:	685f325f 		r2, r31, r6
+ 330:	436f6d70 		r27, r15, r13
+ 334:	0050726f 		r2, r16, r14
+ 338:	635f3100 	muli	r26, r31, 12544
+ 33c:	50726f63 		r3, r18, r13
+ 340:	5f320050 		r25, r18, r0
+ 344:	726f635f 		r19, r15, r12
+ 348:	33005072 	addik	r24, r0, 20594
+ 34c:	6f635f34 	tneaget	r27, rfsl4
+ 350:	0050726f 		r2, r16, r14
+ 354:	635f3500 	muli	r26, r31, 13568
+ 358:	50726f63 		r3, r18, r13
+ 35c:	5f360064 		r25, r22, r0
+ 360:	6872795f 		r3, r18, r15
+ 364:	312e6300 	addik	r9, r14, 25344
+ 368:	50726f63 		r3, r18, r13
+ 36c:	5f380049 		r25, r24, r0
+ 370:	6e745f33 	tneaget	r19, rfsl3
+ 374:	5f4c6f63 		r26, r12, r13
+ 378:	0052756e 		r2, r18, r14
+ 37c:	5f496e64 		r26, r9, r13
+ 380:	65780050 	bsrli	r11, r24, 16
+ 384:	74725f52 		r3, r18, r11
+ 388:	65665f50 		r11, r6, r11
+ 38c:	61720072 	muli	r11, r18, 114
+ 390:	65636f72 		r11, r3, r13
+ 394:	64004f6e 		r0, r0, r9
+ 398:	655f4669 		r10, r31, r8
+ 39c:	66747900 	bsrli	r19, r20, 0
+ 3a0:	456e756d 	bsll	r11, r14, r14
+ 3a4:	5f4c6f63 		r26, r12, r13
+ 3a8:	00507472 		r2, r16, r14
+ 3ac:	5f56616c 		r26, r22, r12
+ 3b0:	5f506172 		r26, r16, r12
+ 3b4:	00557365 		r2, r21, r14
+ 3b8:	725f5469 		r18, r31, r10
+ 3bc:	6d650074 	get	r11, rfsl4
+ 3c0:	68726573 		r3, r18, r12
+ 3c4:	686f6c64 		r3, r15, r13
+ 3c8:	00426567 		r2, r2, r12
+ 3cc:	696e5f54 		r11, r14, r11
+ 3d0:	696d6500 		r11, r13, r12
+ 3d4:	746d705f 		r3, r13, r14
+ 3d8:	76617231 		r19, r1, r14
+ 3dc:	00746d70 		r3, r20, r13
+ 3e0:	5f766172 		r27, r22, r12
+ 3e4:	32004468 	addik	r16, r0, 17512
+ 3e8:	72797374 		r19, r25, r14
+ 3ec:	6f6e6573 	necget	r27, rfsl3
+ 3f0:	5f506572 		r26, r16, r12
+ 3f4:	5f536563 		r26, r19, r12
+ 3f8:	6f6e6400 	necget	r27, rfsl0
+ 3fc:	43685f49 		r27, r8, r11
+ 400:	6e646578 	necget	r19, rfsl8
+ 404:	0050726f 		r2, r16, r14
+ 408:	635f3700 	muli	r26, r31, 14080
+ 40c:	426f6f6c 		r19, r15, r13
+ 410:	65616e00 		r11, r1, r13
+ 414:	43685f31 		r27, r8, r11
+ 418:	5f476c6f 		r26, r7, r13
+ 41c:	62007469 	muli	r16, r0, 29801
+ 420:	6d65725f 	tncget	r11, rfsl15
+ 424:	315f656e 	addik	r10, r31, 25966
+ 428:	61626c65 	muli	r11, r2, 27749
+ 42c:	0043685f 		r2, r3, r13
+ 430:	325f476c 	addik	r18, r31, 18284
+ 434:	6f620045 	get	r27, rfsl5
+ 438:	6e756d5f 	necaget	r19, rfsl15
+ 43c:	436f6d70 		r27, r15, r13
+ 440:	00537472 		r2, r19, r14
+ 444:	5f325f4c 		r25, r18, r11
+ 448:	6f630053 	get	r27, rfsl3
+ 44c:	74725f32 		r3, r18, r11
+ 450:	5f436f6d 		r26, r3, r13
+ 454:	7000456e 		r0, r0, r8
+ 458:	645f5469 	bslli	r2, r31, 9
+ 45c:	6d650049 	get	r11, rfsl9
+ 460:	6e745f32 	tneaget	r19, rfsl2
+ 464:	5f4c6f63 		r26, r12, r13
+ 468:	004e756d 		r2, r14, r14
+ 46c:	6265725f 	muli	r19, r5, 29279
+ 470:	4f665f52 	ncaputd	r6, r11
+ 474:	756e7300 		r11, r14, r14
+ 478:	455f436f 	bsra	r10, r31, r8
+ 47c:	6d705f32 	tneaget	r11, rfsl2
+ 480:	006d6169 		r3, r13, r12
+ 484:	6e00496e 	naget	r16, rfsl14
+ 488:	745f5061 		r2, r31, r10
+ 48c:	725f5265 		r18, r31, r10
+ 490:	6600496e 	bsrli	r16, r0, 14
+ 494:	745f436f 		r2, r31, r8
+ 498:	6d700046 	get	r11, rfsl6
+ 49c:	756e635f 		r11, r14, r12
+ 4a0:	31004675 	addik	r8, r0, 18037
+ 4a4:	6e635f33 	tneaget	r19, rfsl3
+ 4a8:	00456e75 		r2, r5, r13
+ 4ac:	6d5f5265 	tnget	r10, rfsl5
+ 4b0:	665f5061 	bsrli	r18, r31, 1
+ 4b4:	72004361 		r16, r0, r8
+ 4b8:	70697461 		r3, r9, r14
+ 4bc:	6c5f4c65 	neaget	r2, rfsl5
+ 4c0:	74746572 		r3, r20, r12
+ 4c4:	00417272 		r2, r1, r14
+ 4c8:	5f315f50 		r25, r17, r11
+ 4cc:	61725f52 	muli	r11, r18, 24402
+ 4d0:	65660043 	bsrli	r11, r6, 3
+ 4d4:	685f325f 		r2, r31, r6
+ 4d8:	4c6f6300 	ncgetd	r3, r12
+ 4dc:	43685f4c 		r27, r8, r11
+ 4e0:	6f630053 	get	r27, rfsl3
+ 4e4:	74725f31 		r3, r18, r11
+ 4e8:	5f506172 		r26, r16, r12
+ 4ec:	5f526566 		r26, r18, r12
+ 4f0:	00496e74 		r2, r9, r13
+ 4f4:	5f496e64 		r26, r9, r13
+ 4f8:	6578004f 	bsrli	r11, r24, 15
+ 4fc:	6e655f54 	tneaget	r19, rfsl4
+ 500:	68697274 		r3, r9, r14
+ 504:	79004368 		r8, r0, r8
+ 508:	5f315f50 		r25, r17, r11
+ 50c:	61725f56 	muli	r11, r18, 24406
+ 510:	616c0045 	muli	r11, r12, 69
+ 514:	6e756d5f 	necaget	r19, rfsl15
+ 518:	5061725f 		r3, r1, r14
+ 51c:	56616c00 		r19, r1, r13
+ 520:	4172725f 		r11, r18, r14
+ 524:	325f5061 	addik	r18, r31, 20577
+ 528:	725f5265 		r18, r31, r10
+ 52c:	6600496e 	bsrli	r16, r0, 14
+ 530:	745f315f 		r2, r31, r6
+ 534:	5061725f 		r3, r1, r14
+ 538:	56616c00 		r19, r1, r13
+ 53c:	456e756d 	bsll	r11, r14, r14
+ 540:	5f56616c 		r26, r22, r12
+ 544:	5f506172 		r26, r16, r12
+ 548:	00537472 		r2, r19, r14
+ 54c:	5f325f50 		r25, r18, r11
+ 550:	61725f52 	muli	r11, r18, 24402
+ 554:	65660043 	bsrli	r11, r6, 3
+ 558:	685f325f 		r2, r31, r6
+ 55c:	5061725f 		r3, r1, r14
+ 560:	56616c00 		r19, r1, r13
+ 564:	496e745f 		r11, r14, r14
+ 568:	325f5061 	addik	r18, r31, 20577
+ 56c:	725f5661 		r18, r31, r10
+ 570:	6c006468 	necget	r0, rfsl8
+ 574:	72795f32 		r19, r25, r11
+ 578:	2e630043 	rsubic	r19, r3, 67
+ 57c:	685f315f 		r2, r31, r6
+ 580:	4c6f6300 	ncgetd	r3, r12
+ 584:	434c4153 		r26, r12, r8
+ 588:	535f5a45 		r26, r31, r11
+ 58c:	524f0068 		r18, r15, r0
+ 590:	69676800 		r11, r7, r13
+ 594:	5f5f7468 		r26, r31, r14
+ 598:	656e616e 	bsrli	r11, r14, 14
+ 59c:	5f736600 		r27, r19, r12
+ 5a0:	66726163 	bsrli	r19, r18, 3
+ 5a4:	74696f6e 		r3, r9, r13
+ 5a8:	00697369 		r3, r9, r14
+ 5ac:	6e660063 	get	r19, rfsl3
+ 5b0:	6c617373 	tncget	r3, rfsl3
+ 5b4:	00555349 		r2, r21, r10
+ 5b8:	74797065 		r3, r25, r14
+ 5bc:	0066705f 		r3, r6, r14
+ 5c0:	636c6173 	muli	r27, r12, 24947
+ 5c4:	735f7479 		r26, r31, r14
+ 5c8:	70650043 		r3, r5, r0
+ 5cc:	4c415353 	ncagetd	r2, r10
+ 5d0:	5f514e41 		r26, r17, r9
+ 5d4:	4e006172 	ecagetd	r16, r12
+ 5d8:	675f6100 	bsrli	r26, r31, 0
+ 5dc:	6172675f 	muli	r11, r18, 26463
+ 5e0:	62006973 	muli	r16, r0, 26995
+ 5e4:	7a65726f 		r19, r5, r14
+ 5e8:	00464c4f 		r2, r6, r9
+ 5ec:	5f756e69 		r27, r21, r13
+ 5f0:	6f6e5f74 	tneaget	r27, rfsl4
+ 5f4:	79706500 		r11, r16, r12
+ 5f8:	76616c75 		r19, r1, r13
+ 5fc:	655f7261 	bsrai	r10, r31, 1
+ 600:	7700616e 		r24, r0, r12
+ 604:	73776572 		r27, r23, r12
+ 608:	005f6670 		r2, r31, r12
+ 60c:	6d756c5f 	necaget	r11, rfsl15
+ 610:	70617274 		r3, r1, r14
+ 614:	73002e2e 		r24, r0, r5
+ 618:	2f2e2e2f 	rsubic	r25, r14, 11823
+ 61c:	2e2e2f2e 	rsubic	r17, r14, 12078
+ 620:	2e2f2e2f 	rsubic	r17, r15, 11823
+ 624:	6763632f 	bsrai	r27, r3, 15
+ 628:	66702d62 	bslli	r19, r16, 2
+ 62c:	69742e63 		r11, r20, r5
+ 630:	006e6f72 		r3, r14, r13
+ 634:	6d616c5f 	necaget	r11, rfsl15
+ 638:	65787000 	bsrli	r11, r24, 0
+ 63c:	55444974 		r10, r4, r9
+ 640:	79706500 		r11, r16, r12
+ 644:	69736e61 		r11, r19, r13
+ 648:	6e00464c 	neget	r16, rfsl12
+ 64c:	4f5f7479 	eaputd	r31, r14
+ 650:	7065002f 		r3, r5, r0
+ 654:	676e752f 	bslli	r27, r14, 15
+ 658:	6d625f67 	tneaget	r11, rfsl7
+ 65c:	6e752f62 	ecaget	r19, rfsl2
+ 660:	75696c64 		r11, r9, r13
+ 664:	2f6d6963 	rsubic	r27, r13, 26979
+ 668:	726f626c 		r19, r15, r12
+ 66c:	617a652f 	muli	r11, r26, 25903
+ 670:	6c696e2f 	necaget	r3, rfsl15
+ 674:	626c645f 	muli	r19, r12, 25695
+ 678:	6763635f 	bsrai	r27, r3, 31
+ 67c:	72656c65 		r19, r5, r13
+ 680:	6173652f 	muli	r11, r19, 25903
+ 684:	6275696c 	muli	r19, r21, 26988
+ 688:	642f6d69 	bslli	r1, r15, 9
+ 68c:	63726f62 	muli	r27, r18, 28514
+ 690:	6c617a65 	tncaget	r3, rfsl5
+ 694:	2d78696c 	rsubic	r11, r24, 26988
+ 698:	696e782d 		r11, r14, r15
+ 69c:	656c662f 		r11, r12, r12
+ 6a0:	62732f6d 	muli	r19, r19, 12141
+ 6a4:	2f6c6962 	rsubic	r27, r12, 26978
+ 6a8:	67636300 	bsrai	r27, r3, 0
+ 6ac:	434c4153 		r26, r12, r8
+ 6b0:	535f534e 		r26, r31, r10
+ 6b4:	414e0055 		r10, r14, r0
+ 6b8:	48497479 		r2, r9, r14
+ 6bc:	70650066 		r3, r5, r0
+ 6c0:	705f6e75 		r2, r31, r13
+ 6c4:	6d626572 	necget	r11, rfsl2
+ 6c8:	5f747970 		r27, r20, r15
+ 6cc:	65007661 		r8, r0, r14
+ 6d0:	6c756500 	necget	r3, rfsl0
+ 6d4:	434c4153 		r26, r12, r8
+ 6d8:	535f494e 		r26, r31, r9
+ 6dc:	46494e49 		r18, r9, r9
+ 6e0:	5459006d 		r2, r25, r0
+ 6e4:	616b656e 	muli	r11, r11, 25966
+ 6e8:	616e005f 	muli	r11, r14, 95
+ 6ec:	5f6d756c 		r27, r13, r14
+ 6f0:	73663300 		r27, r6, r6
+ 6f4:	7369676e 		r27, r9, r12
+ 6f8:	00534674 		r2, r19, r8
+ 6fc:	79706500 		r11, r16, r12
+ 700:	434c4153 		r26, r12, r8
+ 704:	535f4e55 		r26, r31, r9
+ 708:	4d424552 	caputd	r2, r8
+ 70c:	0068616c 		r3, r8, r12
+ 710:	66667261 	bsrai	r19, r6, 1
+ 714:	63747970 	muli	r27, r20, 31088
+ 718:	65007175 	bsrli	r8, r0, 21
+ 71c:	6f746965 	ncaget	r27, rfsl5
+ 720:	6e74005f 	get	r19, rfsl15
+ 724:	5f646976 		r27, r4, r13
+ 728:	73663300 		r27, r6, r6
+ 72c:	5f667064 		r27, r6, r14
+ 730:	69765f70 		r11, r22, r11
+ 734:	61727473 	muli	r11, r18, 29811
+ 738:	006e756d 		r3, r14, r14
+ 73c:	65726174 	bsrli	r11, r18, 20
+ 740:	6f720064 	get	r27, rfsl4
+ 744:	656e6f6d 		r11, r14, r13
+ 748:	696e6174 		r11, r14, r12
+ 74c:	6f720073 	get	r27, rfsl3
+ 750:	68696674 		r3, r9, r12
+ 754:	005f5f63 		r2, r31, r11
+ 758:	6c7a7369 	tncget	r3, rfsl9
+ 75c:	32007561 	addik	r16, r0, 30049
+ 760:	7267005f 		r19, r7, r0
+ 764:	5f666c6f 		r27, r6, r13
+ 768:	61747369 	muli	r11, r20, 29545
+ 76c:	73660063 		r27, r6, r0
+ 770:	6c7a7573 	tnecget	r3, rfsl3
+ 774:	69005f5f 		r8, r0, r11
+ 778:	66697873 	bsrli	r19, r9, 19
+ 77c:	66736900 	bsrli	r19, r19, 0
+ 780:	5f5f7568 		r26, r31, r14
+ 784:	005f5f75 		r2, r31, r11
+ 788:	6c00636f 	ncget	r0, rfsl15
+ 78c:	6d706c65 	necaget	r11, rfsl5
+ 790:	7820666c 		r1, r0, r12
+ 794:	6f617400 	tnecget	r27, rfsl0
+ 798:	5f5f7830 		r26, r31, r15
+ 79c:	005f5f78 		r2, r31, r11
+ 7a0:	31005f5f 	addik	r8, r0, 24415
+ 7a4:	7832005f 		r1, r18, r0
+ 7a8:	5f783300 		r27, r24, r6
+ 7ac:	5f5f6d75 		r26, r31, r13
+ 7b0:	6c646933 	ncaget	r3, rfsl3
+ 7b4:	00445775 		r2, r4, r10
+ 7b8:	6e696f6e 	necaget	r19, rfsl14
+ 7bc:	005f5f76 		r2, r31, r11
+ 7c0:	68005f5f 		r0, r0, r11
+ 7c4:	766c0063 		r19, r12, r0
+ 7c8:	6f6d706c 	tncget	r27, rfsl12
+ 7cc:	65782064 	bsrli	r11, r24, 4
+ 7d0:	6f75626c 	ncget	r27, rfsl12
+ 7d4:	65004457 	bslli	r8, r0, 23
+ 7d8:	73747275 		r27, r20, r14
+ 7dc:	6374002f 	muli	r27, r20, 47
+ 7e0:	676e752f 	bslli	r27, r14, 15
+ 7e4:	6d625f67 	tneaget	r11, rfsl7
+ 7e8:	6e752f2f 	ecaget	r19, rfsl15
+ 7ec:	7372632f 		r27, r18, r12
+ 7f0:	6763632f 	bsrai	r27, r3, 15
+ 7f4:	6c696267 	ncget	r3, rfsl7
+ 7f8:	63632f2e 	muli	r27, r3, 12078
+ 7fc:	2e2f6763 	rsubic	r17, r15, 26467
+ 800:	632f6c69 	muli	r25, r15, 27753
+ 804:	62676363 	muli	r19, r7, 25443
+ 808:	322e6300 	addik	r17, r14, 25344
+ 80c:	5f5f7872 		r26, r31, r15
+ 810:	005f5f63 		r2, r31, r11
+ 814:	6c7a5f74 	tneaget	r3, rfsl4
+ 818:	61620055 	muli	r11, r2, 85
+ 81c:	51497479 		r10, r9, r14
+ 820:	7065005f 		r3, r5, r0
+ 824:	5f706163 		r27, r16, r12
+ 828:	6b5f6600 		r26, r31, r12
+ 82c:	6c6f7762 	tnecget	r3, rfsl2
+ 830:	6974005f 		r11, r20, r0
+ 834:	5f756e70 		r27, r21, r13
+ 838:	61636b5f 	muli	r11, r3, 27487
+ 83c:	Address 0x0000083c is out of bounds.
+

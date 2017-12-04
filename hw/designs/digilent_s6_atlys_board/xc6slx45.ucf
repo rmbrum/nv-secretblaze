@@ -1,0 +1,183 @@
+##
+##    ADAC Research Group - LIRMM - University of Montpellier / CNRS 
+##    contact: adac@lirmm.fr
+##
+##    This file is part of SecretBlaze.
+##
+##    SecretBlaze is free software: you can redistribute it and/or modify
+##    it under the terms of the GNU General Public License as published by
+##    the Free Software Foundation, either version 3 of the License, or
+##    (at your option) any later version.
+##
+##    SecretBlaze is distributed in the hope that it will be useful,
+##    but WITHOUT ANY WARRANTY; without even the implied warranty of
+##    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+##    GNU General Public License for more details.
+##
+##    You should have received a copy of the GNU General Public License
+##    along with SecretBlaze.  If not, see <http://www.gnu.org/licenses/>.
+##
+
+#############################################################
+#-----------------------------------------------------------#
+#                                                           #  
+# Company       : LIRMM                                     #
+# Engineer      : Lyonel Barthe                             #
+# Version       : 1.0                                       #
+#                                                           #
+# Revision History :                                        #
+#                                                           #
+#   Version 1.0 - 08/2012 by Lyonel Barthe                  #
+#       Initial Release                                     #
+#                                                           #
+#-----------------------------------------------------------#
+#############################################################
+
+#-----------------------------------------------------------#
+#                     CLOCK MANAGEMENT
+#-----------------------------------------------------------#
+
+NET "clk_i" TNM_NET = "clk_i";
+TIMESPEC TS_clk_i = PERIOD "clk_i" 10 ns HIGH 50%;
+
+NET "clk_i" LOC = L15;
+
+#-----------------------------------------------------------#
+#                       GENERAL I/O
+#-----------------------------------------------------------#
+
+#
+# UART
+#
+NET "rx_i" LOC = A16;
+NET "tx_o" LOC = B16;
+
+#
+# HARDWARE RESET BUTTON
+#
+NET "rst_i" LOC = T15;
+
+#
+# GPO LED
+#
+NET "led_o[7]" LOC = N12;
+NET "led_o[6]" LOC = P16;
+NET "led_o[5]" LOC = D4;
+NET "led_o[4]" LOC = M13;
+NET "led_o[3]" LOC = L14;
+NET "led_o[2]" LOC = N14;
+NET "led_o[1]" LOC = M14;
+NET "led_o[0]" LOC = U18;
+
+#
+# GPI BUTTON
+#
+NET "but_i[0]" LOC = A10;
+NET "but_i[1]" LOC = D14;
+NET "but_i[2]" LOC = C14;
+NET "but_i[3]" LOC = P15;
+NET "but_i[4]" LOC = P12;
+NET "but_i[5]" LOC = R5;
+NET "but_i[6]" LOC = T5;
+NET "but_i[7]" LOC = E4;
+
+#-----------------------------------------------------------#
+#                           DRAM
+#-----------------------------------------------------------#
+CONFIG VCCAUX=2.5; 
+CONFIG MCB_PERFORMANCE= EXTENDED;
+
+NET "SECRETBLAZE_SOC/GEN_DRAM.DRAM/DRAM_CTR/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/selfrefresh_mcb_mode" TIG;
+NET "SECRETBLAZE_SOC/GEN_DRAM.DRAM/DRAM_CTR/c3_pll_lock" TIG;
+NET "SECRETBLAZE_SOC/GEN_DRAM.DRAM/DRAM_CTR/memc3_wrapper_inst/memc3_mcb_raw_wrapper_inst/gen_term_calib.mcb_soft_calibration_top_inst/mcb_soft_calibration_inst/CKE_Train" TIG;
+
+NET "clkfx_s" TNM_NET = "clkfx_s";
+TIMESPEC TS_clkfx_s = PERIOD "clkfx_s" 2.5 ns HIGH 50 %;
+NET "clkdiv_s" TNM_NET = "clkdiv_s";
+TIMESPEC TS_clkdiv_s = PERIOD "clkdiv_s" 20.00 ns HIGH 50 %;
+
+NET  "ddr2dq_io[*]"                           IN_TERM = NONE;
+NET  "ddr2ldqs_p_io"                          IN_TERM = NONE;
+NET  "ddr2ldqs_n_io"                          IN_TERM = NONE;
+NET  "ddr2udqs_p_io"                          IN_TERM = NONE;
+NET  "ddr2udqs_n_io"                          IN_TERM = NONE;
+NET  "ddr2dq_io[*]"                           IOSTANDARD = SSTL18_II;
+NET  "ddr2a_o[*]"                             IOSTANDARD = SSTL18_II;
+NET  "ddr2ba_o[*]"                            IOSTANDARD = SSTL18_II;
+NET  "ddr2ldqs_p_io"                          IOSTANDARD = DIFF_SSTL18_II;
+NET  "ddr2udqs_p_io"                          IOSTANDARD = DIFF_SSTL18_II;
+NET  "ddr2ldqs_n_io"                          IOSTANDARD = DIFF_SSTL18_II;
+NET  "ddr2udqs_n_io"                          IOSTANDARD = DIFF_SSTL18_II;
+NET  "ddr2clk_p_o"                            IOSTANDARD = DIFF_SSTL18_II;
+NET  "ddr2clk_n_o"                            IOSTANDARD = DIFF_SSTL18_II;
+NET  "ddr2clke_o"                             IOSTANDARD = SSTL18_II;
+NET  "ddr2rasn_o"                             IOSTANDARD = SSTL18_II;
+NET  "ddr2casn_o"                             IOSTANDARD = SSTL18_II;
+NET  "ddr2wen_o"                              IOSTANDARD = SSTL18_II;
+NET  "ddr2odt_o"                              IOSTANDARD = SSTL18_II;
+NET  "ddr2ldm_o"                              IOSTANDARD = SSTL18_II;
+NET  "ddr2udm_o"                              IOSTANDARD = SSTL18_II;
+NET  "ddr2rzq_io"                             IOSTANDARD = SSTL18_II;
+NET  "ddr2zio_io"                             IOSTANDARD = SSTL18_II;
+NET  "ddr2a_o[0]"                             LOC = "J7" ;
+NET  "ddr2a_o[10]"                            LOC = "F4" ;
+NET  "ddr2a_o[11]"                            LOC = "D3" ;
+NET  "ddr2a_o[12]"                            LOC = "G6" ;
+NET  "ddr2a_o[1]"                             LOC = "J6" ;
+NET  "ddr2a_o[2]"                             LOC = "H5" ;
+NET  "ddr2a_o[3]"                             LOC = "L7" ;
+NET  "ddr2a_o[4]"                             LOC = "F3" ;
+NET  "ddr2a_o[5]"                             LOC = "H4" ;
+NET  "ddr2a_o[6]"                             LOC = "H3" ;
+NET  "ddr2a_o[7]"                             LOC = "H6" ;
+NET  "ddr2a_o[8]"                             LOC = "D2" ;
+NET  "ddr2a_o[9]"                             LOC = "D1" ;
+NET  "ddr2ba_o[0]"                            LOC = "F2" ;
+NET  "ddr2ba_o[1]"                            LOC = "F1" ;
+NET  "ddr2ba_o[2]"                            LOC = "E1" ;
+NET  "ddr2casn_o"                             LOC = "K5" ;
+NET  "ddr2clk_p_o"                            LOC = "G3" ;
+NET  "ddr2clk_n_o"                            LOC = "G1" ;
+NET  "ddr2clke_o"                             LOC = "H7" ;
+NET  "ddr2ldm_o"                              LOC = "K3" ;
+NET  "ddr2dq_io[0]"                           LOC = "L2" ;
+NET  "ddr2dq_io[10]"                          LOC = "N2" ;
+NET  "ddr2dq_io[11]"                          LOC = "N1" ;
+NET  "ddr2dq_io[12]"                          LOC = "T2" ;
+NET  "ddr2dq_io[13]"                          LOC = "T1" ;
+NET  "ddr2dq_io[14]"                          LOC = "U2" ;
+NET  "ddr2dq_io[15]"                          LOC = "U1" ;
+NET  "ddr2dq_io[1]"                           LOC = "L1" ;
+NET  "ddr2dq_io[2]"                           LOC = "K2" ;
+NET  "ddr2dq_io[3]"                           LOC = "K1" ;
+NET  "ddr2dq_io[4]"                           LOC = "H2" ;
+NET  "ddr2dq_io[5]"                           LOC = "H1" ;
+NET  "ddr2dq_io[6]"                           LOC = "J3" ;
+NET  "ddr2dq_io[7]"                           LOC = "J1" ;
+NET  "ddr2dq_io[8]"                           LOC = "M3" ;
+NET  "ddr2dq_io[9]"                           LOC = "M1" ;
+NET  "ddr2ldqs_p_io"                          LOC = "L4" ;
+NET  "ddr2ldqs_n_io"                          LOC = "L3" ;
+NET  "ddr2odt_o"                              LOC = "K6" ;
+NET  "ddr2rasn_o"                             LOC = "L5" ;
+NET  "ddr2udm_o"                              LOC = "K4" ;
+NET  "ddr2udqs_p_io"                          LOC = "P2" ;
+NET  "ddr2udqs_n_io"                          LOC = "P1" ;
+NET  "ddr2wen_o"                              LOC = "E3" ;
+NET  "ddr2rzq_io"                             LOC = "L6" ;
+NET  "ddr2zio_io"                             LOC = "C2" ;
+
+#-----------------------------------------------------------#
+#                      BRAM MANAGEMENT
+#-----------------------------------------------------------#
+
+# LOCAL MEM CONSTRAINTS for DATA2MEM TOOL
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_1/Mram_dpram_r1" LOC = RAMB16_X3Y30;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_1/Mram_dpram_r2" LOC = RAMB16_X3Y28;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_2/Mram_dpram_r1" LOC = RAMB16_X2Y26;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_2/Mram_dpram_r2" LOC = RAMB16_X2Y28;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_3/Mram_dpram_r1" LOC = RAMB16_X2Y30;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_3/Mram_dpram_r2" LOC = RAMB16_X2Y34;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_4/Mram_dpram_r1" LOC = RAMB16_X3Y38;
+INST "SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_4/Mram_dpram_r2" LOC = RAMB16_X3Y36;
+

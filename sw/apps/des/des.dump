@@ -1,0 +1,4370 @@
+
+des.elf:     file format elf32-microblaze
+
+
+Disassembly of section .vectors.reset:
+
+10000000 <_start>:
+10000000:	b0001000 	imm	4096
+10000004:	b8080050 	brai	80	// 10000050 <_start1>
+
+Disassembly of section .vectors.sw_exception:
+
+10000008 <_vector_sw_exception>:
+10000008:	b0001000 	imm	4096
+1000000c:	b8080f90 	brai	3984	// 10000f90 <_exception_handler>
+
+Disassembly of section .vectors.interrupt:
+
+10000010 <_vector_interrupt>:
+10000010:	b0001000 	imm	4096
+10000014:	b8080fa0 	brai	4000	// 10000fa0 <_interrupt_handler>
+
+Disassembly of section .vectors.hw_exception:
+
+10000020 <_vector_hw_exception>:
+10000020:	b0001000 	imm	4096
+10000024:	b8080f98 	brai	3992	// 10000f98 <_hw_exception_handler>
+
+Disassembly of section .text:
+
+10000050 <_start1>:
+10000050:	b0001000 	imm	4096
+10000054:	31a01af0 	addik	r13, r0, 6896	// 10001af0 <_SDA_BASE_>
+10000058:	b0001000 	imm	4096
+1000005c:	304019d8 	addik	r2, r0, 6616	// 100019d8 <_SDA2_BASE_>
+10000060:	b0001000 	imm	4096
+10000064:	30201d00 	addik	r1, r0, 7424
+10000068:	b9f4012c 	brlid	r15, 300	// 10000194 <_crtinit>
+1000006c:	80000000 	or	r0, r0, r0
+10000070:	b9f40f48 	brlid	r15, 3912	// 10000fb8 <exit>
+10000074:	30a30000 	addik	r5, r3, 0
+
+10000078 <_exit>:
+10000078:	b8000000 	bri	0	// 10000078 <_exit>
+
+1000007c <__do_global_dtors_aux>:
+1000007c:	b0001000 	imm	4096
+10000080:	e0601af0 	lbui	r3, r0, 6896	// 10001af0 <_SDA_BASE_>
+10000084:	3021ffdc 	addik	r1, r1, -36
+10000088:	f9e10000 	swi	r15, r1, 0
+1000008c:	fa61001c 	swi	r19, r1, 28
+10000090:	be23008c 	bneid	r3, 140		// 1000011c
+10000094:	fac10020 	swi	r22, r1, 32
+10000098:	b0001000 	imm	4096
+1000009c:	32c01ae0 	addik	r22, r0, 6880	// 10001ae0 <__CTOR_END__>
+100000a0:	b0001000 	imm	4096
+100000a4:	32601ae4 	addik	r19, r0, 6884	// 10001ae4 <__DTOR_END__>
+100000a8:	b0001000 	imm	4096
+100000ac:	e8601af4 	lwi	r3, r0, 6900	// 10001af4 <dtor_idx.2340>
+100000b0:	16769800 	rsubk	r19, r22, r19
+100000b4:	66730202 	bsrai	r19, r19, 2
+100000b8:	3273ffff 	addik	r19, r19, -1
+100000bc:	14931803 	cmpu	r4, r19, r3
+100000c0:	bea40034 	bgeid	r4, 52		// 100000f4
+100000c4:	30630001 	addik	r3, r3, 1
+100000c8:	64830402 	bslli	r4, r3, 2
+100000cc:	c884b000 	lw	r4, r4, r22
+100000d0:	b0001000 	imm	4096
+100000d4:	f8601af4 	swi	r3, r0, 6900	// 10001af4 <dtor_idx.2340>
+100000d8:	99fc2000 	brald	r15, r4
+100000dc:	80000000 	or	r0, r0, r0
+100000e0:	b0001000 	imm	4096
+100000e4:	e8601af4 	lwi	r3, r0, 6900	// 10001af4 <dtor_idx.2340>
+100000e8:	14931803 	cmpu	r4, r19, r3
+100000ec:	be44ffdc 	bltid	r4, -36		// 100000c8
+100000f0:	30630001 	addik	r3, r3, 1
+100000f4:	b0000000 	imm	0
+100000f8:	30600000 	addik	r3, r0, 0
+100000fc:	bc030014 	beqi	r3, 20		// 10000110
+10000100:	b0001000 	imm	4096
+10000104:	30a01ae8 	addik	r5, r0, 6888	// 10001ae8 <__EH_FRAME_BEGIN__>
+10000108:	99fc1800 	brald	r15, r3
+1000010c:	80000000 	or	r0, r0, r0
+10000110:	30600001 	addik	r3, r0, 1
+10000114:	b0001000 	imm	4096
+10000118:	f0601af0 	sbi	r3, r0, 6896	// 10001af0 <_SDA_BASE_>
+1000011c:	e9e10000 	lwi	r15, r1, 0
+10000120:	ea61001c 	lwi	r19, r1, 28
+10000124:	eac10020 	lwi	r22, r1, 32
+10000128:	b60f0008 	rtsd	r15, 8
+1000012c:	30210024 	addik	r1, r1, 36
+
+10000130 <frame_dummy>:
+10000130:	b0000000 	imm	0
+10000134:	30600000 	addik	r3, r0, 0
+10000138:	3021ffe4 	addik	r1, r1, -28
+1000013c:	be030020 	beqid	r3, 32		// 1000015c
+10000140:	f9e10000 	swi	r15, r1, 0
+10000144:	b0001000 	imm	4096
+10000148:	30a01ae8 	addik	r5, r0, 6888	// 10001ae8 <__EH_FRAME_BEGIN__>
+1000014c:	b0001000 	imm	4096
+10000150:	30c01af8 	addik	r6, r0, 6904	// 10001af8 <object.2350>
+10000154:	99fc1800 	brald	r15, r3
+10000158:	80000000 	or	r0, r0, r0
+1000015c:	b0001000 	imm	4096
+10000160:	e8601aec 	lwi	r3, r0, 6892	// 10001aec <__JCR_END__>
+10000164:	be030028 	beqid	r3, 40		// 1000018c
+10000168:	e9e10000 	lwi	r15, r1, 0
+1000016c:	b0000000 	imm	0
+10000170:	30600000 	addik	r3, r0, 0
+10000174:	bc030018 	beqi	r3, 24		// 1000018c
+10000178:	b0001000 	imm	4096
+1000017c:	30a01aec 	addik	r5, r0, 6892	// 10001aec <__JCR_END__>
+10000180:	99fc1800 	brald	r15, r3
+10000184:	80000000 	or	r0, r0, r0
+10000188:	e9e10000 	lwi	r15, r1, 0
+1000018c:	b60f0008 	rtsd	r15, 8
+10000190:	3021001c 	addik	r1, r1, 28
+
+10000194 <_crtinit>:
+10000194:	2021ffec 	addi	r1, r1, -20
+10000198:	f9e10000 	swi	r15, r1, 0
+1000019c:	b0001000 	imm	4096
+100001a0:	20c01af0 	addi	r6, r0, 6896	// 10001af0 <_SDA_BASE_>
+100001a4:	b0001000 	imm	4096
+100001a8:	20e01af0 	addi	r7, r0, 6896	// 10001af0 <_SDA_BASE_>
+100001ac:	06463800 	rsub	r18, r6, r7
+100001b0:	bc720014 	blei	r18, 20		// 100001c4
+100001b4:	f8060000 	swi	r0, r6, 0
+100001b8:	20c60004 	addi	r6, r6, 4
+100001bc:	06463800 	rsub	r18, r6, r7
+100001c0:	bc92fff4 	bgti	r18, -12		// 100001b4
+100001c4:	b0001000 	imm	4096
+100001c8:	20c01af0 	addi	r6, r0, 6896	// 10001af0 <_SDA_BASE_>
+100001cc:	b0001000 	imm	4096
+100001d0:	20e01b10 	addi	r7, r0, 6928	// 10001b10 <__bss_end>
+100001d4:	06463800 	rsub	r18, r6, r7
+100001d8:	bc720014 	blei	r18, 20		// 100001ec
+100001dc:	f8060000 	swi	r0, r6, 0
+100001e0:	20c60004 	addi	r6, r6, 4
+100001e4:	06463800 	rsub	r18, r6, r7
+100001e8:	bc92fff4 	bgti	r18, -12		// 100001dc
+100001ec:	b9f40dc4 	brlid	r15, 3524	// 10000fb0 <_program_init>
+100001f0:	80000000 	or	r0, r0, r0
+100001f4:	b9f4142c 	brlid	r15, 5164	// 10001620 <__init>
+100001f8:	80000000 	or	r0, r0, r0
+100001fc:	20c00000 	addi	r6, r0, 0
+10000200:	20e00000 	addi	r7, r0, 0
+10000204:	b9f41140 	brlid	r15, 4416	// 10001344 <main>
+10000208:	20a00000 	addi	r5, r0, 0
+1000020c:	32630000 	addik	r19, r3, 0
+10000210:	b9f4144c 	brlid	r15, 5196	// 1000165c <__fini>
+10000214:	80000000 	or	r0, r0, r0
+10000218:	b9f40d90 	brlid	r15, 3472	// 10000fa8 <_program_clean>
+1000021c:	80000000 	or	r0, r0, r0
+10000220:	c9e10000 	lw	r15, r1, r0
+10000224:	30730000 	addik	r3, r19, 0
+10000228:	b60f0008 	rtsd	r15, 8
+1000022c:	20210014 	addi	r1, r1, 20
+
+10000230 <uart_put>:
+ * \brief Write data to TX buffer
+ * \param[in] data The data to write
+ */
+static __inline__ void uart_write(const sb_uint8_t data)
+{
+  WRITE_REG32(UART_DATA_TX_REG,data);
+10000230:	b0002000 	imm	8192
+10000234:	f8a0000c 	swi	r5, r0, 12
+ * \fn void uart_send(void)
+ * \brief Start a TX transfert
+ */
+static __inline__ void uart_send(void)
+{
+  WRITE_REG32(UART_CONTROL_REG,SEND_TX_BIT);
+10000238:	30600001 	addik	r3, r0, 1
+1000023c:	b0002000 	imm	8192
+10000240:	f8600008 	swi	r3, r0, 8
+ * \fn void uart_wait_tx_done(void)
+ * \brief Poll the TX busy flag, return when TX transfert is finished.
+ */
+void uart_wait_tx_done(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & TX_BUSY_FLAG_BIT);
+10000244:	b0002000 	imm	8192
+10000248:	e8600000 	lwi	r3, r0, 0
+1000024c:	a4630002 	andi	r3, r3, 2
+  while(flag == TX_BUSY_FLAG_BIT)
+10000250:	bc23fff4 	bnei	r3, -12		// 10000244
+10000254:	b60f0008 	rtsd	r15, 8
+10000258:	80000000 	or	r0, r0, r0
+
+1000025c <uart_get>:
+ * \fn void uart_wait_rx_ready(void)
+ * \brief Poll the RX ready flag, return when new RX data.
+ */
+void uart_wait_rx_ready(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & RX_READY_FLAG_BIT);
+1000025c:	b0002000 	imm	8192
+10000260:	e8600000 	lwi	r3, r0, 0
+10000264:	a4630001 	andi	r3, r3, 1
+  while(flag != RX_READY_FLAG_BIT)
+10000268:	a8630001 	xori	r3, r3, 1
+1000026c:	bc23fff0 	bnei	r3, -16	// 1000025c <uart_get>
+ * \brief Read data from RX buffer
+ * \param[in,out] data The pointer to the data
+ */
+static __inline__ void uart_read(sb_uint8_t *const data)
+{
+  *data = (sb_uint8_t)READ_REG32(UART_DATA_RX_REG);
+10000270:	b0002000 	imm	8192
+10000274:	e8600004 	lwi	r3, r0, 4
+ */
+void uart_get(sb_uint8_t *const in)
+{
+  uart_wait_rx_ready();
+  uart_read(in);
+}
+10000278:	b60f0008 	rtsd	r15, 8
+1000027c:	f0650000 	sbi	r3, r5, 0
+
+10000280 <uart_wait_rx_ready>:
+ * \fn void uart_wait_rx_ready(void)
+ * \brief Poll the RX ready flag, return when new RX data.
+ */
+void uart_wait_rx_ready(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & RX_READY_FLAG_BIT);
+10000280:	b0002000 	imm	8192
+10000284:	e8600000 	lwi	r3, r0, 0
+10000288:	a4630001 	andi	r3, r3, 1
+  while(flag != RX_READY_FLAG_BIT)
+1000028c:	a8630001 	xori	r3, r3, 1
+10000290:	bc23fff0 	bnei	r3, -16	// 10000280 <uart_wait_rx_ready>
+10000294:	b60f0008 	rtsd	r15, 8
+10000298:	80000000 	or	r0, r0, r0
+
+1000029c <uart_wait_tx_done>:
+ * \fn void uart_wait_tx_done(void)
+ * \brief Poll the TX busy flag, return when TX transfert is finished.
+ */
+void uart_wait_tx_done(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & TX_BUSY_FLAG_BIT);
+1000029c:	b0002000 	imm	8192
+100002a0:	e8600000 	lwi	r3, r0, 0
+100002a4:	a4630002 	andi	r3, r3, 2
+  while(flag == TX_BUSY_FLAG_BIT)
+100002a8:	bc23fff4 	bnei	r3, -12	// 1000029c <uart_wait_tx_done>
+100002ac:	b60f0008 	rtsd	r15, 8
+100002b0:	80000000 	or	r0, r0, r0
+
+100002b4 <do_perm>:
+ * \param[in] size_data_in Size Input
+ * \param[in] size_data_out Size Output
+ * \return sb_uint64_t Result 
+ */
+sb_uint64_t do_perm(const sb_uint64_t data, const sb_uint8_t *const table, const sb_uint32_t size_data_in, const sb_uint32_t size_data_out)
+{
+100002b4:	3021ffe4 	addik	r1, r1, -28
+100002b8:	fac10008 	swi	r22, r1, 8
+100002bc:	fae1000c 	swi	r23, r1, 12
+100002c0:	fa610004 	swi	r19, r1, 4
+100002c4:	fb010010 	swi	r24, r1, 16
+100002c8:	fb210014 	swi	r25, r1, 20
+  sb_uint32_t i;
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+100002cc:	32c00000 	addik	r22, r0, 0
+100002d0:	32e00000 	addik	r23, r0, 0
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100002d4:	be090084 	beqid	r9, 132		// 10000358
+100002d8:	fb410018 	swi	r26, r1, 24
+100002dc:	3349ffff 	addik	r26, r9, -1
+100002e0:	10800000 	addk	r4, r0, r0
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+100002e4:	b8100024 	brid	36		// 10000308
+100002e8:	13252800 	addk	r25, r5, r5
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+100002ec:	454c1c00 	bsll	r10, r12, r3
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100002f0:	30840001 	addik	r4, r4, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+100002f4:	11600000 	addk	r11, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100002f8:	88644800 	xor	r3, r4, r9
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+100002fc:	82d65000 	or	r22, r22, r10
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000300:	be030058 	beqid	r3, 88		// 10000358
+10000304:	82f75800 	or	r23, r23, r11
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000308:	c0643800 	lbu	r3, r4, r7
+1000030c:	14634000 	rsubk	r3, r3, r8
+10000310:	a983ffff 	xori	r12, r3, -1
+10000314:	47196400 	bsll	r24, r25, r12
+10000318:	45861800 	bsrl	r12, r6, r3
+1000031c:	a6630020 	andi	r19, r3, 32
+10000320:	be13000c 	beqid	r19, 12		// 1000032c
+10000324:	81986000 	or	r12, r24, r12
+10000328:	45851800 	bsrl	r12, r5, r3
+ * \param[in] table Permutation Table
+ * \param[in] size_data_in Size Input
+ * \param[in] size_data_out Size Output
+ * \return sb_uint64_t Result 
+ */
+sb_uint64_t do_perm(const sb_uint64_t data, const sb_uint8_t *const table, const sb_uint32_t size_data_in, const sb_uint32_t size_data_out)
+1000032c:	1464d000 	rsubk	r3, r4, r26
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000330:	a6630020 	andi	r19, r3, 32
+10000334:	be33ffb8 	bneid	r19, -72		// 100002ec
+10000338:	a58c0001 	andi	r12, r12, 1
+1000033c:	456c1c00 	bsll	r11, r12, r3
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000340:	30840001 	addik	r4, r4, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000344:	11400000 	addk	r10, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000348:	88644800 	xor	r3, r4, r9
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+1000034c:	82d65000 	or	r22, r22, r10
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000350:	be23ffb8 	bneid	r3, -72		// 10000308
+10000354:	82f75800 	or	r23, r23, r11
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+  }
+	
+  return data_res;
+}
+10000358:	10760000 	addk	r3, r22, r0
+1000035c:	10970000 	addk	r4, r23, r0
+10000360:	ea610004 	lwi	r19, r1, 4
+10000364:	eac10008 	lwi	r22, r1, 8
+10000368:	eae1000c 	lwi	r23, r1, 12
+1000036c:	eb010010 	lwi	r24, r1, 16
+10000370:	eb210014 	lwi	r25, r1, 20
+10000374:	eb410018 	lwi	r26, r1, 24
+10000378:	b60f0008 	rtsd	r15, 8
+1000037c:	3021001c 	addik	r1, r1, 28
+
+10000380 <do_key>:
+ * \param[in] round Current DES round 
+ * \param[in] mode DES mode
+ * \return sb_uint64_t 48-bit subkey 
+ */
+sb_uint64_t do_key(sb_uint64_t *const key, const sb_uint32_t round, const sb_uint32_t mode)
+{
+10000380:	3021fff4 	addik	r1, r1, -12
+10000384:	fa610004 	swi	r19, r1, 4
+10000388:	fac10008 	swi	r22, r1, 8
+  sb_uint32_t key_l,key_r;
+
+  sb_uint64_t subkey = 0; 
+
+  /* RIGHT */
+  key_r = (sb_uint32_t)(*key & KEY_BIT_WIDTH_2_MASK);
+1000038c:	e8850004 	lwi	r4, r5, 4
+10000390:	e8650000 	lwi	r3, r5, 0
+	
+  /* LEFT */
+  key_l = (sb_uint32_t)(*key >> KEY_BIT_WIDTH_2);
+10000394:	6544001c 	bsrli	r10, r4, 28
+10000398:	64630404 	bslli	r3, r3, 4
+  sb_uint32_t key_l,key_r;
+
+  sb_uint64_t subkey = 0; 
+
+  /* RIGHT */
+  key_r = (sb_uint32_t)(*key & KEY_BIT_WIDTH_2_MASK);
+1000039c:	b0000fff 	imm	4095
+100003a0:	a484ffff 	andi	r4, r4, -1
+	
+  /* LEFT */
+  key_l = (sb_uint32_t)(*key >> KEY_BIT_WIDTH_2);
+	
+  switch (mode) 
+100003a4:	be270104 	bneid	r7, 260		// 100004a8
+100003a8:	80635000 	or	r3, r3, r10
+  {
+
+    case MODE_CIPHER:		
+      key_r = ((key_r << encrypt_rotate_tab[round]) | (key_r >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100003ac:	b0001000 	imm	4096
+100003b0:	e0c61678 	lbui	r6, r6, 5752
+100003b4:	3140001c 	addik	r10, r0, 28
+100003b8:	14e65000 	rsubk	r7, r6, r10
+100003bc:	45443800 	bsrl	r10, r4, r7
+      key_l = ((key_l << encrypt_rotate_tab[round]) | (key_l >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100003c0:	44e33800 	bsrl	r7, r3, r7
+	
+  switch (mode) 
+  {
+
+    case MODE_CIPHER:		
+      key_r = ((key_r << encrypt_rotate_tab[round]) | (key_r >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100003c4:	44843400 	bsll	r4, r4, r6
+      key_l = ((key_l << encrypt_rotate_tab[round]) | (key_l >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100003c8:	44633400 	bsll	r3, r3, r6
+	
+  switch (mode) 
+  {
+
+    case MODE_CIPHER:		
+      key_r = ((key_r << encrypt_rotate_tab[round]) | (key_r >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100003cc:	808a2000 	or	r4, r10, r4
+      key_l = ((key_l << encrypt_rotate_tab[round]) | (key_l >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100003d0:	80671800 	or	r3, r7, r3
+	
+  switch (mode) 
+  {
+
+    case MODE_CIPHER:		
+      key_r = ((key_r << encrypt_rotate_tab[round]) | (key_r >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100003d4:	b0000fff 	imm	4095
+100003d8:	a484ffff 	andi	r4, r4, -1
+      key_l = ((key_l << encrypt_rotate_tab[round]) | (key_l >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100003dc:	b0000fff 	imm	4095
+100003e0:	a463ffff 	andi	r3, r3, -1
+      /* assert(0); */
+      break;
+  } 
+	
+  /* UPDATE KEY */
+  *key = (((sb_uint64_t)key_l << KEY_BIT_WIDTH_2) | key_r);
+100003e4:	10e40000 	addk	r7, r4, r0
+100003e8:	65430004 	bsrli	r10, r3, 4
+100003ec:	6563041c 	bslli	r11, r3, 28
+100003f0:	10c00000 	addk	r6, r0, r0
+100003f4:	814a3000 	or	r10, r10, r6
+100003f8:	816b3800 	or	r11, r11, r7
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100003fc:	10860000 	addk	r4, r6, r0
+      /* assert(0); */
+      break;
+  } 
+	
+  /* UPDATE KEY */
+  *key = (((sb_uint64_t)key_l << KEY_BIT_WIDTH_2) | key_r);
+10000400:	f9450000 	swi	r10, r5, 0
+10000404:	f9650004 	swi	r11, r5, 4
+sb_uint64_t do_perm(const sb_uint64_t data, const sb_uint8_t *const table, const sb_uint32_t size_data_in, const sb_uint32_t size_data_out)
+{
+  sb_uint32_t i;
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+10000408:	30c00000 	addik	r6, r0, 0
+1000040c:	30e00000 	addik	r7, r0, 0
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000410:	b8100024 	brid	36		// 10000434
+10000414:	12ca5000 	addk	r22, r10, r10
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000418:	45032c00 	bsll	r8, r3, r5
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+1000041c:	30840001 	addik	r4, r4, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000420:	11200000 	addk	r9, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000424:	a8640030 	xori	r3, r4, 48
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000428:	80c64000 	or	r6, r6, r8
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+1000042c:	be030064 	beqid	r3, 100		// 10000490
+10000430:	80e74800 	or	r7, r7, r9
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000434:	b0001000 	imm	4096
+10000438:	e0a41698 	lbui	r5, r4, 5784
+1000043c:	30600038 	addik	r3, r0, 56
+10000440:	14a51800 	rsubk	r5, r5, r3
+10000444:	a865ffff 	xori	r3, r5, -1
+10000448:	46761c00 	bsll	r19, r22, r3
+1000044c:	446b2800 	bsrl	r3, r11, r5
+10000450:	a5850020 	andi	r12, r5, 32
+10000454:	be0c000c 	beqid	r12, 12		// 10000460
+10000458:	80731800 	or	r3, r19, r3
+1000045c:	446a2800 	bsrl	r3, r10, r5
+ * \param[in,out] key 56-bit input/output key
+ * \param[in] round Current DES round 
+ * \param[in] mode DES mode
+ * \return sb_uint64_t 48-bit subkey 
+ */
+sb_uint64_t do_key(sb_uint64_t *const key, const sb_uint32_t round, const sb_uint32_t mode)
+10000460:	3180002f 	addik	r12, r0, 47
+10000464:	14a46000 	rsubk	r5, r4, r12
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000468:	a5850020 	andi	r12, r5, 32
+1000046c:	be2cffac 	bneid	r12, -84		// 10000418
+10000470:	a4630001 	andi	r3, r3, 1
+10000474:	45232c00 	bsll	r9, r3, r5
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000478:	30840001 	addik	r4, r4, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+1000047c:	11000000 	addk	r8, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000480:	a8640030 	xori	r3, r4, 48
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000484:	80c64000 	or	r6, r6, r8
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000488:	be23ffac 	bneid	r3, -84		// 10000434
+1000048c:	80e74800 	or	r7, r7, r9
+	
+  /* SUB KEY */
+  subkey = do_perm(*key, pc2_table_c, KEY_BIT_WIDTH, SUBKEY_BIT_WIDTH);
+	
+  return subkey;
+}
+10000490:	10660000 	addk	r3, r6, r0
+10000494:	10870000 	addk	r4, r7, r0
+10000498:	ea610004 	lwi	r19, r1, 4
+1000049c:	eac10008 	lwi	r22, r1, 8
+100004a0:	b60f0008 	rtsd	r15, 8
+100004a4:	3021000c 	addik	r1, r1, 12
+  key_r = (sb_uint32_t)(*key & KEY_BIT_WIDTH_2_MASK);
+	
+  /* LEFT */
+  key_l = (sb_uint32_t)(*key >> KEY_BIT_WIDTH_2);
+	
+  switch (mode) 
+100004a8:	a8e70001 	xori	r7, r7, 1
+100004ac:	be27ff38 	bneid	r7, -200		// 100003e4
+100004b0:	3180001c 	addik	r12, r0, 28
+      key_r = ((key_r << encrypt_rotate_tab[round]) | (key_r >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+      key_l = ((key_l << encrypt_rotate_tab[round]) | (key_l >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+      break;
+
+    case MODE_DECIPHER:
+      key_r = ((key_r >> decrypt_rotate_tab[round]) | (key_r << (KEY_BIT_WIDTH_2 - decrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100004b4:	b0001000 	imm	4096
+100004b8:	e0c61688 	lbui	r6, r6, 5768
+100004bc:	14e66000 	rsubk	r7, r6, r12
+100004c0:	45443c00 	bsll	r10, r4, r7
+      key_l = ((key_l >> decrypt_rotate_tab[round]) | (key_l << (KEY_BIT_WIDTH_2 - decrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100004c4:	44e33c00 	bsll	r7, r3, r7
+      key_r = ((key_r << encrypt_rotate_tab[round]) | (key_r >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+      key_l = ((key_l << encrypt_rotate_tab[round]) | (key_l >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+      break;
+
+    case MODE_DECIPHER:
+      key_r = ((key_r >> decrypt_rotate_tab[round]) | (key_r << (KEY_BIT_WIDTH_2 - decrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100004c8:	44843000 	bsrl	r4, r4, r6
+      key_l = ((key_l >> decrypt_rotate_tab[round]) | (key_l << (KEY_BIT_WIDTH_2 - decrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100004cc:	44633000 	bsrl	r3, r3, r6
+      key_r = ((key_r << encrypt_rotate_tab[round]) | (key_r >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+      key_l = ((key_l << encrypt_rotate_tab[round]) | (key_l >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+      break;
+
+    case MODE_DECIPHER:
+      key_r = ((key_r >> decrypt_rotate_tab[round]) | (key_r << (KEY_BIT_WIDTH_2 - decrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100004d0:	808a2000 	or	r4, r10, r4
+      key_l = ((key_l >> decrypt_rotate_tab[round]) | (key_l << (KEY_BIT_WIDTH_2 - decrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100004d4:	80671800 	or	r3, r7, r3
+      key_r = ((key_r << encrypt_rotate_tab[round]) | (key_r >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+      key_l = ((key_l << encrypt_rotate_tab[round]) | (key_l >> (KEY_BIT_WIDTH_2 - encrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+      break;
+
+    case MODE_DECIPHER:
+      key_r = ((key_r >> decrypt_rotate_tab[round]) | (key_r << (KEY_BIT_WIDTH_2 - decrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100004d8:	b0000fff 	imm	4095
+100004dc:	a484ffff 	andi	r4, r4, -1
+      key_l = ((key_l >> decrypt_rotate_tab[round]) | (key_l << (KEY_BIT_WIDTH_2 - decrypt_rotate_tab[round]))) & KEY_BIT_WIDTH_2_MASK;
+100004e0:	b0000fff 	imm	4095
+100004e4:	a463ffff 	andi	r3, r3, -1
+      break;
+100004e8:	b810ff00 	brid	-256		// 100003e8
+100004ec:	10e40000 	addk	r7, r4, r0
+
+100004f0 <do_feistel>:
+ * \brief DES Feistel implementation
+ * \param[in,out] data 64-bit input/output vector
+ * \param[in] key 48-bit subkey
+ */
+void do_feistel(sb_uint32_t *const data, const sb_uint64_t key)
+{
+100004f0:	3021ffd0 	addik	r1, r1, -48
+100004f4:	fb410018 	swi	r26, r1, 24
+100004f8:	13450000 	addk	r26, r5, r0
+100004fc:	fb010010 	swi	r24, r1, 16
+10000500:	fb210014 	swi	r25, r1, 20
+10000504:	fa610004 	swi	r19, r1, 4
+10000508:	fac10008 	swi	r22, r1, 8
+1000050c:	fae1000c 	swi	r23, r1, 12
+10000510:	fb61001c 	swi	r27, r1, 28
+10000514:	fb810020 	swi	r28, r1, 32
+10000518:	fba10024 	swi	r29, r1, 36
+1000051c:	fbc10028 	swi	r30, r1, 40
+10000520:	fbe1002c 	swi	r31, r1, 44
+sb_uint64_t do_perm(const sb_uint64_t data, const sb_uint8_t *const table, const sb_uint32_t size_data_in, const sb_uint32_t size_data_out)
+{
+  sb_uint32_t i;
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+10000524:	30800000 	addik	r4, r0, 0
+10000528:	30a00000 	addik	r5, r0, 0
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+1000052c:	10600000 	addk	r3, r0, r0
+  sb_uint8_t ind;
+
+  sb_uint64_t sbox_out = 0;
+
+  /* EXP */
+  exp_data = do_perm((sb_uint64_t)(*data), exp_table_c, DATA_BIT_WIDTH_2, EXP_BIT_WIDTH);
+10000530:	ea7a0000 	lwi	r19, r26, 0
+ * \brief DES Feistel implementation
+ * \param[in,out] data 64-bit input/output vector
+ * \param[in] key 48-bit subkey
+ */
+void do_feistel(sb_uint32_t *const data, const sb_uint64_t key)
+{
+10000534:	13060000 	addk	r24, r6, r0
+10000538:	b8100024 	brid	36		// 1000055c
+1000053c:	13270000 	addk	r25, r7, r0
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000540:	45163c00 	bsll	r8, r22, r7
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000544:	30630001 	addik	r3, r3, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000548:	11200000 	addk	r9, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+1000054c:	a8e30030 	xori	r7, r3, 48
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000550:	80844000 	or	r4, r4, r8
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000554:	be070058 	beqid	r7, 88		// 100005ac
+10000558:	80a54800 	or	r5, r5, r9
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+1000055c:	b0001000 	imm	4096
+10000560:	e0e316c8 	lbui	r7, r3, 5832
+10000564:	30c00020 	addik	r6, r0, 32
+10000568:	14e73000 	rsubk	r7, r7, r6
+1000056c:	85873000 	and	r12, r7, r6
+10000570:	be2c000c 	bneid	r12, 12		// 1000057c
+10000574:	12c00000 	addk	r22, r0, r0
+10000578:	46d33800 	bsrl	r22, r19, r7
+ * \fn void do_feistel(sb_uint32_t *const data, const sb_uint64_t key)
+ * \brief DES Feistel implementation
+ * \param[in,out] data 64-bit input/output vector
+ * \param[in] key 48-bit subkey
+ */
+void do_feistel(sb_uint32_t *const data, const sb_uint64_t key)
+1000057c:	30c0002f 	addik	r6, r0, 47
+10000580:	14e33000 	rsubk	r7, r3, r6
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000584:	a5870020 	andi	r12, r7, 32
+10000588:	be2cffb8 	bneid	r12, -72		// 10000540
+1000058c:	a6d60001 	andi	r22, r22, 1
+10000590:	45363c00 	bsll	r9, r22, r7
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000594:	30630001 	addik	r3, r3, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000598:	11000000 	addk	r8, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+1000059c:	a8e30030 	xori	r7, r3, 48
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+100005a0:	80844000 	or	r4, r4, r8
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100005a4:	be27ffb8 	bneid	r7, -72		// 1000055c
+100005a8:	80a54800 	or	r5, r5, r9
+
+  /* EXP */
+  exp_data = do_perm((sb_uint64_t)(*data), exp_table_c, DATA_BIT_WIDTH_2, EXP_BIT_WIDTH);
+	
+  /* XOR */
+  data_xor_key = (exp_data^key);
+100005ac:	88a5c800 	xor	r5, r5, r25
+100005b0:	8884c000 	xor	r4, r4, r24
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005b4:	66650006 	bsrli	r19, r5, 6
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005b8:	6705000c 	bsrli	r24, r5, 12
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005bc:	66e40402 	bslli	r23, r4, 2
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005c0:	65850012 	bsrli	r12, r5, 18
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005c4:	64c40004 	bsrli	r6, r4, 4
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005c8:	6464000a 	bsrli	r3, r4, 10
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005cc:	65250018 	bsrli	r9, r5, 24
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005d0:	6505001e 	bsrli	r8, r5, 30
+	
+  /* XOR */
+  data_xor_key = (exp_data^key);
+	
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+100005d4:	a6c5003f 	andi	r22, r5, 63
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005d8:	a673003f 	andi	r19, r19, 63
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005dc:	a498003f 	andi	r4, r24, 63
+  /* XOR */
+  data_xor_key = (exp_data^key);
+	
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100005e0:	a7760001 	andi	r27, r22, 1
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100005e4:	a7f30001 	andi	r31, r19, 1
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100005e8:	a7840001 	andi	r28, r4, 1
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+100005ec:	a58c003f 	andi	r12, r12, 63
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100005f0:	67ff0404 	bslli	r31, r31, 4
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100005f4:	679c0404 	bslli	r28, r28, 4
+  /* XOR */
+  data_xor_key = (exp_data^key);
+	
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100005f8:	677b0404 	bslli	r27, r27, 4
+100005fc:	a4b6001e 	andi	r5, r22, 30
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000600:	a7d3001e 	andi	r30, r19, 30
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000604:	a704001e 	andi	r24, r4, 30
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+10000608:	a529003f 	andi	r9, r9, 63
+  /* XOR */
+  data_xor_key = (exp_data^key);
+	
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+1000060c:	90a50001 	sra	r5, r5
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000610:	93de0001 	sra	r30, r30
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000614:	a7ac0001 	andi	r29, r12, 1
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+10000618:	81174000 	or	r8, r23, r8
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+1000061c:	93180001 	sra	r24, r24
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+10000620:	a508003f 	andi	r8, r8, 63
+  /* XOR */
+  data_xor_key = (exp_data^key);
+	
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000624:	837b2800 	or	r27, r27, r5
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000628:	a6730020 	andi	r19, r19, 32
+  /* XOR */
+  data_xor_key = (exp_data^key);
+	
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+1000062c:	a4b60020 	andi	r5, r22, 32
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000630:	831cc000 	or	r24, r28, r24
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000634:	82dff000 	or	r22, r31, r30
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000638:	a4840020 	andi	r4, r4, 32
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+1000063c:	67bd0404 	bslli	r29, r29, 4
+10000640:	a78c001e 	andi	r28, r12, 30
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000644:	a7e90001 	andi	r31, r9, 1
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+10000648:	a4c6003f 	andi	r6, r6, 63
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+1000064c:	a7c80001 	andi	r30, r8, 1
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+10000650:	82d69800 	or	r22, r22, r19
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+10000654:	83182000 	or	r24, r24, r4
+  data_xor_key = (exp_data^key);
+	
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+10000658:	827b2800 	or	r19, r27, r5
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+1000065c:	939c0001 	sra	r28, r28
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000660:	a769001e 	andi	r27, r9, 30
+10000664:	67ff0404 	bslli	r31, r31, 4
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+10000668:	a463003f 	andi	r3, r3, 63
+  data_xor_key = (exp_data^key);
+	
+  /* SBOX */
+  ind = data_xor_key & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+1000066c:	b0001000 	imm	4096
+10000670:	e0b316f8 	lbui	r5, r19, 5880
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000674:	839de000 	or	r28, r29, r28
+10000678:	a66c0020 	andi	r19, r12, 32
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+1000067c:	937b0001 	sra	r27, r27
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000680:	659e0404 	bslli	r12, r30, 4
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000684:	a7a60001 	andi	r29, r6, 1
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000688:	a7c8001e 	andi	r30, r8, 30
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+1000068c:	b0001000 	imm	4096
+10000690:	e2d61738 	lbui	r22, r22, 5944
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+10000694:	b0001000 	imm	4096
+10000698:	e3181778 	lbui	r24, r24, 6008
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+1000069c:	827c9800 	or	r19, r28, r19
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006a0:	83ffd800 	or	r31, r31, r27
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006a4:	a786001e 	andi	r28, r6, 30
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006a8:	a7630001 	andi	r27, r3, 1
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006ac:	a5290020 	andi	r9, r9, 32
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006b0:	93de0001 	sra	r30, r30
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006b4:	67bd0404 	bslli	r29, r29, 4
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006b8:	677b0404 	bslli	r27, r27, 4
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+100006bc:	66d60404 	bslli	r22, r22, 4
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+100006c0:	67180408 	bslli	r24, r24, 8
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+100006c4:	12e0b000 	addk	r23, r0, r22
+100006c8:	02d7b800 	add	r22, r23, r23
+100006cc:	0ac00000 	addc	r22, r0, r0
+100006d0:	bc160008 	beqi	r22, 8		// 100006d8
+100006d4:	22c0ffff 	addi	r22, r0, -1
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006d8:	83ccf000 	or	r30, r12, r30
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+100006dc:	b0001000 	imm	4096
+100006e0:	e27317b8 	lbui	r19, r19, 6072
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006e4:	a5880020 	andi	r12, r8, 32
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+100006e8:	813f4800 	or	r9, r31, r9
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006ec:	a503001e 	andi	r8, r3, 30
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+100006f0:	939c0001 	sra	r28, r28
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+100006f4:	b0001000 	imm	4096
+100006f8:	e12917f8 	lbui	r9, r9, 6136
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+100006fc:	819e6000 	or	r12, r30, r12
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000700:	839de000 	or	r28, r29, r28
+10000704:	a4c60020 	andi	r6, r6, 32
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+10000708:	91080001 	sra	r8, r8
+1000070c:	811b4000 	or	r8, r27, r8
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+10000710:	b0001000 	imm	4096
+10000714:	e18c1838 	lbui	r12, r12, 6200
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+10000718:	80dc3000 	or	r6, r28, r6
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+1000071c:	a4630020 	andi	r3, r3, 32
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+10000720:	1320c000 	addk	r25, r0, r24
+10000724:	0319c800 	add	r24, r25, r25
+10000728:	0b000000 	addc	r24, r0, r0
+1000072c:	bc180008 	beqi	r24, 8		// 10000734
+10000730:	2300ffff 	addi	r24, r0, -1
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+10000734:	6673040c 	bslli	r19, r19, 12
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+10000738:	64890410 	bslli	r4, r9, 16
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+1000073c:	82d6c000 	or	r22, r22, r24
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+10000740:	b0001000 	imm	4096
+10000744:	e0c61878 	lbui	r6, r6, 6264
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox1[ind] << 7*SBOX_OUT_BIT_WIDTH;
+10000748:	80681800 	or	r3, r8, r3
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox8[ind];
+	
+  ind = (data_xor_key >> SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+1000074c:	82f7c800 	or	r23, r23, r25
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+10000750:	82d63800 	or	r22, r22, r7
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox1[ind] << 7*SBOX_OUT_BIT_WIDTH;
+10000754:	b0001000 	imm	4096
+10000758:	e06318b8 	lbui	r3, r3, 6328
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+1000075c:	11209800 	addk	r9, r0, r19
+10000760:	01094800 	add	r8, r9, r9
+10000764:	09000000 	addc	r8, r0, r0
+10000768:	bc080008 	beqi	r8, 8		// 10000770
+1000076c:	2100ffff 	addi	r8, r0, -1
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox7[ind] << SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 2*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+10000770:	82f72800 	or	r23, r23, r5
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+10000774:	82d64000 	or	r22, r22, r8
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+10000778:	670c0414 	bslli	r24, r12, 20
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+1000077c:	10a02000 	addk	r5, r0, r4
+10000780:	00852800 	add	r4, r5, r5
+10000784:	08800000 	addc	r4, r0, r0
+10000788:	bc040008 	beqi	r4, 8		// 10000790
+1000078c:	2080ffff 	addi	r4, r0, -1
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox6[ind] << 2*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 3*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+10000790:	82f74800 	or	r23, r23, r9
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+10000794:	65060418 	bslli	r8, r6, 24
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+10000798:	1320c000 	addk	r25, r0, r24
+1000079c:	0319c800 	add	r24, r25, r25
+100007a0:	0b000000 	addc	r24, r0, r0
+100007a4:	bc180008 	beqi	r24, 8		// 100007ac
+100007a8:	2300ffff 	addi	r24, r0, -1
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox5[ind] << 3*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 4*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+100007ac:	82d62000 	or	r22, r22, r4
+100007b0:	82f72800 	or	r23, r23, r5
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox1[ind] << 7*SBOX_OUT_BIT_WIDTH;
+100007b4:	6483041c 	bslli	r4, r3, 28
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+100007b8:	11204000 	addk	r9, r0, r8
+100007bc:	01094800 	add	r8, r9, r9
+100007c0:	09000000 	addc	r8, r0, r0
+100007c4:	bc080008 	beqi	r8, 8		// 100007cc
+100007c8:	2100ffff 	addi	r8, r0, -1
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox4[ind] << 4*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 5*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+100007cc:	82d6c000 	or	r22, r22, r24
+100007d0:	82f7c800 	or	r23, r23, r25
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+100007d4:	82d64000 	or	r22, r22, r8
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox1[ind] << 7*SBOX_OUT_BIT_WIDTH;
+100007d8:	10a02000 	addk	r5, r0, r4
+100007dc:	00852800 	add	r4, r5, r5
+100007e0:	08800000 	addc	r4, r0, r0
+100007e4:	bc040008 	beqi	r4, 8		// 100007ec
+100007e8:	2080ffff 	addi	r4, r0, -1
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox3[ind] << 5*SBOX_OUT_BIT_WIDTH;
+	
+  ind = (data_xor_key >> 6*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+100007ec:	82f74800 	or	r23, r23, r9
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox1[ind] << 7*SBOX_OUT_BIT_WIDTH;
+100007f0:	82d62000 	or	r22, r22, r4
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100007f4:	10670000 	addk	r3, r7, r0
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox2[ind] << 6*SBOX_OUT_BIT_WIDTH;
+
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox1[ind] << 7*SBOX_OUT_BIT_WIDTH;
+100007f8:	82f72800 	or	r23, r23, r5
+sb_uint64_t do_perm(const sb_uint64_t data, const sb_uint8_t *const table, const sb_uint32_t size_data_in, const sb_uint32_t size_data_out)
+{
+  sb_uint32_t i;
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+100007fc:	30c00000 	addik	r6, r0, 0
+10000800:	30e00000 	addik	r7, r0, 0
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000804:	b8100024 	brid	36		// 10000828
+10000808:	1276b000 	addk	r19, r22, r22
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+1000080c:	45482400 	bsll	r10, r8, r4
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000810:	30630001 	addik	r3, r3, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000814:	11600000 	addk	r11, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000818:	a8830020 	xori	r4, r3, 32
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+1000081c:	80c65000 	or	r6, r6, r10
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000820:	be040064 	beqid	r4, 100		// 10000884
+10000824:	80e75800 	or	r7, r7, r11
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000828:	b0001000 	imm	4096
+1000082c:	e08318f8 	lbui	r4, r3, 6392
+10000830:	30a00020 	addik	r5, r0, 32
+10000834:	14842800 	rsubk	r4, r4, r5
+10000838:	a904ffff 	xori	r8, r4, -1
+1000083c:	45934400 	bsll	r12, r19, r8
+10000840:	45172000 	bsrl	r8, r23, r4
+10000844:	85242800 	and	r9, r4, r5
+10000848:	be09000c 	beqid	r9, 12		// 10000854
+1000084c:	810c4000 	or	r8, r12, r8
+10000850:	45162000 	bsrl	r8, r22, r4
+ * \fn void do_feistel(sb_uint32_t *const data, const sb_uint64_t key)
+ * \brief DES Feistel implementation
+ * \param[in,out] data 64-bit input/output vector
+ * \param[in] key 48-bit subkey
+ */
+void do_feistel(sb_uint32_t *const data, const sb_uint64_t key)
+10000854:	30a0001f 	addik	r5, r0, 31
+10000858:	14832800 	rsubk	r4, r3, r5
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+1000085c:	a5240020 	andi	r9, r4, 32
+10000860:	be29ffac 	bneid	r9, -84		// 1000080c
+10000864:	a5080001 	andi	r8, r8, 1
+10000868:	45682400 	bsll	r11, r8, r4
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+1000086c:	30630001 	addik	r3, r3, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000870:	11400000 	addk	r10, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000874:	a8830020 	xori	r4, r3, 32
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000878:	80c65000 	or	r6, r6, r10
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+1000087c:	be24ffac 	bneid	r4, -84		// 10000828
+10000880:	80e75800 	or	r7, r7, r11
+  ind = (data_xor_key >> 7*SBOX_IN_BIT_WIDTH) & SBOX_IN_BIT_WIDTH_MASK;
+  ind = ((ind & 0x20) | ((ind & 0x1) << 4) | ((ind & 0x1E) >> 1));
+  sbox_out |= sbox1[ind] << 7*SBOX_OUT_BIT_WIDTH;
+	
+  /* PERM */
+  *data = do_perm(sbox_out, sbox_p_table_c, DATA_BIT_WIDTH_2, DATA_BIT_WIDTH_2);
+10000884:	f8fa0000 	swi	r7, r26, 0
+	
+}
+10000888:	ea610004 	lwi	r19, r1, 4
+1000088c:	eac10008 	lwi	r22, r1, 8
+10000890:	eae1000c 	lwi	r23, r1, 12
+10000894:	eb010010 	lwi	r24, r1, 16
+10000898:	eb210014 	lwi	r25, r1, 20
+1000089c:	eb410018 	lwi	r26, r1, 24
+100008a0:	eb61001c 	lwi	r27, r1, 28
+100008a4:	eb810020 	lwi	r28, r1, 32
+100008a8:	eba10024 	lwi	r29, r1, 36
+100008ac:	ebc10028 	lwi	r30, r1, 40
+100008b0:	ebe1002c 	lwi	r31, r1, 44
+100008b4:	b60f0008 	rtsd	r15, 8
+100008b8:	30210030 	addik	r1, r1, 48
+
+100008bc <do_round>:
+ * \brief DES round implementation
+ * \param[in,out] data 64-bit input/output vector
+ * \param[in] key 48-bit subkey
+ */
+void do_round(sb_uint64_t *const data, const sb_uint64_t key)
+{
+100008bc:	3021ffd4 	addik	r1, r1, -44
+100008c0:	fa610020 	swi	r19, r1, 32
+100008c4:	12650000 	addk	r19, r5, r0
+100008c8:	f9e10000 	swi	r15, r1, 0
+100008cc:	fac10024 	swi	r22, r1, 36
+100008d0:	fae10028 	swi	r23, r1, 40
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+100008d4:	ead30004 	lwi	r22, r19, 4
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+100008d8:	30a1001c 	addik	r5, r1, 28
+void do_round(sb_uint64_t *const data, const sb_uint64_t key)
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+100008dc:	eaf30000 	lwi	r23, r19, 0
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+100008e0:	b9f4fc10 	brlid	r15, -1008	// 100004f0 <do_feistel>
+100008e4:	fac1001c 	swi	r22, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+100008e8:	e861001c 	lwi	r3, r1, 28
+100008ec:	10800000 	addk	r4, r0, r0
+100008f0:	10e40000 	addk	r7, r4, r0
+100008f4:	88a3b800 	xor	r5, r3, r23
+100008f8:	8084b000 	or	r4, r4, r22
+100008fc:	80a53800 	or	r5, r5, r7
+10000900:	f8930000 	swi	r4, r19, 0
+10000904:	f8b30004 	swi	r5, r19, 4
+}
+10000908:	e9e10000 	lwi	r15, r1, 0
+1000090c:	ea610020 	lwi	r19, r1, 32
+10000910:	eac10024 	lwi	r22, r1, 36
+10000914:	eae10028 	lwi	r23, r1, 40
+10000918:	b60f0008 	rtsd	r15, 8
+1000091c:	3021002c 	addik	r1, r1, 44
+
+10000920 <do_des>:
+ * \param[in] key 64-bit key
+ * \param[in] mode DES mode
+ * \return sb_uint64_t Output vector
+ */
+sb_uint64_t do_des(const sb_uint64_t data, const sb_uint64_t key, const sb_uint32_t mode)
+{
+10000920:	3021ff30 	addik	r1, r1, -208
+10000924:	fb0100b4 	swi	r24, r1, 180
+10000928:	fb2100b8 	swi	r25, r1, 184
+1000092c:	fb6100bc 	swi	r27, r1, 188
+10000930:	fb8100c0 	swi	r28, r1, 192
+10000934:	fba100c4 	swi	r29, r1, 196
+10000938:	13660000 	addk	r27, r6, r0
+1000093c:	f9e10000 	swi	r15, r1, 0
+10000940:	fa6100a8 	swi	r19, r1, 168
+10000944:	fac100ac 	swi	r22, r1, 172
+10000948:	fae100b0 	swi	r23, r1, 176
+1000094c:	fbc100c8 	swi	r30, r1, 200
+10000950:	fbe100cc 	swi	r31, r1, 204
+10000954:	13a50000 	addk	r29, r5, r0
+10000958:	13890000 	addk	r28, r9, r0
+sb_uint64_t do_perm(const sb_uint64_t data, const sb_uint8_t *const table, const sb_uint32_t size_data_in, const sb_uint32_t size_data_out)
+{
+  sb_uint32_t i;
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+1000095c:	33000000 	addik	r24, r0, 0
+10000960:	33200000 	addik	r25, r0, 0
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000964:	10600000 	addk	r3, r0, r0
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000968:	b8100024 	brid	36		// 1000098c
+1000096c:	10c73800 	addk	r6, r7, r7
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000970:	45452400 	bsll	r10, r5, r4
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000974:	30630001 	addik	r3, r3, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000978:	11600000 	addk	r11, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+1000097c:	aa630038 	xori	r19, r3, 56
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000980:	83185000 	or	r24, r24, r10
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000984:	be130064 	beqid	r19, 100		// 100009e8
+10000988:	83395800 	or	r25, r25, r11
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+1000098c:	b0001000 	imm	4096
+10000990:	e0831918 	lbui	r4, r3, 6424
+10000994:	30a00040 	addik	r5, r0, 64
+10000998:	14842800 	rsubk	r4, r4, r5
+1000099c:	a8a4ffff 	xori	r5, r4, -1
+100009a0:	45862c00 	bsll	r12, r6, r5
+100009a4:	44a82000 	bsrl	r5, r8, r4
+100009a8:	a5240020 	andi	r9, r4, 32
+100009ac:	be09000c 	beqid	r9, 12		// 100009b8
+100009b0:	80ac2800 	or	r5, r12, r5
+100009b4:	44a72000 	bsrl	r5, r7, r4
+ * \param[in] data 64-bit input vector
+ * \param[in] key 64-bit key
+ * \param[in] mode DES mode
+ * \return sb_uint64_t Output vector
+ */
+sb_uint64_t do_des(const sb_uint64_t data, const sb_uint64_t key, const sb_uint32_t mode)
+100009b8:	31200037 	addik	r9, r0, 55
+100009bc:	14834800 	rsubk	r4, r3, r9
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+100009c0:	a5240020 	andi	r9, r4, 32
+100009c4:	be29ffac 	bneid	r9, -84		// 10000970
+100009c8:	a4a50001 	andi	r5, r5, 1
+100009cc:	45652400 	bsll	r11, r5, r4
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100009d0:	30630001 	addik	r3, r3, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+100009d4:	11400000 	addk	r10, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100009d8:	aa630038 	xori	r19, r3, 56
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+100009dc:	83185000 	or	r24, r24, r10
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+100009e0:	be33ffac 	bneid	r19, -84		// 1000098c
+100009e4:	83395800 	or	r25, r25, r11
+  key_56 = do_perm(key, pc1_table_c, DATA_BIT_WIDTH, PC1_BIT_WIDTH);
+	
+  /* KEY SCHED */
+  for(i=0;i<NB_ROUND;i++)
+  {
+    subkey[i] = do_key(&key_56,i,mode);
+100009e8:	10d30000 	addk	r6, r19, r0
+100009ec:	10fc0000 	addk	r7, r28, r0
+  /* 
+     KEY PROCESS
+  */
+	
+  /* PERM CHOICE 1 */
+  key_56 = do_perm(key, pc1_table_c, DATA_BIT_WIDTH, PC1_BIT_WIDTH);
+100009f0:	fb010020 	swi	r24, r1, 32
+100009f4:	fb210024 	swi	r25, r1, 36
+	
+  /* KEY SCHED */
+  for(i=0;i<NB_ROUND;i++)
+  {
+    subkey[i] = do_key(&key_56,i,mode);
+100009f8:	b9f4f988 	brlid	r15, -1656	// 10000380 <do_key>
+100009fc:	30a10020 	addik	r5, r1, 32
+10000a00:	11030000 	addk	r8, r3, r0
+10000a04:	11240000 	addk	r9, r4, r0
+10000a08:	10fc0000 	addk	r7, r28, r0
+10000a0c:	30a10020 	addik	r5, r1, 32
+10000a10:	f9010028 	swi	r8, r1, 40
+10000a14:	f921002c 	swi	r9, r1, 44
+10000a18:	b9f4f968 	brlid	r15, -1688	// 10000380 <do_key>
+10000a1c:	30c00001 	addik	r6, r0, 1
+10000a20:	11030000 	addk	r8, r3, r0
+10000a24:	11240000 	addk	r9, r4, r0
+10000a28:	10fc0000 	addk	r7, r28, r0
+10000a2c:	30a10020 	addik	r5, r1, 32
+10000a30:	f9010030 	swi	r8, r1, 48
+10000a34:	f9210034 	swi	r9, r1, 52
+10000a38:	b9f4f948 	brlid	r15, -1720	// 10000380 <do_key>
+10000a3c:	30c00002 	addik	r6, r0, 2
+10000a40:	11030000 	addk	r8, r3, r0
+10000a44:	11240000 	addk	r9, r4, r0
+10000a48:	10fc0000 	addk	r7, r28, r0
+10000a4c:	30a10020 	addik	r5, r1, 32
+10000a50:	f9010038 	swi	r8, r1, 56
+10000a54:	f921003c 	swi	r9, r1, 60
+10000a58:	b9f4f928 	brlid	r15, -1752	// 10000380 <do_key>
+10000a5c:	30c00003 	addik	r6, r0, 3
+10000a60:	11030000 	addk	r8, r3, r0
+10000a64:	11240000 	addk	r9, r4, r0
+10000a68:	10fc0000 	addk	r7, r28, r0
+10000a6c:	30a10020 	addik	r5, r1, 32
+10000a70:	f9010040 	swi	r8, r1, 64
+10000a74:	f9210044 	swi	r9, r1, 68
+10000a78:	b9f4f908 	brlid	r15, -1784	// 10000380 <do_key>
+10000a7c:	30c00004 	addik	r6, r0, 4
+10000a80:	11030000 	addk	r8, r3, r0
+10000a84:	11240000 	addk	r9, r4, r0
+10000a88:	10fc0000 	addk	r7, r28, r0
+10000a8c:	30a10020 	addik	r5, r1, 32
+10000a90:	f9010048 	swi	r8, r1, 72
+10000a94:	f921004c 	swi	r9, r1, 76
+10000a98:	b9f4f8e8 	brlid	r15, -1816	// 10000380 <do_key>
+10000a9c:	30c00005 	addik	r6, r0, 5
+10000aa0:	11030000 	addk	r8, r3, r0
+10000aa4:	11240000 	addk	r9, r4, r0
+10000aa8:	10fc0000 	addk	r7, r28, r0
+10000aac:	30a10020 	addik	r5, r1, 32
+10000ab0:	f9010050 	swi	r8, r1, 80
+10000ab4:	f9210054 	swi	r9, r1, 84
+10000ab8:	b9f4f8c8 	brlid	r15, -1848	// 10000380 <do_key>
+10000abc:	30c00006 	addik	r6, r0, 6
+10000ac0:	11030000 	addk	r8, r3, r0
+10000ac4:	11240000 	addk	r9, r4, r0
+10000ac8:	10fc0000 	addk	r7, r28, r0
+10000acc:	30a10020 	addik	r5, r1, 32
+10000ad0:	f9010058 	swi	r8, r1, 88
+10000ad4:	f921005c 	swi	r9, r1, 92
+10000ad8:	b9f4f8a8 	brlid	r15, -1880	// 10000380 <do_key>
+10000adc:	30c00007 	addik	r6, r0, 7
+10000ae0:	11030000 	addk	r8, r3, r0
+10000ae4:	11240000 	addk	r9, r4, r0
+10000ae8:	10fc0000 	addk	r7, r28, r0
+10000aec:	30a10020 	addik	r5, r1, 32
+10000af0:	f9010060 	swi	r8, r1, 96
+10000af4:	f9210064 	swi	r9, r1, 100
+10000af8:	b9f4f888 	brlid	r15, -1912	// 10000380 <do_key>
+10000afc:	30c00008 	addik	r6, r0, 8
+10000b00:	11030000 	addk	r8, r3, r0
+10000b04:	11240000 	addk	r9, r4, r0
+10000b08:	10fc0000 	addk	r7, r28, r0
+10000b0c:	30a10020 	addik	r5, r1, 32
+10000b10:	f9010068 	swi	r8, r1, 104
+10000b14:	f921006c 	swi	r9, r1, 108
+10000b18:	b9f4f868 	brlid	r15, -1944	// 10000380 <do_key>
+10000b1c:	30c00009 	addik	r6, r0, 9
+10000b20:	11030000 	addk	r8, r3, r0
+10000b24:	11240000 	addk	r9, r4, r0
+10000b28:	10fc0000 	addk	r7, r28, r0
+10000b2c:	30a10020 	addik	r5, r1, 32
+10000b30:	f9010070 	swi	r8, r1, 112
+10000b34:	f9210074 	swi	r9, r1, 116
+10000b38:	b9f4f848 	brlid	r15, -1976	// 10000380 <do_key>
+10000b3c:	30c0000a 	addik	r6, r0, 10
+10000b40:	11030000 	addk	r8, r3, r0
+10000b44:	11240000 	addk	r9, r4, r0
+10000b48:	10fc0000 	addk	r7, r28, r0
+10000b4c:	30a10020 	addik	r5, r1, 32
+10000b50:	f9010078 	swi	r8, r1, 120
+10000b54:	f921007c 	swi	r9, r1, 124
+10000b58:	b9f4f828 	brlid	r15, -2008	// 10000380 <do_key>
+10000b5c:	30c0000b 	addik	r6, r0, 11
+10000b60:	11030000 	addk	r8, r3, r0
+10000b64:	11240000 	addk	r9, r4, r0
+10000b68:	10fc0000 	addk	r7, r28, r0
+10000b6c:	30a10020 	addik	r5, r1, 32
+10000b70:	f9010080 	swi	r8, r1, 128
+10000b74:	f9210084 	swi	r9, r1, 132
+10000b78:	b9f4f808 	brlid	r15, -2040	// 10000380 <do_key>
+10000b7c:	30c0000c 	addik	r6, r0, 12
+10000b80:	11030000 	addk	r8, r3, r0
+10000b84:	11240000 	addk	r9, r4, r0
+10000b88:	10fc0000 	addk	r7, r28, r0
+10000b8c:	30a10020 	addik	r5, r1, 32
+10000b90:	f9010088 	swi	r8, r1, 136
+10000b94:	f921008c 	swi	r9, r1, 140
+10000b98:	b9f4f7e8 	brlid	r15, -2072	// 10000380 <do_key>
+10000b9c:	30c0000d 	addik	r6, r0, 13
+10000ba0:	11030000 	addk	r8, r3, r0
+10000ba4:	11240000 	addk	r9, r4, r0
+10000ba8:	10fc0000 	addk	r7, r28, r0
+10000bac:	30a10020 	addik	r5, r1, 32
+10000bb0:	f9010090 	swi	r8, r1, 144
+10000bb4:	f9210094 	swi	r9, r1, 148
+10000bb8:	b9f4f7c8 	brlid	r15, -2104	// 10000380 <do_key>
+10000bbc:	30c0000e 	addik	r6, r0, 14
+10000bc0:	11030000 	addk	r8, r3, r0
+10000bc4:	11240000 	addk	r9, r4, r0
+10000bc8:	10fc0000 	addk	r7, r28, r0
+10000bcc:	30c0000f 	addik	r6, r0, 15
+10000bd0:	f9010098 	swi	r8, r1, 152
+10000bd4:	f921009c 	swi	r9, r1, 156
+10000bd8:	b9f4f7a8 	brlid	r15, -2136	// 10000380 <do_key>
+10000bdc:	30a10020 	addik	r5, r1, 32
+10000be0:	10e40000 	addk	r7, r4, r0
+10000be4:	10c30000 	addk	r6, r3, r0
+10000be8:	33000000 	addik	r24, r0, 0
+10000bec:	33200000 	addik	r25, r0, 0
+10000bf0:	10930000 	addk	r4, r19, r0
+10000bf4:	f8c100a0 	swi	r6, r1, 160
+10000bf8:	f8e100a4 	swi	r7, r1, 164
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000bfc:	b8100024 	brid	36		// 10000c20
+10000c00:	115de800 	addk	r10, r29, r29
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000c04:	46c51c00 	bsll	r22, r5, r3
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000c08:	30840001 	addik	r4, r4, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000c0c:	12e00000 	addk	r23, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000c10:	aa640040 	xori	r19, r4, 64
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000c14:	8318b000 	or	r24, r24, r22
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000c18:	be130064 	beqid	r19, 100		// 10000c7c
+10000c1c:	8339b800 	or	r25, r25, r23
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000c20:	b0001000 	imm	4096
+10000c24:	e0641950 	lbui	r3, r4, 6480
+10000c28:	30a00040 	addik	r5, r0, 64
+10000c2c:	14632800 	rsubk	r3, r3, r5
+10000c30:	a8a3ffff 	xori	r5, r3, -1
+10000c34:	44ea2c00 	bsll	r7, r10, r5
+10000c38:	44bb1800 	bsrl	r5, r27, r3
+10000c3c:	a4c30020 	andi	r6, r3, 32
+10000c40:	be06000c 	beqid	r6, 12		// 10000c4c
+10000c44:	80a72800 	or	r5, r7, r5
+10000c48:	44bd1800 	bsrl	r5, r29, r3
+ * \param[in] data 64-bit input vector
+ * \param[in] key 64-bit key
+ * \param[in] mode DES mode
+ * \return sb_uint64_t Output vector
+ */
+sb_uint64_t do_des(const sb_uint64_t data, const sb_uint64_t key, const sb_uint32_t mode)
+10000c4c:	30c0003f 	addik	r6, r0, 63
+10000c50:	14643000 	rsubk	r3, r4, r6
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000c54:	a4c30020 	andi	r6, r3, 32
+10000c58:	be26ffac 	bneid	r6, -84		// 10000c04
+10000c5c:	a4a50001 	andi	r5, r5, 1
+10000c60:	46e51c00 	bsll	r23, r5, r3
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000c64:	30840001 	addik	r4, r4, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000c68:	12c00000 	addk	r22, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000c6c:	aa640040 	xori	r19, r4, 64
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000c70:	8318b000 	or	r24, r24, r22
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000c74:	be33ffac 	bneid	r19, -84		// 10000c20
+10000c78:	8339b800 	or	r25, r25, r23
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000c7c:	e8c10028 	lwi	r6, r1, 40
+10000c80:	e8e1002c 	lwi	r7, r1, 44
+10000c84:	30a1001c 	addik	r5, r1, 28
+10000c88:	b9f4f868 	brlid	r15, -1944	// 100004f0 <do_feistel>
+10000c8c:	fb21001c 	swi	r25, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000c90:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000c94:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000c98:	82d3c800 	or	r22, r19, r25
+10000c9c:	88e3c000 	xor	r7, r3, r24
+10000ca0:	82e79800 	or	r23, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000ca4:	e8c10030 	lwi	r6, r1, 48
+10000ca8:	e8e10034 	lwi	r7, r1, 52
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000cac:	fae1001c 	swi	r23, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000cb0:	b9f4f840 	brlid	r15, -1984	// 100004f0 <do_feistel>
+10000cb4:	8313b800 	or	r24, r19, r23
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000cb8:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000cbc:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000cc0:	88e3b000 	xor	r7, r3, r22
+10000cc4:	83279800 	or	r25, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000cc8:	e8c10038 	lwi	r6, r1, 56
+10000ccc:	e8e1003c 	lwi	r7, r1, 60
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000cd0:	fb21001c 	swi	r25, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000cd4:	b9f4f81c 	brlid	r15, -2020	// 100004f0 <do_feistel>
+10000cd8:	82d3c800 	or	r22, r19, r25
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000cdc:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000ce0:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000ce4:	88e3c000 	xor	r7, r3, r24
+10000ce8:	82e79800 	or	r23, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000cec:	e8c10040 	lwi	r6, r1, 64
+10000cf0:	e8e10044 	lwi	r7, r1, 68
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000cf4:	fae1001c 	swi	r23, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000cf8:	b9f4f7f8 	brlid	r15, -2056	// 100004f0 <do_feistel>
+10000cfc:	8313b800 	or	r24, r19, r23
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d00:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d04:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d08:	88e3b000 	xor	r7, r3, r22
+10000d0c:	83279800 	or	r25, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d10:	e8c10048 	lwi	r6, r1, 72
+10000d14:	e8e1004c 	lwi	r7, r1, 76
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000d18:	fb21001c 	swi	r25, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d1c:	b9f4f7d4 	brlid	r15, -2092	// 100004f0 <do_feistel>
+10000d20:	82d3c800 	or	r22, r19, r25
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d24:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d28:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d2c:	88e3c000 	xor	r7, r3, r24
+10000d30:	82e79800 	or	r23, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d34:	e8c10050 	lwi	r6, r1, 80
+10000d38:	e8e10054 	lwi	r7, r1, 84
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000d3c:	fae1001c 	swi	r23, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d40:	b9f4f7b0 	brlid	r15, -2128	// 100004f0 <do_feistel>
+10000d44:	8313b800 	or	r24, r19, r23
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d48:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d4c:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d50:	88e3b000 	xor	r7, r3, r22
+10000d54:	83279800 	or	r25, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d58:	e8c10058 	lwi	r6, r1, 88
+10000d5c:	e8e1005c 	lwi	r7, r1, 92
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000d60:	fb21001c 	swi	r25, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d64:	b9f4f78c 	brlid	r15, -2164	// 100004f0 <do_feistel>
+10000d68:	82d3c800 	or	r22, r19, r25
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d6c:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d70:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d74:	88e3c000 	xor	r7, r3, r24
+10000d78:	82e79800 	or	r23, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d7c:	e8c10060 	lwi	r6, r1, 96
+10000d80:	e8e10064 	lwi	r7, r1, 100
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000d84:	fae1001c 	swi	r23, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d88:	b9f4f768 	brlid	r15, -2200	// 100004f0 <do_feistel>
+10000d8c:	8313b800 	or	r24, r19, r23
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d90:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000d94:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000d98:	88e3b000 	xor	r7, r3, r22
+10000d9c:	83279800 	or	r25, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000da0:	e8c10068 	lwi	r6, r1, 104
+10000da4:	e8e1006c 	lwi	r7, r1, 108
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000da8:	fb21001c 	swi	r25, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000dac:	b9f4f744 	brlid	r15, -2236	// 100004f0 <do_feistel>
+10000db0:	82d3c800 	or	r22, r19, r25
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000db4:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000db8:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000dbc:	88e3c000 	xor	r7, r3, r24
+10000dc0:	82e79800 	or	r23, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000dc4:	e8c10070 	lwi	r6, r1, 112
+10000dc8:	e8e10074 	lwi	r7, r1, 116
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000dcc:	fae1001c 	swi	r23, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000dd0:	b9f4f720 	brlid	r15, -2272	// 100004f0 <do_feistel>
+10000dd4:	8313b800 	or	r24, r19, r23
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000dd8:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000ddc:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000de0:	88e3b000 	xor	r7, r3, r22
+10000de4:	83279800 	or	r25, r7, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000de8:	e8c10078 	lwi	r6, r1, 120
+10000dec:	e8e1007c 	lwi	r7, r1, 124
+{
+  sb_uint32_t left,right;
+  sb_uint32_t new_left, new_right;
+	
+  left = (sb_uint32_t)(*data >> DATA_BIT_WIDTH_2);
+  right = (sb_uint32_t)(*data & DATA_BIT_WIDTH_2_MASK);
+10000df0:	fb21001c 	swi	r25, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000df4:	b9f4f6fc 	brlid	r15, -2308	// 100004f0 <do_feistel>
+10000df8:	82d3c800 	or	r22, r19, r25
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000dfc:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e00:	e8c10080 	lwi	r6, r1, 128
+10000e04:	e8e10084 	lwi	r7, r1, 132
+10000e08:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e0c:	8ae3c000 	xor	r23, r3, r24
+10000e10:	82f79800 	or	r23, r23, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e14:	b9f4f6dc 	brlid	r15, -2340	// 100004f0 <do_feistel>
+10000e18:	fae1001c 	swi	r23, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e1c:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e20:	e8c10088 	lwi	r6, r1, 136
+10000e24:	e8e1008c 	lwi	r7, r1, 140
+10000e28:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e2c:	8b23b000 	xor	r25, r3, r22
+10000e30:	83399800 	or	r25, r25, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e34:	b9f4f6bc 	brlid	r15, -2372	// 100004f0 <do_feistel>
+10000e38:	fb21001c 	swi	r25, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e3c:	e861001c 	lwi	r3, r1, 28
+10000e40:	8313b800 	or	r24, r19, r23
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e44:	e8c10090 	lwi	r6, r1, 144
+10000e48:	e8e10094 	lwi	r7, r1, 148
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e4c:	8ae3c000 	xor	r23, r3, r24
+10000e50:	82f79800 	or	r23, r23, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e54:	30a1001c 	addik	r5, r1, 28
+10000e58:	b9f4f698 	brlid	r15, -2408	// 100004f0 <do_feistel>
+10000e5c:	fae1001c 	swi	r23, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e60:	e861001c 	lwi	r3, r1, 28
+10000e64:	82d3c800 	or	r22, r19, r25
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e68:	e8c10098 	lwi	r6, r1, 152
+10000e6c:	e8e1009c 	lwi	r7, r1, 156
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e70:	8b23b000 	xor	r25, r3, r22
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e74:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e78:	83399800 	or	r25, r25, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e7c:	b9f4f674 	brlid	r15, -2444	// 100004f0 <do_feistel>
+10000e80:	fb21001c 	swi	r25, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e84:	e861001c 	lwi	r3, r1, 28
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e88:	e8c100a0 	lwi	r6, r1, 160
+10000e8c:	e8e100a4 	lwi	r7, r1, 164
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e90:	8313b800 	or	r24, r19, r23
+10000e94:	8ae3c000 	xor	r23, r3, r24
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000e98:	30a1001c 	addik	r5, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000e9c:	82f79800 	or	r23, r23, r19
+	
+  /* UPDATE LEFT */ 
+  new_left = right;
+	
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+10000ea0:	b9f4f650 	brlid	r15, -2480	// 100004f0 <do_feistel>
+10000ea4:	fae1001c 	swi	r23, r1, 28
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000ea8:	e861001c 	lwi	r3, r1, 28
+10000eac:	8093b800 	or	r4, r19, r23
+10000eb0:	82d3c800 	or	r22, r19, r25
+10000eb4:	88e3b000 	xor	r7, r3, r22
+  }
+	
+  /* SWAP */
+  swap_r = (data_tmp >> DATA_BIT_WIDTH_2);
+  swap_l = (data_tmp & DATA_BIT_WIDTH_2_MASK);
+  data_tmp = ((sb_uint64_t)swap_l << DATA_BIT_WIDTH_2) | swap_r;
+10000eb8:	11240000 	addk	r9, r4, r0
+  /* UPDATE RIGHT */
+  do_feistel(&right, key);
+  new_right = right^left;
+	
+  /* RES */
+  *data = (((sb_uint64_t)new_left << DATA_BIT_WIDTH_2)) | new_right;
+10000ebc:	80a79800 	or	r5, r7, r19
+  }
+	
+  /* SWAP */
+  swap_r = (data_tmp >> DATA_BIT_WIDTH_2);
+  swap_l = (data_tmp & DATA_BIT_WIDTH_2_MASK);
+  data_tmp = ((sb_uint64_t)swap_l << DATA_BIT_WIDTH_2) | swap_r;
+10000ec0:	81132800 	or	r8, r19, r5
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000ec4:	10930000 	addk	r4, r19, r0
+sb_uint64_t do_perm(const sb_uint64_t data, const sb_uint8_t *const table, const sb_uint32_t size_data_in, const sb_uint32_t size_data_out)
+{
+  sb_uint32_t i;
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+10000ec8:	30c00000 	addik	r6, r0, 0
+10000ecc:	30e00000 	addik	r7, r0, 0
+  }
+	
+  /* SWAP */
+  swap_r = (data_tmp >> DATA_BIT_WIDTH_2);
+  swap_l = (data_tmp & DATA_BIT_WIDTH_2_MASK);
+  data_tmp = ((sb_uint64_t)swap_l << DATA_BIT_WIDTH_2) | swap_r;
+10000ed0:	81299800 	or	r9, r9, r19
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000ed4:	b8100024 	brid	36		// 10000ef8
+10000ed8:	11884000 	addk	r12, r8, r8
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000edc:	47c51c00 	bsll	r30, r5, r3
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000ee0:	30840001 	addik	r4, r4, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000ee4:	13e00000 	addk	r31, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000ee8:	a8640040 	xori	r3, r4, 64
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000eec:	80c6f000 	or	r6, r6, r30
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000ef0:	be030064 	beqid	r3, 100		// 10000f54
+10000ef4:	80e7f800 	or	r7, r7, r31
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+10000ef8:	b0001000 	imm	4096
+10000efc:	e0641990 	lbui	r3, r4, 6544
+10000f00:	31400040 	addik	r10, r0, 64
+10000f04:	14635000 	rsubk	r3, r3, r10
+10000f08:	a8a3ffff 	xori	r5, r3, -1
+10000f0c:	456c2c00 	bsll	r11, r12, r5
+10000f10:	44a91800 	bsrl	r5, r9, r3
+10000f14:	a5430020 	andi	r10, r3, 32
+10000f18:	be0a000c 	beqid	r10, 12		// 10000f24
+10000f1c:	80ab2800 	or	r5, r11, r5
+10000f20:	44a81800 	bsrl	r5, r8, r3
+ * \param[in] data 64-bit input vector
+ * \param[in] key 64-bit key
+ * \param[in] mode DES mode
+ * \return sb_uint64_t Output vector
+ */
+sb_uint64_t do_des(const sb_uint64_t data, const sb_uint64_t key, const sb_uint32_t mode)
+10000f24:	3140003f 	addik	r10, r0, 63
+10000f28:	14645000 	rsubk	r3, r4, r10
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000f2c:	a5430020 	andi	r10, r3, 32
+10000f30:	be2affac 	bneid	r10, -84		// 10000edc
+10000f34:	a4a50001 	andi	r5, r5, 1
+10000f38:	47e51c00 	bsll	r31, r5, r3
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000f3c:	30840001 	addik	r4, r4, 1
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000f40:	13c00000 	addk	r30, r0, r0
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000f44:	a8640040 	xori	r3, r4, 64
+  {
+    SEL_BIT(data,data_tmp,(size_data_in-table[i]));
+    data_res |= ((sb_uint64_t)data_tmp << (size_data_out-1-i));
+10000f48:	80c6f000 	or	r6, r6, r30
+  sb_uint8_t data_tmp;
+	
+  sb_uint64_t data_res = 0; 
+	
+  /* COMPUTE PERM */
+  for(i=0;i<size_data_out;i++)
+10000f4c:	be23ffac 	bneid	r3, -84		// 10000ef8
+10000f50:	80e7f800 	or	r7, r7, r31
+	
+  /* FINAL PERMUTATION */
+  data_res = do_perm(data_tmp, fp_table_c, DATA_BIT_WIDTH, FP_BIT_WIDTH);
+	
+  return data_res;
+}
+10000f54:	10660000 	addk	r3, r6, r0
+10000f58:	10870000 	addk	r4, r7, r0
+10000f5c:	e9e10000 	lwi	r15, r1, 0
+10000f60:	ea6100a8 	lwi	r19, r1, 168
+10000f64:	eac100ac 	lwi	r22, r1, 172
+10000f68:	eae100b0 	lwi	r23, r1, 176
+10000f6c:	eb0100b4 	lwi	r24, r1, 180
+10000f70:	eb2100b8 	lwi	r25, r1, 184
+10000f74:	eb6100bc 	lwi	r27, r1, 188
+10000f78:	eb8100c0 	lwi	r28, r1, 192
+10000f7c:	eba100c4 	lwi	r29, r1, 196
+10000f80:	ebc100c8 	lwi	r30, r1, 200
+10000f84:	ebe100cc 	lwi	r31, r1, 204
+10000f88:	b60f0008 	rtsd	r15, 8
+10000f8c:	302100d0 	addik	r1, r1, 208
+
+10000f90 <_exception_handler>:
+10000f90:	b6110000 	rtsd	r17, 0
+10000f94:	80000000 	or	r0, r0, r0
+
+10000f98 <_hw_exception_handler>:
+10000f98:	b6910000 	rted	r17, 0
+10000f9c:	80000000 	or	r0, r0, r0
+
+10000fa0 <_interrupt_handler>:
+10000fa0:	b62e0000 	rtid	r14, 0
+10000fa4:	80000000 	or	r0, r0, r0
+
+10000fa8 <_program_clean>:
+10000fa8:	b60f0008 	rtsd	r15, 8
+10000fac:	80000000 	or	r0, r0, r0
+
+10000fb0 <_program_init>:
+10000fb0:	b60f0008 	rtsd	r15, 8
+10000fb4:	80000000 	or	r0, r0, r0
+
+10000fb8 <exit>:
+10000fb8:	3021ffe0 	addik	r1, r1, -32
+10000fbc:	10c00000 	addk	r6, r0, r0
+10000fc0:	fa61001c 	swi	r19, r1, 28
+10000fc4:	f9e10000 	swi	r15, r1, 0
+10000fc8:	b9f40028 	brlid	r15, 40	// 10000ff0 <__call_exitprocs>
+10000fcc:	12650000 	addk	r19, r5, r0
+10000fd0:	b0001000 	imm	4096
+10000fd4:	e88019d0 	lwi	r4, r0, 6608	// 100019d0 <_global_impure_ptr>
+10000fd8:	e8640028 	lwi	r3, r4, 40
+10000fdc:	bc03000c 	beqi	r3, 12		// 10000fe8
+10000fe0:	99fc1800 	brald	r15, r3
+10000fe4:	10a40000 	addk	r5, r4, r0
+10000fe8:	b9f4f090 	brlid	r15, -3952	// 10000078 <_exit>
+10000fec:	10b30000 	addk	r5, r19, r0
+
+10000ff0 <__call_exitprocs>:
+10000ff0:	3021ffb8 	addik	r1, r1, -72
+10000ff4:	fbc10040 	swi	r30, r1, 64
+10000ff8:	b0001000 	imm	4096
+10000ffc:	ebc019d0 	lwi	r30, r0, 6608	// 100019d0 <_global_impure_ptr>
+10001000:	fb610034 	swi	r27, r1, 52
+10001004:	13660000 	addk	r27, r6, r0
+10001008:	fba1003c 	swi	r29, r1, 60
+1000100c:	fbe10044 	swi	r31, r1, 68
+10001010:	f9e10000 	swi	r15, r1, 0
+10001014:	fa61001c 	swi	r19, r1, 28
+10001018:	fac10020 	swi	r22, r1, 32
+1000101c:	fae10024 	swi	r23, r1, 36
+10001020:	fb010028 	swi	r24, r1, 40
+10001024:	fb21002c 	swi	r25, r1, 44
+10001028:	fb410030 	swi	r26, r1, 48
+1000102c:	fb810038 	swi	r28, r1, 56
+10001030:	f8a1004c 	swi	r5, r1, 76
+10001034:	33fe0048 	addik	r31, r30, 72
+10001038:	33a00001 	addik	r29, r0, 1
+1000103c:	eafe0048 	lwi	r23, r30, 72
+10001040:	be1700d8 	beqid	r23, 216		// 10001118
+10001044:	139f0000 	addk	r28, r31, r0
+10001048:	e8770004 	lwi	r3, r23, 4
+1000104c:	3263ffff 	addik	r19, r3, -1
+10001050:	be5300bc 	bltid	r19, 188		// 1000110c
+10001054:	eb370088 	lwi	r25, r23, 136
+10001058:	be1b0124 	beqid	r27, 292		// 1000117c
+1000105c:	32c30001 	addik	r22, r3, 1
+10001060:	bc1900ac 	beqi	r25, 172		// 1000110c
+10001064:	33030001 	addik	r24, r3, 1
+10001068:	66d30402 	bslli	r22, r19, 2
+1000106c:	67180402 	bslli	r24, r24, 2
+10001070:	12d9b000 	addk	r22, r25, r22
+10001074:	b810001c 	brid	28		// 10001090
+10001078:	1317c000 	addk	r24, r23, r24
+1000107c:	3273ffff 	addik	r19, r19, -1
+10001080:	a873ffff 	xori	r3, r19, -1
+10001084:	32d6fffc 	addik	r22, r22, -4
+10001088:	be030084 	beqid	r3, 132		// 1000110c
+1000108c:	3318fffc 	addik	r24, r24, -4
+10001090:	e8760080 	lwi	r3, r22, 128
+10001094:	8863d800 	xor	r3, r3, r27
+10001098:	bc23ffe4 	bnei	r3, -28		// 1000107c
+1000109c:	eb570004 	lwi	r26, r23, 4
+100010a0:	30daffff 	addik	r6, r26, -1
+100010a4:	88e69800 	xor	r7, r6, r19
+100010a8:	be0700b8 	beqid	r7, 184		// 10001160
+100010ac:	e8980000 	lwi	r4, r24, 0
+100010b0:	f8780000 	swi	r3, r24, 0
+100010b4:	be04ffc8 	beqid	r4, -56		// 1000107c
+100010b8:	447d9c00 	bsll	r3, r29, r19
+100010bc:	e8d90100 	lwi	r6, r25, 256
+100010c0:	84c33000 	and	r6, r3, r6
+100010c4:	bc06008c 	beqi	r6, 140		// 10001150
+100010c8:	e8b90104 	lwi	r5, r25, 260
+100010cc:	84632800 	and	r3, r3, r5
+100010d0:	be03009c 	beqid	r3, 156		// 1000116c
+100010d4:	e8a1004c 	lwi	r5, r1, 76
+100010d8:	99fc2000 	brald	r15, r4
+100010dc:	e8b60000 	lwi	r5, r22, 0
+100010e0:	e8770004 	lwi	r3, r23, 4
+100010e4:	8b43d000 	xor	r26, r3, r26
+100010e8:	bc3aff54 	bnei	r26, -172		// 1000103c
+100010ec:	e87c0000 	lwi	r3, r28, 0
+100010f0:	8863b800 	xor	r3, r3, r23
+100010f4:	be23ff48 	bneid	r3, -184		// 1000103c
+100010f8:	3273ffff 	addik	r19, r19, -1
+100010fc:	a873ffff 	xori	r3, r19, -1
+10001100:	32d6fffc 	addik	r22, r22, -4
+10001104:	be23ff8c 	bneid	r3, -116		// 10001090
+10001108:	3318fffc 	addik	r24, r24, -4
+1000110c:	b0000000 	imm	0
+10001110:	30600000 	addik	r3, r0, 0
+10001114:	bc230194 	bnei	r3, 404		// 100012a8
+10001118:	e9e10000 	lwi	r15, r1, 0
+1000111c:	ea61001c 	lwi	r19, r1, 28
+10001120:	eac10020 	lwi	r22, r1, 32
+10001124:	eae10024 	lwi	r23, r1, 36
+10001128:	eb010028 	lwi	r24, r1, 40
+1000112c:	eb21002c 	lwi	r25, r1, 44
+10001130:	eb410030 	lwi	r26, r1, 48
+10001134:	eb610034 	lwi	r27, r1, 52
+10001138:	eb810038 	lwi	r28, r1, 56
+1000113c:	eba1003c 	lwi	r29, r1, 60
+10001140:	ebc10040 	lwi	r30, r1, 64
+10001144:	ebe10044 	lwi	r31, r1, 68
+10001148:	b60f0008 	rtsd	r15, 8
+1000114c:	30210048 	addik	r1, r1, 72
+10001150:	99fc2000 	brald	r15, r4
+10001154:	80000000 	or	r0, r0, r0
+10001158:	b810ff8c 	brid	-116		// 100010e4
+1000115c:	e8770004 	lwi	r3, r23, 4
+10001160:	f8d70004 	swi	r6, r23, 4
+10001164:	b810ff50 	brid	-176		// 100010b4
+10001168:	13460000 	addk	r26, r6, r0
+1000116c:	99fc2000 	brald	r15, r4
+10001170:	e8d60000 	lwi	r6, r22, 0
+10001174:	b810ff70 	brid	-144		// 100010e4
+10001178:	e8770004 	lwi	r3, r23, 4
+1000117c:	be1900c8 	beqid	r25, 200		// 10001244
+10001180:	66d60402 	bslli	r22, r22, 2
+10001184:	67530402 	bslli	r26, r19, 2
+10001188:	13030000 	addk	r24, r3, r0
+1000118c:	3063ffff 	addik	r3, r3, -1
+10001190:	12d7b000 	addk	r22, r23, r22
+10001194:	88c39800 	xor	r6, r3, r19
+10001198:	1359d000 	addk	r26, r25, r26
+1000119c:	be06007c 	beqid	r6, 124		// 10001218
+100011a0:	e8960000 	lwi	r4, r22, 0
+100011a4:	f8160000 	swi	r0, r22, 0
+100011a8:	be040044 	beqid	r4, 68		// 100011ec
+100011ac:	447d9c00 	bsll	r3, r29, r19
+100011b0:	e8b90100 	lwi	r5, r25, 256
+100011b4:	84a32800 	and	r5, r3, r5
+100011b8:	bc05006c 	beqi	r5, 108		// 10001224
+100011bc:	e8b90104 	lwi	r5, r25, 260
+100011c0:	84632800 	and	r3, r3, r5
+100011c4:	be230070 	bneid	r3, 112		// 10001234
+100011c8:	e8a1004c 	lwi	r5, r1, 76
+100011cc:	99fc2000 	brald	r15, r4
+100011d0:	e8da0000 	lwi	r6, r26, 0
+100011d4:	e8770004 	lwi	r3, r23, 4
+100011d8:	8863c000 	xor	r3, r3, r24
+100011dc:	bc23fe60 	bnei	r3, -416		// 1000103c
+100011e0:	e87c0000 	lwi	r3, r28, 0
+100011e4:	8863b800 	xor	r3, r3, r23
+100011e8:	bc23fe54 	bnei	r3, -428		// 1000103c
+100011ec:	3273ffff 	addik	r19, r19, -1
+100011f0:	a873ffff 	xori	r3, r19, -1
+100011f4:	32d6fffc 	addik	r22, r22, -4
+100011f8:	be03ff14 	beqid	r3, -236		// 1000110c
+100011fc:	335afffc 	addik	r26, r26, -4
+10001200:	e8770004 	lwi	r3, r23, 4
+10001204:	13030000 	addk	r24, r3, r0
+10001208:	3063ffff 	addik	r3, r3, -1
+1000120c:	88c39800 	xor	r6, r3, r19
+10001210:	be26ff94 	bneid	r6, -108		// 100011a4
+10001214:	e8960000 	lwi	r4, r22, 0
+10001218:	f8770004 	swi	r3, r23, 4
+1000121c:	b810ff8c 	brid	-116		// 100011a8
+10001220:	13030000 	addk	r24, r3, r0
+10001224:	99fc2000 	brald	r15, r4
+10001228:	80000000 	or	r0, r0, r0
+1000122c:	b810ffac 	brid	-84		// 100011d8
+10001230:	e8770004 	lwi	r3, r23, 4
+10001234:	99fc2000 	brald	r15, r4
+10001238:	e8ba0000 	lwi	r5, r26, 0
+1000123c:	b810ff9c 	brid	-100		// 100011d8
+10001240:	e8770004 	lwi	r3, r23, 4
+10001244:	12d7b000 	addk	r22, r23, r22
+10001248:	13030000 	addk	r24, r3, r0
+1000124c:	3063ffff 	addik	r3, r3, -1
+10001250:	88839800 	xor	r4, r3, r19
+10001254:	be040048 	beqid	r4, 72		// 1000129c
+10001258:	e8b60000 	lwi	r5, r22, 0
+1000125c:	f8160000 	swi	r0, r22, 0
+10001260:	bc050024 	beqi	r5, 36		// 10001284
+10001264:	99fc2800 	brald	r15, r5
+10001268:	80000000 	or	r0, r0, r0
+1000126c:	e8770004 	lwi	r3, r23, 4
+10001270:	8863c000 	xor	r3, r3, r24
+10001274:	bc23fdc8 	bnei	r3, -568		// 1000103c
+10001278:	e87c0000 	lwi	r3, r28, 0
+1000127c:	8863b800 	xor	r3, r3, r23
+10001280:	bc23fdbc 	bnei	r3, -580		// 1000103c
+10001284:	3273ffff 	addik	r19, r19, -1
+10001288:	a873ffff 	xori	r3, r19, -1
+1000128c:	be03fe80 	beqid	r3, -384		// 1000110c
+10001290:	32d6fffc 	addik	r22, r22, -4
+10001294:	b810ffb4 	brid	-76		// 10001248
+10001298:	e8770004 	lwi	r3, r23, 4
+1000129c:	f8770004 	swi	r3, r23, 4
+100012a0:	b810ffc0 	brid	-64		// 10001260
+100012a4:	13030000 	addk	r24, r3, r0
+100012a8:	e8770004 	lwi	r3, r23, 4
+100012ac:	bc230040 	bnei	r3, 64		// 100012ec
+100012b0:	e8770000 	lwi	r3, r23, 0
+100012b4:	bc03003c 	beqi	r3, 60		// 100012f0
+100012b8:	be190014 	beqid	r25, 20		// 100012cc
+100012bc:	f87c0000 	swi	r3, r28, 0
+100012c0:	b000efff 	imm	-4097
+100012c4:	b9f4ed3c 	brlid	r15, -4804
+100012c8:	10b90000 	addk	r5, r25, r0
+100012cc:	b000efff 	imm	-4097
+100012d0:	b9f4ed30 	brlid	r15, -4816
+100012d4:	10b70000 	addk	r5, r23, r0
+100012d8:	eafc0000 	lwi	r23, r28, 0
+100012dc:	be37fd6c 	bneid	r23, -660		// 10001048
+100012e0:	e9e10000 	lwi	r15, r1, 0
+100012e4:	b810fe3c 	brid	-452		// 10001120
+100012e8:	ea61001c 	lwi	r19, r1, 28
+100012ec:	e8770000 	lwi	r3, r23, 0
+100012f0:	13970000 	addk	r28, r23, r0
+100012f4:	b810ffe8 	brid	-24		// 100012dc
+100012f8:	12e30000 	addk	r23, r3, r0
+
+100012fc <__do_global_ctors_aux>:
+100012fc:	b0001000 	imm	4096
+10001300:	e8601ad8 	lwi	r3, r0, 6872	// 10001ad8 <__data_end>
+10001304:	3021ffe0 	addik	r1, r1, -32
+10001308:	f9e10000 	swi	r15, r1, 0
+1000130c:	a883ffff 	xori	r4, r3, -1
+10001310:	be040024 	beqid	r4, 36		// 10001334
+10001314:	fa61001c 	swi	r19, r1, 28
+10001318:	b0001000 	imm	4096
+1000131c:	32601ad8 	addik	r19, r0, 6872	// 10001ad8 <__data_end>
+10001320:	99fc1800 	brald	r15, r3
+10001324:	3273fffc 	addik	r19, r19, -4
+10001328:	e8730000 	lwi	r3, r19, 0
+1000132c:	a883ffff 	xori	r4, r3, -1
+10001330:	bc24fff0 	bnei	r4, -16		// 10001320
+10001334:	e9e10000 	lwi	r15, r1, 0
+10001338:	ea61001c 	lwi	r19, r1, 28
+1000133c:	b60f0008 	rtsd	r15, 8
+10001340:	30210020 	addik	r1, r1, 32
+
+10001344 <main>:
+#include "des.h"
+#include "sb_types.h"
+#include "sb_uart.h"
+
+int main(void)
+{
+10001344:	3021ff4c 	addik	r1, r1, -180
+10001348:	f9e10000 	swi	r15, r1, 0
+1000134c:	fa61008c 	swi	r19, r1, 140
+10001350:	fac10090 	swi	r22, r1, 144
+10001354:	fb010094 	swi	r24, r1, 148
+10001358:	fb210098 	swi	r25, r1, 152
+1000135c:	fb41009c 	swi	r26, r1, 156
+10001360:	fb6100a0 	swi	r27, r1, 160
+10001364:	fb8100a4 	swi	r28, r1, 164
+10001368:	fba100a8 	swi	r29, r1, 168
+1000136c:	fbc100ac 	swi	r30, r1, 172
+10001370:	fbe100b0 	swi	r31, r1, 176
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001374:	10600000 	addk	r3, r0, r0
+    key  = 0;
+		
+    /* GET DATA */
+    for(i=0;i<16;i++)
+    {
+      uart_get(&rx_uart_buffer[i]);
+10001378:	30a1001c 	addik	r5, r1, 28
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+1000137c:	f861002c 	swi	r3, r1, 44
+    key  = 0;
+		
+    /* GET DATA */
+    for(i=0;i<16;i++)
+    {
+      uart_get(&rx_uart_buffer[i]);
+10001380:	b9f4eedc 	brlid	r15, -4388	// 1000025c <uart_get>
+10001384:	f8610034 	swi	r3, r1, 52
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001388:	10e00000 	addk	r7, r0, r0
+    key  = 0;
+		
+    /* GET DATA */
+    for(i=0;i<16;i++)
+    {
+      uart_get(&rx_uart_buffer[i]);
+1000138c:	30a1001d 	addik	r5, r1, 29
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001390:	f8e1002c 	swi	r7, r1, 44
+    key  = 0;
+		
+    /* GET DATA */
+    for(i=0;i<16;i++)
+    {
+      uart_get(&rx_uart_buffer[i]);
+10001394:	b9f4eec8 	brlid	r15, -4408	// 1000025c <uart_get>
+10001398:	f8e10034 	swi	r7, r1, 52
+1000139c:	b9f4eec0 	brlid	r15, -4416	// 1000025c <uart_get>
+100013a0:	30a1001e 	addik	r5, r1, 30
+100013a4:	b9f4eeb8 	brlid	r15, -4424	// 1000025c <uart_get>
+100013a8:	30a1001f 	addik	r5, r1, 31
+100013ac:	b9f4eeb0 	brlid	r15, -4432	// 1000025c <uart_get>
+100013b0:	30a10020 	addik	r5, r1, 32
+100013b4:	b9f4eea8 	brlid	r15, -4440	// 1000025c <uart_get>
+100013b8:	30a10021 	addik	r5, r1, 33
+100013bc:	b9f4eea0 	brlid	r15, -4448	// 1000025c <uart_get>
+100013c0:	30a10022 	addik	r5, r1, 34
+100013c4:	b9f4ee98 	brlid	r15, -4456	// 1000025c <uart_get>
+100013c8:	30a10023 	addik	r5, r1, 35
+100013cc:	b9f4ee90 	brlid	r15, -4464	// 1000025c <uart_get>
+100013d0:	30a10024 	addik	r5, r1, 36
+100013d4:	b9f4ee88 	brlid	r15, -4472	// 1000025c <uart_get>
+100013d8:	30a10025 	addik	r5, r1, 37
+100013dc:	b9f4ee80 	brlid	r15, -4480	// 1000025c <uart_get>
+100013e0:	30a10026 	addik	r5, r1, 38
+100013e4:	b9f4ee78 	brlid	r15, -4488	// 1000025c <uart_get>
+100013e8:	30a10027 	addik	r5, r1, 39
+100013ec:	b9f4ee70 	brlid	r15, -4496	// 1000025c <uart_get>
+100013f0:	30a10028 	addik	r5, r1, 40
+100013f4:	b9f4ee68 	brlid	r15, -4504	// 1000025c <uart_get>
+100013f8:	30a10029 	addik	r5, r1, 41
+100013fc:	b9f4ee60 	brlid	r15, -4512	// 1000025c <uart_get>
+10001400:	30a1002a 	addik	r5, r1, 42
+10001404:	b9f4ee58 	brlid	r15, -4520	// 1000025c <uart_get>
+10001408:	30a1002b 	addik	r5, r1, 43
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+1000140c:	e0610024 	lbui	r3, r1, 36
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001410:	e0810022 	lbui	r4, r1, 34
+10001414:	e141001d 	lbui	r10, r1, 29
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001418:	f8610048 	swi	r3, r1, 72
+1000141c:	e0610028 	lbui	r3, r1, 40
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001420:	e121001e 	lbui	r9, r1, 30
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001424:	e1010025 	lbui	r8, r1, 37
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001428:	e0c10021 	lbui	r6, r1, 33
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+1000142c:	f8610054 	swi	r3, r1, 84
+10001430:	e061002a 	lbui	r3, r1, 42
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001434:	64840410 	bslli	r4, r4, 16
+10001438:	654a0408 	bslli	r10, r10, 8
+1000143c:	65290410 	bslli	r9, r9, 16
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001440:	65080408 	bslli	r8, r8, 8
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001444:	64c60408 	bslli	r6, r6, 8
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001448:	64630410 	bslli	r3, r3, 16
+1000144c:	e0e10026 	lbui	r7, r1, 38
+10001450:	e0a10029 	lbui	r5, r1, 41
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001454:	f881006c 	swi	r4, r1, 108
+10001458:	e0810023 	lbui	r4, r1, 35
+1000145c:	f9410030 	swi	r10, r1, 48
+10001460:	f9210038 	swi	r9, r1, 56
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001464:	f9010040 	swi	r8, r1, 64
+10001468:	67e70410 	bslli	r31, r7, 16
+1000146c:	64a50408 	bslli	r5, r5, 8
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001470:	64840418 	bslli	r4, r4, 24
+10001474:	e9010034 	lwi	r8, r1, 52
+10001478:	e9210038 	lwi	r9, r1, 56
+1000147c:	f8c1005c 	swi	r6, r1, 92
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001480:	f8610074 	swi	r3, r1, 116
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001484:	e8c1002c 	lwi	r6, r1, 44
+10001488:	e8e10030 	lwi	r7, r1, 48
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+1000148c:	e061002b 	lbui	r3, r1, 43
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001490:	13000000 	addk	r24, r0, r0
+10001494:	e2610020 	lbui	r19, r1, 32
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001498:	fb01003c 	swi	r24, r1, 60
+1000149c:	e1610027 	lbui	r11, r1, 39
+100014a0:	f8a10064 	swi	r5, r1, 100
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+100014a4:	f881007c 	swi	r4, r1, 124
+100014a8:	80a74800 	or	r5, r7, r9
+100014ac:	80864000 	or	r4, r6, r8
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+100014b0:	64630418 	bslli	r3, r3, 24
+100014b4:	676b0418 	bslli	r27, r11, 24
+100014b8:	e8c1003c 	lwi	r6, r1, 60
+100014bc:	e8e10040 	lwi	r7, r1, 64
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+100014c0:	fa61004c 	swi	r19, r1, 76
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+100014c4:	f8610084 	swi	r3, r1, 132
+100014c8:	fb010044 	swi	r24, r1, 68
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+100014cc:	e181001f 	lbui	r12, r1, 31
+100014d0:	e321001c 	lbui	r25, r1, 28
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+100014d4:	8146c000 	or	r10, r6, r24
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+100014d8:	fb010050 	swi	r24, r1, 80
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+100014dc:	8167f800 	or	r11, r7, r31
+100014e0:	e8c10044 	lwi	r6, r1, 68
+100014e4:	e8e10048 	lwi	r7, r1, 72
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+100014e8:	67ac0418 	bslli	r29, r12, 24
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+100014ec:	814a3000 	or	r10, r10, r6
+100014f0:	816b3800 	or	r11, r11, r7
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+100014f4:	e8c1004c 	lwi	r6, r1, 76
+100014f8:	e8e10050 	lwi	r7, r1, 80
+100014fc:	8084c000 	or	r4, r4, r24
+10001500:	80a5c800 	or	r5, r5, r25
+10001504:	fb010060 	swi	r24, r1, 96
+10001508:	8084c000 	or	r4, r4, r24
+1000150c:	80a5e800 	or	r5, r5, r29
+10001510:	80843000 	or	r4, r4, r6
+10001514:	80a53800 	or	r5, r5, r7
+10001518:	e8c1005c 	lwi	r6, r1, 92
+1000151c:	e8e10060 	lwi	r7, r1, 96
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001520:	fb010058 	swi	r24, r1, 88
+10001524:	e9010054 	lwi	r8, r1, 84
+10001528:	e9210058 	lwi	r9, r1, 88
+1000152c:	fb010068 	swi	r24, r1, 104
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001530:	80843000 	or	r4, r4, r6
+10001534:	80a53800 	or	r5, r5, r7
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001538:	e8c10064 	lwi	r6, r1, 100
+1000153c:	e8e10068 	lwi	r7, r1, 104
+10001540:	814ac000 	or	r10, r10, r24
+10001544:	816bd800 	or	r11, r11, r27
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001548:	fb010070 	swi	r24, r1, 112
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+1000154c:	814a4000 	or	r10, r10, r8
+10001550:	816b4800 	or	r11, r11, r9
+10001554:	814a3000 	or	r10, r10, r6
+10001558:	816b3800 	or	r11, r11, r7
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+1000155c:	e8c1006c 	lwi	r6, r1, 108
+10001560:	e8e10070 	lwi	r7, r1, 112
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001564:	fb010078 	swi	r24, r1, 120
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001568:	fb010080 	swi	r24, r1, 128
+1000156c:	80843000 	or	r4, r4, r6
+10001570:	80a53800 	or	r5, r5, r7
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001574:	e8c10074 	lwi	r6, r1, 116
+10001578:	e8e10078 	lwi	r7, r1, 120
+1000157c:	fb010088 	swi	r24, r1, 136
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001580:	11380000 	addk	r9, r24, r0
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+10001584:	814a3000 	or	r10, r10, r6
+10001588:	816b3800 	or	r11, r11, r7
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+1000158c:	e8c1007c 	lwi	r6, r1, 124
+10001590:	e8e10080 	lwi	r7, r1, 128
+10001594:	80843000 	or	r4, r4, r6
+10001598:	80a53800 	or	r5, r5, r7
+      key  |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i+8]) << i*8);
+1000159c:	e8c10084 	lwi	r6, r1, 132
+100015a0:	e8e10088 	lwi	r7, r1, 136
+100015a4:	814a3000 	or	r10, r10, r6
+100015a8:	816b3800 	or	r11, r11, r7
+    }
+				
+    /* DES COMPUTATION */
+    cipher = do_des(data,key,MODE_CIPHER);
+100015ac:	110b0000 	addk	r8, r11, r0
+100015b0:	10ea0000 	addk	r7, r10, r0
+100015b4:	10c50000 	addk	r6, r5, r0
+100015b8:	b9f4f368 	brlid	r15, -3224	// 10000920 <do_des>
+100015bc:	10a40000 	addk	r5, r4, r0
+100015c0:	12640000 	addk	r19, r4, r0
+			
+    /* SEND DATA */
+    for (i=0;i<8;i++)
+    {
+      uart_put((sb_uint8_t)(cipher >> i*8));
+100015c4:	a4a400ff 	andi	r5, r4, 255
+100015c8:	b9f4ec68 	brlid	r15, -5016	// 10000230 <uart_put>
+100015cc:	12c30000 	addk	r22, r3, r0
+100015d0:	64d30008 	bsrli	r6, r19, 8
+100015d4:	b9f4ec5c 	brlid	r15, -5028	// 10000230 <uart_put>
+100015d8:	a4a600ff 	andi	r5, r6, 255
+100015dc:	64d30010 	bsrli	r6, r19, 16
+100015e0:	b9f4ec50 	brlid	r15, -5040	// 10000230 <uart_put>
+100015e4:	a4a600ff 	andi	r5, r6, 255
+100015e8:	b9f4ec48 	brlid	r15, -5048	// 10000230 <uart_put>
+100015ec:	64b30018 	bsrli	r5, r19, 24
+100015f0:	b9f4ec40 	brlid	r15, -5056	// 10000230 <uart_put>
+100015f4:	a4b600ff 	andi	r5, r22, 255
+100015f8:	64960008 	bsrli	r4, r22, 8
+100015fc:	b9f4ec34 	brlid	r15, -5068	// 10000230 <uart_put>
+10001600:	a4a400ff 	andi	r5, r4, 255
+10001604:	64960010 	bsrli	r4, r22, 16
+10001608:	b9f4ec28 	brlid	r15, -5080	// 10000230 <uart_put>
+1000160c:	a4a400ff 	andi	r5, r4, 255
+10001610:	b9f4ec20 	brlid	r15, -5088	// 10000230 <uart_put>
+10001614:	64b60018 	bsrli	r5, r22, 24
+    }
+		
+    /* DATA & KEY EXTRACTION */
+    for (i=0;i<8;i++)
+    {
+      data |= ((sb_uint64_t)((sb_uint8_t)rx_uart_buffer[i])   << i*8);
+10001618:	b810fd60 	brid	-672		// 10001378
+1000161c:	10600000 	addk	r3, r0, r0
+
+Disassembly of section .init:
+
+10001620 <__init>:
+10001620:	3021fff8 	addik	r1, r1, -8
+10001624:	d9e00800 	sw	r15, r0, r1
+10001628:	b0001000 	imm	4096
+1000162c:	31601d00 	addik	r11, r0, 7424
+10001630:	940bc802 	mts	rshr, r11
+10001634:	b0001000 	imm	4096
+10001638:	31601c14 	addik	r11, r0, 7188
+1000163c:	940bc800 	mts	rslr, r11
+10001640:	b9f4eaf0 	brlid	r15, -5392	// 10000130 <frame_dummy>
+10001644:	80000000 	or	r0, r0, r0
+10001648:	b9f4fcb4 	brlid	r15, -844	// 100012fc <__do_global_ctors_aux>
+1000164c:	80000000 	or	r0, r0, r0
+10001650:	c9e00800 	lw	r15, r0, r1
+10001654:	b60f0008 	rtsd	r15, 8
+10001658:	30210008 	addik	r1, r1, 8
+
+Disassembly of section .fini:
+
+1000165c <__fini>:
+1000165c:	3021fff8 	addik	r1, r1, -8
+10001660:	d9e00800 	sw	r15, r0, r1
+10001664:	b9f4ea18 	brlid	r15, -5608	// 1000007c <__do_global_dtors_aux>
+10001668:	80000000 	or	r0, r0, r0
+1000166c:	c9e00800 	lw	r15, r0, r1
+10001670:	b60f0008 	rtsd	r15, 8
+10001674:	30210008 	addik	r1, r1, 8
+
+Disassembly of section .rodata:
+
+10001678 <__rodata_start>:
+10001678:	01010202 		r8, r1, r0
+1000167c:	02020202 		r16, r2, r0
+10001680:	01020202 		r8, r2, r0
+10001684:	02020201 		r16, r2, r0
+
+10001688 <decrypt_rotate_tab>:
+10001688:	00010202 		r0, r1, r0
+1000168c:	02020202 		r16, r2, r0
+10001690:	01020202 		r8, r2, r0
+10001694:	02020201 		r16, r2, r0
+
+10001698 <pc2_table_c>:
+10001698:	0e110b18 		r16, r17, r1
+1000169c:	0105031c 		r8, r5, r0
+100016a0:	0f06150a 		r24, r6, r2
+100016a4:	17130c04 		r24, r19, r1
+100016a8:	1a081007 		r16, r8, r2
+100016ac:	1b140d02 		r24, r20, r1
+100016b0:	29341f25 	addic	r9, r20, 7973
+100016b4:	2f371e28 	rsubic	r25, r23, 7720
+100016b8:	332d2130 	addik	r25, r13, 8496
+100016bc:	2c312738 	rsubic	r1, r17, 10040
+100016c0:	22352e2a 	addi	r17, r21, 11818
+100016c4:	32241d20 	addik	r17, r4, 7456
+
+100016c8 <exp_table_c>:
+100016c8:	20010203 	addi	r0, r1, 515
+100016cc:	04050405 	neg	r0, r5
+100016d0:	06070809 	neg	r16, r7
+100016d4:	08090a0b 		r0, r9, r1
+100016d8:	0c0d0c0d 		r0, r13, r1
+100016dc:	0e0f1011 		r16, r15, r2
+100016e0:	10111213 		r0, r17, r2
+100016e4:	14151415 		r0, r21, r2
+100016e8:	16171819 		r16, r23, r3
+100016ec:	18191a1b 		r0, r25, r3
+100016f0:	1c1d1c1d 		r0, r29, r3
+100016f4:	1e1f2001 		r16, r31, r4
+
+100016f8 <sbox8>:
+100016f8:	0d020804 		r8, r2, r1
+100016fc:	060f0b01 	neg	r16, r15
+10001700:	0a09030e 		r16, r9, r0
+10001704:	05000c07 	neg	r8, r0
+10001708:	010f0d08 		r8, r15, r1
+1000170c:	0a030704 		r16, r3, r0
+10001710:	0c05060b 		r0, r5, r0
+10001714:	000e0902 		r0, r14, r1
+10001718:	070b0401 	neg	r24, r11
+1000171c:	090c0e02 		r8, r12, r1
+10001720:	00060a0d 		r0, r6, r1
+10001724:	0f030508 		r24, r3, r0
+10001728:	02010e07 		r16, r1, r1
+1000172c:	040a080d 	neg	r0, r10
+10001730:	0f0c0900 		r24, r12, r1
+10001734:	0305060b 		r24, r5, r0
+
+10001738 <sbox7>:
+10001738:	040b020e 	neg	r0, r11
+1000173c:	0f00080d 		r24, r0, r1
+10001740:	030c0907 		r24, r12, r1
+10001744:	050a0601 	neg	r8, r10
+10001748:	0d000b07 		r8, r0, r1
+1000174c:	0409010a 	neg	r0, r9
+10001750:	0e03050c 		r16, r3, r0
+10001754:	020f0806 		r16, r15, r1
+10001758:	01040b0d 		r8, r4, r1
+1000175c:	0c03070e 		r0, r3, r0
+10001760:	0a0f0608 		r16, r15, r0
+10001764:	00050902 		r0, r5, r1
+10001768:	060b0d08 	neg	r16, r11
+1000176c:	01040a07 		r8, r4, r1
+10001770:	0905000f 		r8, r5, r0
+10001774:	0e02030c 		r16, r2, r0
+
+10001778 <sbox6>:
+10001778:	0c010a0f 		r0, r1, r1
+1000177c:	09020608 		r8, r2, r0
+10001780:	000d0304 		r0, r13, r0
+10001784:	0e07050b 		r16, r7, r0
+10001788:	0a0f0402 		r16, r15, r0
+1000178c:	070c0905 	neg	r24, r12
+10001790:	06010d0e 	neg	r16, r1
+10001794:	000b0308 		r0, r11, r0
+10001798:	090e0f05 		r8, r14, r1
+1000179c:	02080c03 		r16, r8, r1
+100017a0:	0700040a 	neg	r24, r0
+100017a4:	010d0b06 		r8, r13, r1
+100017a8:	0403020c 	neg	r0, r3
+100017ac:	09050f0a 		r8, r5, r1
+100017b0:	0b0e0107 		r24, r14, r0
+100017b4:	0600080d 	neg	r16, r0
+
+100017b8 <sbox5>:
+100017b8:	020c0401 		r16, r12, r0
+100017bc:	070a0b06 	neg	r24, r10
+100017c0:	0805030f 		r0, r5, r0
+100017c4:	0d000e09 		r8, r0, r1
+100017c8:	0e0b020c 		r16, r11, r0
+100017cc:	04070d01 	neg	r0, r7
+100017d0:	05000f0a 	neg	r8, r0
+100017d4:	03090806 		r24, r9, r1
+100017d8:	0402010b 	neg	r0, r2
+100017dc:	0a0d0708 		r16, r13, r0
+100017e0:	0f090c05 		r24, r9, r1
+100017e4:	0603000e 	neg	r16, r3
+100017e8:	0b080c07 		r24, r8, r1
+100017ec:	010e020d 		r8, r14, r0
+100017f0:	060f0009 	neg	r16, r15
+100017f4:	0a040503 		r16, r4, r0
+
+100017f8 <sbox4>:
+100017f8:	070d0e03 	neg	r24, r13
+100017fc:	0006090a 		r0, r6, r1
+10001800:	01020805 		r8, r2, r1
+10001804:	0b0c040f 		r24, r12, r0
+10001808:	0d080b05 		r8, r8, r1
+1000180c:	060f0003 	neg	r16, r15
+10001810:	0407020c 	neg	r0, r7
+10001814:	010a0e09 		r8, r10, r1
+10001818:	0a060900 		r16, r6, r1
+1000181c:	0c0b070d 		r0, r11, r0
+10001820:	0f01030e 		r24, r1, r0
+10001824:	05020804 	neg	r8, r2
+10001828:	030f0006 		r24, r15, r0
+1000182c:	0a010d08 		r16, r1, r1
+10001830:	0904050b 		r8, r4, r0
+10001834:	0c07020e 		r0, r7, r0
+
+10001838 <sbox3>:
+10001838:	0a00090e 		r16, r0, r1
+1000183c:	06030f05 	neg	r16, r3
+10001840:	010d0c07 		r8, r13, r1
+10001844:	0b040208 		r24, r4, r0
+10001848:	0d070009 		r8, r7, r0
+1000184c:	0304060a 		r24, r4, r0
+10001850:	0208050e 		r16, r8, r0
+10001854:	0c0b0f01 		r0, r11, r1
+10001858:	0d060409 		r8, r6, r0
+1000185c:	080f0300 		r0, r15, r0
+10001860:	0b01020c 		r24, r1, r0
+10001864:	050a0e07 	neg	r8, r10
+10001868:	010a0d00 		r8, r10, r1
+1000186c:	06090807 	neg	r16, r9
+10001870:	040f0e03 	neg	r0, r15
+10001874:	0b05020c 		r24, r5, r0
+
+10001878 <sbox2>:
+10001878:	0f01080e 		r24, r1, r1
+1000187c:	060b0304 	neg	r16, r11
+10001880:	0907020d 		r8, r7, r0
+10001884:	0c00050a 		r0, r0, r0
+10001888:	030d0407 		r24, r13, r0
+1000188c:	0f02080e 		r24, r2, r1
+10001890:	0c00010a 		r0, r0, r0
+10001894:	06090b05 	neg	r16, r9
+10001898:	000e070b 		r0, r14, r0
+1000189c:	0a040d01 		r16, r4, r1
+100018a0:	05080c06 	neg	r8, r8
+100018a4:	0903020f 		r8, r3, r0
+100018a8:	0d080a01 		r8, r8, r1
+100018ac:	030f0402 		r24, r15, r0
+100018b0:	0b06070c 		r24, r6, r0
+100018b4:	00050e09 		r0, r5, r1
+
+100018b8 <sbox1>:
+100018b8:	0e040d01 		r16, r4, r1
+100018bc:	020f0b08 		r16, r15, r1
+100018c0:	030a060c 		r24, r10, r0
+100018c4:	05090007 	neg	r8, r9
+100018c8:	000f0704 		r0, r15, r0
+100018cc:	0e020d01 		r16, r2, r1
+100018d0:	0a060c0b 		r16, r6, r1
+100018d4:	09050308 		r8, r5, r0
+100018d8:	04010e08 	neg	r0, r1
+100018dc:	0d06020b 		r8, r6, r0
+100018e0:	0f0c0907 		r24, r12, r1
+100018e4:	030a0500 		r24, r10, r0
+100018e8:	0f0c0802 		r24, r12, r1
+100018ec:	04090107 	neg	r0, r9
+100018f0:	050b030e 	neg	r8, r11
+100018f4:	0a00060d 		r16, r0, r0
+
+100018f8 <sbox_p_table_c>:
+100018f8:	10071415 		r0, r7, r2
+100018fc:	1d0c1c11 		r8, r12, r3
+10001900:	010f171a 		r8, r15, r2
+10001904:	05121f0a 	neg	r8, r18
+10001908:	0208180e 		r16, r8, r3
+1000190c:	201b0309 	addi	r0, r27, 777
+10001910:	130d1e06 		r24, r13, r3
+10001914:	160b0419 		r16, r11, r0
+
+10001918 <pc1_table_c>:
+10001918:	39312921 	addikc	r9, r17, 10529
+1000191c:	19110901 		r8, r17, r1
+10001920:	3a322a22 	addikc	r17, r18, 10786
+10001924:	1a120a02 		r16, r18, r1
+10001928:	3b332b23 	addikc	r25, r19, 11043
+1000192c:	1b130b03 		r24, r19, r1
+10001930:	3c342c24 	rsubikc	r1, r20, 11300
+10001934:	3f372f27 	rsubikc	r25, r23, 12071
+10001938:	1f170f07 		r24, r23, r1
+1000193c:	3e362e26 	rsubikc	r17, r22, 11814
+10001940:	1e160e06 		r16, r22, r1
+10001944:	3d352d25 	rsubikc	r9, r21, 11557
+10001948:	1d150d05 		r8, r21, r1
+1000194c:	1c140c04 		r0, r20, r1
+
+10001950 <ip_table_c>:
+10001950:	3a322a22 	addikc	r17, r18, 10786
+10001954:	1a120a02 		r16, r18, r1
+10001958:	3c342c24 	rsubikc	r1, r20, 11300
+1000195c:	1c140c04 		r0, r20, r1
+10001960:	3e362e26 	rsubikc	r17, r22, 11814
+10001964:	1e160e06 		r16, r22, r1
+10001968:	40383028 		r1, r24, r6
+1000196c:	20181008 	addi	r0, r24, 4104
+10001970:	39312921 	addikc	r9, r17, 10529
+10001974:	19110901 		r8, r17, r1
+10001978:	3b332b23 	addikc	r25, r19, 11043
+1000197c:	1b130b03 		r24, r19, r1
+10001980:	3d352d25 	rsubikc	r9, r21, 11557
+10001984:	1d150d05 		r8, r21, r1
+10001988:	3f372f27 	rsubikc	r25, r23, 12071
+1000198c:	1f170f07 		r24, r23, r1
+
+10001990 <fp_table_c>:
+10001990:	28083010 	addic	r0, r8, 12304
+10001994:	38184020 	addikc	r0, r24, 16416
+10001998:	27072f0f 	rsubi	r24, r7, 12047
+1000199c:	37173f1f 	rsubik	r24, r23, 16159
+100019a0:	26062e0e 	rsubi	r16, r6, 11790
+100019a4:	36163e1e 	rsubik	r16, r22, 15902
+100019a8:	25052d0d 	rsubi	r8, r5, 11533
+100019ac:	35153d1d 	rsubik	r8, r21, 15645
+100019b0:	24042c0c 	rsubi	r0, r4, 11276
+100019b4:	34143c1c 	rsubik	r0, r20, 15388
+100019b8:	23032b0b 	addi	r24, r3, 11019
+100019bc:	33133b1b 	addik	r24, r19, 15131
+100019c0:	22022a0a 	addi	r16, r2, 10762
+100019c4:	32123a1a 	addik	r16, r18, 14874
+100019c8:	21012909 	addi	r8, r1, 10505
+100019cc:	31113919 	addik	r8, r17, 14617
+
+100019d0 <_global_impure_ptr>:
+100019d0:	100019e4 		r0, r0, r3
+100019d4:	Address 0x100019d4 is out of bounds.
+
+
+Disassembly of section .sdata2:
+
+100019d6 <__sbss2_end-0x2>:
+100019d6:	Address 0x100019d6 is out of bounds.
+
+
+Disassembly of section .data:
+
+100019d8 <__data_start>:
+100019d8:	
+100019dc <__dso_handle>:
+100019dc:	
+100019e0 <_impure_ptr>:
+100019e0:	100019e4 		r0, r0, r3
+
+100019e4 <impure_data>:
+100019e4:	
+10001ad4 <force_to_data>:
+10001ad4:	
+Disassembly of section .ctors:
+
+10001ad8 <__CTOR_LIST__>:
+10001ad8:	ffffffff 		r31, r31, r31
+
+10001adc <__CTOR_END__>:
+10001adc:	
+Disassembly of section .dtors:
+
+10001ae0 <__DTOR_LIST__>:
+10001ae0:	ffffffff 		r31, r31, r31
+
+10001ae4 <__DTOR_END__>:
+10001ae4:	
+Disassembly of section .eh_frame:
+
+10001ae8 <__EH_FRAME_BEGIN__>:
+10001ae8:	
+Disassembly of section .jcr:
+
+10001aec <__JCR_END__>:
+10001aec:	
+Disassembly of section .bss:
+
+10001af0 <__bss_start>:
+10001af0:	
+10001af4 <dtor_idx.2340>:
+10001af4:	
+10001af8 <object.2350>:
+10001af8:	
+Disassembly of section .heap:
+
+10001b10 <_heap>:
+10001b10:	
+Disassembly of section .stack:
+
+10001c10 <_stack_end>:
+10001c10:	
+Disassembly of section .debug_line:
+
+00000000 <.debug_line>:
+       0:	000000a7 		r0, r0, r0
+       4:	00020000 	add	r0, r2, r0
+       8:	00490101 		r2, r9, r0
+       c:	fb0e0d00 	swi	r24, r14, 3328
+      10:	01010101 		r8, r1, r0
+      14:	00000001 		r0, r0, r0
+      18:	0000012f 		r0, r0, r0
+      1c:	676e752f 	bslli	r27, r14, 15
+      20:	6d625f67 	tneaget	r11, rfsl7
+      24:	6e752f2f 	ecaget	r19, rfsl15
+      28:	7372632f 		r27, r18, r12
+      2c:	6e65776c 	tnecget	r19, rfsl12
+      30:	69622f6c 		r11, r2, r5
+      34:	6962676c 		r11, r2, r12
+      38:	6f73732f 	tncget	r27, rfsl15
+      3c:	6d696372 	ncget	r11, rfsl2
+      40:	6f626c61 	necaget	r27, rfsl1
+      44:	7a650000 		r19, r5, r0
+      48:	63727430 	muli	r27, r18, 29744
+      4c:	2e530001 	rsubic	r18, r19, 1
+      50:	
+Disassembly of section .debug_info:
+
+00000000 <.debug_info>:
+       0:	000000b5 		r0, r0, r0
+       4:	00020000 	add	r0, r2, r0
+       8:	00000401 		r0, r0, r0
+       c:	
+Disassembly of section .debug_abbrev:
+
+00000000 <.debug_abbrev>:
+   0:	01110010 		r8, r17, r0
+   4:	06550603 	neg	r18, r21
+   8:	081b0825 		r0, r27, r1
+   c:	08130500 		r0, r19, r0
+  10:	00000111 		r0, r0, r0
+  14:	00100655 		r0, r16, r0
+  18:	0603081b 	neg	r16, r3
+  1c:	08250813 		r1, r5, r1
+  20:	05000000 	rsub	r8, r0, r0
+  24:	01110010 		r8, r17, r0
+  28:	06110112 	neg	r16, r17
+  2c:	0103081b 		r8, r3, r1
+  30:	08250813 		r1, r5, r1
+  34:	05000000 	rsub	r8, r0, r0
+  38:	01110125 		r8, r17, r0
+  3c:	0e130b03 		r16, r19, r1
+  40:	0e1b0e11 		r16, r27, r1
+  44:	01120110 		r8, r18, r0
+  48:	06000002 	neg	r16, r0
+  4c:	24000b0b 	rsubi	r0, r0, 2827
+  50:	3e0b030e 	rsubikc	r16, r11, 782
+  54:	00000316 		r0, r0, r0
+  58:	00030e3a 		r0, r3, r1
+  5c:	0b3b0b49 		r25, r27, r1
+  60:	13000004 		r24, r0, r0
+  64:	24000b0b 	rsubi	r0, r0, 2827
+  68:	3e0b0308 	rsubikc	r16, r11, 776
+  6c:	0000052e 		r0, r0, r0
+  70:	013f0c03 		r9, r31, r1
+  74:	0e3a0b3b 		r17, r26, r1
+  78:	0b270c20 		r25, r7, r1
+  7c:	0b011300 		r24, r1, r2
+  80:	00063400 		r0, r6, r6
+  84:	030e3a0b 		r24, r14, r7
+  88:	3b0b4913 	addikc	r24, r11, 18707
+  8c:	0000072e 		r0, r0, r0
+  90:	01030e3a 		r8, r3, r1
+  94:	0b3b0b27 		r25, r27, r1
+  98:	0c200b01 		r1, r0, r1
+  9c:	13000008 		r24, r0, r0
+  a0:	0500030e 	neg	r8, r0
+  a4:	3a0b3b0b 	addikc	r16, r11, 15115
+  a8:	49130000 	idiv	r8, r19, r0
+  ac:	09260049 		r9, r6, r0
+  b0:	1300000a 		r24, r0, r0
+  b4:	0f000b0b 		r24, r0, r1
+  b8:	49130000 	idiv	r8, r19, r0
+  bc:	0b2e0003 		r25, r14, r0
+  c0:	0e3a0b3b 		r17, r26, r1
+  c4:	0b270c20 		r25, r7, r1
+  c8:	0b00000c 		r24, r0, r0
+  cc:	2e013f0c 	rsubic	r16, r1, 16140
+  d0:	030e3a0b 		r24, r14, r7
+  d4:	3b0b270c 	addikc	r24, r11, 9996
+  d8:	11011201 		r8, r1, r2
+  dc:	400a0113 		r0, r10, r0
+  e0:	00000d05 		r0, r0, r1
+  e4:	0003083a 		r0, r3, r1
+  e8:	0b3b0b49 		r25, r27, r1
+  ec:	13020a00 		r24, r2, r1
+  f0:	000e1d01 		r0, r14, r3
+  f4:	31131101 	addik	r8, r19, 4353
+  f8:	1201580b 		r16, r1, r11
+  fc:	590b0113 		r8, r11, r0
+ 100:	00000f05 		r0, r0, r1
+ 104:	00311302 		r1, r17, r2
+ 108:	0a000010 		r16, r0, r0
+ 10c:	1d003113 		r8, r0, r6
+ 110:	11011201 		r8, r1, r2
+ 114:	580b590b 		r0, r11, r11
+ 118:	0000111d 		r0, r0, r2
+ 11c:	01311311 		r9, r17, r2
+ 120:	01120158 		r8, r18, r0
+ 124:	0b590b00 		r26, r25, r1
+ 128:	00120b01 		r0, r18, r1
+ 12c:	11011201 		r8, r1, r2
+ 130:	00001334 		r0, r0, r2
+ 134:	00311302 		r1, r17, r2
+ 138:	06000014 	neg	r16, r0
+ 13c:	2e013113 	rsubic	r16, r1, 12563
+ 140:	11011201 		r8, r1, r2
+ 144:	400a0113 		r0, r10, r0
+ 148:	00001501 		r0, r0, r2
+ 14c:	01491301 		r10, r9, r2
+ 150:	13000016 		r24, r0, r0
+ 154:	21004913 	addi	r8, r0, 18707
+ 158:	2f0b0000 	rsubic	r24, r11, 0
+ 15c:	00011101 		r0, r1, r2
+ 160:	250e130b 	rsubi	r8, r14, 4875
+ 164:	030e1b0e 		r24, r14, r3
+ 168:	11011201 		r8, r1, r2
+ 16c:	10060000 	addk	r0, r6, r0
+ 170:	02160003 		r16, r22, r0
+ 174:	0e3a0b3b 		r17, r26, r1
+ 178:	0b491300 		r26, r9, r2
+ 17c:	00032400 		r0, r3, r4
+ 180:	0b0b3e0b 		r24, r11, r7
+ 184:	030e0000 	add	r24, r14, r0
+ 188:	0424000b 	neg	r1, r4
+ 18c:	0b3e0b03 		r25, r30, r1
+ 190:	08000005 		r0, r0, r0
+ 194:	2e013f0c 	rsubic	r16, r1, 16140
+ 198:	030e3a0b 		r24, r14, r7
+ 19c:	3b0b270c 	addikc	r24, r11, 9996
+ 1a0:	4913200b 		r8, r19, r4
+ 1a4:	01130000 	add	r8, r19, r0
+ 1a8:	06050003 	neg	r16, r5
+ 1ac:	0e3a0b3b 		r17, r26, r1
+ 1b0:	0b491300 		r26, r9, r2
+ 1b4:	00073400 		r0, r7, r6
+ 1b8:	03083a0b 		r24, r8, r7
+ 1bc:	3b0b4913 	addikc	r24, r11, 18707
+ 1c0:	00000834 		r0, r0, r1
+ 1c4:	00030e3a 		r0, r3, r1
+ 1c8:	0b3b0b49 		r25, r27, r1
+ 1cc:	13000009 		r24, r0, r0
+ 1d0:	26004913 	rsubi	r16, r0, 18707
+ 1d4:	00000a0f 		r0, r0, r1
+ 1d8:	000b0b49 		r0, r11, r1
+ 1dc:	1300000b 		r24, r0, r0
+ 1e0:	2e013113 	rsubic	r16, r1, 12563
+ 1e4:	11011201 		r8, r1, r2
+ 1e8:	40060113 		r0, r6, r0
+ 1ec:	00000c05 		r0, r0, r1
+ 1f0:	00311302 		r1, r17, r2
+ 1f4:	0a00000d 		r16, r0, r0
+ 1f8:	34003113 	rsubik	r0, r0, 12563
+ 1fc:	02060000 	add	r16, r6, r0
+ 200:	0e340031 		r17, r20, r0
+ 204:	1300000f 		r24, r0, r0
+ 208:	2e013f0c 	rsubic	r16, r1, 16140
+ 20c:	030e3a0b 		r24, r14, r7
+ 210:	3b0b270c 	addikc	r24, r11, 9996
+ 214:	49131101 		r8, r19, r2
+ 218:	12014006 		r16, r1, r8
+ 21c:	01130000 	add	r8, r19, r0
+ 220:	10050003 		r0, r5, r0
+ 224:	083a0b3b 		r1, r26, r1
+ 228:	0b491302 		r26, r9, r2
+ 22c:	06000011 	neg	r16, r0
+ 230:	0500030e 	neg	r8, r0
+ 234:	3a0b3b0b 	addikc	r16, r11, 15115
+ 238:	49130206 		r8, r19, r0
+ 23c:	00001234 		r0, r0, r2
+ 240:	00030e3a 		r0, r3, r1
+ 244:	0b3b0b49 		r25, r27, r1
+ 248:	13020600 		r24, r2, r0
+ 24c:	00131d01 		r0, r19, r3
+ 250:	31131101 	addik	r8, r19, 4353
+ 254:	1201580b 		r16, r1, r11
+ 258:	590b0000 	fadd	r8, r11, r0
+ 25c:	14050031 		r0, r5, r0
+ 260:	13020600 		r24, r2, r0
+ 264:	00150b01 		r0, r21, r1
+ 268:	11011201 		r8, r1, r2
+ 26c:	0000162e 		r0, r0, r2
+ 270:	013f0c03 		r9, r31, r1
+ 274:	0e3a0b3b 		r17, r26, r1
+ 278:	0b270c11 		r25, r7, r1
+ 27c:	01120140 		r8, r18, r0
+ 280:	06011300 	neg	r16, r1
+ 284:	00173400 		r0, r23, r6
+ 288:	030e3a0b 		r24, r14, r7
+ 28c:	3b0b4913 	addikc	r24, r11, 18707
+ 290:	020a0000 	add	r16, r10, r0
+ 294:	18340003 		r1, r20, r0
+ 298:	083a0b3b 		r1, r26, r1
+ 29c:	0b491302 		r26, r9, r2
+ 2a0:	06000019 	neg	r16, r0
+ 2a4:	1d013113 		r8, r1, r6
+ 2a8:	11011201 		r8, r1, r2
+ 2ac:	580b590b 		r0, r11, r11
+ 2b0:	01130000 	add	r8, r19, r0
+ 2b4:	1a050031 		r16, r5, r0
+ 2b8:	131c0b00 		r24, r28, r1
+ 2bc:	001b0500 		r0, r27, r0
+ 2c0:	31130000 	addik	r8, r19, 0
+ 2c4:	1c2e013f 		r1, r14, r0
+ 2c8:	0c030e3a 		r0, r3, r1
+ 2cc:	0b3b0b27 		r25, r27, r1
+ 2d0:	0c200b01 		r1, r0, r1
+ 2d4:	1300001d 		r24, r0, r0
+ 2d8:	05000308 	neg	r8, r0
+ 2dc:	3a0b3b0b 	addikc	r16, r11, 15115
+ 2e0:	49130000 	idiv	r8, r19, r0
+ 2e4:	1e340031 		r17, r20, r0
+ 2e8:	13020a00 		r24, r2, r1
+ 2ec:	001f1d01 		r0, r31, r3
+ 2f0:	31135201 	addik	r8, r19, 20993
+ 2f4:	5506580b 		r8, r6, r11
+ 2f8:	590b0113 		r8, r11, r0
+ 2fc:	0000200b 		r0, r0, r4
+ 300:	01550600 		r10, r21, r0
+ 304:	00210101 		r1, r1, r0
+ 308:	49130113 		r8, r19, r0
+ 30c:	00002221 		r0, r0, r4
+ 310:	0049132f 		r2, r9, r2
+ 314:	0b000000 	addc	r24, r0, r0
+ 318:	01110125 		r8, r17, r0
+ 31c:	0e130b03 		r16, r19, r1
+ 320:	0e1b0e11 		r16, r27, r1
+ 324:	01520155 		r10, r18, r0
+ 328:	06100600 	neg	r16, r16
+ 32c:	00021600 		r0, r2, r2
+ 330:	030e3a0b 		r24, r14, r7
+ 334:	3b0b4913 	addikc	r24, r11, 18707
+ 338:	00000324 		r0, r0, r0
+ 33c:	000b0b3e 		r0, r11, r1
+ 340:	0b030e00 		r24, r3, r1
+ 344:	00042400 		r0, r4, r4
+ 348:	0b0b3e0b 		r24, r11, r7
+ 34c:	03080000 	add	r24, r8, r0
+ 350:	0504010b 	neg	r8, r4
+ 354:	0b3a0b3b 		r25, r26, r1
+ 358:	0b011300 		r24, r1, r2
+ 35c:	00062800 	add	r0, r6, r5
+ 360:	030e1c0d 		r24, r14, r3
+ 364:	0000072e 		r0, r0, r0
+ 368:	013f0c03 		r9, r31, r1
+ 36c:	0e3a0b3b 		r17, r26, r1
+ 370:	0b270c49 		r25, r7, r1
+ 374:	13110112 		r24, r17, r0
+ 378:	01400601 		r10, r0, r0
+ 37c:	13000008 		r24, r0, r0
+ 380:	34000308 	rsubik	r0, r0, 776
+ 384:	3a0b3b0b 	addikc	r16, r11, 15115
+ 388:	49130206 		r8, r19, r0
+ 38c:	00000934 		r0, r0, r1
+ 390:	00030e3a 		r0, r3, r1
+ 394:	0b3b0b49 		r25, r27, r1
+ 398:	13020600 		r24, r2, r0
+ 39c:	000a3400 		r0, r10, r6
+ 3a0:	030e3a0b 		r24, r14, r7
+ 3a4:	3b0b4913 	addikc	r24, r11, 18707
+ 3a8:	020a0000 	add	r16, r10, r0
+ 3ac:	0b010149 		r24, r1, r0
+ 3b0:	13011300 		r24, r1, r2
+ 3b4:	000c2100 		r0, r12, r4
+ 3b8:	49132f0b 		r8, r19, r5
+ 3bc:	00000d34 		r0, r0, r1
+ 3c0:	00030e3a 		r0, r3, r1
+ 3c4:	0b3b0b49 		r25, r27, r1
+ 3c8:	1300000e 		r24, r0, r0
+ 3cc:	26004913 	rsubi	r16, r0, 18707
+ 3d0:	00000001 		r0, r0, r0
+ 3d4:	11001006 		r8, r0, r2
+ 3d8:	11011201 		r8, r1, r2
+ 3dc:	03081b08 		r24, r8, r3
+ 3e0:	25081305 	rsubi	r8, r8, 4869
+ 3e4:	00000001 		r0, r0, r0
+ 3e8:	11001006 		r8, r0, r2
+ 3ec:	11011201 		r8, r1, r2
+ 3f0:	03081b08 		r24, r8, r3
+ 3f4:	25081305 	rsubi	r8, r8, 4869
+ 3f8:	00000001 		r0, r0, r0
+ 3fc:	11001006 		r8, r0, r2
+ 400:	11011201 		r8, r1, r2
+ 404:	03081b08 		r24, r8, r3
+ 408:	25081305 	rsubi	r8, r8, 4869
+ 40c:	00000001 		r0, r0, r0
+ 410:	11001006 		r8, r0, r2
+ 414:	11011201 		r8, r1, r2
+ 418:	03081b08 		r24, r8, r3
+ 41c:	25081305 	rsubi	r8, r8, 4869
+ 420:	00000001 		r0, r0, r0
+ 424:	11001006 		r8, r0, r2
+ 428:	11011201 		r8, r1, r2
+ 42c:	03081b08 		r24, r8, r3
+ 430:	25081305 	rsubi	r8, r8, 4869
+ 434:	00000001 		r0, r0, r0
+ 438:	11001006 		r8, r0, r2
+ 43c:	55060308 		r8, r6, r0
+ 440:	1b082508 		r24, r8, r4
+ 444:	13050000 	addk	r24, r5, r0
+ 448:	Address 0x00000448 is out of bounds.
+
+
+Disassembly of section .debug_aranges:
+
+00000000 <.debug_aranges>:
+   0:	0000003c 		r0, r0, r0
+   4:	00020000 	add	r0, r2, r0
+   8:	00000400 		r0, r0, r0
+   c:	
+Disassembly of section .debug_ranges:
+
+00000000 <.debug_ranges>:
+   0:	ffffffff 		r31, r31, r31
+   4:	
+Disassembly of section .debug_frame:
+
+00000000 <.debug_frame>:
+   0:	0000000c 		r0, r0, r0
+   4:	ffffffff 		r31, r31, r31
+   8:	0100017c 		r8, r0, r0
+   c:	0f0c0100 		r24, r12, r0
+  10:	0000000c 		r0, r0, r0
+  14:	
+Disassembly of section .debug_loc:
+
+00000000 <.debug_loc>:
+       0:	0000001c 		r0, r0, r0
+       4:	00000020 		r0, r0, r0
+       8:	00057300 		r0, r5, r14
+       c:	321a9f00 	addik	r16, r26, -24832
+      10:	00002000 	add	r0, r0, r4
+      14:	00002c00 		r0, r0, r5
+      18:	01530000 	add	r10, r19, r0
+      1c:	
+Disassembly of section .debug_str:
+
+00000000 <.debug_str>:
+   0:	6c6f6e67 	necaget	r3, rfsl7
+   4:	206c6f6e 	addi	r3, r12, 28526
+   8:	6720696e 	bsrli	r25, r0, 14
+   c:	74007561 		r0, r0, r14
+  10:	72745f73 		r19, r20, r11
+  14:	656e6400 	bslli	r11, r14, 0
+  18:	75617274 		r11, r1, r14
+  1c:	5f707574 		r27, r16, r14
+  20:	00756172 		r3, r21, r12
+  24:	745f6765 		r2, r31, r12
+  28:	74006c6f 		r0, r0, r13
+  2c:	6e67206c 	cget	r19, rfsl12
+  30:	6f6e6720 	necget	r27, rfsl0
+  34:	756e7369 		r11, r14, r14
+  38:	676e6564 	bslli	r27, r14, 4
+  3c:	20696e74 	addi	r3, r9, 28276
+  40:	00666c6f 		r3, r6, r13
+  44:	61740075 	muli	r11, r20, 117
+  48:	6172745f 	muli	r11, r18, 29791
+  4c:	72656164 		r19, r5, r12
+  50:	00435055 		r2, r3, r10
+  54:	5f564552 		r26, r22, r8
+  58:	00756e73 		r3, r21, r13
+  5c:	69676e65 		r11, r7, r13
+  60:	64206368 	bsrai	r1, r0, 8
+  64:	61720075 	muli	r11, r18, 117
+  68:	6172745f 	muli	r11, r18, 29791
+  6c:	77616974 		r27, r1, r13
+  70:	5f74785f 		r27, r20, r15
+  74:	646f6e65 		r3, r15, r13
+  78:	00646f75 		r3, r4, r13
+  7c:	626c6500 	muli	r19, r12, 25856
+  80:	75617274 		r11, r1, r14
+  84:	5f777269 		r27, r23, r14
+  88:	74650075 		r3, r5, r0
+  8c:	6172745f 	muli	r11, r18, 29791
+  90:	77616974 		r27, r1, r13
+  94:	5f72785f 		r27, r18, r15
+  98:	72656164 		r19, r5, r12
+  9c:	79007362 		r8, r0, r14
+  a0:	5f75696e 		r27, r21, r13
+  a4:	74385f74 		r1, r24, r11
+  a8:	0073686f 		r3, r19, r13
+  ac:	72742075 		r19, r20, r4
+  b0:	6e736967 	ncaget	r19, rfsl7
+  b4:	6e656420 	necget	r19, rfsl0
+  b8:	696e7400 		r11, r14, r14
+  bc:	2f686f6d 	rsubic	r27, r8, 28525
+  c0:	652f6c75 	bslli	r9, r15, 21
+  c4:	636b7974 	muli	r27, r11, 31092
+  c8:	69676572 		r11, r7, r12
+  cc:	2f446573 	rsubic	r26, r4, 25971
+  d0:	6b746f70 		r27, r20, r13
+  d4:	2f736563 	rsubic	r27, r19, 25955
+  d8:	72657462 		r19, r5, r14
+  dc:	6c617a65 	tncaget	r3, rfsl5
+  e0:	5f737464 		r27, r19, r14
+  e4:	5f315f36 		r25, r17, r11
+  e8:	382f7377 	addikc	r1, r15, 29559
+  ec:	2f617070 	rsubic	r27, r1, 28784
+  f0:	732f6465 		r25, r15, r12
+  f4:	73004350 		r24, r0, r8
+  f8:	555f4348 		r10, r31, r8
+  fc:	49500047 		r10, r16, r0
+ 100:	4e552043 	agetd	r18, r4
+ 104:	20342e36 	addi	r1, r20, 11830
+ 108:	2e322032 	rsubic	r17, r18, 8242
+ 10c:	30313131 	addik	r1, r17, 12593
+ 110:	30313820 	addik	r1, r17, 14368
+ 114:	2858696c 	addic	r2, r24, 26988
+ 118:	696e7820 		r11, r14, r15
+ 11c:	31342e31 	addik	r9, r20, 11825
+ 120:	20427569 	addi	r2, r2, 30057
+ 124:	6c642045 	cget	r3, rfsl5
+ 128:	444b5f50 		r2, r11, r11
+ 12c:	2e313520 	rsubic	r17, r17, 13600
+ 130:	3232204d 	addik	r17, r18, 8269
+ 134:	61722032 	muli	r11, r18, 8242
+ 138:	30313229 	addik	r1, r17, 12841
+ 13c:	0073625f 		r3, r19, r12
+ 140:	75696e74 		r11, r9, r13
+ 144:	33325f74 	addik	r25, r18, 24436
+ 148:	0073686f 		r3, r19, r13
+ 14c:	72742069 		r19, r20, r4
+ 150:	6e74002e 	get	r19, rfsl14
+ 154:	2e2f2e2e 	rsubic	r17, r15, 11822
+ 158:	2f6c6962 	rsubic	r27, r12, 26978
+ 15c:	2f736563 	rsubic	r27, r19, 25955
+ 160:	72657462 		r19, r5, r14
+ 164:	6c617a65 	tncaget	r3, rfsl5
+ 168:	2f73625f 	rsubic	r27, r19, 25183
+ 16c:	75617274 		r11, r1, r14
+ 170:	2e630066 	rsubic	r19, r3, 102
+ 174:	6c616700 	necget	r3, rfsl0
+ 178:	64617461 	bslli	r3, r1, 1
+ 17c:	5f786f72 		r27, r24, r13
+ 180:	5f6b6579 		r27, r11, r12
+ 184:	00646f5f 		r3, r4, r13
+ 188:	7065726d 		r3, r5, r14
+ 18c:	0073626f 		r3, r19, r12
+ 190:	785f6f75 		r2, r31, r13
+ 194:	74006e65 		r0, r0, r13
+ 198:	775f6c65 		r26, r31, r13
+ 19c:	66740073 	bsrli	r19, r20, 19
+ 1a0:	626f785f 	muli	r19, r15, 30815
+ 1a4:	705f7461 		r2, r31, r14
+ 1a8:	626c655f 	muli	r19, r12, 25951
+ 1ac:	63007375 	muli	r24, r0, 29557
+ 1b0:	626b6579 	muli	r19, r11, 25977
+ 1b4:	0073626f 		r3, r19, r12
+ 1b8:	78310070 		r1, r17, r0
+ 1bc:	63325f74 	muli	r25, r18, 24436
+ 1c0:	61626c65 	muli	r11, r2, 27749
+ 1c4:	5f630073 		r27, r3, r0
+ 1c8:	626f7832 	muli	r19, r15, 30770
+ 1cc:	00646f5f 		r3, r4, r13
+ 1d0:	726f756e 		r19, r15, r14
+ 1d4:	64006461 	bslli	r0, r0, 1
+ 1d8:	74615f74 		r3, r1, r11
+ 1dc:	6d70006b 	get	r11, rfsl11
+ 1e0:	65795f6c 		r11, r25, r11
+ 1e4:	00646174 		r3, r4, r12
+ 1e8:	615f7265 	muli	r10, r31, 29285
+ 1ec:	7300646f 		r24, r0, r12
+ 1f0:	5f6b6579 		r27, r11, r12
+ 1f4:	0066705f 		r3, r6, r14
+ 1f8:	7461626c 		r3, r1, r12
+ 1fc:	655f6300 	bsrai	r10, r31, 0
+ 200:	6b65795f 		r27, r5, r15
+ 204:	72007461 		r16, r0, r14
+ 208:	626c6500 	muli	r19, r12, 25856
+ 20c:	646f5f64 		r3, r15, r11
+ 210:	65730073 	bsrli	r11, r19, 19
+ 214:	626f7836 	muli	r19, r15, 30774
+ 218:	00646563 		r3, r4, r12
+ 21c:	72797074 		r19, r25, r14
+ 220:	5f726f74 		r27, r18, r13
+ 224:	6174655f 	muli	r11, r20, 25951
+ 228:	74616200 		r3, r1, r12
+ 22c:	6578705f 	bsrli	r11, r24, 31
+ 230:	7461626c 		r3, r1, r12
+ 234:	655f6300 	bsrai	r10, r31, 0
+ 238:	6b65795f 		r27, r5, r15
+ 23c:	35360073 	rsubik	r9, r22, 115
+ 240:	697a655f 		r11, r26, r12
+ 244:	64617461 	bslli	r3, r1, 1
+ 248:	5f6f7574 		r27, r15, r14
+ 24c:	0073697a 		r3, r19, r13
+ 250:	655f6461 	bslli	r10, r31, 1
+ 254:	74615f69 		r3, r1, r11
+ 258:	6e006d6f 	necaget	r16, rfsl15
+ 25c:	64650064 	bsrli	r3, r5, 4
+ 260:	65732e63 		r11, r19, r5
+ 264:	0073626f 		r3, r19, r12
+ 268:	78350070 		r1, r21, r0
+ 26c:	63315f74 	muli	r25, r17, 24436
+ 270:	61626c65 	muli	r11, r2, 27749
+ 274:	5f630065 		r27, r3, r0
+ 278:	78705f64 		r3, r16, r11
+ 27c:	61746100 	muli	r11, r20, 24832
+ 280:	6e65775f 	tnecget	r19, rfsl15
+ 284:	72696768 		r19, r9, r12
+ 288:	74007362 		r0, r0, r14
+ 28c:	6f783300 	tcget	r27, rfsl0
+ 290:	73626f78 		r27, r2, r13
+ 294:	34007362 	rsubik	r0, r0, 29538
+ 298:	5f75696e 		r27, r21, r13
+ 29c:	7436345f 		r1, r22, r6
+ 2a0:	74007362 		r0, r0, r14
+ 2a4:	6f783700 	tecget	r27, rfsl0
+ 2a8:	73626f78 		r27, r2, r13
+ 2ac:	3800656e 	addikc	r0, r0, 25966
+ 2b0:	63727970 	muli	r27, r18, 31088
+ 2b4:	745f726f 		r2, r31, r14
+ 2b8:	74617465 		r3, r1, r14
+ 2bc:	5f746162 		r27, r20, r12
+ 2c0:	0069705f 		r3, r9, r14
+ 2c4:	7461626c 		r3, r1, r12
+ 2c8:	655f6300 	bsrai	r10, r31, 0
+ 2cc:	646f5f66 		r3, r15, r11
+ 2d0:	65697374 	bsrai	r11, r9, 20
+ 2d4:	656c0073 	bsrli	r11, r12, 19
+ 2d8:	7761705f 		r27, r1, r14
+ 2dc:	6c007377 	tncget	r0, rfsl7
+ 2e0:	61705f72 	muli	r11, r16, 24434
+ 2e4:	0073625f 		r3, r19, r12
+ 2e8:	74727565 		r3, r18, r14
+ 2ec:	0072785f 		r3, r18, r15
+ 2f0:	75617274 		r11, r1, r14
+ 2f4:	5f627566 		r27, r2, r14
+ 2f8:	66657200 	bsrai	r19, r5, 0
+ 2fc:	63697068 	muli	r27, r9, 28776
+ 300:	6572006d 	bsrli	r11, r18, 13
+ 304:	61696e00 	muli	r11, r9, 28160
+ 308:	6d61696e 	ncaget	r11, rfsl14
+ 30c:	2e630073 	rsubic	r19, r3, 115
+ 310:	625f6661 	muli	r18, r31, 26209
+ 314:	6c736500 	necget	r3, rfsl0
+ 318:	73625f69 		r27, r2, r11
+ 31c:	6e743332 	tcget	r19, rfsl2
+ 320:	Address 0x00000320 is out of bounds.
+

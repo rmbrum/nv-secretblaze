@@ -1,0 +1,75 @@
+/*
+ *    Copyright (C) 2010 - 2012 Barthe Lyonel <lyonel.barthe@lirmm.fr>
+ *
+ *    This file is part of SecretBlaze.
+ *
+ *    SecretBlaze is free software: you can redistribute it and/or modify
+ *    it under the terms of the GNU General Public License as published by
+ *    the Free Software Foundation, either version 3 of the License, or
+ *    (at your option) any later version.
+ *
+ *    SecretBlaze is distributed in the hope that it will be useful,
+ *    but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *    GNU General Public License for more details.
+ *
+ *    You should have received a copy of the GNU General Public License
+ *    along with SecretBlaze.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/*
+ * lm_16ko.bmm
+ *
+ * Processor BMM file
+ * Used for data2mem Xilinx tool
+ * 
+ * Company    : LIRMM
+ * Engineer   : Lyonel Barthe
+ * Version    : 1.0
+ *
+ * Revision History :
+ *   Version 1.0 - 22/04/2010 by Lyonel Barthe
+ *
+ */
+
+/*
+ *
+ * Done for the following memory description:
+ *
+ *   |---------------------------------|
+ *   |- 0x00000000 -|                 -|
+ *   |-            -|     Vectors     -|
+ *   |- 0x0000004F -|                 -|
+ *   |---------------------------------|
+ *   |- 0x00000050 -|                 -|
+ *   |-            -|    Local RAM    -|
+ *   |- 0x00003FFF -|                 -|
+ *   |---------------------------------|
+ *
+ */
+
+/* 
+ * Processor SECRETBLAZE Memory Map, ID 100
+ */
+ADDRESS_MAP SECRETBLAZE_MAP MICROBLAZE 100
+
+    /* VECTOR TABLE & LOCAL RAM MEMORY */
+    ADDRESS_SPACE local_ram COMBINED [0x00000000:0x00003FFF] 
+    
+        ADDRESS_RANGE RAMB16
+          BUS_BLOCK
+            SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_4/Mram_dpram_r2 [31:28] PLACED = X0Y8;
+            SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_4/Mram_dpram_r1 [27:24] PLACED = X1Y3;
+            SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_3/Mram_dpram_r2 [23:20] PLACED = X0Y7;
+            SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_3/Mram_dpram_r1 [19:16] PLACED = X1Y2;
+            SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_2/Mram_dpram_r2 [15:12] PLACED = X0Y10;            
+            SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_2/Mram_dpram_r1 [11:8]  PLACED = X0Y9;
+            SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_1/Mram_dpram_r2 [7:4]   PLACED = X0Y11;
+            SECRETBLAZE_SOC/SECRETBLAZE/MEMORY_UNIT/LOCAL_MEMORY/MEM/MEM_1/Mram_dpram_r1 [3:0]   PLACED = X1Y5;
+          END_BUS_BLOCK;
+        END_ADDRESS_RANGE;
+        
+    END_ADDRESS_SPACE;
+
+END_ADDRESS_MAP;
+

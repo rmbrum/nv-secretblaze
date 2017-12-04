@@ -1,0 +1,3205 @@
+
+test_interrupt.elf:     file format elf32-microblaze
+
+
+Disassembly of section .vectors.reset:
+
+10000000 <_start>:
+10000000:	b0001000 	imm	4096
+10000004:	b8080050 	brai	80	// 10000050 <_start1>
+
+Disassembly of section .vectors.sw_exception:
+
+10000008 <_vector_sw_exception>:
+10000008:	b0001000 	imm	4096
+1000000c:	b8080db4 	brai	3508	// 10000db4 <_exception_handler>
+
+Disassembly of section .vectors.interrupt:
+
+10000010 <_vector_interrupt>:
+10000010:	b0001000 	imm	4096
+10000014:	b8080350 	brai	848	// 10000350 <BSP_IntHandler>
+
+Disassembly of section .vectors.hw_exception:
+
+10000020 <_vector_hw_exception>:
+10000020:	b0001000 	imm	4096
+10000024:	b8080dbc 	brai	3516	// 10000dbc <_hw_exception_handler>
+
+Disassembly of section .text:
+
+10000050 <_start1>:
+10000050:	b0001000 	imm	4096
+10000054:	31a01394 	addik	r13, r0, 5012	// 10001394 <_SDA_BASE_>
+10000058:	b0001000 	imm	4096
+1000005c:	30401265 	addik	r2, r0, 4709	// 10001265 <_SDA2_BASE_>
+10000060:	b0001000 	imm	4096
+10000064:	30201618 	addik	r1, r0, 5656
+10000068:	b9f4012c 	brlid	r15, 300	// 10000194 <_crtinit>
+1000006c:	80000000 	or	r0, r0, r0
+10000070:	b9f40d64 	brlid	r15, 3428	// 10000dd4 <exit>
+10000074:	30a30000 	addik	r5, r3, 0
+
+10000078 <_exit>:
+10000078:	b8000000 	bri	0	// 10000078 <_exit>
+
+1000007c <__do_global_dtors_aux>:
+1000007c:	b0001000 	imm	4096
+10000080:	e06013a4 	lbui	r3, r0, 5028	// 100013a4 <__tbss_end>
+10000084:	3021ffdc 	addik	r1, r1, -36
+10000088:	f9e10000 	swi	r15, r1, 0
+1000008c:	fa61001c 	swi	r19, r1, 28
+10000090:	be23008c 	bneid	r3, 140		// 1000011c
+10000094:	fac10020 	swi	r22, r1, 32
+10000098:	b0001000 	imm	4096
+1000009c:	32c0137c 	addik	r22, r0, 4988	// 1000137c <__CTOR_END__>
+100000a0:	b0001000 	imm	4096
+100000a4:	32601380 	addik	r19, r0, 4992	// 10001380 <__DTOR_END__>
+100000a8:	b0001000 	imm	4096
+100000ac:	e86013a8 	lwi	r3, r0, 5032	// 100013a8 <dtor_idx.2340>
+100000b0:	16769800 	rsubk	r19, r22, r19
+100000b4:	66730202 	bsrai	r19, r19, 2
+100000b8:	3273ffff 	addik	r19, r19, -1
+100000bc:	14931803 	cmpu	r4, r19, r3
+100000c0:	bea40034 	bgeid	r4, 52		// 100000f4
+100000c4:	30630001 	addik	r3, r3, 1
+100000c8:	64830402 	bslli	r4, r3, 2
+100000cc:	c884b000 	lw	r4, r4, r22
+100000d0:	b0001000 	imm	4096
+100000d4:	f86013a8 	swi	r3, r0, 5032	// 100013a8 <dtor_idx.2340>
+100000d8:	99fc2000 	brald	r15, r4
+100000dc:	80000000 	or	r0, r0, r0
+100000e0:	b0001000 	imm	4096
+100000e4:	e86013a8 	lwi	r3, r0, 5032	// 100013a8 <dtor_idx.2340>
+100000e8:	14931803 	cmpu	r4, r19, r3
+100000ec:	be44ffdc 	bltid	r4, -36		// 100000c8
+100000f0:	30630001 	addik	r3, r3, 1
+100000f4:	b0000000 	imm	0
+100000f8:	30600000 	addik	r3, r0, 0
+100000fc:	bc030014 	beqi	r3, 20		// 10000110
+10000100:	b0001000 	imm	4096
+10000104:	30a01384 	addik	r5, r0, 4996	// 10001384 <__EH_FRAME_BEGIN__>
+10000108:	99fc1800 	brald	r15, r3
+1000010c:	80000000 	or	r0, r0, r0
+10000110:	30600001 	addik	r3, r0, 1
+10000114:	b0001000 	imm	4096
+10000118:	f06013a4 	sbi	r3, r0, 5028	// 100013a4 <__tbss_end>
+1000011c:	e9e10000 	lwi	r15, r1, 0
+10000120:	ea61001c 	lwi	r19, r1, 28
+10000124:	eac10020 	lwi	r22, r1, 32
+10000128:	b60f0008 	rtsd	r15, 8
+1000012c:	30210024 	addik	r1, r1, 36
+
+10000130 <frame_dummy>:
+10000130:	b0000000 	imm	0
+10000134:	30600000 	addik	r3, r0, 0
+10000138:	3021ffe4 	addik	r1, r1, -28
+1000013c:	be030020 	beqid	r3, 32		// 1000015c
+10000140:	f9e10000 	swi	r15, r1, 0
+10000144:	b0001000 	imm	4096
+10000148:	30a01384 	addik	r5, r0, 4996	// 10001384 <__EH_FRAME_BEGIN__>
+1000014c:	b0001000 	imm	4096
+10000150:	30c013ac 	addik	r6, r0, 5036	// 100013ac <object.2350>
+10000154:	99fc1800 	brald	r15, r3
+10000158:	80000000 	or	r0, r0, r0
+1000015c:	b0001000 	imm	4096
+10000160:	e8601388 	lwi	r3, r0, 5000	// 10001388 <__JCR_END__>
+10000164:	be030028 	beqid	r3, 40		// 1000018c
+10000168:	e9e10000 	lwi	r15, r1, 0
+1000016c:	b0000000 	imm	0
+10000170:	30600000 	addik	r3, r0, 0
+10000174:	bc030018 	beqi	r3, 24		// 1000018c
+10000178:	b0001000 	imm	4096
+1000017c:	30a01388 	addik	r5, r0, 5000	// 10001388 <__JCR_END__>
+10000180:	99fc1800 	brald	r15, r3
+10000184:	80000000 	or	r0, r0, r0
+10000188:	e9e10000 	lwi	r15, r1, 0
+1000018c:	b60f0008 	rtsd	r15, 8
+10000190:	3021001c 	addik	r1, r1, 28
+
+10000194 <_crtinit>:
+10000194:	2021ffec 	addi	r1, r1, -20
+10000198:	f9e10000 	swi	r15, r1, 0
+1000019c:	b0001000 	imm	4096
+100001a0:	20c01398 	addi	r6, r0, 5016	// 10001398 <__sbss_end>
+100001a4:	b0001000 	imm	4096
+100001a8:	20e01398 	addi	r7, r0, 5016	// 10001398 <__sbss_end>
+100001ac:	06463800 	rsub	r18, r6, r7
+100001b0:	bc720014 	blei	r18, 20		// 100001c4
+100001b4:	f8060000 	swi	r0, r6, 0
+100001b8:	20c60004 	addi	r6, r6, 4
+100001bc:	06463800 	rsub	r18, r6, r7
+100001c0:	bc92fff4 	bgti	r18, -12		// 100001b4
+100001c4:	b0001000 	imm	4096
+100001c8:	20c013a4 	addi	r6, r0, 5028	// 100013a4 <__tbss_end>
+100001cc:	b0001000 	imm	4096
+100001d0:	20e01428 	addi	r7, r0, 5160	// 10001428 <__bss_end>
+100001d4:	06463800 	rsub	r18, r6, r7
+100001d8:	bc720014 	blei	r18, 20		// 100001ec
+100001dc:	f8060000 	swi	r0, r6, 0
+100001e0:	20c60004 	addi	r6, r6, 4
+100001e4:	06463800 	rsub	r18, r6, r7
+100001e8:	bc92fff4 	bgti	r18, -12		// 100001dc
+100001ec:	b9f40be0 	brlid	r15, 3040	// 10000dcc <_program_init>
+100001f0:	80000000 	or	r0, r0, r0
+100001f4:	b9f40fd8 	brlid	r15, 4056	// 100011cc <__init>
+100001f8:	80000000 	or	r0, r0, r0
+100001fc:	20c00000 	addi	r6, r0, 0
+10000200:	20e00000 	addi	r7, r0, 0
+10000204:	b9f40f5c 	brlid	r15, 3932	// 10001160 <main>
+10000208:	20a00000 	addi	r5, r0, 0
+1000020c:	32630000 	addik	r19, r3, 0
+10000210:	b9f40ff8 	brlid	r15, 4088	// 10001208 <__fini>
+10000214:	80000000 	or	r0, r0, r0
+10000218:	b9f40bac 	brlid	r15, 2988	// 10000dc4 <_program_clean>
+1000021c:	80000000 	or	r0, r0, r0
+10000220:	c9e10000 	lw	r15, r1, r0
+10000224:	30730000 	addik	r3, r19, 0
+10000228:	b60f0008 	rtsd	r15, 8
+1000022c:	20210014 	addi	r1, r1, 20
+
+10000230 <uart_put>:
+ * \brief Write data to TX buffer
+ * \param[in] data The data to write
+ */
+static __inline__ void uart_write(const sb_uint8_t data)
+{
+  WRITE_REG32(UART_DATA_TX_REG,data);
+10000230:	b0002000 	imm	8192
+10000234:	f8a0000c 	swi	r5, r0, 12
+ * \fn void uart_send(void)
+ * \brief Start a TX transfert
+ */
+static __inline__ void uart_send(void)
+{
+  WRITE_REG32(UART_CONTROL_REG,SEND_TX_BIT);
+10000238:	30600001 	addik	r3, r0, 1
+1000023c:	b0002000 	imm	8192
+10000240:	f8600008 	swi	r3, r0, 8
+ * \fn void uart_wait_tx_done(void)
+ * \brief Poll the TX busy flag, return when TX transfert is finished.
+ */
+void uart_wait_tx_done(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & TX_BUSY_FLAG_BIT);
+10000244:	b0002000 	imm	8192
+10000248:	e8600000 	lwi	r3, r0, 0
+1000024c:	a4630002 	andi	r3, r3, 2
+  while(flag == TX_BUSY_FLAG_BIT)
+10000250:	bc23fff4 	bnei	r3, -12		// 10000244
+10000254:	b60f0008 	rtsd	r15, 8
+10000258:	80000000 	or	r0, r0, r0
+
+1000025c <uart_get>:
+ * \fn void uart_wait_rx_ready(void)
+ * \brief Poll the RX ready flag, return when new RX data.
+ */
+void uart_wait_rx_ready(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & RX_READY_FLAG_BIT);
+1000025c:	b0002000 	imm	8192
+10000260:	e8600000 	lwi	r3, r0, 0
+10000264:	a4630001 	andi	r3, r3, 1
+  while(flag != RX_READY_FLAG_BIT)
+10000268:	a8630001 	xori	r3, r3, 1
+1000026c:	bc23fff0 	bnei	r3, -16	// 1000025c <uart_get>
+ * \brief Read data from RX buffer
+ * \param[in,out] data The pointer to the data
+ */
+static __inline__ void uart_read(sb_uint8_t *const data)
+{
+  *data = (sb_uint8_t)READ_REG32(UART_DATA_RX_REG);
+10000270:	b0002000 	imm	8192
+10000274:	e8600004 	lwi	r3, r0, 4
+ */
+void uart_get(sb_uint8_t *const in)
+{
+  uart_wait_rx_ready();
+  uart_read(in);
+}
+10000278:	b60f0008 	rtsd	r15, 8
+1000027c:	f0650000 	sbi	r3, r5, 0
+
+10000280 <uart_wait_rx_ready>:
+ * \fn void uart_wait_rx_ready(void)
+ * \brief Poll the RX ready flag, return when new RX data.
+ */
+void uart_wait_rx_ready(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & RX_READY_FLAG_BIT);
+10000280:	b0002000 	imm	8192
+10000284:	e8600000 	lwi	r3, r0, 0
+10000288:	a4630001 	andi	r3, r3, 1
+  while(flag != RX_READY_FLAG_BIT)
+1000028c:	a8630001 	xori	r3, r3, 1
+10000290:	bc23fff0 	bnei	r3, -16	// 10000280 <uart_wait_rx_ready>
+10000294:	b60f0008 	rtsd	r15, 8
+10000298:	80000000 	or	r0, r0, r0
+
+1000029c <uart_wait_tx_done>:
+ * \fn void uart_wait_tx_done(void)
+ * \brief Poll the TX busy flag, return when TX transfert is finished.
+ */
+void uart_wait_tx_done(void)
+{
+  sb_uint32_t flag = (READ_REG32(UART_STATUS_REG) & TX_BUSY_FLAG_BIT);
+1000029c:	b0002000 	imm	8192
+100002a0:	e8600000 	lwi	r3, r0, 0
+100002a4:	a4630002 	andi	r3, r3, 2
+  while(flag == TX_BUSY_FLAG_BIT)
+100002a8:	bc23fff4 	bnei	r3, -12	// 1000029c <uart_wait_tx_done>
+100002ac:	b60f0008 	rtsd	r15, 8
+100002b0:	80000000 	or	r0, r0, r0
+
+100002b4 <intc_init>:
+{
+  sb_int32_t i;
+	
+  /* reset hardware settings */
+  WRITE_REG32(INTC_ARM_REG,0x0);           /* clear all interrupts */
+  WRITE_REG32(INTC_MASK_REG,INTC_ID_BANK); /* mask all interrupts */
+100002b4:	306000ff 	addik	r3, r0, 255
+void intc_init(void)
+{
+  sb_int32_t i;
+	
+  /* reset hardware settings */
+  WRITE_REG32(INTC_ARM_REG,0x0);           /* clear all interrupts */
+100002b8:	b0004000 	imm	16384
+100002bc:	f800000c 	swi	r0, r0, 12
+  WRITE_REG32(INTC_MASK_REG,INTC_ID_BANK); /* mask all interrupts */
+100002c0:	b0004000 	imm	16384
+100002c4:	f8600008 	swi	r3, r0, 8
+  WRITE_REG32(INTC_POL_REG,INTC_ID_BANK);  /* set active-high interrupts */
+100002c8:	b0004000 	imm	16384
+100002cc:	f8600010 	swi	r3, r0, 16
+	
+  /* reset priority table */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* default priority = id */
+    it_priority_table[i] = i;
+100002d0:	30600001 	addik	r3, r0, 1
+100002d4:	b0001000 	imm	4096
+100002d8:	f860140c 	swi	r3, r0, 5132
+100002dc:	30600002 	addik	r3, r0, 2
+100002e0:	b0001000 	imm	4096
+100002e4:	f8601410 	swi	r3, r0, 5136
+100002e8:	30600003 	addik	r3, r0, 3
+100002ec:	b0001000 	imm	4096
+100002f0:	f8601414 	swi	r3, r0, 5140
+100002f4:	30600004 	addik	r3, r0, 4
+100002f8:	b0001000 	imm	4096
+100002fc:	f8601418 	swi	r3, r0, 5144
+10000300:	30600005 	addik	r3, r0, 5
+10000304:	b0001000 	imm	4096
+10000308:	f860141c 	swi	r3, r0, 5148
+1000030c:	30600006 	addik	r3, r0, 6
+10000310:	b0001000 	imm	4096
+10000314:	f8601420 	swi	r3, r0, 5152
+10000318:	30600007 	addik	r3, r0, 7
+1000031c:	b0001000 	imm	4096
+10000320:	f8001408 	swi	r0, r0, 5128	// 10001408 <it_priority_table>
+10000324:	b0001000 	imm	4096
+10000328:	f8601424 	swi	r3, r0, 5156
+  }
+}
+1000032c:	b60f0008 	rtsd	r15, 8
+10000330:	80000000 	or	r0, r0, r0
+
+10000334 <intc_attach_handler>:
+ * \param[in] handler Handler to attach
+ * \param[in,out] callback Handler arg
+ */
+void intc_attach_handler(const sb_uint32_t interrupt_id, sb_interrupt_handler handler, void *callback)
+{
+  it_vector_table[interrupt_id].it_handler = handler;
+10000334:	64a50403 	bslli	r5, r5, 3
+10000338:	b0001000 	imm	4096
+1000033c:	f8c513c8 	swi	r6, r5, 5064
+  it_vector_table[interrupt_id].callback = callback;
+10000340:	b0001000 	imm	4096
+10000344:	f8e513cc 	swi	r7, r5, 5068
+}
+10000348:	b60f0008 	rtsd	r15, 8
+1000034c:	80000000 	or	r0, r0, r0
+
+10000350 <BSP_IntHandler>:
+/**
+ * \fn void primary_int_handler(void) 
+ * \brief Processor primary handler
+ */
+void primary_int_handler(void)
+{
+10000350:	3021ffa4 	addik	r1, r1, -92
+10000354:	f9e10000 	swi	r15, r1, 0
+10000358:	f8210020 	swi	r1, r1, 32
+1000035c:	f8610024 	swi	r3, r1, 36
+10000360:	f8810028 	swi	r4, r1, 40
+10000364:	f8a1002c 	swi	r5, r1, 44
+10000368:	f8c10030 	swi	r6, r1, 48
+1000036c:	f8e10034 	swi	r7, r1, 52
+10000370:	f9010038 	swi	r8, r1, 56
+10000374:	f921003c 	swi	r9, r1, 60
+10000378:	f9410040 	swi	r10, r1, 64
+1000037c:	f9610044 	swi	r11, r1, 68
+10000380:	f9810048 	swi	r12, r1, 72
+10000384:	fa21004c 	swi	r17, r1, 76
+10000388:	fa410050 	swi	r18, r1, 80
+1000038c:	fa610054 	swi	r19, r1, 84
+10000390:	95608001 	mfs	r11, rmsr
+10000394:	fac10058 	swi	r22, r1, 88
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+10000398:	b0001000 	imm	4096
+1000039c:	e8601408 	lwi	r3, r0, 5128	// 10001408 <it_priority_table>
+/**
+ * \fn void primary_int_handler(void) 
+ * \brief Processor primary handler
+ */
+void primary_int_handler(void)
+{
+100003a0:	f961001c 	swi	r11, r1, 28
+  sb_uint32_t int_status;
+  sb_uint32_t int_mask;
+  sb_uint32_t int_id;
+		
+  /* read status reg */
+  int_status = READ_REG32(INTC_STATUS_REG);
+100003a4:	b0004000 	imm	16384
+100003a8:	ea600000 	lwi	r19, r0, 0
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+    int_mask = (1<<int_id);
+100003ac:	32c00001 	addik	r22, r0, 1
+100003b0:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+100003b4:	86d69800 	and	r22, r22, r19
+100003b8:	be36011c 	bneid	r22, 284		// 100004d4
+100003bc:	64630403 	bslli	r3, r3, 3
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+100003c0:	b0001000 	imm	4096
+100003c4:	e860140c 	lwi	r3, r0, 5132
+    int_mask = (1<<int_id);
+100003c8:	32c00001 	addik	r22, r0, 1
+100003cc:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+100003d0:	86d69800 	and	r22, r22, r19
+100003d4:	be36013c 	bneid	r22, 316		// 10000510
+100003d8:	64630403 	bslli	r3, r3, 3
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+100003dc:	b0001000 	imm	4096
+100003e0:	e8601410 	lwi	r3, r0, 5136
+    int_mask = (1<<int_id);
+100003e4:	32c00001 	addik	r22, r0, 1
+100003e8:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+100003ec:	86d69800 	and	r22, r22, r19
+100003f0:	be36015c 	bneid	r22, 348		// 1000054c
+100003f4:	64630403 	bslli	r3, r3, 3
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+100003f8:	b0001000 	imm	4096
+100003fc:	e8601414 	lwi	r3, r0, 5140
+    int_mask = (1<<int_id);
+10000400:	32c00001 	addik	r22, r0, 1
+10000404:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+10000408:	86d69800 	and	r22, r22, r19
+1000040c:	be36017c 	bneid	r22, 380		// 10000588
+10000410:	64630403 	bslli	r3, r3, 3
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+10000414:	b0001000 	imm	4096
+10000418:	e8601418 	lwi	r3, r0, 5144
+    int_mask = (1<<int_id);
+1000041c:	32c00001 	addik	r22, r0, 1
+10000420:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+10000424:	86d69800 	and	r22, r22, r19
+10000428:	be36019c 	bneid	r22, 412		// 100005c4
+1000042c:	64630403 	bslli	r3, r3, 3
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+10000430:	b0001000 	imm	4096
+10000434:	e860141c 	lwi	r3, r0, 5148
+    int_mask = (1<<int_id);
+10000438:	32c00001 	addik	r22, r0, 1
+1000043c:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+10000440:	86d69800 	and	r22, r22, r19
+10000444:	be3601bc 	bneid	r22, 444		// 10000600
+10000448:	64630403 	bslli	r3, r3, 3
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+1000044c:	b0001000 	imm	4096
+10000450:	e8601420 	lwi	r3, r0, 5152
+    int_mask = (1<<int_id);
+10000454:	32c00001 	addik	r22, r0, 1
+10000458:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+1000045c:	86d69800 	and	r22, r22, r19
+10000460:	be3601dc 	bneid	r22, 476		// 1000063c
+10000464:	64630403 	bslli	r3, r3, 3
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+10000468:	b0001000 	imm	4096
+1000046c:	e8601424 	lwi	r3, r0, 5156
+    int_mask = (1<<int_id);
+10000470:	30800001 	addik	r4, r0, 1
+10000474:	44841c00 	bsll	r4, r4, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+10000478:	86649800 	and	r19, r4, r19
+1000047c:	be3301fc 	bneid	r19, 508		// 10000678
+10000480:	64630403 	bslli	r3, r3, 3
+#ifdef INTC_FORCE_ONLY_HIGHEST_PRIORITY
+      break;
+#endif
+    }		
+  }	
+}
+10000484:	e9e10000 	lwi	r15, r1, 0
+10000488:	e961001c 	lwi	r11, r1, 28
+1000048c:	e8210020 	lwi	r1, r1, 32
+10000490:	940bc001 	mts	rmsr, r11
+10000494:	e8610024 	lwi	r3, r1, 36
+10000498:	e8810028 	lwi	r4, r1, 40
+1000049c:	e8a1002c 	lwi	r5, r1, 44
+100004a0:	e8c10030 	lwi	r6, r1, 48
+100004a4:	e8e10034 	lwi	r7, r1, 52
+100004a8:	e9010038 	lwi	r8, r1, 56
+100004ac:	e921003c 	lwi	r9, r1, 60
+100004b0:	e9410040 	lwi	r10, r1, 64
+100004b4:	e9610044 	lwi	r11, r1, 68
+100004b8:	e9810048 	lwi	r12, r1, 72
+100004bc:	ea21004c 	lwi	r17, r1, 76
+100004c0:	ea410050 	lwi	r18, r1, 80
+100004c4:	ea610054 	lwi	r19, r1, 84
+100004c8:	eac10058 	lwi	r22, r1, 88
+100004cc:	b62e0000 	rtid	r14, 0
+100004d0:	3021005c 	addik	r1, r1, 92
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+#endif
+      /* run handler */				
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+100004d4:	b0001000 	imm	4096
+100004d8:	e88313c8 	lwi	r4, r3, 5064
+100004dc:	b0001000 	imm	4096
+100004e0:	e8a313cc 	lwi	r5, r3, 5068
+100004e4:	99fc2000 	brald	r15, r4
+100004e8:	80000000 	or	r0, r0, r0
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+100004ec:	b0001000 	imm	4096
+100004f0:	e860140c 	lwi	r3, r0, 5132
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+
+#ifndef INTC_FORCE_ACK_FIRST 			
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+100004f4:	b0004000 	imm	16384
+100004f8:	fac00004 	swi	r22, r0, 4
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+    int_mask = (1<<int_id);
+100004fc:	32c00001 	addik	r22, r0, 1
+10000500:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+10000504:	86d69800 	and	r22, r22, r19
+10000508:	be16fed4 	beqid	r22, -300		// 100003dc
+1000050c:	64630403 	bslli	r3, r3, 3
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+#endif
+      /* run handler */				
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+10000510:	b0001000 	imm	4096
+10000514:	e88313c8 	lwi	r4, r3, 5064
+10000518:	b0001000 	imm	4096
+1000051c:	e8a313cc 	lwi	r5, r3, 5068
+10000520:	99fc2000 	brald	r15, r4
+10000524:	80000000 	or	r0, r0, r0
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+10000528:	b0001000 	imm	4096
+1000052c:	e8601410 	lwi	r3, r0, 5136
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+
+#ifndef INTC_FORCE_ACK_FIRST 			
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+10000530:	b0004000 	imm	16384
+10000534:	fac00004 	swi	r22, r0, 4
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+    int_mask = (1<<int_id);
+10000538:	32c00001 	addik	r22, r0, 1
+1000053c:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+10000540:	86d69800 	and	r22, r22, r19
+10000544:	be16feb4 	beqid	r22, -332		// 100003f8
+10000548:	64630403 	bslli	r3, r3, 3
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+#endif
+      /* run handler */				
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+1000054c:	b0001000 	imm	4096
+10000550:	e88313c8 	lwi	r4, r3, 5064
+10000554:	b0001000 	imm	4096
+10000558:	e8a313cc 	lwi	r5, r3, 5068
+1000055c:	99fc2000 	brald	r15, r4
+10000560:	80000000 	or	r0, r0, r0
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+10000564:	b0001000 	imm	4096
+10000568:	e8601414 	lwi	r3, r0, 5140
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+
+#ifndef INTC_FORCE_ACK_FIRST 			
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+1000056c:	b0004000 	imm	16384
+10000570:	fac00004 	swi	r22, r0, 4
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+    int_mask = (1<<int_id);
+10000574:	32c00001 	addik	r22, r0, 1
+10000578:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+1000057c:	86d69800 	and	r22, r22, r19
+10000580:	be16fe94 	beqid	r22, -364		// 10000414
+10000584:	64630403 	bslli	r3, r3, 3
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+#endif
+      /* run handler */				
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+10000588:	b0001000 	imm	4096
+1000058c:	e88313c8 	lwi	r4, r3, 5064
+10000590:	b0001000 	imm	4096
+10000594:	e8a313cc 	lwi	r5, r3, 5068
+10000598:	99fc2000 	brald	r15, r4
+1000059c:	80000000 	or	r0, r0, r0
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+100005a0:	b0001000 	imm	4096
+100005a4:	e8601418 	lwi	r3, r0, 5144
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+
+#ifndef INTC_FORCE_ACK_FIRST 			
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+100005a8:	b0004000 	imm	16384
+100005ac:	fac00004 	swi	r22, r0, 4
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+    int_mask = (1<<int_id);
+100005b0:	32c00001 	addik	r22, r0, 1
+100005b4:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+100005b8:	86d69800 	and	r22, r22, r19
+100005bc:	be16fe74 	beqid	r22, -396		// 10000430
+100005c0:	64630403 	bslli	r3, r3, 3
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+#endif
+      /* run handler */				
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+100005c4:	b0001000 	imm	4096
+100005c8:	e88313c8 	lwi	r4, r3, 5064
+100005cc:	b0001000 	imm	4096
+100005d0:	e8a313cc 	lwi	r5, r3, 5068
+100005d4:	99fc2000 	brald	r15, r4
+100005d8:	80000000 	or	r0, r0, r0
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+100005dc:	b0001000 	imm	4096
+100005e0:	e860141c 	lwi	r3, r0, 5148
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+
+#ifndef INTC_FORCE_ACK_FIRST 			
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+100005e4:	b0004000 	imm	16384
+100005e8:	fac00004 	swi	r22, r0, 4
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+    int_mask = (1<<int_id);
+100005ec:	32c00001 	addik	r22, r0, 1
+100005f0:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+100005f4:	86d69800 	and	r22, r22, r19
+100005f8:	be16fe54 	beqid	r22, -428		// 1000044c
+100005fc:	64630403 	bslli	r3, r3, 3
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+#endif
+      /* run handler */				
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+10000600:	b0001000 	imm	4096
+10000604:	e88313c8 	lwi	r4, r3, 5064
+10000608:	b0001000 	imm	4096
+1000060c:	e8a313cc 	lwi	r5, r3, 5068
+10000610:	99fc2000 	brald	r15, r4
+10000614:	80000000 	or	r0, r0, r0
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+10000618:	b0001000 	imm	4096
+1000061c:	e8601420 	lwi	r3, r0, 5152
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+
+#ifndef INTC_FORCE_ACK_FIRST 			
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+10000620:	b0004000 	imm	16384
+10000624:	fac00004 	swi	r22, r0, 4
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+    int_mask = (1<<int_id);
+10000628:	32c00001 	addik	r22, r0, 1
+1000062c:	46d61c00 	bsll	r22, r22, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+10000630:	86d69800 	and	r22, r22, r19
+10000634:	be16fe34 	beqid	r22, -460		// 10000468
+10000638:	64630403 	bslli	r3, r3, 3
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+#endif
+      /* run handler */				
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+1000063c:	b0001000 	imm	4096
+10000640:	e88313c8 	lwi	r4, r3, 5064
+10000644:	b0001000 	imm	4096
+10000648:	e8a313cc 	lwi	r5, r3, 5068
+1000064c:	99fc2000 	brald	r15, r4
+10000650:	80000000 	or	r0, r0, r0
+	
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+10000654:	b0001000 	imm	4096
+10000658:	e8601424 	lwi	r3, r0, 5156
+    int_mask = (1<<int_id);
+1000065c:	30800001 	addik	r4, r0, 1
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+
+#ifndef INTC_FORCE_ACK_FIRST 			
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+10000660:	b0004000 	imm	16384
+10000664:	fac00004 	swi	r22, r0, 4
+  /* service all interrupts with priority */
+  for(i=0;i<MAX_ISR;i++)
+  {
+    /* get id from priority table */
+    int_id = it_priority_table[i];
+    int_mask = (1<<int_id);
+10000668:	44841c00 	bsll	r4, r4, r3
+
+    /* interrupt active */
+    if(int_status & int_mask)
+1000066c:	86649800 	and	r19, r4, r19
+10000670:	be13fe14 	beqid	r19, -492		// 10000484
+10000674:	64630403 	bslli	r3, r3, 3
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+#endif
+      /* run handler */				
+      int_entry = &(it_vector_table[int_id]);          
+      int_entry->it_handler(int_entry->callback); 
+10000678:	b0001000 	imm	4096
+1000067c:	e88313c8 	lwi	r4, r3, 5064
+10000680:	b0001000 	imm	4096
+10000684:	e8a313cc 	lwi	r5, r3, 5068
+10000688:	99fc2000 	brald	r15, r4
+1000068c:	80000000 	or	r0, r0, r0
+
+#ifndef INTC_FORCE_ACK_FIRST 			
+      /* ack interrupt */
+      WRITE_REG32(INTC_ACK_REG,(int_status & int_mask));
+10000690:	b0004000 	imm	16384
+10000694:	fa600004 	swi	r19, r0, 4
+10000698:	b800fdec 	bri	-532		// 10000484
+
+1000069c <outbyte>:
+  int *varg = (int *)((char **)&format);
+  return print(&out,varg);
+}
+
+void outbyte(char **str, char c)
+{
+1000069c:	3021ffe4 	addik	r1, r1, -28
+  if(str) 
+100006a0:	be050028 	beqid	r5, 40		// 100006c8
+100006a4:	f9e10000 	swi	r15, r1, 0
+  {
+    **str = c;
+100006a8:	e8650000 	lwi	r3, r5, 0
+100006ac:	f0c30000 	sbi	r6, r3, 0
+    ++(*str);
+100006b0:	e8650000 	lwi	r3, r5, 0
+100006b4:	30630001 	addik	r3, r3, 1
+100006b8:	f8650000 	swi	r3, r5, 0
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+  }
+}
+100006bc:	e9e10000 	lwi	r15, r1, 0
+100006c0:	b60f0008 	rtsd	r15, 8
+100006c4:	3021001c 	addik	r1, r1, 28
+    **str = c;
+    ++(*str);
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+100006c8:	b9f4fb68 	brlid	r15, -1176	// 10000230 <uart_put>
+100006cc:	a4a600ff 	andi	r5, r6, 255
+  }
+}
+100006d0:	e9e10000 	lwi	r15, r1, 0
+100006d4:	b60f0008 	rtsd	r15, 8
+100006d8:	3021001c 	addik	r1, r1, 28
+
+100006dc <prints>:
+
+int prints(char **out, const char *string, int width, int pad)
+{
+100006dc:	3021ffcc 	addik	r1, r1, -52
+100006e0:	fa610020 	swi	r19, r1, 32
+100006e4:	fae10028 	swi	r23, r1, 40
+100006e8:	fb01002c 	swi	r24, r1, 44
+100006ec:	f9e10000 	swi	r15, r1, 0
+100006f0:	fac10024 	swi	r22, r1, 36
+100006f4:	fb210030 	swi	r25, r1, 48
+100006f8:	13070000 	addk	r24, r7, r0
+100006fc:	12650000 	addk	r19, r5, r0
+  int pc = 0, padchar = ' ';
+
+  if(width > 0)  
+10000700:	be670050 	bleid	r7, 80		// 10000750
+10000704:	32e00020 	addik	r23, r0, 32
+  {
+    int len = 0;
+    const char *ptr;
+    for (ptr = string; *ptr; ++ptr) ++len;
+10000708:	e0860000 	lbui	r4, r6, 0
+1000070c:	90840060 	sext8	r4, r4
+10000710:	be040110 	beqid	r4, 272		// 10000820
+10000714:	10660000 	addk	r3, r6, r0
+10000718:	10800000 	addk	r4, r0, r0
+1000071c:	30630001 	addik	r3, r3, 1
+10000720:	e0a30000 	lbui	r5, r3, 0
+10000724:	90a50060 	sext8	r5, r5
+10000728:	be25fff4 	bneid	r5, -12		// 1000071c
+1000072c:	30840001 	addik	r4, r4, 1
+    if (len >= width) 
+10000730:	14782001 	cmp	r3, r24, r4
+10000734:	be43000c 	bltid	r3, 12		// 10000740
+10000738:	1704c000 	rsubk	r24, r4, r24
+    {
+      width = 0;
+1000073c:	13050000 	addk	r24, r5, r0
+    }
+    else 
+    {
+      width -= len;
+    }
+    if(pad & PAD_ZERO) 
+10000740:	a4680002 	andi	r3, r8, 2
+10000744:	be03000c 	beqid	r3, 12		// 10000750
+10000748:	32e00020 	addik	r23, r0, 32
+1000074c:	32e00030 	addik	r23, r0, 48
+    {
+      padchar = '0';
+    }
+  }
+  
+  if(!(pad & PAD_RIGHT)) 
+10000750:	a5080001 	andi	r8, r8, 1
+10000754:	be28003c 	bneid	r8, 60		// 10000790
+10000758:	12c00000 	addk	r22, r0, r0
+  {
+    for(;width > 0;--width) 
+1000075c:	be780034 	bleid	r24, 52		// 10000790
+10000760:	12c80000 	addk	r22, r8, r0
+10000764:	be130104 	beqid	r19, 260		// 10000868
+10000768:	10780000 	addk	r3, r24, r0
+1000076c:	e8930000 	lwi	r4, r19, 0
+
+void outbyte(char **str, char c)
+{
+  if(str) 
+  {
+    **str = c;
+10000770:	f2e40000 	sbi	r23, r4, 0
+    ++(*str);
+10000774:	e8930000 	lwi	r4, r19, 0
+    }
+  }
+  
+  if(!(pad & PAD_RIGHT)) 
+  {
+    for(;width > 0;--width) 
+10000778:	3063ffff 	addik	r3, r3, -1
+void outbyte(char **str, char c)
+{
+  if(str) 
+  {
+    **str = c;
+    ++(*str);
+1000077c:	30840001 	addik	r4, r4, 1
+    }
+  }
+  
+  if(!(pad & PAD_RIGHT)) 
+  {
+    for(;width > 0;--width) 
+10000780:	be23fff0 	bneid	r3, -16		// 10000770
+10000784:	f8930000 	swi	r4, r19, 0
+10000788:	12d80000 	addk	r22, r24, r0
+1000078c:	13000000 	addk	r24, r0, r0
+      outbyte(out,padchar);
+      ++pc;
+    }
+  }
+  
+  for(;*string;++string) 
+10000790:	e0a60000 	lbui	r5, r6, 0
+10000794:	90a50060 	sext8	r5, r5
+10000798:	bc050034 	beqi	r5, 52		// 100007cc
+1000079c:	be1300ac 	beqid	r19, 172		// 10000848
+100007a0:	13260000 	addk	r25, r6, r0
+100007a4:	e8930000 	lwi	r4, r19, 0
+
+void outbyte(char **str, char c)
+{
+  if(str) 
+  {
+    **str = c;
+100007a8:	f0a40000 	sbi	r5, r4, 0
+    ++(*str);
+100007ac:	e8930000 	lwi	r4, r19, 0
+  }
+  
+  for(;*string;++string) 
+  {
+    outbyte(out,*string);
+    ++pc;
+100007b0:	30c60001 	addik	r6, r6, 1
+void outbyte(char **str, char c)
+{
+  if(str) 
+  {
+    **str = c;
+    ++(*str);
+100007b4:	30840001 	addik	r4, r4, 1
+100007b8:	f8930000 	swi	r4, r19, 0
+      outbyte(out,padchar);
+      ++pc;
+    }
+  }
+  
+  for(;*string;++string) 
+100007bc:	e0a60000 	lbui	r5, r6, 0
+100007c0:	90a50060 	sext8	r5, r5
+100007c4:	be25ffe4 	bneid	r5, -28		// 100007a8
+100007c8:	32d60001 	addik	r22, r22, 1
+  {
+    outbyte(out,*string);
+    ++pc;
+   }
+   
+  for(;width > 0;--width) 
+100007cc:	be780034 	bleid	r24, 52		// 10000800
+100007d0:	10760000 	addk	r3, r22, r0
+100007d4:	be130054 	beqid	r19, 84		// 10000828
+100007d8:	10780000 	addk	r3, r24, r0
+100007dc:	e8930000 	lwi	r4, r19, 0
+
+void outbyte(char **str, char c)
+{
+  if(str) 
+  {
+    **str = c;
+100007e0:	f2e40000 	sbi	r23, r4, 0
+    ++(*str);
+100007e4:	e8930000 	lwi	r4, r19, 0
+  {
+    outbyte(out,*string);
+    ++pc;
+   }
+   
+  for(;width > 0;--width) 
+100007e8:	3063ffff 	addik	r3, r3, -1
+void outbyte(char **str, char c)
+{
+  if(str) 
+  {
+    **str = c;
+    ++(*str);
+100007ec:	30840001 	addik	r4, r4, 1
+  {
+    outbyte(out,*string);
+    ++pc;
+   }
+   
+  for(;width > 0;--width) 
+100007f0:	be23fff0 	bneid	r3, -16		// 100007e0
+100007f4:	f8930000 	swi	r4, r19, 0
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+  }
+}
+
+int prints(char **out, const char *string, int width, int pad)
+100007f8:	12d6c000 	addk	r22, r22, r24
+    outbyte(out,padchar);
+    ++pc;
+  }
+
+  return pc;
+}
+100007fc:	10760000 	addk	r3, r22, r0
+10000800:	e9e10000 	lwi	r15, r1, 0
+10000804:	ea610020 	lwi	r19, r1, 32
+10000808:	eac10024 	lwi	r22, r1, 36
+1000080c:	eae10028 	lwi	r23, r1, 40
+10000810:	eb01002c 	lwi	r24, r1, 44
+10000814:	eb210030 	lwi	r25, r1, 48
+10000818:	b60f0008 	rtsd	r15, 8
+1000081c:	30210034 	addik	r1, r1, 52
+    {
+      width = 0;
+    }
+    else 
+    {
+      width -= len;
+10000820:	b810ff20 	brid	-224		// 10000740
+10000824:	1704c000 	rsubk	r24, r4, r24
+  {
+    outbyte(out,*string);
+    ++pc;
+   }
+   
+  for(;width > 0;--width) 
+10000828:	12780000 	addk	r19, r24, r0
+1000082c:	a73700ff 	andi	r25, r23, 255
+    **str = c;
+    ++(*str);
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+10000830:	10b90000 	addk	r5, r25, r0
+10000834:	b9f4f9fc 	brlid	r15, -1540	// 10000230 <uart_put>
+10000838:	3273ffff 	addik	r19, r19, -1
+  {
+    outbyte(out,*string);
+    ++pc;
+   }
+   
+  for(;width > 0;--width) 
+1000083c:	bc33fff4 	bnei	r19, -12		// 10000830
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+  }
+}
+
+int prints(char **out, const char *string, int width, int pad)
+10000840:	b810ffbc 	brid	-68		// 100007fc
+10000844:	12d6c000 	addk	r22, r22, r24
+    **str = c;
+    ++(*str);
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+10000848:	a4a500ff 	andi	r5, r5, 255
+1000084c:	b9f4f9e4 	brlid	r15, -1564	// 10000230 <uart_put>
+10000850:	33390001 	addik	r25, r25, 1
+      outbyte(out,padchar);
+      ++pc;
+    }
+  }
+  
+  for(;*string;++string) 
+10000854:	e0b90000 	lbui	r5, r25, 0
+10000858:	90a50060 	sext8	r5, r5
+1000085c:	be25ffec 	bneid	r5, -20		// 10000848
+10000860:	32d60001 	addik	r22, r22, 1
+10000864:	b800ff68 	bri	-152		// 100007cc
+    }
+  }
+  
+  if(!(pad & PAD_RIGHT)) 
+  {
+    for(;width > 0;--width) 
+10000868:	12d80000 	addk	r22, r24, r0
+1000086c:	a73700ff 	andi	r25, r23, 255
+    **str = c;
+    ++(*str);
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+10000870:	10b90000 	addk	r5, r25, r0
+10000874:	f8c1001c 	swi	r6, r1, 28
+10000878:	b9f4f9b8 	brlid	r15, -1608	// 10000230 <uart_put>
+1000087c:	32d6ffff 	addik	r22, r22, -1
+    }
+  }
+  
+  if(!(pad & PAD_RIGHT)) 
+  {
+    for(;width > 0;--width) 
+10000880:	be36fff0 	bneid	r22, -16		// 10000870
+10000884:	e8c1001c 	lwi	r6, r1, 28
+10000888:	b810ff04 	brid	-252		// 1000078c
+1000088c:	12d80000 	addk	r22, r24, r0
+
+10000890 <printi>:
+
+  return pc;
+}
+
+int printi(char **out, int i, int b, int sg, int width, int pad, int letbase)
+{
+10000890:	3021ffbc 	addik	r1, r1, -68
+10000894:	fae10040 	swi	r23, r1, 64
+10000898:	f9e10000 	swi	r15, r1, 0
+1000089c:	fa610038 	swi	r19, r1, 56
+100008a0:	fac1003c 	swi	r22, r1, 60
+100008a4:	10660000 	addk	r3, r6, r0
+100008a8:	12e50000 	addk	r23, r5, r0
+  char print_buf[PRINT_BUF_LEN];
+  char *s;
+  int t, neg = 0, pc = 0;
+  unsigned int u = i;
+
+  if(i == 0) 
+100008ac:	be060108 	beqid	r6, 264		// 100009b4
+100008b0:	10860000 	addk	r4, r6, r0
+    print_buf[0] = '0';
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+  }
+
+  if(sg && b == 10 && i < 0) 
+100008b4:	be2800d4 	bneid	r8, 212		// 10000988
+100008b8:	10a00000 	addk	r5, r0, r0
+    neg = 1;
+    u = -i;
+  }
+
+  s = print_buf + PRINT_BUF_LEN-1;
+  *s = '\0';
+100008bc:	f001002b 	sbi	r0, r1, 43
+
+  while(u) 
+100008c0:	be040058 	beqid	r4, 88		// 10000918
+100008c4:	30c1002b 	addik	r6, r1, 43
+100008c8:	eac10060 	lwi	r22, r1, 96
+    t = u % b;
+    if(t >= 10)
+    {
+      t += letbase - '0' - 10;
+    }
+    *--s = t + '0';
+100008cc:	32600009 	addik	r19, r0, 9
+100008d0:	b8100014 	brid	20		// 100008e4
+100008d4:	32d6ffc6 	addik	r22, r22, -58
+100008d8:	318c0030 	addik	r12, r12, 48
+  }
+
+  s = print_buf + PRINT_BUF_LEN-1;
+  *s = '\0';
+
+  while(u) 
+100008dc:	be04003c 	beqid	r4, 60		// 10000918
+100008e0:	f1860000 	sbi	r12, r6, 0
+  {
+    t = u % b;
+100008e4:	49872002 	idivu	r12, r7, r4
+    if(t >= 10)
+    {
+      t += letbase - '0' - 10;
+    }
+    *--s = t + '0';
+100008e8:	30c6ffff 	addik	r6, r6, -1
+  s = print_buf + PRINT_BUF_LEN-1;
+  *s = '\0';
+
+  while(u) 
+  {
+    t = u % b;
+100008ec:	416c3800 	mul	r11, r12, r7
+100008f0:	156b2000 	rsubk	r11, r11, r4
+    if(t >= 10)
+    {
+      t += letbase - '0' - 10;
+    }
+    *--s = t + '0';
+100008f4:	146b9801 	cmp	r3, r11, r19
+    u /= b;
+100008f8:	108c0000 	addk	r4, r12, r0
+    t = u % b;
+    if(t >= 10)
+    {
+      t += letbase - '0' - 10;
+    }
+    *--s = t + '0';
+100008fc:	118b0000 	addk	r12, r11, r0
+10000900:	bea3ffd8 	bgeid	r3, -40		// 100008d8
+10000904:	11765800 	addk	r11, r22, r11
+10000908:	118b0000 	addk	r12, r11, r0
+1000090c:	318c0030 	addik	r12, r12, 48
+  }
+
+  s = print_buf + PRINT_BUF_LEN-1;
+  *s = '\0';
+
+  while(u) 
+10000910:	be24ffd4 	bneid	r4, -44		// 100008e4
+10000914:	f1860000 	sbi	r12, r6, 0
+    }
+    *--s = t + '0';
+    u /= b;
+  }
+
+  if(neg) 
+10000918:	be250034 	bneid	r5, 52		// 1000094c
+1000091c:	12650000 	addk	r19, r5, r0
+    {
+      *--s = '-';
+    }
+  }
+
+	return pc + prints(out,s,width,pad);
+10000920:	10b70000 	addk	r5, r23, r0
+10000924:	10e90000 	addk	r7, r9, r0
+10000928:	b9f4fdb4 	brlid	r15, -588	// 100006dc <prints>
+1000092c:	110a0000 	addk	r8, r10, r0
+10000930:	10639800 	addk	r3, r3, r19
+}
+10000934:	e9e10000 	lwi	r15, r1, 0
+10000938:	ea610038 	lwi	r19, r1, 56
+1000093c:	eac1003c 	lwi	r22, r1, 60
+10000940:	eae10040 	lwi	r23, r1, 64
+10000944:	b60f0008 	rtsd	r15, 8
+10000948:	30210044 	addik	r1, r1, 68
+    u /= b;
+  }
+
+  if(neg) 
+  {
+    if(width && (pad & PAD_ZERO)) 
+1000094c:	be090058 	beqid	r9, 88		// 100009a4
+10000950:	3060002d 	addik	r3, r0, 45
+10000954:	a46a0002 	andi	r3, r10, 2
+10000958:	be03004c 	beqid	r3, 76		// 100009a4
+1000095c:	3060002d 	addik	r3, r0, 45
+  return print(&out,varg);
+}
+
+void outbyte(char **str, char c)
+{
+  if(str) 
+10000960:	be170088 	beqid	r23, 136		// 100009e8
+10000964:	3080002d 	addik	r4, r0, 45
+  {
+    **str = c;
+10000968:	e8770000 	lwi	r3, r23, 0
+1000096c:	f0830000 	sbi	r4, r3, 0
+    ++(*str);
+10000970:	e8770000 	lwi	r3, r23, 0
+10000974:	30630001 	addik	r3, r3, 1
+10000978:	f8770000 	swi	r3, r23, 0
+  {
+    if(width && (pad & PAD_ZERO)) 
+    {
+      outbyte(out, '-');
+      ++pc;
+     --width;
+1000097c:	3129ffff 	addik	r9, r9, -1
+10000980:	b810ffa0 	brid	-96		// 10000920
+10000984:	32600001 	addik	r19, r0, 1
+    print_buf[0] = '0';
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+  }
+
+  if(sg && b == 10 && i < 0) 
+10000988:	3060000a 	addik	r3, r0, 10
+1000098c:	88671c00 	pcmpeq	r3, r7, r3
+10000990:	bc03ff2c 	beqi	r3, -212		// 100008bc
+10000994:	bca6ff28 	bgei	r6, -216		// 100008bc
+  {
+    neg = 1;
+    u = -i;
+10000998:	14860000 	rsubk	r4, r6, r0
+    return prints(out,print_buf,width,pad);
+  }
+
+  if(sg && b == 10 && i < 0) 
+  {
+    neg = 1;
+1000099c:	b810ff20 	brid	-224		// 100008bc
+100009a0:	30a00001 	addik	r5, r0, 1
+      ++pc;
+     --width;
+    }
+    else 
+    {
+      *--s = '-';
+100009a4:	f066ffff 	sbi	r3, r6, -1
+
+int printi(char **out, int i, int b, int sg, int width, int pad, int letbase)
+{
+  char print_buf[PRINT_BUF_LEN];
+  char *s;
+  int t, neg = 0, pc = 0;
+100009a8:	12600000 	addk	r19, r0, r0
+      ++pc;
+     --width;
+    }
+    else 
+    {
+      *--s = '-';
+100009ac:	b810ff74 	brid	-140		// 10000920
+100009b0:	30c6ffff 	addik	r6, r6, -1
+
+  if(i == 0) 
+  {
+    print_buf[0] = '0';
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+100009b4:	10e90000 	addk	r7, r9, r0
+100009b8:	110a0000 	addk	r8, r10, r0
+  int t, neg = 0, pc = 0;
+  unsigned int u = i;
+
+  if(i == 0) 
+  {
+    print_buf[0] = '0';
+100009bc:	30800030 	addik	r4, r0, 48
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+100009c0:	30c1001c 	addik	r6, r1, 28
+  int t, neg = 0, pc = 0;
+  unsigned int u = i;
+
+  if(i == 0) 
+  {
+    print_buf[0] = '0';
+100009c4:	f081001c 	sbi	r4, r1, 28
+    print_buf[1] = '\0';
+    return prints(out,print_buf,width,pad);
+100009c8:	b9f4fd14 	brlid	r15, -748	// 100006dc <prints>
+100009cc:	f061001d 	sbi	r3, r1, 29
+      *--s = '-';
+    }
+  }
+
+	return pc + prints(out,s,width,pad);
+}
+100009d0:	e9e10000 	lwi	r15, r1, 0
+100009d4:	ea610038 	lwi	r19, r1, 56
+100009d8:	eac1003c 	lwi	r22, r1, 60
+100009dc:	eae10040 	lwi	r23, r1, 64
+100009e0:	b60f0008 	rtsd	r15, 8
+100009e4:	30210044 	addik	r1, r1, 68
+    **str = c;
+    ++(*str);
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+100009e8:	30a0002d 	addik	r5, r0, 45
+100009ec:	f8c1002c 	swi	r6, r1, 44
+100009f0:	f9210030 	swi	r9, r1, 48
+100009f4:	b9f4f83c 	brlid	r15, -1988	// 10000230 <uart_put>
+100009f8:	f9410034 	swi	r10, r1, 52
+100009fc:	e9410034 	lwi	r10, r1, 52
+10000a00:	e9210030 	lwi	r9, r1, 48
+10000a04:	b810ff78 	brid	-136		// 1000097c
+10000a08:	e8c1002c 	lwi	r6, r1, 44
+
+10000a0c <print>:
+
+	return pc + prints(out,s,width,pad);
+}
+
+int print(char **out, int *varg)
+{
+10000a0c:	3021ffbc 	addik	r1, r1, -68
+10000a10:	fac10028 	swi	r22, r1, 40
+10000a14:	fb010030 	swi	r24, r1, 48
+10000a18:	f9e10000 	swi	r15, r1, 0
+10000a1c:	fa610024 	swi	r19, r1, 36
+10000a20:	fae1002c 	swi	r23, r1, 44
+10000a24:	fb210034 	swi	r25, r1, 52
+10000a28:	fb410038 	swi	r26, r1, 56
+10000a2c:	fb61003c 	swi	r27, r1, 60
+10000a30:	fb810040 	swi	r28, r1, 64
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+10000a34:	eae60000 	lwi	r23, r6, 0
+
+	return pc + prints(out,s,width,pad);
+}
+
+int print(char **out, int *varg)
+{
+10000a38:	12c50000 	addk	r22, r5, r0
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+  char scr[2];
+
+  for(;*format != 0;++format) 
+10000a3c:	e0b70000 	lbui	r5, r23, 0
+10000a40:	90a50060 	sext8	r5, r5
+10000a44:	be050108 	beqid	r5, 264		// 10000b4c
+10000a48:	13050000 	addk	r24, r5, r0
+
+int print(char **out, int *varg)
+{
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+10000a4c:	33460004 	addik	r26, r6, 4
+}
+
+int print(char **out, int *varg)
+{
+  int width, pad;
+  int pc = 0;
+10000a50:	13000000 	addk	r24, r0, r0
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000a54:	33200009 	addik	r25, r0, 9
+        pc += printi (out,*varg++,16,0,width,pad,'A');
+        continue;
+      }
+      if( *format == 'u' ) 
+      {
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+10000a58:	33600061 	addik	r27, r0, 97
+        pc += printi(out,*varg++,16,0,width,pad,'a');
+        continue;
+      } 
+      if(*format == 'X') 
+      {
+        pc += printi (out,*varg++,16,0,width,pad,'A');
+10000a5c:	33800041 	addik	r28, r0, 65
+  char *format = (char *)(*varg++);
+  char scr[2];
+
+  for(;*format != 0;++format) 
+  {
+    if(*format == '%') 
+10000a60:	a9450025 	xori	r10, r5, 37
+10000a64:	bc2a012c 	bnei	r10, 300		// 10000b90
+    {
+      ++format;
+      width = pad = 0;
+      if(*format == '\0') 
+10000a68:	e0970001 	lbui	r4, r23, 1
+10000a6c:	90840060 	sext8	r4, r4
+10000a70:	be0400dc 	beqid	r4, 220		// 10000b4c
+10000a74:	a8640025 	xori	r3, r4, 37
+      {
+        break;
+      }
+      if(*format == '%') 
+10000a78:	be030114 	beqid	r3, 276		// 10000b8c
+10000a7c:	32770001 	addik	r19, r23, 1
+      {
+        goto out;
+      }
+      if(*format == '-') 
+10000a80:	a864002d 	xori	r3, r4, 45
+10000a84:	bc030150 	beqi	r3, 336		// 10000bd4
+      {
+        ++format;
+        pad = PAD_RIGHT;
+      }
+      while (*format == '0') 
+10000a88:	a8640030 	xori	r3, r4, 48
+10000a8c:	be230024 	bneid	r3, 36		// 10000ab0
+10000a90:	10d30000 	addk	r6, r19, r0
+  }
+
+	return pc + prints(out,s,width,pad);
+}
+
+int print(char **out, int *varg)
+10000a94:	30c60001 	addik	r6, r6, 1
+      if(*format == '-') 
+      {
+        ++format;
+        pad = PAD_RIGHT;
+      }
+      while (*format == '0') 
+10000a98:	e0860000 	lbui	r4, r6, 0
+      {
+        ++format;
+        pad |= PAD_ZERO;
+10000a9c:	a14a0002 	ori	r10, r10, 2
+      if(*format == '-') 
+      {
+        ++format;
+        pad = PAD_RIGHT;
+      }
+      while (*format == '0') 
+10000aa0:	90840060 	sext8	r4, r4
+10000aa4:	a8a40030 	xori	r5, r4, 48
+10000aa8:	be05ffec 	beqid	r5, -20		// 10000a94
+10000aac:	12660000 	addk	r19, r6, r0
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000ab0:	3104ffd0 	addik	r8, r4, -48
+10000ab4:	a46800ff 	andi	r3, r8, 255
+10000ab8:	1463c803 	cmpu	r3, r3, r25
+10000abc:	10e00000 	addk	r7, r0, r0
+10000ac0:	bea30014 	bgeid	r3, 20		// 10000ad4
+10000ac4:	10d30000 	addk	r6, r19, r0
+      {
+        width *= 10;
+        width += *format - '0';
+      }
+      if(*format == 's') 
+10000ac8:	b8100040 	brid	64		// 10000b08
+10000acc:	a8640073 	xori	r3, r4, 115
+10000ad0:	3104ffd0 	addik	r8, r4, -48
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000ad4:	e0860001 	lbui	r4, r6, 1
+      {
+        width *= 10;
+10000ad8:	65270402 	bslli	r9, r7, 2
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000adc:	30a4ffd0 	addik	r5, r4, -48
+      {
+        width *= 10;
+10000ae0:	10e93800 	addk	r7, r9, r7
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000ae4:	a4a500ff 	andi	r5, r5, 255
+  }
+
+	return pc + prints(out,s,width,pad);
+}
+
+int print(char **out, int *varg)
+10000ae8:	32660001 	addik	r19, r6, 1
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+      {
+        width *= 10;
+10000aec:	10e73800 	addk	r7, r7, r7
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000af0:	14a5c803 	cmpu	r5, r5, r25
+10000af4:	10d30000 	addk	r6, r19, r0
+      {
+        width *= 10;
+        width += *format - '0';
+10000af8:	10e83800 	addk	r7, r8, r7
+      while (*format == '0') 
+      {
+        ++format;
+        pad |= PAD_ZERO;
+      }
+      for (;*format >= '0' && *format <= '9';++format) 
+10000afc:	bea5ffd4 	bgeid	r5, -44		// 10000ad0
+10000b00:	90840060 	sext8	r4, r4
+      {
+        width *= 10;
+        width += *format - '0';
+      }
+      if(*format == 's') 
+10000b04:	a8640073 	xori	r3, r4, 115
+10000b08:	be0300ac 	beqid	r3, 172		// 10000bb4
+10000b0c:	a8640064 	xori	r3, r4, 100
+      {
+        char *s = *((char **)varg++);
+        pc += prints(out, s?s:"(null)",width,pad);
+        continue;
+      }  
+      if(*format == 'd') 
+10000b10:	be0300e8 	beqid	r3, 232		// 10000bf8
+10000b14:	11270000 	addk	r9, r7, r0
+      {
+        pc += printi(out,*varg++,10,1,width,pad,'a');
+        continue;
+      }
+      if(*format == 'x') 
+10000b18:	a9040078 	xori	r8, r4, 120
+10000b1c:	be080100 	beqid	r8, 256		// 10000c1c
+10000b20:	10b60000 	addk	r5, r22, r0
+      {
+        pc += printi(out,*varg++,16,0,width,pad,'a');
+        continue;
+      } 
+      if(*format == 'X') 
+10000b24:	a9040058 	xori	r8, r4, 88
+10000b28:	bc080110 	beqi	r8, 272		// 10000c38
+      {
+        pc += printi (out,*varg++,16,0,width,pad,'A');
+        continue;
+      }
+      if( *format == 'u' ) 
+10000b2c:	a9040075 	xori	r8, r4, 117
+10000b30:	bc080124 	beqi	r8, 292		// 10000c54
+      {
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+        continue;
+      }
+      if(*format == 'c') 
+10000b34:	a8840063 	xori	r4, r4, 99
+10000b38:	bc040138 	beqi	r4, 312		// 10000c70
+  int width, pad;
+  int pc = 0;
+  char *format = (char *)(*varg++);
+  char scr[2];
+
+  for(;*format != 0;++format) 
+10000b3c:	e0b30001 	lbui	r5, r19, 1
+10000b40:	90a50060 	sext8	r5, r5
+10000b44:	be25ff1c 	bneid	r5, -228		// 10000a60
+10000b48:	32f30001 	addik	r23, r19, 1
+       outbyte(out,*format);
+       ++pc;
+     }
+   }
+   
+   if(out) 
+10000b4c:	be160014 	beqid	r22, 20		// 10000b60
+10000b50:	10780000 	addk	r3, r24, r0
+   {
+     **out = '\0';
+10000b54:	e8760000 	lwi	r3, r22, 0
+10000b58:	f0030000 	sbi	r0, r3, 0
+   }
+   
+   return pc;
+}
+10000b5c:	10780000 	addk	r3, r24, r0
+10000b60:	e9e10000 	lwi	r15, r1, 0
+10000b64:	ea610024 	lwi	r19, r1, 36
+10000b68:	eac10028 	lwi	r22, r1, 40
+10000b6c:	eae1002c 	lwi	r23, r1, 44
+10000b70:	eb010030 	lwi	r24, r1, 48
+10000b74:	eb210034 	lwi	r25, r1, 52
+10000b78:	eb410038 	lwi	r26, r1, 56
+10000b7c:	eb61003c 	lwi	r27, r1, 60
+10000b80:	eb810040 	lwi	r28, r1, 64
+10000b84:	b60f0008 	rtsd	r15, 8
+10000b88:	30210044 	addik	r1, r1, 68
+
+  for(;*format != 0;++format) 
+  {
+    if(*format == '%') 
+    {
+      ++format;
+10000b8c:	12f30000 	addk	r23, r19, r0
+  return print(&out,varg);
+}
+
+void outbyte(char **str, char c)
+{
+  if(str) 
+10000b90:	bc160058 	beqi	r22, 88		// 10000be8
+  {
+    **str = c;
+10000b94:	e8760000 	lwi	r3, r22, 0
+10000b98:	f0a30000 	sbi	r5, r3, 0
+    ++(*str);
+10000b9c:	e8760000 	lwi	r3, r22, 0
+10000ba0:	30630001 	addik	r3, r3, 1
+10000ba4:	f8760000 	swi	r3, r22, 0
+     }
+     else 
+     {
+       out:
+       outbyte(out,*format);
+       ++pc;
+10000ba8:	12770000 	addk	r19, r23, r0
+10000bac:	b810ff90 	brid	-112		// 10000b3c
+10000bb0:	33180001 	addik	r24, r24, 1
+        width *= 10;
+        width += *format - '0';
+      }
+      if(*format == 's') 
+      {
+        char *s = *((char **)varg++);
+10000bb4:	e8da0000 	lwi	r6, r26, 0
+        pc += prints(out, s?s:"(null)",width,pad);
+10000bb8:	be0600dc 	beqid	r6, 220		// 10000c94
+10000bbc:	335a0004 	addik	r26, r26, 4
+10000bc0:	10b60000 	addk	r5, r22, r0
+10000bc4:	b9f4fb18 	brlid	r15, -1256	// 100006dc <prints>
+10000bc8:	110a0000 	addk	r8, r10, r0
+        continue;
+10000bcc:	b810ff70 	brid	-144		// 10000b3c
+10000bd0:	13181800 	addk	r24, r24, r3
+      {
+        goto out;
+      }
+      if(*format == '-') 
+      {
+        ++format;
+10000bd4:	e0970002 	lbui	r4, r23, 2
+10000bd8:	32770002 	addik	r19, r23, 2
+        pad = PAD_RIGHT;
+10000bdc:	31400001 	addik	r10, r0, 1
+      {
+        goto out;
+      }
+      if(*format == '-') 
+      {
+        ++format;
+10000be0:	b810fea8 	brid	-344		// 10000a88
+10000be4:	90840060 	sext8	r4, r4
+    **str = c;
+    ++(*str);
+  }
+  else 
+  {
+    uart_put((sb_uint8_t)c); /* UART for standart output */
+10000be8:	b9f4f648 	brlid	r15, -2488	// 10000230 <uart_put>
+10000bec:	a4a500ff 	andi	r5, r5, 255
+     }
+     else 
+     {
+       out:
+       outbyte(out,*format);
+       ++pc;
+10000bf0:	b810ffbc 	brid	-68		// 10000bac
+10000bf4:	12770000 	addk	r19, r23, r0
+        pc += prints(out, s?s:"(null)",width,pad);
+        continue;
+      }  
+      if(*format == 'd') 
+      {
+        pc += printi(out,*varg++,10,1,width,pad,'a');
+10000bf8:	e8da0000 	lwi	r6, r26, 0
+10000bfc:	10b60000 	addk	r5, r22, r0
+10000c00:	30e0000a 	addik	r7, r0, 10
+10000c04:	31000001 	addik	r8, r0, 1
+10000c08:	b9f4fc88 	brlid	r15, -888	// 10000890 <printi>
+10000c0c:	fb61001c 	swi	r27, r1, 28
+10000c10:	335a0004 	addik	r26, r26, 4
+        continue;
+10000c14:	b810ff28 	brid	-216		// 10000b3c
+10000c18:	13181800 	addk	r24, r24, r3
+      }
+      if(*format == 'x') 
+      {
+        pc += printi(out,*varg++,16,0,width,pad,'a');
+10000c1c:	e8da0000 	lwi	r6, r26, 0
+10000c20:	30e00010 	addik	r7, r0, 16
+10000c24:	b9f4fc6c 	brlid	r15, -916	// 10000890 <printi>
+10000c28:	fb61001c 	swi	r27, r1, 28
+10000c2c:	335a0004 	addik	r26, r26, 4
+        continue;
+10000c30:	b810ff0c 	brid	-244		// 10000b3c
+10000c34:	13181800 	addk	r24, r24, r3
+      } 
+      if(*format == 'X') 
+      {
+        pc += printi (out,*varg++,16,0,width,pad,'A');
+10000c38:	e8da0000 	lwi	r6, r26, 0
+10000c3c:	30e00010 	addik	r7, r0, 16
+10000c40:	b9f4fc50 	brlid	r15, -944	// 10000890 <printi>
+10000c44:	fb81001c 	swi	r28, r1, 28
+10000c48:	335a0004 	addik	r26, r26, 4
+        continue;
+10000c4c:	b810fef0 	brid	-272		// 10000b3c
+10000c50:	13181800 	addk	r24, r24, r3
+      }
+      if( *format == 'u' ) 
+      {
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+10000c54:	e8da0000 	lwi	r6, r26, 0
+10000c58:	30e0000a 	addik	r7, r0, 10
+10000c5c:	b9f4fc34 	brlid	r15, -972	// 10000890 <printi>
+10000c60:	fb61001c 	swi	r27, r1, 28
+10000c64:	335a0004 	addik	r26, r26, 4
+        continue;
+10000c68:	b810fed4 	brid	-300		// 10000b3c
+10000c6c:	13181800 	addk	r24, r24, r3
+      }
+      if(*format == 'c') 
+      {
+        scr[0] = *varg++;
+10000c70:	e07a0003 	lbui	r3, r26, 3
+        scr[1] = '\0';
+        pc += prints(out,scr,width,pad);
+10000c74:	110a0000 	addk	r8, r10, r0
+10000c78:	30c10020 	addik	r6, r1, 32
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+        continue;
+      }
+      if(*format == 'c') 
+      {
+        scr[0] = *varg++;
+10000c7c:	f0610020 	sbi	r3, r1, 32
+        scr[1] = '\0';
+        pc += prints(out,scr,width,pad);
+10000c80:	b9f4fa5c 	brlid	r15, -1444	// 100006dc <prints>
+10000c84:	f0810021 	sbi	r4, r1, 33
+        pc += printi(out,*varg++,10,0,width,pad,'a');
+        continue;
+      }
+      if(*format == 'c') 
+      {
+        scr[0] = *varg++;
+10000c88:	335a0004 	addik	r26, r26, 4
+        scr[1] = '\0';
+        pc += prints(out,scr,width,pad);
+        continue;
+10000c8c:	b810feb0 	brid	-336		// 10000b3c
+10000c90:	13181800 	addk	r24, r24, r3
+        width += *format - '0';
+      }
+      if(*format == 's') 
+      {
+        char *s = *((char **)varg++);
+        pc += prints(out, s?s:"(null)",width,pad);
+10000c94:	b0001000 	imm	4096
+10000c98:	30c01224 	addik	r6, r0, 4644	// 10001224 <__rodata_start>
+10000c9c:	b810ff28 	brid	-216		// 10000bc4
+10000ca0:	10b60000 	addk	r5, r22, r0
+
+10000ca4 <e_sprintf>:
+  int *varg = (int *)((char **)&format);
+  return print(0,varg);
+}
+
+int e_sprintf(char *out, const char *format, ...)
+{
+10000ca4:	f8c10008 	swi	r6, r1, 8
+10000ca8:	f8e1000c 	swi	r7, r1, 12
+10000cac:	f9010010 	swi	r8, r1, 16
+10000cb0:	f9210014 	swi	r9, r1, 20
+10000cb4:	f9410018 	swi	r10, r1, 24
+10000cb8:	3021ffe4 	addik	r1, r1, -28
+10000cbc:	f8a10020 	swi	r5, r1, 32
+10000cc0:	f8c10024 	swi	r6, r1, 36
+  int *varg = (int *)((char **)&format);
+  return print(&out,varg);
+10000cc4:	30a10020 	addik	r5, r1, 32
+  int *varg = (int *)((char **)&format);
+  return print(0,varg);
+}
+
+int e_sprintf(char *out, const char *format, ...)
+{
+10000cc8:	f9e10000 	swi	r15, r1, 0
+  int *varg = (int *)((char **)&format);
+  return print(&out,varg);
+10000ccc:	b9f4fd40 	brlid	r15, -704	// 10000a0c <print>
+10000cd0:	30c10024 	addik	r6, r1, 36
+}
+10000cd4:	e9e10000 	lwi	r15, r1, 0
+10000cd8:	b60f0008 	rtsd	r15, 8
+10000cdc:	3021001c 	addik	r1, r1, 28
+
+10000ce0 <e_printf>:
+ */
+
+#include "e_printf.h"
+
+int e_printf(const char *format, ...)
+{ 
+10000ce0:	f8a10004 	swi	r5, r1, 4
+10000ce4:	f8c10008 	swi	r6, r1, 8
+10000ce8:	f8e1000c 	swi	r7, r1, 12
+10000cec:	f9010010 	swi	r8, r1, 16
+10000cf0:	f9210014 	swi	r9, r1, 20
+10000cf4:	f9410018 	swi	r10, r1, 24
+10000cf8:	3021ffe4 	addik	r1, r1, -28
+10000cfc:	f8a10020 	swi	r5, r1, 32
+  int *varg = (int *)((char **)&format);
+  return print(0,varg);
+10000d00:	30c10020 	addik	r6, r1, 32
+ */
+
+#include "e_printf.h"
+
+int e_printf(const char *format, ...)
+{ 
+10000d04:	f9e10000 	swi	r15, r1, 0
+  int *varg = (int *)((char **)&format);
+  return print(0,varg);
+10000d08:	b9f4fd04 	brlid	r15, -764	// 10000a0c <print>
+10000d0c:	10a00000 	addk	r5, r0, r0
+}
+10000d10:	e9e10000 	lwi	r15, r1, 0
+10000d14:	b60f0008 	rtsd	r15, 8
+10000d18:	3021001c 	addik	r1, r1, 28
+
+10000d1c <uart_tx_handler>:
+/* tx handler */
+static void uart_tx_handler(void* baseadd_p)
+{
+  sb_int32_t j;
+  for(j=0;j<0x1FFFF;j++) {}; /* this is just a demo, you should never do that */
+  e_printf("\n%d",i);
+10000d1c:	b0001000 	imm	4096
+10000d20:	e8c013c4 	lwi	r6, r0, 5060	// 100013c4 <i>
+10000d24:	b0001000 	imm	4096
+10000d28:	30a0122c 	addik	r5, r0, 4652
+  } 
+} 
+
+/* tx handler */
+static void uart_tx_handler(void* baseadd_p)
+{
+10000d2c:	3021ffe4 	addik	r1, r1, -28
+10000d30:	f9e10000 	swi	r15, r1, 0
+  sb_int32_t j;
+  for(j=0;j<0x1FFFF;j++) {}; /* this is just a demo, you should never do that */
+  e_printf("\n%d",i);
+10000d34:	b9f4ffac 	brlid	r15, -84	// 10000ce0 <e_printf>
+10000d38:	80000000 	or	r0, r0, r0
+}
+10000d3c:	e9e10000 	lwi	r15, r1, 0
+10000d40:	b60f0008 	rtsd	r15, 8
+10000d44:	3021001c 	addik	r1, r1, 28
+
+10000d48 <uart_rx_handler>:
+volatile sb_int32_t i = 0;
+
+/* rx handler */
+static void uart_rx_handler(void* baseadd_p)
+{
+  i++;
+10000d48:	b0001000 	imm	4096
+10000d4c:	e86013c4 	lwi	r3, r0, 5060	// 100013c4 <i>
+
+volatile sb_int32_t i = 0;
+
+/* rx handler */
+static void uart_rx_handler(void* baseadd_p)
+{
+10000d50:	3021ffe4 	addik	r1, r1, -28
+10000d54:	f9e10000 	swi	r15, r1, 0
+  i++;
+10000d58:	30630001 	addik	r3, r3, 1
+10000d5c:	b0001000 	imm	4096
+10000d60:	f86013c4 	swi	r3, r0, 5060	// 100013c4 <i>
+	
+  /* stop it */
+  if(i == 100)
+10000d64:	b0001000 	imm	4096
+10000d68:	e86013c4 	lwi	r3, r0, 5060	// 100013c4 <i>
+10000d6c:	a8630064 	xori	r3, r3, 100
+10000d70:	be030010 	beqid	r3, 16		// 10000d80
+10000d74:	e9e10000 	lwi	r15, r1, 0
+  {
+    intc_set_arm(0x0);
+    e_printf("\n"); 
+    e_printf("IT disable!");
+  } 
+} 
+10000d78:	b60f0008 	rtsd	r15, 8
+10000d7c:	3021001c 	addik	r1, r1, 28
+	
+  /* stop it */
+  if(i == 100)
+  {
+    intc_set_arm(0x0);
+    e_printf("\n"); 
+10000d80:	b0001000 	imm	4096
+10000d84:	30a01230 	addik	r5, r0, 4656
+ * \brief Update the arm register
+ * \param[in] arm_it The new arm setting
+ */
+static __inline__ void intc_set_arm(const sb_uint32_t arm_it)
+{
+  WRITE_REG32(INTC_ARM_REG,arm_it);
+10000d88:	b0004000 	imm	16384
+10000d8c:	f860000c 	swi	r3, r0, 12
+10000d90:	b9f4ff50 	brlid	r15, -176	// 10000ce0 <e_printf>
+10000d94:	80000000 	or	r0, r0, r0
+    e_printf("IT disable!");
+10000d98:	b0001000 	imm	4096
+10000d9c:	30a01234 	addik	r5, r0, 4660
+10000da0:	b9f4ff40 	brlid	r15, -192	// 10000ce0 <e_printf>
+10000da4:	80000000 	or	r0, r0, r0
+  } 
+} 
+10000da8:	e9e10000 	lwi	r15, r1, 0
+10000dac:	b60f0008 	rtsd	r15, 8
+10000db0:	3021001c 	addik	r1, r1, 28
+
+10000db4 <_exception_handler>:
+10000db4:	b6110000 	rtsd	r17, 0
+10000db8:	80000000 	or	r0, r0, r0
+
+10000dbc <_hw_exception_handler>:
+10000dbc:	b6910000 	rted	r17, 0
+10000dc0:	80000000 	or	r0, r0, r0
+
+10000dc4 <_program_clean>:
+10000dc4:	b60f0008 	rtsd	r15, 8
+10000dc8:	80000000 	or	r0, r0, r0
+
+10000dcc <_program_init>:
+10000dcc:	b60f0008 	rtsd	r15, 8
+10000dd0:	80000000 	or	r0, r0, r0
+
+10000dd4 <exit>:
+10000dd4:	3021ffe0 	addik	r1, r1, -32
+10000dd8:	10c00000 	addk	r6, r0, r0
+10000ddc:	fa61001c 	swi	r19, r1, 28
+10000de0:	f9e10000 	swi	r15, r1, 0
+10000de4:	b9f40028 	brlid	r15, 40	// 10000e0c <__call_exitprocs>
+10000de8:	12650000 	addk	r19, r5, r0
+10000dec:	b0001000 	imm	4096
+10000df0:	e880124c 	lwi	r4, r0, 4684	// 1000124c <_global_impure_ptr>
+10000df4:	e8640028 	lwi	r3, r4, 40
+10000df8:	bc03000c 	beqi	r3, 12		// 10000e04
+10000dfc:	99fc1800 	brald	r15, r3
+10000e00:	10a40000 	addk	r5, r4, r0
+10000e04:	b9f4f274 	brlid	r15, -3468	// 10000078 <_exit>
+10000e08:	10b30000 	addk	r5, r19, r0
+
+10000e0c <__call_exitprocs>:
+10000e0c:	3021ffb8 	addik	r1, r1, -72
+10000e10:	fbc10040 	swi	r30, r1, 64
+10000e14:	b0001000 	imm	4096
+10000e18:	ebc0124c 	lwi	r30, r0, 4684	// 1000124c <_global_impure_ptr>
+10000e1c:	fb610034 	swi	r27, r1, 52
+10000e20:	13660000 	addk	r27, r6, r0
+10000e24:	fba1003c 	swi	r29, r1, 60
+10000e28:	fbe10044 	swi	r31, r1, 68
+10000e2c:	f9e10000 	swi	r15, r1, 0
+10000e30:	fa61001c 	swi	r19, r1, 28
+10000e34:	fac10020 	swi	r22, r1, 32
+10000e38:	fae10024 	swi	r23, r1, 36
+10000e3c:	fb010028 	swi	r24, r1, 40
+10000e40:	fb21002c 	swi	r25, r1, 44
+10000e44:	fb410030 	swi	r26, r1, 48
+10000e48:	fb810038 	swi	r28, r1, 56
+10000e4c:	f8a1004c 	swi	r5, r1, 76
+10000e50:	33fe0048 	addik	r31, r30, 72
+10000e54:	33a00001 	addik	r29, r0, 1
+10000e58:	eafe0048 	lwi	r23, r30, 72
+10000e5c:	be1700d8 	beqid	r23, 216		// 10000f34
+10000e60:	139f0000 	addk	r28, r31, r0
+10000e64:	e8770004 	lwi	r3, r23, 4
+10000e68:	3263ffff 	addik	r19, r3, -1
+10000e6c:	be5300bc 	bltid	r19, 188		// 10000f28
+10000e70:	eb370088 	lwi	r25, r23, 136
+10000e74:	be1b0124 	beqid	r27, 292		// 10000f98
+10000e78:	32c30001 	addik	r22, r3, 1
+10000e7c:	bc1900ac 	beqi	r25, 172		// 10000f28
+10000e80:	33030001 	addik	r24, r3, 1
+10000e84:	66d30402 	bslli	r22, r19, 2
+10000e88:	67180402 	bslli	r24, r24, 2
+10000e8c:	12d9b000 	addk	r22, r25, r22
+10000e90:	b810001c 	brid	28		// 10000eac
+10000e94:	1317c000 	addk	r24, r23, r24
+10000e98:	3273ffff 	addik	r19, r19, -1
+10000e9c:	a873ffff 	xori	r3, r19, -1
+10000ea0:	32d6fffc 	addik	r22, r22, -4
+10000ea4:	be030084 	beqid	r3, 132		// 10000f28
+10000ea8:	3318fffc 	addik	r24, r24, -4
+10000eac:	e8760080 	lwi	r3, r22, 128
+10000eb0:	8863d800 	xor	r3, r3, r27
+10000eb4:	bc23ffe4 	bnei	r3, -28		// 10000e98
+10000eb8:	eb570004 	lwi	r26, r23, 4
+10000ebc:	30daffff 	addik	r6, r26, -1
+10000ec0:	88e69800 	xor	r7, r6, r19
+10000ec4:	be0700b8 	beqid	r7, 184		// 10000f7c
+10000ec8:	e8980000 	lwi	r4, r24, 0
+10000ecc:	f8780000 	swi	r3, r24, 0
+10000ed0:	be04ffc8 	beqid	r4, -56		// 10000e98
+10000ed4:	447d9c00 	bsll	r3, r29, r19
+10000ed8:	e8d90100 	lwi	r6, r25, 256
+10000edc:	84c33000 	and	r6, r3, r6
+10000ee0:	bc06008c 	beqi	r6, 140		// 10000f6c
+10000ee4:	e8b90104 	lwi	r5, r25, 260
+10000ee8:	84632800 	and	r3, r3, r5
+10000eec:	be03009c 	beqid	r3, 156		// 10000f88
+10000ef0:	e8a1004c 	lwi	r5, r1, 76
+10000ef4:	99fc2000 	brald	r15, r4
+10000ef8:	e8b60000 	lwi	r5, r22, 0
+10000efc:	e8770004 	lwi	r3, r23, 4
+10000f00:	8b43d000 	xor	r26, r3, r26
+10000f04:	bc3aff54 	bnei	r26, -172		// 10000e58
+10000f08:	e87c0000 	lwi	r3, r28, 0
+10000f0c:	8863b800 	xor	r3, r3, r23
+10000f10:	be23ff48 	bneid	r3, -184		// 10000e58
+10000f14:	3273ffff 	addik	r19, r19, -1
+10000f18:	a873ffff 	xori	r3, r19, -1
+10000f1c:	32d6fffc 	addik	r22, r22, -4
+10000f20:	be23ff8c 	bneid	r3, -116		// 10000eac
+10000f24:	3318fffc 	addik	r24, r24, -4
+10000f28:	b0000000 	imm	0
+10000f2c:	30600000 	addik	r3, r0, 0
+10000f30:	bc230194 	bnei	r3, 404		// 100010c4
+10000f34:	e9e10000 	lwi	r15, r1, 0
+10000f38:	ea61001c 	lwi	r19, r1, 28
+10000f3c:	eac10020 	lwi	r22, r1, 32
+10000f40:	eae10024 	lwi	r23, r1, 36
+10000f44:	eb010028 	lwi	r24, r1, 40
+10000f48:	eb21002c 	lwi	r25, r1, 44
+10000f4c:	eb410030 	lwi	r26, r1, 48
+10000f50:	eb610034 	lwi	r27, r1, 52
+10000f54:	eb810038 	lwi	r28, r1, 56
+10000f58:	eba1003c 	lwi	r29, r1, 60
+10000f5c:	ebc10040 	lwi	r30, r1, 64
+10000f60:	ebe10044 	lwi	r31, r1, 68
+10000f64:	b60f0008 	rtsd	r15, 8
+10000f68:	30210048 	addik	r1, r1, 72
+10000f6c:	99fc2000 	brald	r15, r4
+10000f70:	80000000 	or	r0, r0, r0
+10000f74:	b810ff8c 	brid	-116		// 10000f00
+10000f78:	e8770004 	lwi	r3, r23, 4
+10000f7c:	f8d70004 	swi	r6, r23, 4
+10000f80:	b810ff50 	brid	-176		// 10000ed0
+10000f84:	13460000 	addk	r26, r6, r0
+10000f88:	99fc2000 	brald	r15, r4
+10000f8c:	e8d60000 	lwi	r6, r22, 0
+10000f90:	b810ff70 	brid	-144		// 10000f00
+10000f94:	e8770004 	lwi	r3, r23, 4
+10000f98:	be1900c8 	beqid	r25, 200		// 10001060
+10000f9c:	66d60402 	bslli	r22, r22, 2
+10000fa0:	67530402 	bslli	r26, r19, 2
+10000fa4:	13030000 	addk	r24, r3, r0
+10000fa8:	3063ffff 	addik	r3, r3, -1
+10000fac:	12d7b000 	addk	r22, r23, r22
+10000fb0:	88c39800 	xor	r6, r3, r19
+10000fb4:	1359d000 	addk	r26, r25, r26
+10000fb8:	be06007c 	beqid	r6, 124		// 10001034
+10000fbc:	e8960000 	lwi	r4, r22, 0
+10000fc0:	f8160000 	swi	r0, r22, 0
+10000fc4:	be040044 	beqid	r4, 68		// 10001008
+10000fc8:	447d9c00 	bsll	r3, r29, r19
+10000fcc:	e8b90100 	lwi	r5, r25, 256
+10000fd0:	84a32800 	and	r5, r3, r5
+10000fd4:	bc05006c 	beqi	r5, 108		// 10001040
+10000fd8:	e8b90104 	lwi	r5, r25, 260
+10000fdc:	84632800 	and	r3, r3, r5
+10000fe0:	be230070 	bneid	r3, 112		// 10001050
+10000fe4:	e8a1004c 	lwi	r5, r1, 76
+10000fe8:	99fc2000 	brald	r15, r4
+10000fec:	e8da0000 	lwi	r6, r26, 0
+10000ff0:	e8770004 	lwi	r3, r23, 4
+10000ff4:	8863c000 	xor	r3, r3, r24
+10000ff8:	bc23fe60 	bnei	r3, -416		// 10000e58
+10000ffc:	e87c0000 	lwi	r3, r28, 0
+10001000:	8863b800 	xor	r3, r3, r23
+10001004:	bc23fe54 	bnei	r3, -428		// 10000e58
+10001008:	3273ffff 	addik	r19, r19, -1
+1000100c:	a873ffff 	xori	r3, r19, -1
+10001010:	32d6fffc 	addik	r22, r22, -4
+10001014:	be03ff14 	beqid	r3, -236		// 10000f28
+10001018:	335afffc 	addik	r26, r26, -4
+1000101c:	e8770004 	lwi	r3, r23, 4
+10001020:	13030000 	addk	r24, r3, r0
+10001024:	3063ffff 	addik	r3, r3, -1
+10001028:	88c39800 	xor	r6, r3, r19
+1000102c:	be26ff94 	bneid	r6, -108		// 10000fc0
+10001030:	e8960000 	lwi	r4, r22, 0
+10001034:	f8770004 	swi	r3, r23, 4
+10001038:	b810ff8c 	brid	-116		// 10000fc4
+1000103c:	13030000 	addk	r24, r3, r0
+10001040:	99fc2000 	brald	r15, r4
+10001044:	80000000 	or	r0, r0, r0
+10001048:	b810ffac 	brid	-84		// 10000ff4
+1000104c:	e8770004 	lwi	r3, r23, 4
+10001050:	99fc2000 	brald	r15, r4
+10001054:	e8ba0000 	lwi	r5, r26, 0
+10001058:	b810ff9c 	brid	-100		// 10000ff4
+1000105c:	e8770004 	lwi	r3, r23, 4
+10001060:	12d7b000 	addk	r22, r23, r22
+10001064:	13030000 	addk	r24, r3, r0
+10001068:	3063ffff 	addik	r3, r3, -1
+1000106c:	88839800 	xor	r4, r3, r19
+10001070:	be040048 	beqid	r4, 72		// 100010b8
+10001074:	e8b60000 	lwi	r5, r22, 0
+10001078:	f8160000 	swi	r0, r22, 0
+1000107c:	bc050024 	beqi	r5, 36		// 100010a0
+10001080:	99fc2800 	brald	r15, r5
+10001084:	80000000 	or	r0, r0, r0
+10001088:	e8770004 	lwi	r3, r23, 4
+1000108c:	8863c000 	xor	r3, r3, r24
+10001090:	bc23fdc8 	bnei	r3, -568		// 10000e58
+10001094:	e87c0000 	lwi	r3, r28, 0
+10001098:	8863b800 	xor	r3, r3, r23
+1000109c:	bc23fdbc 	bnei	r3, -580		// 10000e58
+100010a0:	3273ffff 	addik	r19, r19, -1
+100010a4:	a873ffff 	xori	r3, r19, -1
+100010a8:	be03fe80 	beqid	r3, -384		// 10000f28
+100010ac:	32d6fffc 	addik	r22, r22, -4
+100010b0:	b810ffb4 	brid	-76		// 10001064
+100010b4:	e8770004 	lwi	r3, r23, 4
+100010b8:	f8770004 	swi	r3, r23, 4
+100010bc:	b810ffc0 	brid	-64		// 1000107c
+100010c0:	13030000 	addk	r24, r3, r0
+100010c4:	e8770004 	lwi	r3, r23, 4
+100010c8:	bc230040 	bnei	r3, 64		// 10001108
+100010cc:	e8770000 	lwi	r3, r23, 0
+100010d0:	bc03003c 	beqi	r3, 60		// 1000110c
+100010d4:	be190014 	beqid	r25, 20		// 100010e8
+100010d8:	f87c0000 	swi	r3, r28, 0
+100010dc:	b000efff 	imm	-4097
+100010e0:	b9f4ef20 	brlid	r15, -4320
+100010e4:	10b90000 	addk	r5, r25, r0
+100010e8:	b000efff 	imm	-4097
+100010ec:	b9f4ef14 	brlid	r15, -4332
+100010f0:	10b70000 	addk	r5, r23, r0
+100010f4:	eafc0000 	lwi	r23, r28, 0
+100010f8:	be37fd6c 	bneid	r23, -660		// 10000e64
+100010fc:	e9e10000 	lwi	r15, r1, 0
+10001100:	b810fe3c 	brid	-452		// 10000f3c
+10001104:	ea61001c 	lwi	r19, r1, 28
+10001108:	e8770000 	lwi	r3, r23, 0
+1000110c:	13970000 	addk	r28, r23, r0
+10001110:	b810ffe8 	brid	-24		// 100010f8
+10001114:	12e30000 	addk	r23, r3, r0
+
+10001118 <__do_global_ctors_aux>:
+10001118:	b0001000 	imm	4096
+1000111c:	e8601374 	lwi	r3, r0, 4980	// 10001374 <__data_end>
+10001120:	3021ffe0 	addik	r1, r1, -32
+10001124:	f9e10000 	swi	r15, r1, 0
+10001128:	a883ffff 	xori	r4, r3, -1
+1000112c:	be040024 	beqid	r4, 36		// 10001150
+10001130:	fa61001c 	swi	r19, r1, 28
+10001134:	b0001000 	imm	4096
+10001138:	32601374 	addik	r19, r0, 4980	// 10001374 <__data_end>
+1000113c:	99fc1800 	brald	r15, r3
+10001140:	3273fffc 	addik	r19, r19, -4
+10001144:	e8730000 	lwi	r3, r19, 0
+10001148:	a883ffff 	xori	r4, r3, -1
+1000114c:	bc24fff0 	bnei	r4, -16		// 1000113c
+10001150:	e9e10000 	lwi	r15, r1, 0
+10001154:	ea61001c 	lwi	r19, r1, 28
+10001158:	b60f0008 	rtsd	r15, 8
+1000115c:	30210020 	addik	r1, r1, 32
+
+10001160 <main>:
+
+
+int main(void)
+{
+
+  e_printf("Test IT\n!");
+10001160:	b0001000 	imm	4096
+10001164:	30a01240 	addik	r5, r0, 4672
+  e_printf("\n%d",i);
+}
+
+
+int main(void)
+{
+10001168:	3021ffe4 	addik	r1, r1, -28
+1000116c:	f9e10000 	swi	r15, r1, 0
+
+  e_printf("Test IT\n!");
+10001170:	b9f4fb70 	brlid	r15, -1168	// 10000ce0 <e_printf>
+10001174:	80000000 	or	r0, r0, r0
+ * \fn void __sb_enable_interrupt(void)
+ * \brief Enable external interrupt
+ */
+static __inline__ void __sb_enable_interrupt(void)
+{
+   __asm__ __volatile__ ("msrset r0, %0; NOP;"  \
+10001178:	94100002 	msrset	r0, 2
+1000117c:	80000000 	or	r0, r0, r0
+
+  /* set IE bit */
+  __sb_enable_interrupt();
+
+  /* init interrupt controller */
+  intc_init();
+10001180:	b9f4f134 	brlid	r15, -3788	// 100002b4 <intc_init>
+10001184:	80000000 	or	r0, r0, r0
+	
+  /* attach handlers */
+  intc_attach_handler(INTC_ID_0,(sb_interrupt_handler)(&uart_rx_handler),(void *)0); 
+10001188:	10a00000 	addk	r5, r0, r0
+1000118c:	b0001000 	imm	4096
+10001190:	30c00d48 	addik	r6, r0, 3400	// 10000d48 <uart_rx_handler>
+10001194:	b9f4f1a0 	brlid	r15, -3680	// 10000334 <intc_attach_handler>
+10001198:	10e50000 	addk	r7, r5, r0
+  intc_attach_handler(INTC_ID_1,(sb_interrupt_handler)(&uart_tx_handler),(void *)0);
+1000119c:	b0001000 	imm	4096
+100011a0:	30c00d1c 	addik	r6, r0, 3356	// 10000d1c <uart_tx_handler>
+100011a4:	30a00001 	addik	r5, r0, 1
+100011a8:	b9f4f18c 	brlid	r15, -3700	// 10000334 <intc_attach_handler>
+100011ac:	10e00000 	addk	r7, r0, r0
+ * \brief Update the mask register
+ * \param[in] mask_it The new mask setting
+ */
+static __inline__ void intc_set_mask(const sb_uint32_t mask_it)
+{
+  WRITE_REG32(INTC_MASK_REG,mask_it);
+100011b0:	306000fc 	addik	r3, r0, 252
+100011b4:	b0004000 	imm	16384
+100011b8:	f8600008 	swi	r3, r0, 8
+ * \brief Update the arm register
+ * \param[in] arm_it The new arm setting
+ */
+static __inline__ void intc_set_arm(const sb_uint32_t arm_it)
+{
+  WRITE_REG32(INTC_ARM_REG,arm_it);
+100011bc:	30600003 	addik	r3, r0, 3
+100011c0:	b0004000 	imm	16384
+100011c4:	f860000c 	swi	r3, r0, 12
+100011c8:	b8000000 	bri	0		// 100011c8
+
+Disassembly of section .init:
+
+100011cc <__init>:
+100011cc:	3021fff8 	addik	r1, r1, -8
+100011d0:	d9e00800 	sw	r15, r0, r1
+100011d4:	b0001000 	imm	4096
+100011d8:	31601618 	addik	r11, r0, 5656
+100011dc:	940bc802 	mts	rshr, r11
+100011e0:	b0001000 	imm	4096
+100011e4:	3160152c 	addik	r11, r0, 5420
+100011e8:	940bc800 	mts	rslr, r11
+100011ec:	b9f4ef44 	brlid	r15, -4284	// 10000130 <frame_dummy>
+100011f0:	80000000 	or	r0, r0, r0
+100011f4:	b9f4ff24 	brlid	r15, -220	// 10001118 <__do_global_ctors_aux>
+100011f8:	80000000 	or	r0, r0, r0
+100011fc:	c9e00800 	lw	r15, r0, r1
+10001200:	b60f0008 	rtsd	r15, 8
+10001204:	30210008 	addik	r1, r1, 8
+
+Disassembly of section .fini:
+
+10001208 <__fini>:
+10001208:	3021fff8 	addik	r1, r1, -8
+1000120c:	d9e00800 	sw	r15, r0, r1
+10001210:	b9f4ee6c 	brlid	r15, -4500	// 1000007c <__do_global_dtors_aux>
+10001214:	80000000 	or	r0, r0, r0
+10001218:	c9e00800 	lw	r15, r0, r1
+1000121c:	b60f0008 	rtsd	r15, 8
+10001220:	30210008 	addik	r1, r1, 8
+
+Disassembly of section .rodata:
+
+10001224 <__rodata_start>:
+10001224:	286e756c 	addic	r3, r14, 30060
+10001228:	6c290000 	get	r1, rfsl0
+1000122c:	0a256400 		r17, r5, r12
+10001230:	0a000000 	addc	r16, r0, r0
+10001234:	49542064 		r10, r20, r4
+10001238:	69736162 		r11, r19, r12
+1000123c:	6c652100 	cget	r3, rfsl0
+10001240:	54657374 		r3, r5, r14
+10001244:	2049540a 	addi	r2, r9, 21514
+10001248:	21000000 	addi	r8, r0, 0
+
+1000124c <_global_impure_ptr>:
+1000124c:	10001280 		r0, r0, r2
+10001250:	Address 0x10001250 is out of bounds.
+
+
+Disassembly of section .data:
+
+10001274 <__data_start>:
+10001274:	
+10001278 <__dso_handle>:
+10001278:	
+1000127c <_impure_ptr>:
+1000127c:	10001280 		r0, r0, r2
+
+10001280 <impure_data>:
+10001280:	
+10001370 <force_to_data>:
+10001370:	
+Disassembly of section .ctors:
+
+10001374 <__CTOR_LIST__>:
+10001374:	ffffffff 		r31, r31, r31
+
+10001378 <__CTOR_END__>:
+10001378:	
+Disassembly of section .dtors:
+
+1000137c <__DTOR_LIST__>:
+1000137c:	ffffffff 		r31, r31, r31
+
+10001380 <__DTOR_END__>:
+10001380:	
+Disassembly of section .eh_frame:
+
+10001384 <__EH_FRAME_BEGIN__>:
+10001384:	
+Disassembly of section .jcr:
+
+10001388 <__JCR_END__>:
+10001388:	
+Disassembly of section .bss:
+
+100013a4 <__bss_start>:
+100013a4:	
+100013a8 <dtor_idx.2340>:
+100013a8:	
+100013ac <object.2350>:
+100013ac:	
+100013c4 <i>:
+100013c4:	
+100013c8 <it_vector_table>:
+100013c8:	
+10001408 <it_priority_table>:
+10001408:	
+Disassembly of section .heap:
+
+10001428 <_heap>:
+10001428:	
+Disassembly of section .stack:
+
+10001528 <_stack_end>:
+10001528:	
+Disassembly of section .debug_line:
+
+00000000 <.debug_line>:
+   0:	000000a7 		r0, r0, r0
+   4:	00020000 	add	r0, r2, r0
+   8:	00490101 		r2, r9, r0
+   c:	fb0e0d00 	swi	r24, r14, 3328
+  10:	01010101 		r8, r1, r0
+  14:	00000001 		r0, r0, r0
+  18:	0000012f 		r0, r0, r0
+  1c:	676e752f 	bslli	r27, r14, 15
+  20:	6d625f67 	tneaget	r11, rfsl7
+  24:	6e752f2f 	ecaget	r19, rfsl15
+  28:	7372632f 		r27, r18, r12
+  2c:	6e65776c 	tnecget	r19, rfsl12
+  30:	69622f6c 		r11, r2, r5
+  34:	6962676c 		r11, r2, r12
+  38:	6f73732f 	tncget	r27, rfsl15
+  3c:	6d696372 	ncget	r11, rfsl2
+  40:	6f626c61 	necaget	r27, rfsl1
+  44:	7a650000 		r19, r5, r0
+  48:	63727430 	muli	r27, r18, 29744
+  4c:	2e530001 	rsubic	r18, r19, 1
+  50:	
+Disassembly of section .debug_info:
+
+00000000 <.debug_info>:
+       0:	000000b5 		r0, r0, r0
+       4:	00020000 	add	r0, r2, r0
+       8:	00000401 		r0, r0, r0
+       c:	
+Disassembly of section .debug_abbrev:
+
+00000000 <.debug_abbrev>:
+   0:	01110010 		r8, r17, r0
+   4:	06550603 	neg	r18, r21
+   8:	081b0825 		r0, r27, r1
+   c:	08130500 		r0, r19, r0
+  10:	00000111 		r0, r0, r0
+  14:	00100655 		r0, r16, r0
+  18:	0603081b 	neg	r16, r3
+  1c:	08250813 		r1, r5, r1
+  20:	05000000 	rsub	r8, r0, r0
+  24:	01110010 		r8, r17, r0
+  28:	06110112 	neg	r16, r17
+  2c:	0103081b 		r8, r3, r1
+  30:	08250813 		r1, r5, r1
+  34:	05000000 	rsub	r8, r0, r0
+  38:	01110125 		r8, r17, r0
+  3c:	0e130b03 		r16, r19, r1
+  40:	0e1b0e11 		r16, r27, r1
+  44:	01120110 		r8, r18, r0
+  48:	06000002 	neg	r16, r0
+  4c:	24000b0b 	rsubi	r0, r0, 2827
+  50:	3e0b030e 	rsubikc	r16, r11, 782
+  54:	00000316 		r0, r0, r0
+  58:	00030e3a 		r0, r3, r1
+  5c:	0b3b0b49 		r25, r27, r1
+  60:	13000004 		r24, r0, r0
+  64:	24000b0b 	rsubi	r0, r0, 2827
+  68:	3e0b0308 	rsubikc	r16, r11, 776
+  6c:	0000052e 		r0, r0, r0
+  70:	013f0c03 		r9, r31, r1
+  74:	0e3a0b3b 		r17, r26, r1
+  78:	0b270c20 		r25, r7, r1
+  7c:	0b011300 		r24, r1, r2
+  80:	00063400 		r0, r6, r6
+  84:	030e3a0b 		r24, r14, r7
+  88:	3b0b4913 	addikc	r24, r11, 18707
+  8c:	0000072e 		r0, r0, r0
+  90:	01030e3a 		r8, r3, r1
+  94:	0b3b0b27 		r25, r27, r1
+  98:	0c200b01 		r1, r0, r1
+  9c:	13000008 		r24, r0, r0
+  a0:	0500030e 	neg	r8, r0
+  a4:	3a0b3b0b 	addikc	r16, r11, 15115
+  a8:	49130000 	idiv	r8, r19, r0
+  ac:	09260049 		r9, r6, r0
+  b0:	1300000a 		r24, r0, r0
+  b4:	0f000b0b 		r24, r0, r1
+  b8:	49130000 	idiv	r8, r19, r0
+  bc:	0b2e0003 		r25, r14, r0
+  c0:	0e3a0b3b 		r17, r26, r1
+  c4:	0b270c20 		r25, r7, r1
+  c8:	0b00000c 		r24, r0, r0
+  cc:	2e013f0c 	rsubic	r16, r1, 16140
+  d0:	030e3a0b 		r24, r14, r7
+  d4:	3b0b270c 	addikc	r24, r11, 9996
+  d8:	11011201 		r8, r1, r2
+  dc:	400a0113 		r0, r10, r0
+  e0:	00000d05 		r0, r0, r1
+  e4:	0003083a 		r0, r3, r1
+  e8:	0b3b0b49 		r25, r27, r1
+  ec:	13020a00 		r24, r2, r1
+  f0:	000e1d01 		r0, r14, r3
+  f4:	31131101 	addik	r8, r19, 4353
+  f8:	1201580b 		r16, r1, r11
+  fc:	590b0113 		r8, r11, r0
+ 100:	00000f05 		r0, r0, r1
+ 104:	00311302 		r1, r17, r2
+ 108:	0a000010 		r16, r0, r0
+ 10c:	1d003113 		r8, r0, r6
+ 110:	11011201 		r8, r1, r2
+ 114:	580b590b 		r0, r11, r11
+ 118:	0000111d 		r0, r0, r2
+ 11c:	01311311 		r9, r17, r2
+ 120:	01120158 		r8, r18, r0
+ 124:	0b590b00 		r26, r25, r1
+ 128:	00120b01 		r0, r18, r1
+ 12c:	11011201 		r8, r1, r2
+ 130:	00001334 		r0, r0, r2
+ 134:	00311302 		r1, r17, r2
+ 138:	06000014 	neg	r16, r0
+ 13c:	2e013113 	rsubic	r16, r1, 12563
+ 140:	11011201 		r8, r1, r2
+ 144:	400a0113 		r0, r10, r0
+ 148:	00001501 		r0, r0, r2
+ 14c:	01491301 		r10, r9, r2
+ 150:	13000016 		r24, r0, r0
+ 154:	21004913 	addi	r8, r0, 18707
+ 158:	2f0b0000 	rsubic	r24, r11, 0
+ 15c:	00011101 		r0, r1, r2
+ 160:	250e130b 	rsubi	r8, r14, 4875
+ 164:	030e1b0e 		r24, r14, r3
+ 168:	11011201 		r8, r1, r2
+ 16c:	10060000 	addk	r0, r6, r0
+ 170:	0224000b 		r17, r4, r0
+ 174:	0b3e0b03 		r25, r30, r1
+ 178:	0e000003 		r16, r0, r0
+ 17c:	1600030e 		r16, r0, r0
+ 180:	3a0b3b0b 	addikc	r16, r11, 15115
+ 184:	49130000 	idiv	r8, r19, r0
+ 188:	0424000b 	neg	r1, r4
+ 18c:	0b3e0b03 		r25, r30, r1
+ 190:	08000005 		r0, r0, r0
+ 194:	0f000b0b 		r24, r0, r1
+ 198:	49130000 	idiv	r8, r19, r0
+ 19c:	06150127 	neg	r16, r21
+ 1a0:	0c011300 		r0, r1, r2
+ 1a4:	00070500 		r0, r7, r0
+ 1a8:	49130000 	idiv	r8, r19, r0
+ 1ac:	080f000b 		r0, r15, r0
+ 1b0:	0b000009 		r24, r0, r0
+ 1b4:	13010b0b 		r24, r1, r1
+ 1b8:	3a0b3b0b 	addikc	r16, r11, 15115
+ 1bc:	01130000 	add	r8, r19, r0
+ 1c0:	0a0d0003 		r16, r13, r0
+ 1c4:	0e3a0b3b 		r17, r26, r1
+ 1c8:	0b491338 		r26, r9, r2
+ 1cc:	0a00000b 		r16, r0, r0
+ 1d0:	2e013f0c 	rsubic	r16, r1, 16140
+ 1d4:	030e3a0b 		r24, r14, r7
+ 1d8:	3b0b270c 	addikc	r24, r11, 9996
+ 1dc:	11011201 		r8, r1, r2
+ 1e0:	400a0113 		r0, r10, r0
+ 1e4:	00000c34 		r0, r0, r1
+ 1e8:	0003083a 		r0, r3, r1
+ 1ec:	0b3b0b49 		r25, r27, r1
+ 1f0:	13020600 		r24, r2, r0
+ 1f4:	000d0500 		r0, r13, r0
+ 1f8:	030e3a0b 		r24, r14, r7
+ 1fc:	3b0b4913 	addikc	r24, r11, 18707
+ 200:	02060000 	add	r16, r6, r0
+ 204:	0e050003 		r16, r5, r0
+ 208:	0e3a0b3b 		r17, r26, r1
+ 20c:	0b491302 		r26, r9, r2
+ 210:	0a00000f 		r16, r0, r0
+ 214:	26004913 	rsubi	r16, r0, 18707
+ 218:	0000102e 		r0, r0, r2
+ 21c:	013f0c03 		r9, r31, r1
+ 220:	0e3a0b3b 		r17, r26, r1
+ 224:	0b270c11 		r25, r7, r1
+ 228:	01120140 		r8, r18, r0
+ 22c:	06011300 	neg	r16, r1
+ 230:	00113400 		r0, r17, r6
+ 234:	030e3a0b 		r24, r14, r7
+ 238:	3b0b4913 	addikc	r24, r11, 18707
+ 23c:	02060000 	add	r16, r6, r0
+ 240:	12010149 		r16, r1, r0
+ 244:	13011300 		r24, r1, r2
+ 248:	00132100 		r0, r19, r4
+ 24c:	49132f0b 		r8, r19, r5
+ 250:	00001434 		r0, r0, r2
+ 254:	00030e3a 		r0, r3, r1
+ 258:	0b3b0b49 		r25, r27, r1
+ 25c:	13000015 		r24, r0, r0
+ 260:	3400030e 	rsubik	r0, r0, 782
+ 264:	3a0b3b0b 	addikc	r16, r11, 15115
+ 268:	49133f0c 		r8, r19, r7
+ 26c:	3c0c0000 	rsubikc	r0, r12, 0
+ 270:	16340003 	cmpu	r17, r20, r0
+ 274:	0e3a0b3b 		r17, r26, r1
+ 278:	0b49133f 		r26, r9, r2
+ 27c:	0c020a00 		r0, r2, r1
+ 280:	00000111 		r0, r0, r0
+ 284:	01250e13 		r9, r5, r1
+ 288:	0b030e1b 		r24, r3, r1
+ 28c:	0e110112 		r16, r17, r0
+ 290:	01100600 		r8, r16, r0
+ 294:	00022400 		r0, r2, r4
+ 298:	0b0b3e0b 		r24, r11, r7
+ 29c:	030e0000 	add	r24, r14, r0
+ 2a0:	03160003 		r24, r22, r0
+ 2a4:	0e3a0b3b 		r17, r26, r1
+ 2a8:	0b491300 		r26, r9, r2
+ 2ac:	00042400 		r0, r4, r4
+ 2b0:	0b0b3e0b 		r24, r11, r7
+ 2b4:	03080000 	add	r24, r8, r0
+ 2b8:	052e013f 	neg	r9, r14
+ 2bc:	0c030e3a 		r0, r3, r1
+ 2c0:	0b3b0b27 		r25, r27, r1
+ 2c4:	0c200b01 		r1, r0, r1
+ 2c8:	13000006 		r24, r0, r0
+ 2cc:	05000308 	neg	r8, r0
+ 2d0:	3a0b3b0b 	addikc	r16, r11, 15115
+ 2d4:	49130000 	idiv	r8, r19, r0
+ 2d8:	070f000b 	neg	r24, r15
+ 2dc:	0b491300 		r26, r9, r2
+ 2e0:	00082e01 		r0, r8, r5
+ 2e4:	31131101 	addik	r8, r19, 4353
+ 2e8:	12014006 		r16, r1, r8
+ 2ec:	01130000 	add	r8, r19, r0
+ 2f0:	09050031 		r8, r5, r0
+ 2f4:	13020600 		r24, r2, r0
+ 2f8:	000a2e01 		r0, r10, r5
+ 2fc:	3f0c030e 	rsubikc	r24, r12, 782
+ 300:	3a0b3b0b 	addikc	r16, r11, 15115
+ 304:	270c4913 	rsubi	r24, r12, 18707
+ 308:	11011201 		r8, r1, r2
+ 30c:	40060113 		r0, r6, r0
+ 310:	00000b05 		r0, r0, r1
+ 314:	0003083a 		r0, r3, r1
+ 318:	0b3b0b49 		r25, r27, r1
+ 31c:	13020600 		r24, r2, r0
+ 320:	000c0500 		r0, r12, r0
+ 324:	030e3a0b 		r24, r14, r7
+ 328:	3b0b4913 	addikc	r24, r11, 18707
+ 32c:	02060000 	add	r16, r6, r0
+ 330:	0d340003 		r9, r20, r0
+ 334:	083a0b3b 		r1, r26, r1
+ 338:	0b491302 		r26, r9, r2
+ 33c:	0600000e 	neg	r16, r0
+ 340:	3400030e 	rsubik	r0, r0, 782
+ 344:	3a0b3b0b 	addikc	r16, r11, 15115
+ 348:	49130206 		r8, r19, r0
+ 34c:	00000f0b 		r0, r0, r1
+ 350:	01110112 		r8, r17, r0
+ 354:	01011300 		r8, r1, r2
+ 358:	00101d01 		r0, r16, r3
+ 35c:	31135201 	addik	r8, r19, 20993
+ 360:	5506580b 		r8, r6, r11
+ 364:	590b0113 		r8, r11, r0
+ 368:	0000111d 		r0, r0, r2
+ 36c:	01311352 		r9, r17, r2
+ 370:	01550658 		r10, r21, r0
+ 374:	0b590b00 		r26, r25, r1
+ 378:	00122600 		r0, r18, r4
+ 37c:	49130000 	idiv	r8, r19, r0
+ 380:	13050003 		r24, r5, r0
+ 384:	0e3a0b3b 		r17, r26, r1
+ 388:	0b491302 		r26, r9, r2
+ 38c:	0a000014 		r16, r0, r0
+ 390:	3400030e 	rsubik	r0, r0, 782
+ 394:	3a0b3b0b 	addikc	r16, r11, 15115
+ 398:	4913020a 		r8, r19, r0
+ 39c:	00001501 		r0, r0, r2
+ 3a0:	01491301 		r10, r9, r2
+ 3a4:	13000016 		r24, r0, r0
+ 3a8:	21004913 	addi	r8, r0, 18707
+ 3ac:	2f0b0000 	rsubic	r24, r11, 0
+ 3b0:	17340003 	cmpu	r25, r20, r0
+ 3b4:	083a0b3b 		r1, r26, r1
+ 3b8:	0b491302 		r26, r9, r2
+ 3bc:	0a000018 		r16, r0, r0
+ 3c0:	0a000308 		r16, r0, r0
+ 3c4:	3a0b3b0b 	addikc	r16, r11, 15115
+ 3c8:	11010000 	addk	r8, r1, r0
+ 3cc:	190b0155 		r8, r11, r0
+ 3d0:	0600001a 	neg	r16, r0
+ 3d4:	18000000 	addkc	r0, r0, r0
+ 3d8:	1b340003 		r25, r20, r0
+ 3dc:	0e3a0b3b 		r17, r26, r1
+ 3e0:	0b491300 		r26, r9, r2
+ 3e4:	00000111 		r0, r0, r0
+ 3e8:	01250e13 		r9, r5, r1
+ 3ec:	0b030e1b 		r24, r3, r1
+ 3f0:	0e110152 		r16, r17, r0
+ 3f4:	01550610 		r10, r21, r0
+ 3f8:	06000002 	neg	r16, r0
+ 3fc:	24000b0b 	rsubi	r0, r0, 2827
+ 400:	3e0b030e 	rsubikc	r16, r11, 782
+ 404:	00000316 		r0, r0, r0
+ 408:	00030e3a 		r0, r3, r1
+ 40c:	0b3b0b49 		r25, r27, r1
+ 410:	13000004 		r24, r0, r0
+ 414:	24000b0b 	rsubi	r0, r0, 2827
+ 418:	3e0b0308 	rsubikc	r16, r11, 776
+ 41c:	00000504 		r0, r0, r0
+ 420:	010b0b3a 		r8, r11, r1
+ 424:	0b3b0b01 		r25, r27, r1
+ 428:	13000006 		r24, r0, r0
+ 42c:	2800030e 	addic	r0, r0, 782
+ 430:	1c0d0000 	rsubkc	r0, r13, r0
+ 434:	070f000b 	neg	r24, r15
+ 438:	0b491300 		r26, r9, r2
+ 43c:	00081501 		r0, r8, r2
+ 440:	270c0113 	rsubi	r24, r12, 275
+ 444:	00000905 		r0, r0, r1
+ 448:	00491300 		r2, r9, r2
+ 44c:	000a0f00 		r0, r10, r1
+ 450:	0b0b0000 	addc	r24, r11, r0
+ 454:	0b13010b 		r24, r19, r0
+ 458:	0b3a0b3b 		r25, r26, r1
+ 45c:	0b011300 		r24, r1, r2
+ 460:	000c0d00 		r0, r12, r1
+ 464:	030e3a0b 		r24, r14, r7
+ 468:	3b0b4913 	addikc	r24, r11, 18707
+ 46c:	380a0000 	addikc	r0, r10, 0
+ 470:	0d2e0103 		r9, r14, r0
+ 474:	0e3a0b3b 		r17, r26, r1
+ 478:	0b270c20 		r25, r7, r1
+ 47c:	0b011300 		r24, r1, r2
+ 480:	000e0500 		r0, r14, r0
+ 484:	030e3a0b 		r24, r14, r7
+ 488:	3b0b4913 	addikc	r24, r11, 18707
+ 48c:	00000f26 		r0, r0, r1
+ 490:	00491300 		r2, r9, r2
+ 494:	00102e00 		r0, r16, r5
+ 498:	030e3a0b 		r24, r14, r7
+ 49c:	3b0b270c 	addikc	r24, r11, 9996
+ 4a0:	200b0000 	addi	r0, r11, 0
+ 4a4:	112e0103 		r9, r14, r0
+ 4a8:	0e3a0b3b 		r17, r26, r1
+ 4ac:	0b270c11 		r25, r7, r1
+ 4b0:	01120140 		r8, r18, r0
+ 4b4:	06011300 	neg	r16, r1
+ 4b8:	00120500 		r0, r18, r0
+ 4bc:	030e3a0b 		r24, r14, r7
+ 4c0:	3b0b4913 	addikc	r24, r11, 18707
+ 4c4:	02060000 	add	r16, r6, r0
+ 4c8:	13340003 		r25, r20, r0
+ 4cc:	083a0b3b 		r1, r26, r1
+ 4d0:	0b49131c 		r26, r9, r2
+ 4d4:	0b000014 		r24, r0, r0
+ 4d8:	2e013113 	rsubic	r16, r1, 12563
+ 4dc:	11011201 		r8, r1, r2
+ 4e0:	40060113 		r0, r6, r0
+ 4e4:	00001505 		r0, r0, r2
+ 4e8:	00311302 		r1, r17, r2
+ 4ec:	06000016 	neg	r16, r0
+ 4f0:	1d013113 		r8, r1, r6
+ 4f4:	11011201 		r8, r1, r2
+ 4f8:	580b590b 		r0, r11, r11
+ 4fc:	0000170b 		r0, r0, r2
+ 500:	01110112 		r8, r17, r0
+ 504:	01000018 		r8, r0, r0
+ 508:	05003113 	neg	r8, r0
+ 50c:	00001905 		r0, r0, r3
+ 510:	0031131c 		r1, r17, r2
+ 514:	0b00001a 		r24, r0, r0
+ 518:	2e013f0c 	rsubic	r16, r1, 16140
+ 51c:	030e3a0b 		r24, r14, r7
+ 520:	3b0b270c 	addikc	r24, r11, 9996
+ 524:	49131101 		r8, r19, r2
+ 528:	12014006 		r16, r1, r8
+ 52c:	01130000 	add	r8, r19, r0
+ 530:	1b1d0031 		r24, r29, r0
+ 534:	13110112 		r24, r17, r0
+ 538:	01580b59 		r10, r24, r1
+ 53c:	0b00001c 		r24, r0, r0
+ 540:	1d013113 		r8, r1, r6
+ 544:	11011201 		r8, r1, r2
+ 548:	580b590b 		r0, r11, r11
+ 54c:	01130000 	add	r8, r19, r0
+ 550:	1d010149 		r8, r1, r0
+ 554:	13011300 		r24, r1, r2
+ 558:	001e2100 		r0, r30, r4
+ 55c:	49132f0b 		r8, r19, r5
+ 560:	00001f34 		r0, r0, r3
+ 564:	00030e3a 		r0, r3, r1
+ 568:	0b3b0b49 		r25, r27, r1
+ 56c:	13000020 		r24, r0, r0
+ 570:	3400030e 	rsubik	r0, r0, 782
+ 574:	3a0b3b0b 	addikc	r16, r11, 15115
+ 578:	49133f0c 		r8, r19, r7
+ 57c:	3c0c0000 	rsubikc	r0, r12, 0
+ 580:	21340003 	addi	r9, r20, 3
+ 584:	083a0b3b 		r1, r26, r1
+ 588:	0b49133f 		r26, r9, r2
+ 58c:	0c3c0c00 		r1, r28, r1
+ 590:	00223500 		r1, r2, r6
+ 594:	49130000 	idiv	r8, r19, r0
+ 598:	23340003 	addi	r25, r20, 3
+ 59c:	0e3a0b3b 		r17, r26, r1
+ 5a0:	0b49133f 		r26, r9, r2
+ 5a4:	0c020a00 		r0, r2, r1
+ 5a8:	00243400 		r1, r4, r6
+ 5ac:	03083a0b 		r24, r8, r7
+ 5b0:	3b0b4913 	addikc	r24, r11, 18707
+ 5b4:	3f0c020a 	rsubikc	r24, r12, 522
+ 5b8:	00000001 		r0, r0, r0
+ 5bc:	11001006 		r8, r0, r2
+ 5c0:	11011201 		r8, r1, r2
+ 5c4:	03081b08 		r24, r8, r3
+ 5c8:	25081305 	rsubi	r8, r8, 4869
+ 5cc:	00000001 		r0, r0, r0
+ 5d0:	11001006 		r8, r0, r2
+ 5d4:	11011201 		r8, r1, r2
+ 5d8:	03081b08 		r24, r8, r3
+ 5dc:	25081305 	rsubi	r8, r8, 4869
+ 5e0:	00000001 		r0, r0, r0
+ 5e4:	11001006 		r8, r0, r2
+ 5e8:	11011201 		r8, r1, r2
+ 5ec:	03081b08 		r24, r8, r3
+ 5f0:	25081305 	rsubi	r8, r8, 4869
+ 5f4:	00000001 		r0, r0, r0
+ 5f8:	11001006 		r8, r0, r2
+ 5fc:	11011201 		r8, r1, r2
+ 600:	03081b08 		r24, r8, r3
+ 604:	25081305 	rsubi	r8, r8, 4869
+ 608:	00000001 		r0, r0, r0
+ 60c:	11001006 		r8, r0, r2
+ 610:	55060308 		r8, r6, r0
+ 614:	1b082508 		r24, r8, r4
+ 618:	13050000 	addk	r24, r5, r0
+ 61c:	Address 0x0000061c is out of bounds.
+
+
+Disassembly of section .debug_aranges:
+
+00000000 <.debug_aranges>:
+   0:	0000003c 		r0, r0, r0
+   4:	00020000 	add	r0, r2, r0
+   8:	00000400 		r0, r0, r0
+   c:	
+Disassembly of section .debug_ranges:
+
+00000000 <.debug_ranges>:
+   0:	ffffffff 		r31, r31, r31
+   4:	
+Disassembly of section .debug_frame:
+
+00000000 <.debug_frame>:
+   0:	0000000c 		r0, r0, r0
+   4:	ffffffff 		r31, r31, r31
+   8:	0100017c 		r8, r0, r0
+   c:	0f0c0100 		r24, r12, r0
+  10:	0000000c 		r0, r0, r0
+  14:	
+Disassembly of section .debug_loc:
+
+00000000 <.debug_loc>:
+       0:	0000001c 		r0, r0, r0
+       4:	00000020 		r0, r0, r0
+       8:	00057300 		r0, r5, r14
+       c:	321a9f00 	addik	r16, r26, -24832
+      10:	00002000 	add	r0, r0, r4
+      14:	00002c00 		r0, r0, r5
+      18:	01530000 	add	r10, r19, r0
+      1c:	
+Disassembly of section .debug_str:
+
+00000000 <.debug_str>:
+   0:	6c6f6e67 	necaget	r3, rfsl7
+   4:	206c6f6e 	addi	r3, r12, 28526
+   8:	6720696e 	bsrli	r25, r0, 14
+   c:	74007561 		r0, r0, r14
+  10:	72745f73 		r19, r20, r11
+  14:	656e6400 	bslli	r11, r14, 0
+  18:	75617274 		r11, r1, r14
+  1c:	5f707574 		r27, r16, r14
+  20:	00756172 		r3, r21, r12
+  24:	745f6765 		r2, r31, r12
+  28:	74006c6f 		r0, r0, r13
+  2c:	6e67206c 	cget	r19, rfsl12
+  30:	6f6e6720 	necget	r27, rfsl0
+  34:	756e7369 		r11, r14, r14
+  38:	676e6564 	bslli	r27, r14, 4
+  3c:	20696e74 	addi	r3, r9, 28276
+  40:	00666c6f 		r3, r6, r13
+  44:	61740075 	muli	r11, r20, 117
+  48:	6172745f 	muli	r11, r18, 29791
+  4c:	72656164 		r19, r5, r12
+  50:	00435055 		r2, r3, r10
+  54:	5f564552 		r26, r22, r8
+  58:	00756e73 		r3, r21, r13
+  5c:	69676e65 		r11, r7, r13
+  60:	64206368 	bsrai	r1, r0, 8
+  64:	61720064 	muli	r11, r18, 100
+  68:	61746100 	muli	r11, r20, 24832
+  6c:	75617274 		r11, r1, r14
+  70:	5f776169 		r27, r23, r12
+  74:	745f7478 		r2, r31, r14
+  78:	5f646f6e 		r27, r4, r13
+  7c:	6500646f 	bslli	r8, r0, 15
+  80:	75626c65 		r11, r2, r13
+  84:	00756172 		r3, r21, r12
+  88:	745f7772 		r2, r31, r14
+  8c:	69746500 		r11, r20, r12
+  90:	75617274 		r11, r1, r14
+  94:	5f776169 		r27, r23, r12
+  98:	745f7278 		r2, r31, r14
+  9c:	5f726561 		r27, r18, r12
+  a0:	64790073 	bsrli	r3, r25, 19
+  a4:	686f7274 		r3, r15, r14
+  a8:	20756e73 	addi	r3, r21, 28275
+  ac:	69676e65 		r11, r7, r13
+  b0:	6420696e 	bsrli	r1, r0, 14
+  b4:	74007362 		r0, r0, r14
+  b8:	5f75696e 		r27, r21, r13
+  bc:	74385f74 		r1, r24, r11
+  c0:	00435055 		r2, r3, r10
+  c4:	5f434849 		r26, r3, r9
+  c8:	5000474e 		r0, r0, r8
+  cc:	55204320 		r9, r0, r8
+  d0:	342e362e 	rsubik	r1, r14, 13870
+  d4:	32203230 	addik	r17, r0, 12848
+  d8:	31313130 	addik	r9, r17, 12592
+  dc:	31382028 	addik	r9, r24, 8232
+  e0:	58696c69 		r3, r9, r13
+  e4:	6e782031 	cget	r19, rfsl1
+  e8:	342e3120 	rsubik	r1, r14, 12576
+  ec:	4275696c 		r19, r21, r13
+  f0:	64204544 	bslli	r1, r0, 4
+  f4:	4b5f502e 		r26, r31, r10
+  f8:	31352032 	addik	r9, r21, 8242
+  fc:	32204d61 	addik	r17, r0, 19809
+ 100:	72203230 		r17, r0, r6
+ 104:	31322900 	addik	r9, r18, 10496
+ 108:	73625f75 		r27, r2, r11
+ 10c:	696e7433 		r11, r14, r14
+ 110:	325f7400 	addik	r18, r31, 29696
+ 114:	73686f72 		r27, r8, r13
+ 118:	7420696e 		r1, r0, r13
+ 11c:	74002e2e 		r0, r0, r5
+ 120:	2f2e2e2f 	rsubic	r25, r14, 11823
+ 124:	6c69622f 	ncget	r3, rfsl15
+ 128:	73656372 		r27, r5, r12
+ 12c:	6574626c 	bsrai	r11, r20, 12
+ 130:	617a652f 	muli	r11, r26, 25903
+ 134:	73625f75 		r27, r2, r11
+ 138:	6172742e 	muli	r11, r18, 29742
+ 13c:	6300666c 	muli	r24, r0, 26220
+ 140:	6167002f 	muli	r11, r7, 47
+ 144:	686f6d65 		r3, r15, r13
+ 148:	2f6c7563 	rsubic	r27, r12, 30051
+ 14c:	6b797469 		r27, r25, r14
+ 150:	6765722f 	bsrai	r27, r5, 15
+ 154:	4465736b 	bsra	r3, r5, r14
+ 158:	746f702f 		r3, r15, r14
+ 15c:	73656372 		r27, r5, r12
+ 160:	6574626c 	bsrai	r11, r20, 12
+ 164:	617a655f 	muli	r11, r26, 25951
+ 168:	7374645f 		r27, r20, r12
+ 16c:	315f3638 	addik	r10, r31, 13880
+ 170:	2f73772f 	rsubic	r27, r19, 30511
+ 174:	61707073 	muli	r11, r16, 28787
+ 178:	2f746573 	rsubic	r27, r20, 25971
+ 17c:	745f696e 		r2, r31, r13
+ 180:	74657272 		r3, r5, r14
+ 184:	75707400 		r11, r16, r14
+ 188:	69745f76 		r11, r20, r11
+ 18c:	6563746f 	bslli	r11, r3, 15
+ 190:	725f7461 		r18, r31, r14
+ 194:	626c6500 	muli	r19, r12, 25856
+ 198:	696e745f 		r11, r14, r14
+ 19c:	73746174 		r27, r20, r12
+ 1a0:	75730063 		r11, r19, r0
+ 1a4:	616c6c62 	muli	r11, r12, 27746
+ 1a8:	61636b00 	muli	r11, r3, 27392
+ 1ac:	696e7463 		r11, r14, r14
+ 1b0:	5f696e69 		r27, r9, r13
+ 1b4:	7400696e 		r0, r0, r13
+ 1b8:	74635f61 		r3, r3, r11
+ 1bc:	74746163 		r3, r20, r12
+ 1c0:	685f6861 		r2, r31, r13
+ 1c4:	6e646c65 	necaget	r19, rfsl5
+ 1c8:	72007072 		r16, r0, r14
+ 1cc:	696d6172 		r11, r13, r12
+ 1d0:	795f696e 		r10, r31, r13
+ 1d4:	745f6861 		r2, r31, r13
+ 1d8:	6e646c65 	necaget	r19, rfsl5
+ 1dc:	7200696e 		r16, r0, r13
+ 1e0:	745f656e 		r2, r31, r12
+ 1e4:	74727900 		r3, r18, r15
+ 1e8:	69745f70 		r11, r20, r11
+ 1ec:	72696f72 		r19, r9, r13
+ 1f0:	6974795f 		r11, r20, r15
+ 1f4:	7461626c 		r3, r1, r12
+ 1f8:	65006974 	bsrli	r8, r0, 20
+ 1fc:	5f68616e 		r27, r8, r12
+ 200:	646c6572 	bslli	r3, r12, 18
+ 204:	00696e74 		r3, r9, r13
+ 208:	65727275 	bsrai	r11, r18, 21
+ 20c:	70745f69 		r3, r20, r11
+ 210:	6400696e 	bsrli	r0, r0, 14
+ 214:	745f6d61 		r2, r31, r13
+ 218:	736b0073 		r27, r11, r0
+ 21c:	625f7665 	muli	r18, r31, 30309
+ 220:	63746f72 	muli	r27, r20, 28530
+ 224:	5f746162 		r27, r20, r12
+ 228:	6c655f65 	tneaget	r3, rfsl5
+ 22c:	6e747279 	tncget	r19, rfsl9
+ 230:	002e2e2f 		r1, r14, r5
+ 234:	2e2e2f6c 	rsubic	r17, r14, 12140
+ 238:	69622f73 		r11, r2, r5
+ 23c:	65637265 	bsrai	r11, r3, 5
+ 240:	74626c61 		r3, r2, r13
+ 244:	7a652f73 		r19, r5, r5
+ 248:	625f696e 	muli	r18, r31, 26990
+ 24c:	74632e63 		r3, r3, r5
+ 250:	00696e74 		r3, r9, r13
+ 254:	5f696400 		r27, r9, r12
+ 258:	73625f69 		r27, r2, r11
+ 25c:	6e746572 	necget	r19, rfsl2
+ 260:	72757074 		r19, r21, r14
+ 264:	5f68616e 		r27, r8, r12
+ 268:	646c6572 	bslli	r3, r12, 18
+ 26c:	0073625f 		r3, r19, r12
+ 270:	696e7433 		r11, r14, r14
+ 274:	325f7400 	addik	r18, r31, 29696
+ 278:	73747269 		r27, r20, r14
+ 27c:	6e670070 	get	r19, rfsl0
+ 280:	72696e74 		r19, r9, r13
+ 284:	69007061 		r8, r0, r14
+ 288:	64636861 	bsrli	r3, r3, 1
+ 28c:	7200655f 		r16, r0, r12
+ 290:	7072696e 		r3, r18, r13
+ 294:	74660066 		r3, r6, r0
+ 298:	6f726d61 	necaget	r27, rfsl1
+ 29c:	74007072 		r0, r0, r14
+ 2a0:	696e745f 		r11, r14, r14
+ 2a4:	62756600 	muli	r19, r21, 26112
+ 2a8:	655f7370 	bsrai	r10, r31, 16
+ 2ac:	72696e74 		r19, r9, r13
+ 2b0:	66007072 	bsrli	r16, r0, 18
+ 2b4:	696e7400 		r11, r14, r14
+ 2b8:	77696474 		r27, r9, r12
+ 2bc:	68006c65 		r0, r0, r13
+ 2c0:	74626173 		r3, r2, r12
+ 2c4:	65007072 	bsrli	r8, r0, 18
+ 2c8:	696e7473 		r11, r14, r14
+ 2cc:	006f7574 		r3, r15, r14
+ 2d0:	62797465 	muli	r19, r25, 29797
+ 2d4:	002e2e2f 		r1, r14, r5
+ 2d8:	2e2e2f6c 	rsubic	r17, r14, 12140
+ 2dc:	69622f65 		r11, r2, r5
+ 2e0:	5f6c6962 		r27, r12, r13
+ 2e4:	2f655f70 	rsubic	r27, r5, 24432
+ 2e8:	72696e74 		r19, r9, r13
+ 2ec:	662e6300 	bsrai	r17, r14, 0
+ 2f0:	76617267 		r19, r1, r14
+ 2f4:	00626173 		r3, r2, r12
+ 2f8:	65616464 	bslli	r11, r1, 4
+ 2fc:	5f700069 		r27, r16, r0
+ 300:	6e74635f 	ncget	r19, rfsl15
+ 304:	7365745f 		r27, r5, r14
+ 308:	6d61736b 	tncget	r11, rfsl11
+ 30c:	0073625f 		r3, r19, r12
+ 310:	74727565 		r3, r18, r14
+ 314:	00756172 		r3, r21, r12
+ 318:	745f7478 		r2, r31, r14
+ 31c:	5f68616e 		r27, r8, r12
+ 320:	646c6572 	bslli	r3, r12, 18
+ 324:	00696e74 		r3, r9, r13
+ 328:	635f7365 	muli	r26, r31, 29541
+ 32c:	745f6172 		r2, r31, r12
+ 330:	6d006172 	ncget	r8, rfsl2
+ 334:	6d5f6974 	ncaget	r10, rfsl4
+ 338:	006d6173 		r3, r13, r12
+ 33c:	6b5f6974 		r26, r31, r13
+ 340:	006d6169 		r3, r13, r12
+ 344:	6e007561 	tnecget	r16, rfsl1
+ 348:	72745f72 		r19, r20, r11
+ 34c:	785f6861 		r2, r31, r13
+ 350:	6e646c65 	necaget	r19, rfsl5
+ 354:	72006d61 		r16, r0, r13
+ 358:	696e2e63 		r11, r14, r5
+ 35c:	005f5f73 		r2, r31, r11
+ 360:	625f656e 	muli	r18, r31, 25966
+ 364:	61626c65 	muli	r11, r2, 27749
+ 368:	5f696e74 		r27, r9, r13
+ 36c:	65727275 	bsrai	r11, r18, 21
+ 370:	70740073 		r3, r20, r0
+ 374:	625f6661 	muli	r18, r31, 26209
+ 378:	6c736500 	necget	r3, rfsl0
